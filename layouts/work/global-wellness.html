@@ -1,0 +1,7 @@
+{{- define "main" -}}
+  {{- warnf "rendering global-wellness.html" -}}
+  {{- partial "video.html" (dict "name" "video-1" "parent" .) -}}
+  {{- partial "image.html" (dict "container" "m-x-auto m-y-6 max-w-256" "name" "mockup-1" "parent" .) -}}
+  {{- partial "video.html" (dict "name" "video-2" "parent" . "video" "m-b-6") -}}
+  {{- partial "gallery.html" (dict "element" "masonry" "first" 2 "last" 7 "name" "mockup" "parent" .) -}}
+{{- end -}}

@@ -1,0 +1,61 @@
+{{- define "main" -}}
+  {{- warnf "rendering zoddlini.html" -}}
+  {{- partial "heading.html" (dict "text" "Final output") -}}
+  {{- partial "gallery.html" (dict "last" 4 "name" "mockup" "parent" .) -}}
+  {{- partial "heading.html" (dict "text" "Concept") -}}
+  <p
+    class="m-0 m-b-6">The typeface chosen to highlight and be at the centre of this project is 'Oddlini'. Released in 2019 by Shuji Kikuchi, Oddlini is a serif font built over Helvetica without being too geometric - rounds and curves of the typeface are not perfect. Combining typography created using the typeface with inspiration drawn from Zodiac signs — the project came to be known as Zoddlini. A different take on the everyday deck of cards. Twelve Zodiac symbols replace the traditional face cards. The elements of astrology take place on the four suits.</p>
+  {{- $commonAttributes := "max-w-3/5 lg:max-w-1/2 w-full" -}}
+  {{- $commonSwiper := dict "effect" "cards" "modules" (slice "autoplay" "cards" "navigation") -}}
+  <div
+    class="display-grid gap-12 grid-cols-1 md:grid-cols-2 justify-items-center m-b-6">
+    <div
+      class="w-full">
+      <h3
+        class="font-400 m-0 m-b-3 text-8 text-center"
+        id="clubs">Clubs</h3>
+      {{- partial "gallery.html" (dict "classes" $commonAttributes "element" "swiper" "last" 13 "name" "club" "parent" . "swiper" $commonSwiper) -}}
+    </div>
+    <div
+      class="w-full">
+      <h3
+        class="font-400 m-0 m-b-3 text-8 text-center"
+        id="diamonds">Diamonds</h3>
+      {{- partial "gallery.html" (dict "classes" $commonAttributes "element" "swiper" "last" 13 "name" "diamond" "parent" . "swiper" $commonSwiper) -}}
+    </div>
+  </div>
+  <div
+    class="display-grid gap-6 grid-cols-1 md:grid-cols-2 justify-items-center m-b-6">
+    <div
+      class="w-full">
+      <h3
+        class="font-400 m-0 m-b-3 text-8 text-center"
+        id="hearts">Hearts</h3>
+      {{- partial "gallery.html" (dict "classes" $commonAttributes "element" "swiper" "last" 13 "name" "heart" "parent" . "swiper" $commonSwiper) -}}
+    </div>
+    <div
+      class="w-full">
+      <h3
+        class="font-400 m-0 m-b-3 text-8 text-center"
+        id="spades">Spades</h3>
+      {{- partial "gallery.html" (dict "classes" $commonAttributes "element" "swiper" "last" 13 "name" "spade" "parent" . "swiper" $commonSwiper) -}}
+    </div>
+  </div>
+  <div
+    class="display-grid gap-6 grid-cols-1 md:grid-cols-2 justify-items-center m-b-6">
+    <div
+      class="w-full">
+      <h3
+        class="font-400 m-0 m-b-3 text-8 text-center"
+        id="jokers">Jokers</h3>
+        {{- partial "gallery.html" (dict "classes" $commonAttributes "element" "swiper" "last" 2 "name" "joker" "parent" . "swiper" $commonSwiper) -}}
+    </div>
+    <div
+      class="w-full">
+      <h3
+        class="font-400 m-0 m-b-3 text-8 text-center"
+        id="back">Back</h3>
+        {{- partial "gallery.html" (dict "classes" $commonAttributes "element" "swiper" "images" (slice "back") "parent" . "swiper" $commonSwiper) -}}
+    </div>
+  </div>
+{{- end -}}

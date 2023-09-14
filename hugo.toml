@@ -1,0 +1,29 @@
+baseURL = "https://www.tejalshinde.com/"
+disableHugoGeneratorInject = true
+disableKinds = [
+  "RSS",
+  "taxonomy",
+  "term"
+]
+enableRobotsTXT = true
+timeout = 120000
+[build]
+  noJSConfigInAssets = true
+[imaging]
+  quality = 100
+  [imaging.exif]
+    disableDate = true
+    disableLatLong = true
+[minify]
+  minifyOutput = true
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepConditionalComments = false
+      keepDefaultAttrVals = false
+      keepEndTags = false
+      keepWhitespace = false
+[server]
+  [[server.headers]]
+    for = "/*"
+    [server.headers.values]
+      content-security-policy = "frame-src www.google.com; media-src 'self' blob:; style-src 'self' 'unsafe-inline';"

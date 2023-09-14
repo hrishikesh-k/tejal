@@ -1,0 +1,56 @@
+{{- $imageExtension := "" -}}
+{{- $imageName := "" -}}
+{{- $imagePath := "" -}}
+{{- $imageOriginal := "" -}}
+{{- if .input -}}
+  {{- $imagePath = .input -}}
+  {{- $imageExtension = strings.TrimPrefix "." (path.Ext $imagePath) -}}
+  {{- $imageName = strings.TrimSuffix (printf ".%s" $imageExtension) (strings.TrimPrefix "assets/" .input) -}}
+  {{- $imageOriginal = .input -}}
+{{- else -}}
+  {{- $imageName = .name -}}
+  {{- $imagePath = printf "assets/%s.jpg" $imageName -}}
+  {{- $imageOriginal = .parent.Resources.GetMatch $imagePath -}}
+  {{- if $imageOriginal -}}
+    {{- $imageExtension = "jpg" -}}
+  {{- else -}}
+    {{- $imagePath = printf "assets/%s.png" $imageName -}}
+    {{- $imageOriginal = .parent.Resources.GetMatch $imagePath -}}
+    {{- if $imageOriginal -}}
+      {{- $imageExtension = "png" -}}
+    {{- else -}}
+      {{- $imagePath = printf "assets/%s.gif" $imageName -}}
+      {{- $imageOriginal = .parent.Resources.GetMatch $imagePath -}}
+      {{- if $imageOriginal -}}
+        {{- $imageExtension = "gif" -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $imageNormalized := $imageOriginal -}}
+{{- warnf "rendering image: '%s' from '%s'" $imageOriginal.Title .parent.Title -}}
+{{- if gt $imageNormalized.Width 1200 -}}
+  {{- $imageNormalized = $imageOriginal.Resize "1200x" -}}
+{{- end -}}
+{{- $imageNormalized = $imageNormalized | resources.Copy (printf "%s%s" .parent.RelPermalink $imagePath) -}}
+<div
+  class="overflow-hidden {{ or .container "" -}}"
+  {{- if .flex -}}
+    style="flex:calc({{- $imageOriginal.Width -}}/{{- $imageOriginal.Height -}})"
+  {{- end -}}>
+  {{- $imageClass := printf "display-block transition-duration-500 transition-ease transition-filter w-full %s" (or .image "") -}}
+  {{- if not (strings.Contains $imageClass "h-") -}}
+    {{- $imageClass = printf "%s h-full" $imageClass -}}
+  {{- end -}}
+  {{- if not (strings.Contains $imageClass "object-") -}}
+    {{- $imageClass = printf "%s object-contain" $imageClass -}}
+  {{- end -}}
+  <img
+    lazy
+    alt="{{- $imageOriginal.Title -}}"
+    class="{{- $imageClass -}}"
+    data-src="{{- $imageNormalized.RelPermalink -}}"
+    height="{{- $imageNormalized.Height -}}"
+    src="{{- ($imageOriginal.Resize "64x" | resources.Copy (printf "%sassets/%s-low.%s" .parent.RelPermalink $imageName $imageExtension)).RelPermalink -}}"
+    width="{{- $imageNormalized.Width -}}"/>
+</div>

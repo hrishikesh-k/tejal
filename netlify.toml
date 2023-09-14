@@ -1,0 +1,20 @@
+[build]
+  base = "./"
+  command = "npm run build"
+  publish = "./public/"
+  [build.environment]
+    HUGO_VERSION = "0.118.2"
+    NODE_VERSION = "18"
+[[headers]]
+  for = "/*"
+  [headers.values]
+    content-security-policy = "frame-src www.google.com; media-src 'self' blob:; style-src 'self' 'unsafe-inline';"
+[[redirects]]
+  force = true
+  from = "https://tejal-v8.netlify.app/*"
+  status = 301
+  to = "https://www.tejalshinde.com/:splat"
+[[redirects]]
+  from = "/*"
+  status = 404
+  to = "/404/"

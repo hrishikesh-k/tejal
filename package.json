@@ -1,0 +1,38 @@
+{
+  "author": {
+    "email": "hello@tejalshinde.com",
+    "name": "Tejal Shinde",
+    "url": "https://www.tejalshinde.com/"
+  },
+  "bugs": {
+    "email": "hishi5200@gmail.com",
+    "url": "https://www.github.com/Hrishikesh-K/tejal/issues/"
+  },
+  "dependencies": {
+    "@appnest/masonry-layout": "2.0.8",
+    "@floating-ui/dom": "1.5.2",
+    "@types/node": "20.6.0",
+    "axios": "1.5.0",
+    "chalk": "5.3.0",
+    "hls.js": "1.4.12",
+    "swiper": "10.2.0",
+    "typescript": "5.2.2",
+    "unocss": "0.55.7",
+    "vanilla-lazyload": "17.8.4",
+    "vidstack": "0.6.13"
+  },
+  "description": "Tejal Shinde's portfolio website made in Hugo, hosted on Netlify.",
+  "homepage": "https://www.tejalshinde.com/",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/Hrishikesh-K/tejal.git"
+  },
+  "scripts": {
+    "build": "tsc --project ./scripts.tsconfig.json && node ./scripts.js --build",
+    "dev": "tsc --project ./scripts.tsconfig.json && node ./scripts.js --dev"
+  },
+  "name": "tejal-shinde",
+  "type": "module",
+  "version": "8.1.0"
+}

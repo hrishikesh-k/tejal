@@ -1,0 +1,11 @@
+{{- $headingClass := "font-400 m-0 m-b-4 m-t-12" -}}
+{{- $headingLevel := or .level 3 -}}
+{{- if eq $headingLevel 3 -}}
+  {{- $headingClass = printf "%s text-8" $headingClass -}}
+{{- else if eq $headingLevel 4 -}}
+  {{- $headingClass = printf "%s text-6" $headingClass -}}
+{{- end -}}
+<h{{- $headingLevel }} class="{{- $headingClass -}}"
+  id="{{- anchorize .text -}}">
+  {{- printf "%s" .text -}}
+</h{{- $headingLevel -}}>

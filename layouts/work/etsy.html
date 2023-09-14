@@ -1,0 +1,7 @@
+{{- define "main" -}}
+  {{- warnf "rendering etsy.html" -}}
+  {{- partial "heading.html" (dict "text" "Tweets") -}}
+  {{- partial "gallery.html" (dict "classes" "max-w-3/4" "element" "swiper" "last" 5 "name" "tweet" "parent" . "swiper" (dict "modules" (slice "autoplay" "navigation"))) -}}
+  {{- partial "heading.html" (dict "text" "Final output") -}}
+  {{- partial "gallery.html" (dict "element" "masonry" "last" 7 "name" "mockup" "parent" .) -}}
+{{- end -}}

@@ -1,0 +1,121 @@
+{{- warnf "rendering video: '%s' for '%s'" .name .parent.Title -}}
+{{- $poster := .parent.Resources.GetMatch (printf "assets/%s/%s-poster.jpg" .name .name) -}}
+<media-player
+  aspect-ratio="{{- $poster.Width -}}/{{- $poster.Height -}}"
+  class="display-block max-w-256 m-x-auto overflow-hidden pos-relative {{ or .video ""  -}}"
+  load="visible"
+  poster="{{- $poster.RelPermalink -}}"
+  src="{{- (.parent.Resources.GetMatch (printf "assets/%s/%s.m3u8" .name .name)).RelPermalink -}}"
+  thumbnails="{{- (.parent.Resources.GetMatch (printf "assets/%s/%s-thumbs.vtt" .name .name)).RelPermalink -}}">
+  <media-outlet
+    class="pos-relative">
+    <media-poster
+      alt="{{- $poster.Title -}}"
+      class="max-w-256 pos-left-1/2 transform-translate-x--1/2 w-auto"
+      style="aspect-ratio:{{- $poster.Width -}}/{{- $poster.Height -}};"></media-poster>
+    <media-gesture
+      action="toggle:paused"
+      class="h-full w-full"
+      event="pointerup"></media-gesture>
+  </media-outlet>
+  <div
+    class="bg-dark-900/50 pos-absolute pos-bottom-0 transition-duration-500 transition-ease transition-transform w-full">
+    <media-time-slider
+      class="h-10 m-0 pos-absolute pos-left-0 pos-top--1/2">
+      <media-slider-thumbnail
+        slot="preview"></media-slider-thumbnail>
+    </media-time-slider>
+    <div
+      class="display-flex items-center justify-between">
+      <div
+        class="display-flex items-center">
+        <media-play-button
+          class="display-flex items-center justify-center transform-none">
+          <div
+            slot="play">
+            {{- partial "tooltip.html" (dict "label" "Play" "name" "play") -}}
+          </div>
+          <div
+            slot="pause">
+            {{- partial "tooltip.html" (dict "label" "Pause" "name" "pause") -}}
+          </div>
+          <div
+            slot="replay">
+            {{- partial "tooltip.html" (dict "label" "Replay" "name" "rotate-right") -}}
+          </div>
+        </media-play-button>
+        <media-mute-button
+          class="display-flex items-center justify-center">
+          <div
+            slot="volume-muted">
+            {{- partial "tooltip.html" (dict "label" "Unmute" "name" "volume-xmark") -}}
+          </div>
+          <div
+            slot="volume-high">
+            {{- partial "tooltip.html" (dict "label" "Mute" "name" "volume") -}}
+          </div>
+        </media-mute-button>
+      </div>
+      <div
+        class="display-flex items-center justify-center text-white">
+        <media-time
+          class="font-montserrat"
+          type="current"></media-time>
+        <span
+          class="font-montserrat">/</span>
+        <media-time
+          class="font-montserrat"
+          type="duration"></media-time>
+      </div>
+      <div
+        class="display-flex items-center">
+        <media-menu
+          class="display-flex items-center justify-center">
+          <media-menu-button
+            class="transform-none">
+            <div
+              slot="open">
+              {{- partial "tooltip.html" (dict "label" "Open menu" "name" "gear") -}}
+            </div>
+            <div
+              slot="close">
+              {{- partial "tooltip.html" (dict "label" "Close menu" "name" "xmark") -}}
+            </div>
+          </media-menu-button>
+          <media-menu-items>
+            <media-menu>
+              <media-playback-rate-menu-button></media-playback-rate-menu-button>
+              <media-playback-rate-menu-items></media-playback-rate-menu-items>
+            </media-menu>
+            <media-menu>
+              <media-quality-menu-button></media-quality-menu-button>
+              <media-quality-menu-items></media-quality-menu-items>
+            </media-menu>
+          </media-menu-items>
+        </media-menu>
+        <media-pip-button
+          class="display-flex items-center justify-center transform-none">
+          <div
+            slot="enter">
+            {{- partial "tooltip.html" (dict "label" "Enter PIP" "name" "square-down-right") -}}
+          </div>
+          <div
+            slot="exit">
+            {{- partial "tooltip.html" (dict "label" "Exit PIP" "name" "square-up-left") -}}
+          </div>
+        </media-pip-button>
+        <media-fullscreen-button
+          class="display-flex items-center justify-center transform-none">
+          <div
+            slot="enter">
+            {{- partial "tooltip.html" (dict "label" "Enter fullscreen" "name" "maximize") -}}
+          </div>
+          <div
+            slot="exit">
+            {{- partial "tooltip.html" (dict "label" "Exit fullscreen" "name" "minimize") -}}
+          </div>
+        </media-fullscreen-button>
+      </div>
+    </div>
+  </div>
+</media-player>
