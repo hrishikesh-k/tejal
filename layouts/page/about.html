@@ -42,7 +42,7 @@
           </a>
         </div>
       <a
-        class="decoration-none display-flex gap-x-2 group items-center m-l-auto m-t-6 md:pos-absolute md:pos-bottom-0 md:pos-right-0 text-4 text-current md:text-6 w-max"
+        class="decoration-none display-flex gap-x-2 group items-center m-l-auto m-t-6 pos-relative md:pos-absolute md:pos-bottom-0 md:pos-right-0 text-4 text-current md:text-6 w-max"
         download="[Tejal Shinde] - Resume.pdf"
         href="{{- (.Resources.GetMatch "assets/resume.pdf").RelPermalink -}}">
         {{- partial "icon.html" (dict "name" "download" "size" 6) -}}
