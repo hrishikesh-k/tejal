@@ -38,7 +38,7 @@
   {{- if .flex -}}
     style="flex:calc({{- $imageOriginal.Width -}}/{{- $imageOriginal.Height -}})"
   {{- end -}}>
-  {{- $imageClass := printf "display-block transition-duration-500 transition-ease transition-filter w-full %s" (or .image "") -}}
+  {{- $imageClass := printf "block transition-duration-500 transition-ease transition-filter w-full %s" (or .image "") -}}
   {{- if not (strings.Contains $imageClass "h-") -}}
     {{- $imageClass = printf "%s h-full" $imageClass -}}
   {{- end -}}

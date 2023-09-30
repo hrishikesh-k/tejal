@@ -86,26 +86,26 @@
     <header
       class="bg-light-500 dark:bg-dark-500 border-0 border-b-1 border-gray-300 border-solid dark:border-gray-500 box-border h-24 max-w-screen p-x-6 lg:p-x-32 md:p-x-16 pos-fixed pos-left-0 pos-top-0 w-full z-100">
       <div
-        class="display-flex h-full items-center justify-between m-x-auto max-w-300 w-full">
+        class="flex h-full items-center justify-between m-x-auto max-w-300 w-full">
         <a
           aria-label="return home"
-          class="decoration-none display-flex gap-x-3 items-center text-4 text-current"
+          class="decoration-none flex gap-x-3 items-center text-4 text-current"
           href="{{- .Site.Home.RelPermalink -}}">
           {{- partial "icon.html" (dict "name" "tejal" "size" 10) -}}
           <span
-            class="display-none md:display-block">{{- upper "Tejal Shinde" -}}</span>
+            class="hidden md:block">{{- upper "Tejal Shinde" -}}</span>
         </a>
         <div
-          class="display-flex gap-x-3 items-center">
+          class="flex gap-x-3 items-center">
           <nav
-            class="bg-light-500 dark:bg-dark-500 display-flex flex-col md:flex-row items-center gap-3 max-w-screen p-y-6 md:p-0 pos-fixed pos-left-0 pos-top-0 md:pos-static text-4 transform-translate-y--45 md:transform-none transition-duration-500 transition-ease transition-transform w-full md:w-auto">
+            class="bg-light-500 dark:bg-dark-500 flex flex-col md:flex-row items-center gap-3 max-w-screen p-y-6 md:p-0 pos-fixed pos-left-0 pos-top-0 md:pos-static text-4 transform-translate-y--45 md:transform-none transition-duration-500 transition-ease transition-transform w-full md:w-auto">
             {{- $currentPage := . -}}
             {{- range site.Menus.navigation }}
               {{- if eq .Name "Work" -}}
                 <div
                   class="cursor-pointer group pos-relative">
                   <div
-                    class="display-flex gap-x-1 items-center">
+                    class="flex gap-x-1 items-center">
                     <span
                       class="pos-relative">
                       {{- .Name -}}
@@ -116,16 +116,16 @@
                     {{- partial "icon.html" (dict "name" "caret-down" "size" 3) -}}
                   </div>
                   <div
-                    class="bg-light-500 dark:bg-dark-500 border-1 border-gray-300 border-solid dark:border-gray-500 box-border display-none group-hover:display-flex flex-col items-end pos-absolute pos-right-0 z-1">
+                    class="bg-light-500 dark:bg-dark-500 border-1 border-gray-300 border-solid dark:border-gray-500 box-border group-hover:flex flex-col hidden items-end pos-absolute pos-right-0 z-1">
                     {{- range (slice ($currentPage.Site.GetPage "/work/advertising/") ($currentPage.Site.GetPage "/work/fashion/")) -}}
                       <a
-                        class="hover:bg-light-900 hover:dark:bg-dark-900 box-border decoration-none display-flex gap-x-1 items-center p-3 pos-relative text-current text-right w-full"
+                        class="hover:bg-light-900 hover:dark:bg-dark-900 box-border decoration-none flex gap-x-1 items-center p-3 pos-relative text-current text-right w-full"
                         href="{{- .RelPermalink -}}">
                         {{- if eq $currentPage.CurrentSection.Title .Title }}
                           {{- partial "icon.html" (dict "name" "caret-right" "size" 3) -}}
                         {{- end -}}
                         <span
-                          class="display-block flex-1">
+                          class="block flex-1">
                           {{- .Title -}}
                         </span>
                       </a>
@@ -146,7 +146,7 @@
           </nav>
           {{- $buttonClasses := "bg-light-900 dark:bg-dark-100 p-2" -}}
           {{- partial "tooltip.html" (dict "button" $buttonClasses "label" "Toggle theme" "name" "moon" "size" 5) -}}
-          {{- partial "tooltip.html" (dict "button" (printf "%s md:display-none z-1" $buttonClasses) "label" "Toggle navigation" "name" "bars" "size" 5) -}}
+          {{- partial "tooltip.html" (dict "button" (printf "%s md:hidden z-1" $buttonClasses) "label" "Toggle navigation" "name" "bars" "size" 5) -}}
         </div>
       </div>
     </header>
@@ -177,7 +177,7 @@
       </main>
     {{- end -}}
     <footer
-      class="box-border display-block m-t-12 text-center">&copy; {{ now.Year }} Tejal Shinde</footer>
+      class="block box-border m-t-12 text-center">&copy; {{ now.Year }} Tejal Shinde</footer>
   </body>
   <script
     src = "{{- (resources.Get "js/bundle.ts" | js.Build (dict "minify" "true")).RelPermalink -}}">

@@ -53,7 +53,7 @@
   {{- range $index, $element := $imageArray -}}
     {{- if eq (mod $index 2) 0 -}}
       <div
-        class="display-flex gap-x-6 m-b-6">
+        class="flex gap-x-6 m-b-6">
         {{- partial "image.html" (dict "container" "m-b-6 md:m-0" "flex" true "name" $element "parent" $parent) -}}
         {{- partial "image.html" (dict "flex" true "name" (index $imageArray (add $index 1)) "parent" $parent) -}}
       </div>

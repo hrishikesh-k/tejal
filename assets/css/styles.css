@@ -4,8 +4,11 @@ textarea:focus + span,
 textarea:not(:placeholder-shown) + span {
   --u-apply: transform-scale-75 transform-translate-x--2 transform-translate-y--6;
 }
-media-menu-items {
-  --u-apply: backdrop-filter-none shadow-none transition-none;
+media-captions div[part="cue-display"] {
+  --u-apply: flex justify-center;
+}
+media-captions div[part="cue"] {
+  --u-apply: bg-dark-900/75 box-border p-2 text-light-500;
 }
 media-player,
 video {
@@ -16,6 +19,9 @@ media-player button[aria-label] > span {
 }
 media-player[data-user-idle="true"] > div:last-of-type {
   --u-apply: translate-y-12;
+}
+media-player[data-user-idle="true"] media-captions {
+  --u-apply: bottom-4;
 }
 [lazy]:not(.loaded) {
   --u-apply: filter-blur-10;

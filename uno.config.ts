@@ -2,16 +2,6 @@ import {defineConfig} from 'unocss'
 import presetUno from '@unocss/preset-uno'
 import transformerDirectives from '@unocss/transformer-directives'
 export default defineConfig({
-  blocklist: [
-    'container',
-    'filter',
-    'flex',
-    'grid',
-    'hidden',
-    'my',
-    'px',
-    'visible'
-  ],
   presets: [
     presetUno({
       arbitraryVariants: false,

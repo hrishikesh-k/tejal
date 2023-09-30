@@ -1,8 +1,9 @@
 {{- warnf "rendering video: '%s' for '%s'" .name .parent.Title -}}
+{{- $cc := .parent.Resources.GetMatch (printf "assets/%s/%s-cc.vtt" .name .name) -}}
 {{- $poster := .parent.Resources.GetMatch (printf "assets/%s/%s-poster.jpg" .name .name) -}}
 <media-player
   aspect-ratio="{{- $poster.Width -}}/{{- $poster.Height -}}"
-  class="display-block max-w-256 m-x-auto overflow-hidden pos-relative {{ or .video ""  -}}"
+  class="block max-w-256 m-x-auto overflow-hidden pos-relative {{ or .video ""  -}}"
   load="visible"
   poster="{{- $poster.RelPermalink -}}"
   src="{{- (.parent.Resources.GetMatch (printf "assets/%s/%s.m3u8" .name .name)).RelPermalink -}}"
@@ -17,7 +18,17 @@
       action="toggle:paused"
       class="h-full w-full"
       event="pointerup"></media-gesture>
+    {{- if $cc -}}
+      <track
+        default
+        kind="subtitles"
+        src="{{- $cc.RelPermalink -}}"/>
+    {{- end -}}
   </media-outlet>
+  {{- if $cc -}}
+    <media-captions
+      class="pos-absolute pos-bottom-12 transition-bottom transition-duration-500 transition-ease w-full"></media-captions>
+  {{- end -}}
   <div
     class="bg-dark-900/50 pos-absolute pos-bottom-0 transition-duration-500 transition-ease transition-transform w-full">
     <media-time-slider
@@ -26,11 +37,11 @@
         slot="preview"></media-slider-thumbnail>
     </media-time-slider>
     <div
-      class="display-flex items-center justify-between">
+      class="flex items-center justify-between">
       <div
-        class="display-flex items-center">
+        class="flex items-center">
         <media-play-button
-          class="display-flex items-center justify-center transform-none">
+          class="flex items-center justify-center transform-none">
           <div
             slot="play">
             {{- partial "tooltip.html" (dict "label" "Play" "name" "play") -}}
@@ -45,7 +56,7 @@
           </div>
         </media-play-button>
         <media-mute-button
-          class="display-flex items-center justify-center">
+          class="flex items-center justify-center">
           <div
             slot="volume-muted">
             {{- partial "tooltip.html" (dict "label" "Unmute" "name" "volume-xmark") -}}
@@ -57,7 +68,7 @@
         </media-mute-button>
       </div>
       <div
-        class="display-flex items-center justify-center text-white">
+        class="flex items-center justify-center text-white">
         <media-time
           class="font-montserrat"
           type="current"></media-time>
@@ -68,9 +79,9 @@
           type="duration"></media-time>
       </div>
       <div
-        class="display-flex items-center">
+        class="flex items-center">
         <media-menu
-          class="display-flex items-center justify-center">
+          class="flex items-center justify-center">
           <media-menu-button
             class="transform-none">
             <div
@@ -82,7 +93,8 @@
               {{- partial "tooltip.html" (dict "label" "Close menu" "name" "xmark") -}}
             </div>
           </media-menu-button>
-          <media-menu-items>
+          <media-menu-items
+            class="backdrop-filter-none shadow-none transition-none">
             <media-menu>
               <media-playback-rate-menu-button></media-playback-rate-menu-button>
               <media-playback-rate-menu-items></media-playback-rate-menu-items>
@@ -93,8 +105,21 @@
             </media-menu>
           </media-menu-items>
         </media-menu>
+        {{- if $cc -}}
+          <media-caption-button
+            class="flex items-center justify-center transform-none">
+            <div
+              slot="off">
+              {{- partial "tooltip.html" (dict "label" "Turn captions on" "name" "closed-captioning-slash") -}}
+            </div>
+            <div
+              slot="on">
+              {{- partial "tooltip.html" (dict "label" "Tun captions off" "name" "closed-captioning") -}}
+            </div>
+          </media-caption-button>
+        {{- end -}}
         <media-pip-button
-          class="display-flex items-center justify-center transform-none">
+          class="flex items-center justify-center transform-none">
           <div
             slot="enter">
             {{- partial "tooltip.html" (dict "label" "Enter PIP" "name" "square-down-right") -}}
@@ -105,7 +130,7 @@
           </div>
         </media-pip-button>
         <media-fullscreen-button
-          class="display-flex items-center justify-center transform-none">
+          class="flex items-center justify-center transform-none">
           <div
             slot="enter">
             {{- partial "tooltip.html" (dict "label" "Enter fullscreen" "name" "maximize") -}}

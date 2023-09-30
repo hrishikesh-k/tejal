@@ -331,6 +331,8 @@ Icons are manually created and added as a property to `$icons` object in the com
 - `caret-right`
 - `circle-arrow-left`
 - `circle-arrow-right`
+- `closed-captioning`
+- `closed-captioning-slash`
 - `download`
 - `forward-step`
 - `gear`
@@ -412,12 +414,13 @@ The video component has a lot of specific requirements that needs manual configu
         │   ├── index.m3u8
         │   └── segment-[000...n].ts
         ├── video-[n].m3u8
+        ├── video-[n]-cc.vtt
         ├── video-[n]-poster.jpg
         ├── video-[n]-thumbs.jpg
         └── video-[n]-thumbs.vtt
 ```
 
-...where the root folder is the folder of the Page Bundle. Except the qualities, all files and folders are required following the same naming convention.
+...where the root folder is the folder of the Page Bundle. Except the qualities and `-cc.vtt`, all files and folders are required following the same naming convention.
 
 Video needs to be generated for HLS-compatibility. This can be generated using `ffmpeg`. Use the following shell script to generate multiple qualities of a video:
 
