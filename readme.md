@@ -109,6 +109,7 @@ cascade:
     changefreq: "monthly"
     priority: 0.5
 description: "Summary"
+draft: false
 layout: "slug"
 menu:
   navigation:
@@ -126,6 +127,7 @@ weight: 0
 - `cascade`: This can be used by all list pages and all properties applied here are automatically passed down to all its children, unless overridden by the child. Ideally, only `./content/work/advertising/_index.md` and `./content/work/fashion/_index.md` should need this.
   - `sitemap`: This is configured as per [Hugo's documentation on sitemap configuration](https://www.gohugo.io/templates/sitemap-template/#override-default-values).
 - `description`: This can be used by all the pages. It sets the SEO description of the page. It is recommended to keep it in the range of 120 to 160 charters.
+- `draft`: This should only be used by the project pages. When set to true, the page would not be published in the final output.
 - `layout`: This can be used by all the pages. It sets the layout of the page. Its usage is explained in the [Layouts](#layouts) section.
 - `menu`: This should only be used by the pages that need to appear in the `<nav>` of the website. Currently, this is being used by `about`, `contact`, and `work`.
   - `navigation`: This is the name of the menu. Currently, there is only one menu, so this should not be changed.

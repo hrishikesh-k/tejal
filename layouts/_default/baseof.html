@@ -151,8 +151,11 @@
       </div>
     </header>
     {{- if .IsHome -}}
-      {{- block "main" . -}}
-      {{- end -}}
+      <main
+        class="box-border m-x-auto p-t-16 p-x-6 lg:p-x-32 md:p-x-16 w-full">
+        {{- block "main" . -}}
+        {{- end -}}
+      </main>
     {{- else -}}
       <main
         class="box-border m-x-auto p-t-36 p-x-6 lg:p-x-32 md:p-x-16 w-full">

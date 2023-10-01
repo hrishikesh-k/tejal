@@ -59,5 +59,5 @@ resources:
   - src: "assets/typography-4.png"
     title: "Logo typography variant 4"
 title: "Bombae Bantai Brewery"
-weight: 9
+weight: 8
 ---
