@@ -20,7 +20,7 @@
       {{- end -}}
     {{- end -}}
     <link
-      href="{{- (slice (resources.Get "css/vidstack/base.css" | minify) (resources.Get "css/vidstack/ui/buttons.css" | minify) (resources.Get "css/vidstack/ui/menus.css" | minify) (resources.Get "css/vidstack/ui/sliders.css" | minify) (resources.Get "css/bundle.scss" | resources.ToCSS (dict "includePaths" (slice "node_modules") "outputStyle" "compressed")) | resources.Concat "css/bundle.css").RelPermalink -}}"
+      href="{{- (resources.Get "css/bundle.scss" | resources.ToCSS (dict "includePaths" (slice "node_modules") "outputStyle" "compressed" "transpiler" "dartsass")).RelPermalink -}}"
       rel="stylesheet"/>
     <meta
       charset="utf-8"/>

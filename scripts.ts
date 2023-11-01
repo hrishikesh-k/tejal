@@ -2,7 +2,7 @@ import {argv, cwd, exit} from 'node:process'
 import {basename, join} from 'node:path'
 import chalk from 'chalk'
 import {type ChildProcess, spawn} from 'node:child_process'
-import {copyFileSync, existsSync, mkdirSync, rmSync, unwatchFile, watch, writeFileSync} from 'node:fs'
+import {copyFileSync, existsSync, rmSync, unwatchFile, watch, writeFileSync} from 'node:fs'
 const unoCommonArguments = [
   'unocss',
   './layouts/**/*.html',
@@ -15,8 +15,6 @@ const unoCommonArguments = [
 const unoFile = join(cwd(), './assets/css/styles.css')
 const unoFileBak = join(cwd(), './assets/css/styles.css.bak.css')
 const unoOutput = join(cwd(), './assets/css/uno.css')
-const vidstackDir = join(cwd(), './assets/css/vidstack/')
-const vidstackNodeModulesDir = join(cwd(), './node_modules/vidstack/styles/')
 let hugoProcess : ChildProcess | null = null
 let unoProcess : ChildProcess | null = null
 function logError(message : string) {
@@ -46,15 +44,6 @@ function closeAll(error : boolean | string = false) {
     } catch {
       logError('Failed to kill Hugo server')
     }
-  }
-  try {
-    logWarn('Deleting Vidstack CSS directory...')
-    rmSync(vidstackDir, {
-      recursive: true
-    })
-    logSuccess('Vidstack CSS directory successfully deleted')
-  } catch {
-    logError('Failed to delete Vidstack CSS directory')
   }
   try {
     logWarn('Restoring custom styles from backup and stopping the watcher...')
@@ -94,27 +83,6 @@ function closeAll(error : boolean | string = false) {
   }
 }
 function common() {
-  try {
-    logWarn('Creating directory for Vidstack CSS...')
-    mkdirSync(join(vidstackDir, './ui/'), {
-      recursive: true
-    })
-    logSuccess('Vidstack CSS directory successfully created')
-  } catch {
-    logError('Failed to create Vidstack CSS directory')
-    closeAll(true)
-  }
-  try {
-    logWarn('Copying Vidstack CSS files...')
-    copyFileSync(join(vidstackNodeModulesDir, './base.css'), join(vidstackDir, './base.css'))
-    copyFileSync(join(vidstackNodeModulesDir, './ui/buttons.css'), join(vidstackDir, './ui/buttons.css'))
-    copyFileSync(join(vidstackNodeModulesDir, './ui/menus.css'), join(vidstackDir, './ui/menus.css'))
-    copyFileSync(join(vidstackNodeModulesDir, './ui/sliders.css'), join(vidstackDir, './ui/sliders.css'))
-    logSuccess('Vidstack CSS files successfully copied')
-  } catch {
-    logError('Failed to copy Vidstack CSS files')
-    closeAll(true)
-  }
   try {
     logWarn('Backing up custom styles before UnoCSS processing...')
     copyFileSync(unoFile, unoFileBak)
