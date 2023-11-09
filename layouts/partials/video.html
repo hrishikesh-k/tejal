@@ -2,8 +2,23 @@
 {{- $cc := .parent.Resources.GetMatch (printf "assets/%s/%s-cc.vtt" .name .name) -}}
 {{- $poster := .parent.Resources.GetMatch (printf "assets/%s/%s-poster.jpg" .name .name) -}}
 <media-player
-  src="{{- (.parent.Resources.GetMatch (printf "assets/%s/%s.m3u8" .name .name)).RelPermalink -}}">
-  <media-provider></media-provider>
+  class="max-h-screen-80"
+  load="idle"
+  src="{{- (.parent.Resources.GetMatch (printf "assets/%s/%s.m3u8" .name .name)).RelPermalink -}}"
+  stream-type="on-demand"
+  style="aspect-ratio:{{- $poster.Width -}}/{{- $poster.Height -}}"
+  view-type="video">
+  <media-provider>
+    {{- if $cc -}}
+      <track
+        default
+        data-type="vtt"
+        kind="subtitles"
+        label="English"
+        src="{{- $cc.RelPermalink -}}"
+        srclang="en-US"/>
+    {{- end -}}
+  </media-provider>
   <media-video-layout
     thumbnails="{{- (.parent.Resources.GetMatch (printf "assets/%s/%s-thumbs.vtt" .name .name)).RelPermalink -}}"></media-video-layout>
 </media-player>

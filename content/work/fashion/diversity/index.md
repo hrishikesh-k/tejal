@@ -1,5 +1,5 @@
 ---
-description: "Captivating me exuding grace and beauty in my stunning floral dresses, showcasing a perfect blend of elegance and style."
+description: "Diversity is the kaleidoscope of colours and cultures that enrich our world, celebrating our unique individuality and collective humanity."
 layout: "diversity"
 resources:
   - src: "assets/cover.jpg"

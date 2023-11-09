@@ -2,8 +2,9 @@ import {autoPlacement, computePosition, offset, shift} from '@floating-ui/dom'
 import {Autoplay, EffectCards, Navigation} from 'swiper/modules'
 import axios from 'axios'
 import Hls from 'hls.js'
+import {isHLSProvider, type MediaProviderChangeEvent} from 'vidstack'
 import LazyLoad from 'vanilla-lazyload'
-import type {MediaPlayerElement, MediaProviderChangeEvent} from 'vidstack'
+import type {MediaPlayerElement} from 'vidstack/elements'
 import {register, type SwiperContainer} from 'swiper/element/bundle'
 import type {SwiperModule, SwiperOptions} from 'swiper/types'
 import '@appnest/masonry-layout'
@@ -143,13 +144,10 @@ document.querySelectorAll<HTMLButtonElement>('button[aria-label]').forEach(toolt
 document.querySelectorAll<HTMLElement>('masonry-layout').forEach(masonryLayout => {
   masonryObserver.observe(masonryLayout)
 })
-// @ts-ignore
 document.querySelectorAll<MediaPlayerElement>('media-player').forEach(videoElement => {
-  // @ts-ignore
   videoElement.addEventListener('provider-change', (videoProverChangeEvent : MediaProviderChangeEvent) => {
-    // @ts-ignore
     const provider = videoProverChangeEvent.detail
-    if (provider && provider.type === 'hls') {
+    if (isHLSProvider(provider)) {
       provider.library = Hls
     }
   })

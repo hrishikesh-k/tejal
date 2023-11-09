@@ -149,7 +149,7 @@ UnoCSS is configured to scan `./layouts/**/*.html` and `./assets/css/styles.css`
 
 ### JavaScript
 
-Hugo is not a JavaScript-based framework. This is good as well as bad for various reasons, but in this case, this means that one would have to write a lot of vanilla JavaScript to get things done, which would have been otherwise very easy to do with a framework. Hugo at least has great JavaScript bundling support - along with TypeScript. The TypeScript configuration stored in `./tsconfig.json` is made as strict as possible and any modifications to that should be made with care. The bundle does use `// @ts-ignore` comments, but they are used only when absolutely necessary, and are documented below.
+Hugo is not a JavaScript-based framework. This is good as well as bad for various reasons, but in this case, this means that one would have to write a lot of vanilla JavaScript to get things done, which would have been otherwise very easy to do with a framework. Hugo at least has great JavaScript bundling support - along with TypeScript. The TypeScript configuration stored in `./tsconfig.json` is made as strict as possible and any modifications to that should be made with care.
 
 The entire site produces a single JavaScript bundle. This is generated from `./assets/js/bundle.ts`. A lot of the imports are used by the components, and are documented in the [Available components](#available-components) section. All the custom code is written at the end. The site deliberately doesn't try to use `querySelector()`. Instead, it uses `querySelectorAll()` so that the code runs only if the element(s) exist. This helps reduce redundant checks.
 
@@ -483,19 +483,6 @@ The generated thumbnail file (ending with `_vtt_0_s`) might have to be renamed (
 |  `name`  | String |   Yes    |  `nil`  |   The name of the folder of video   |
 | `parent` |  Page  |   Yes    |  `nil`  | The page whose assets are referred  |
 | `video`  | String |    No    |  `""`   | Classes to pass to `<media-player>` |
-
-##### Notes:
-
-1. Each Vidstack component is individually imported in the `./assets/js/bundle.ts` file. Thus, if you need to use a new component, you need to import it in that file as well.
-
-##### Current workarounds:
-
-1. Vidstack CSS is incompatible with SCSS. Thus, to bundle it together, it is being copied using Node.js script `./scripts.ts` to Hugo's asset folder before the Hugo process runs.
-2. Vidstack still doesn't support TypeScript 5 completely. Till then, `// @ts-ignore` is being used to suppress some of those errors.
-
-##### Known issues:
-
-1. When switching qualities, the `data-waiting` attribute is not triggering. Thus, it's not possible to display a buffering indicator, and it seems as if the video is stuck. When tried to reproduce using a minimal reproduction using Vidstack's demo stream, the problem did not appear. So, it's something specific to the streams used in this project.
 
 ### SEO
 
