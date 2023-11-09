@@ -116,7 +116,7 @@
   // "files": [],
   "include": [
     "./assets/**/*.ts",
-    "./netlify/plugins/hugo-cache/index.ts",
+    "./netlify/plugins/hugo-cache/index.cts",
     "./uno.config.ts"
   ],
   "references": [],
