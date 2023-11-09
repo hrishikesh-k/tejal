@@ -17,13 +17,13 @@ const unoFileBak = join(cwd(), './assets/css/styles.css.bak.css')
 const unoOutput = join(cwd(), './assets/css/uno.css')
 let hugoProcess : ChildProcess | null = null
 let unoProcess : ChildProcess | null = null
-function logError(message : string) {
+export function logError(message : string) {
   console.error(chalk.red(message))
 }
-function logSuccess(message : string) {
+export function logSuccess(message : string) {
   console.log(chalk.green(message))
 }
-function logWarn(message : string) {
+export function logWarn(message : string) {
   console.warn(chalk.yellow(message))
 }
 function closeAll(error : boolean | string = false) {
@@ -104,12 +104,21 @@ if (argv[2] === '--build') {
   [join(cwd(), './public/'), join(cwd(), './resources/')].forEach(dir => {
     const dirName = basename(dir)
     if (existsSync(dir)) {
-      try {
+      function deleteDir() {
         logWarn(`Deleting ${dirName} directory...`)
         rmSync(dir, {
           recursive: true
         })
         logSuccess(`${dirName} directory successfully deleted`)
+      }
+      try {
+        if (dirName === 'resources') {
+          if (argv[3] === '--clean') {
+            deleteDir()
+          }
+        } else {
+          deleteDir()
+        }
       } catch {
         logError(`Failed to delete ${dirName} directory`)
         closeAll(true)

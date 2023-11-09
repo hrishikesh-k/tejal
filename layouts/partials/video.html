@@ -9,6 +9,9 @@
   style="aspect-ratio:{{- $poster.Width -}}/{{- $poster.Height -}}"
   view-type="video">
   <media-provider>
+    <media-poster
+      class="h-full pos-absolute pos-left-1/2 transform-translate-x--1/2"
+      src="{{- $poster.RelPermalink -}}"></media-poster>
     {{- if $cc -}}
       <track
         default

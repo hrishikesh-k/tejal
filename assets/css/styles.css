@@ -4,6 +4,12 @@ textarea:focus + span,
 textarea:not(:placeholder-shown) + span {
   --u-apply: transform-scale-75 transform-translate-x--2 transform-translate-y--6;
 }
+media-player[data-started] media-poster {
+  --u-apply: hidden;
+}
+media-poster img {
+  --u-apply: h-full;
+}
 video {
   --u-apply: max-h-screen-80;
 }

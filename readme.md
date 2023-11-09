@@ -158,7 +158,7 @@ The entire site produces a single JavaScript bundle. This is generated from `./a
 This file handles the `scripts` block in `package.json`. It is a Node.js script that does various tasks every time a script is run, which would otherwise have been very difficult to do with Hugo. The script takes care of doing the following:
 
 - `--build` flag:
-  - Deletes `./public/` and `./resources/` folder to always build fresh data.
+  - Deletes `./public/` and `./resources/` folder to build fresh data (`./resources/` is only deleted if `--clean` flag is passed to the command).
   - Runs type-checking.
   - Backs up `./assets/css/styles.css` to `./assets/css/styles.css.bak.css` as UnoCSS will overwrite this file. The backup is restored after the build errors, completes, or terminates.
   - Creates UnoCSS output file in `./assets/css/uno.css`. If it's not created before Hugo process is started, Hugo might fail with an error.
@@ -331,28 +331,16 @@ Icons are manually created and added as a property to `$icons` object in the com
 - `caret-right`
 - `circle-arrow-left`
 - `circle-arrow-right`
-- `closed-captioning`
-- `closed-captioning-slash`
 - `download`
 - `forward-step`
-- `gear`
 - `linkedin`
-- `maximize`
-- `minimize`
 - `moon`
-- `pause`
-- `play`
-- `rotate-right`
-- `square-down-right`
 - `square-envelope`
 - `square-facebook`
 - `square-instagram`
-- `square-up-left`
 - `square-xmark`
 - `sun-bright`
 - `tejal`
-- `volume`
-- `volume-xmark`
 - `xmark`
 
 #### Image

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowArbitraryExtensions": true,
-    // "allowImportingTsExtensions": true,
+    "allowImportingTsExtensions": true,
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "allowUmdGlobalAccess": true,
@@ -116,6 +116,7 @@
   // "files": [],
   "include": [
     "./assets/**/*.ts",
+    "./netlify/plugins/hugo-cache/index.ts",
     "./uno.config.ts"
   ],
   "references": [],

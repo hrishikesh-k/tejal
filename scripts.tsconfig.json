@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowImportingTsExtensions": false,
     "noEmit": false
   },
   "extends": "./tsconfig.json",
