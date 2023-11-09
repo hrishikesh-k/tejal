@@ -120,6 +120,11 @@
     "./uno.config.ts"
   ],
   "references": [],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
   "typeAcquisition": {
     "disableFilenameBasedTypeAcquisition": false,
     "enable": true,
