@@ -10,8 +10,6 @@
   for = "/*"
   [headers.values]
     content-security-policy = "frame-src www.google.com; media-src 'self' blob:; style-src 'self' 'unsafe-inline';"
-[[plugins]]
-  package = "./netlify/plugins/hugo-cache/index.cts"
 [[redirects]]
   force = true
   from = "https://tejal-v8.netlify.app/*"

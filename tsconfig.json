@@ -116,15 +116,9 @@
   // "files": [],
   "include": [
     "./assets/**/*.ts",
-    "./netlify/plugins/hugo-cache/index.cts",
     "./uno.config.ts"
   ],
   "references": [],
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    }
-  },
   "typeAcquisition": {
     "disableFilenameBasedTypeAcquisition": false,
     "enable": true,
