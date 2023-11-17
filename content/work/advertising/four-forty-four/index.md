@@ -29,5 +29,5 @@ resources:
   - src: "assets/hershey's-2.png"
     title: "Fake Instagram post 2 by @hershye's"
 title: "Four Forty Four"
-weight: 8
+weight: 7
 ---
