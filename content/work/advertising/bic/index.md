@@ -17,5 +17,5 @@ resources:
   - src: "assets/sabotage-2.jpg"
     title: "Sabotage ad 2 for BIC Highlighters"
 title: "BIC"
-weight: 6
+weight: 8
 ---

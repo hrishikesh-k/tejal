@@ -11,15 +11,15 @@
   "dependencies": {
     "@appnest/masonry-layout": "2.2.3",
     "@floating-ui/dom": "1.5.3",
-    "@types/node": "20.9.1",
+    "@types/node": "20.10.3",
     "axios": "1.6.2",
     "chalk": "5.3.0",
     "hls.js": "1.4.12",
-    "swiper": "11.0.4",
-    "typescript": "5.2.2",
-    "unocss": "0.57.4",
+    "swiper": "11.0.5",
+    "typescript": "5.3.3",
+    "unocss": "0.58.0",
     "vanilla-lazyload": "17.8.5",
-    "vidstack": "1.5.6"
+    "vidstack": "1.8.3"
   },
   "description": "Tejal Shinde's portfolio website made in Hugo, hosted on Netlify.",
   "homepage": "https://www.tejalshinde.com/",
