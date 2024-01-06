@@ -10,14 +10,14 @@
   },
   "dependencies": {
     "@appnest/masonry-layout": "2.2.3",
-    "@floating-ui/dom": "1.5.3",
+    "@floating-ui/dom": "1.5.4",
     "@types/node": "20.10.6",
-    "axios": "1.6.3",
+    "axios": "1.6.5",
     "chalk": "5.3.0",
     "hls.js": "1.4.14",
     "swiper": "11.0.5",
     "typescript": "5.3.3",
-    "unocss": "0.58.2",
+    "unocss": "0.58.3",
     "vanilla-lazyload": "17.8.5",
     "vidstack": "1.9.8"
   },
