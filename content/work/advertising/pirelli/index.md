@@ -1,5 +1,5 @@
 ---
-description: "A project presenting unique, visually-driven campaigns for a brand/product, solving problems or seizing opportunities, with creative finesse."
+description: "A project presenting unique approach towards visually driven ambient campaign for Pirelli, solving problems or seizing opportunities, with creative finesse."
 layout: "pirelli"
 resources:
   - src: "assets/cover.jpg"

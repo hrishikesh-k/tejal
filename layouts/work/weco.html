@@ -1,6 +1,6 @@
 {{- define "main" -}}
   {{- warnf "rendering weco.html" -}}
-  {{- partial "heading.html" (dict "text" "Facebook") -}}
+  {{- partial "heading.html" (dict "text" "Facebook/Instagram") -}}
   {{- partial "gallery.html" (dict "classes" "max-w-5/6 md:max-w-11/12" "element" "swiper" "last" 10 "name" "facebook" "parent" . "swiper" (dict "modules" (slice "autoplay" "navigation"))) -}}
   <div
     class="flex flex-wrap gap-6">
@@ -23,15 +23,5 @@
     </div>
   </div>
   {{- partial "heading.html" (dict "text" "Instagram") -}}
-  <div
-    class="flex flex-wrap items-center md:flex-nowrap gap-6">
-    <div
-      class="md:flex-1 w-full">
-      {{- partial "image.html" (dict "image" "max-h-screen-80" "name" "instagram-1" "parent" .) -}}
-    </div>
-    <div
-      class="md:flex-1 w-full">
-      {{- partial "video.html" (dict "name" "video-1" "parent" .) -}}
-    </div>
-  </div>
+  {{- partial "video.html" (dict "name" "video-1" "parent" .) -}}
 {{- end -}}
