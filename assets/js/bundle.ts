@@ -151,6 +151,10 @@ document.querySelectorAll<MediaPlayerElement>('media-player').forEach(videoEleme
       provider.library = Hls
     }
   })
+  if (navigator.userAgent.slice(0, navigator.userAgent.lastIndexOf('/')).endsWith('Safari')) {
+    videoElement.style.aspectRatio = 'unset'
+    videoElement.style.maxHeight = 'unset'
+  }
 })
 document.querySelectorAll<SwiperContainer>('swiper-container').forEach(swiperContainer => {
   const swiperProps : SwiperOptions & {
