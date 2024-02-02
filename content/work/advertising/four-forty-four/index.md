@@ -3,8 +3,6 @@ description: "Creatively crafted four fictional campaigns for four diverse brand
 layout: "four-forty-four"
 resources:
   - src: "assets/allstar-1.jpg"
-    title: "Poster design for Allstar ad"
-  - src: "assets/allstar-2.jpg"
     title: "Mockup for poster design for Allstar ad"
   - src: "assets/allstar-3.png"
     title: "Fake Instagram post 1 by @allstar"
@@ -13,12 +11,8 @@ resources:
   - src: "assets/cover.jpg"
     title: "Cover for Four Forty Four"
   - src: "assets/durex-1.jpg"
-    title: "Poster design 1 for Durex ad"
-  - src: "assets/durex-2.jpg"
     title: "Mockup for poster design 1 for Durex ad"
-  - src: "assets/durex-3.jpg"
-    title: "Poster design 2 for Durex ad"
-  - src: "assets/durex-4.jpg"
+  - src: "assets/durex-2.jpg"
     title: "Mockup for poster design 2 for Durex ad"
   - src: "assets/hamilton-1.gif"
     title: "Animated ad design for Hamilton Beach"
@@ -29,5 +23,5 @@ resources:
   - src: "assets/hershey's-2.png"
     title: "Fake Instagram post 2 by @hershye's"
 title: "Four Forty Four"
-weight: 6
+weight: 7
 ---

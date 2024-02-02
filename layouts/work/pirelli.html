@@ -1,7 +1,8 @@
 {{- define "main" -}}
   {{- warnf "rendering pirelli.html" -}}
   {{- partial "heading.html" (dict "text" "Final output") -}}
-  {{- partial "gallery.html" (dict "last" 2 "name" "mockup" "parent" .) -}}
+  {{- partial "image.html" (dict "container" "m-x-auto m-y-6" "name" "mockup-1" "parent" .) -}}
+  {{- partial "image.html" (dict "container" "m-x-auto m-b-12" "name" "mockup-2" "parent" .) -}}
   {{- partial "heading.html" (dict "text" "Brand") -}}
   <p
     class="m-0 m-b-6">Pirelli was founded in Milan in 1872 and today stands as a global brand known for its cutting edge technology, high-end production excellence and passion for innovation. Pirelli tires is a name that screams passion and heritage and is ranked 2<sup>nd</sup> in tyre manufacturing.</p>
