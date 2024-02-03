@@ -9,6 +9,7 @@
 *.toml text eol=lf
 *.txt text eol=lf
 *.vtt text eol=lf
+@types/netlify__cache-utils/index.d.ts text eol=lf
 assets/js/bundle.ts text eol=lf
 scripts.ts text eol=lf
 uno.config.ts text eol=lf
