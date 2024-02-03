@@ -130,6 +130,10 @@ if (argv[2] === '--build') {
     }
   })
   try {
+    const savedFiles2 = await list({
+      depth: 10
+    })
+    console.log(savedFiles2)
     logWarn(`Restoring ${resourcesDir} from cache...`)
     const restoreStatus = await restore(resourcesDir)
     if (restoreStatus) {
@@ -167,7 +171,7 @@ if (argv[2] === '--build') {
                   if (saveStatus) {
                     logSuccess(`${resourcesDir} successfully saved to cache`)
                     const savedFiles = await list({
-                      depth: 5
+                      depth: 10
                     })
                     console.log(savedFiles)
                   } else {
