@@ -3,7 +3,7 @@ import {basename, join} from 'node:path'
 import chalk from 'chalk'
 import {type ChildProcess, spawn} from 'node:child_process'
 import {copyFileSync, existsSync, rmSync, unwatchFile, watch, writeFileSync} from 'node:fs'
-import {restore, save} from '@netlify/cache-utils'
+import {list, restore, save} from '@netlify/cache-utils'
 const unoCommonArguments = [
   'unocss',
   './layouts/**/*.html',
@@ -166,6 +166,10 @@ if (argv[2] === '--build') {
                   const saveStatus = await save(resourcesDir)
                   if (saveStatus) {
                     logSuccess(`${resourcesDir} successfully saved to cache`)
+                    const savedFiles = list({
+                      depth: 5
+                    })
+                    console.log(savedFiles)
                   } else {
                     logWarn(`Save completed successfully, but ${resourcesDir} did not exist on disk`)
                   }
