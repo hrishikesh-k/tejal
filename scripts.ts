@@ -166,7 +166,7 @@ if (argv[2] === '--build') {
                   const saveStatus = await save(resourcesDir)
                   if (saveStatus) {
                     logSuccess(`${resourcesDir} successfully saved to cache`)
-                    const savedFiles = list({
+                    const savedFiles = await list({
                       depth: 5
                     })
                     console.log(savedFiles)
