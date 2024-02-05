@@ -1,4 +1,4 @@
-import {argv, cwd, env, exit} from 'node:process'
+import {argv, cwd, exit} from 'node:process'
 import {basename, join} from 'node:path'
 import {bindOpts} from '@netlify/cache-utils'
 import chalk from 'chalk'
@@ -133,7 +133,7 @@ if (argv[2] === '--build') {
     }
   })
   const cache = bindOpts({
-    cacheDir: env['NETLIFY_CACHE_DIR']!
+    cacheDir: '/opt/build/cache'
   })
   try {
     const savedFiles2 = await cache.list({
