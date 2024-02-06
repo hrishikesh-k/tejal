@@ -3,7 +3,6 @@
     "allowJs": false,
     "allowUnusedLabels": false,
     "allowSyntheticDefaultImports": true,
-    "allowImportingTsExtensions": true,
     "baseUrl": "./",
     "exactOptionalPropertyTypes": true,
     "lib": [
