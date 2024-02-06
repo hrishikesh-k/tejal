@@ -11,7 +11,7 @@
   "dependencies": {
     "@appnest/masonry-layout": "2.2.3",
     "@floating-ui/dom": "1.6.1",
-    "@netlify/build": "29.33.5",
+    "@netlify/cache-utils": "5.1.5",
     "@types/node": "20.11.16",
     "axios": "1.6.7",
     "chalk": "5.3.0",
@@ -20,7 +20,7 @@
     "typescript": "5.3.3",
     "unocss": "0.58.5",
     "vanilla-lazyload": "17.8.5",
-    "vidstack": "1.10.4"
+    "vidstack": "1.10.5"
   },
   "description": "Tejal Shinde's portfolio website made in Hugo, hosted on Netlify.",
   "homepage": "https://www.tejalshinde.com/",
@@ -35,5 +35,5 @@
   },
   "name": "tejal-shinde",
   "type": "module",
-  "version": "8.1.0"
+  "version": "8.5.0"
 }

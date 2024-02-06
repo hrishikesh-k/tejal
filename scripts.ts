@@ -1,4 +1,4 @@
-import {argv, cwd, exit} from 'node:process'
+import {argv, cwd, env, exit} from 'node:process'
 import {basename, join} from 'node:path'
 import {bindOpts} from '@netlify/cache-utils'
 import chalk from 'chalk'
@@ -18,13 +18,13 @@ const unoFileBak = join(cwd(), './assets/css/styles.css.bak.css')
 const unoOutput = join(cwd(), './assets/css/uno.css')
 let hugoProcess : ChildProcess | null = null
 let unoProcess : ChildProcess | null = null
-export function logError(message : string) {
+function logError(message : string) {
   console.error(chalk.red(message))
 }
-export function logSuccess(message : string) {
+function logSuccess(message : string) {
   console.log(chalk.green(message))
 }
-export function logWarn(message : string) {
+function logWarn(message : string) {
   console.warn(chalk.yellow(message))
 }
 function closeAll(error : boolean | string = false) {
@@ -102,7 +102,32 @@ function common() {
   }
 }
 if (argv[2] === '--build') {
-  const resourcesDir = join(cwd(), './resources/');
+  const resourcesDir = join(cwd(), './resources/')
+  async function restoreOrSave(action : 'restore' | 'save') {
+    if (env['NETLIFY'] === 'true') {
+      if (argv[3] === '--clean') {
+        logWarn(`Skipping ${action} as --clean was used`)
+      } else {
+        try {
+          logWarn(`Performing ${action}...`)
+          const actionStatus = await bindOpts({
+            cacheDir: env['NETLIFY_CACHE_DIR'] || '/opt/build/cache'
+          })[action]([
+            resourcesDir
+          ])
+          if (actionStatus) {
+            logSuccess(`Successfully ${action}d`)
+          } else {
+            logWarn(`Successfully ${action}d, but nothing to ${action}`)
+          }
+        } catch {
+          logError(`Failed to ${action}`)
+        }
+      }
+    } else {
+      logWarn(`Skipping ${action} as env['NETLIFY'] is not 'true'`)
+    }
+  }
   [
     join(cwd(), './public/'),
     resourcesDir
@@ -132,83 +157,48 @@ if (argv[2] === '--build') {
       logSuccess(`${dirName} does not exist, skipping deletion...`)
     }
   })
-  const cache = bindOpts({
-    cacheDir: '/opt/build/cache'
+  await restoreOrSave('restore')
+  logWarn('Starting type-checking...')
+  const tscProcess = spawn('npx', ['tsc'], {
+    stdio: 'inherit'
   })
-  try {
-    const savedFiles2 = await cache.list({
-      depth: 10
-    })
-    console.log(savedFiles2)
-    logWarn(`Restoring ${resourcesDir} from cache...`)
-    const restoreStatus = await cache.restore([
-      resourcesDir
-    ])
-    if (restoreStatus) {
-      logSuccess(`${resourcesDir} successfully restored from cache`)
+  tscProcess.on('close', tscProcessMessage => {
+    if (tscProcessMessage === 0) {
+      logSuccess('Type-checking successfully completed')
+      common()
+      logWarn('Starting UnoCSS build process...')
+      unoProcess = spawn('npx', unoCommonArguments, {
+        stdio: 'inherit'
+      })
+      unoProcess.on('close', unoProcessMessage => {
+        unoProcess = null
+        if (unoProcessMessage === 0) {
+          logSuccess('UnoCSS build process successfully completed')
+          logWarn('Starting Hugo build process...')
+          hugoProcess = spawn('hugo', {
+            stdio: 'inherit'
+          })
+          hugoProcess.on('close', async hugoProcessMessage => {
+            hugoProcess = null
+            if (hugoProcessMessage === 0) {
+              logSuccess('Hugo build process successfully completed')
+              await restoreOrSave('save')
+              closeAll()
+            } else {
+              logError('Hugo build process failed')
+              closeAll(true)
+            }
+          })
+        } else {
+          logError('UnoCSS build process failed')
+          closeAll(true)
+        }
+      })
     } else {
-      logWarn(`Restore completed successfully, but ${resourcesDir} was not cached`)
+      logError('Type-checking failed')
+      closeAll(true)
     }
-    logWarn('Starting type-checking...')
-    const tscProcess = spawn('npx', ['tsc'], {
-      stdio: 'inherit'
-    })
-    tscProcess.on('close', tscProcessMessage => {
-      if (tscProcessMessage === 0) {
-        logSuccess('Type-checking successfully completed')
-        common()
-        logWarn('Starting UnoCSS build process...')
-        unoProcess = spawn('npx', unoCommonArguments, {
-          stdio: 'inherit'
-        })
-        unoProcess.on('close', unoProcessMessage => {
-          unoProcess = null
-          if (unoProcessMessage === 0) {
-            logSuccess('UnoCSS build process successfully completed')
-            logWarn('Starting Hugo build process...')
-            hugoProcess = spawn('hugo', {
-              stdio: 'inherit'
-            })
-            hugoProcess.on('close', async hugoProcessMessage => {
-              hugoProcess = null
-              if (hugoProcessMessage === 0) {
-                logSuccess('Hugo build process successfully completed')
-                try {
-                  logWarn(`Saving ${resourcesDir} to cache...`)
-                  const saveStatus = await cache.save([
-                    resourcesDir
-                  ])
-                  if (saveStatus) {
-                    logSuccess(`${resourcesDir} successfully saved to cache`)
-                    const savedFiles = await cache.list({
-                      depth: 10
-                    })
-                    console.log(savedFiles)
-                  } else {
-                    logWarn(`Save completed successfully, but ${resourcesDir} did not exist on disk`)
-                  }
-                  closeAll()
-                } catch {
-                  logError(`Failed to save ${resourcesDir} to cache`)
-                }
-              } else {
-                logError('Hugo build process failed')
-                closeAll(true)
-              }
-            })
-          } else {
-            logError('UnoCSS build process failed')
-            closeAll(true)
-          }
-        })
-      } else {
-        logError('Type-checking failed')
-        closeAll(true)
-      }
-    })
-  } catch {
-    logError(`Failed to restore ${resourcesDir} from cache`)
-  }
+  })
 } else if (argv[2] === '--dev') {
   common()
   logWarn('Setting up watcher for custom styles backup...')

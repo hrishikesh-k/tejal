@@ -10,6 +10,9 @@ The directory structure is as follows (with the explanation following the diagra
 
 ```text
 .
+├── @types/
+│   ├── netlify__cache-utils/
+│   │   └── index.d.ts
 ├── assets/
 │   ├── css/
 │   │   ├── bundle.scss
@@ -159,11 +162,13 @@ This file handles the `scripts` block in `package.json`. It is a Node.js script 
 
 - `--build` flag:
   - Deletes `./public/` and `./resources/` folder to build fresh data (`./resources/` is only deleted if `--clean` flag is passed to the command).
+  - Restores `./resources/` folder from Netlify's build cache.
   - Runs type-checking.
   - Backs up `./assets/css/styles.css` to `./assets/css/styles.css.bak.css` as UnoCSS will overwrite this file. The backup is restored after the build errors, completes, or terminates.
   - Creates UnoCSS output file in `./assets/css/uno.css`. If it's not created before Hugo process is started, Hugo might fail with an error.
   - Runs UnoCSS CLI.
   - Runs Hugo.
+  - Saves `./resources/` folder to Netlify's build cache.
 - `--dev` flag:
   - Backs up `./assets/css/styles.css` to `./assets/css/styles.css.bak.css` just as above.
   - Creates UnoCSS output file just as above.

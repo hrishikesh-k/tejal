@@ -2,7 +2,6 @@
 .gitignore text eol=lf
 *.css text eol=lf
 *.html text eol=lf
-*.js text eol=lf
 *.json text eol=lf
 *.m3u8 text eol=lf
 *.md text eol=lf
@@ -10,7 +9,7 @@
 *.toml text eol=lf
 *.txt text eol=lf
 *.vtt text eol=lf
-*.yml text eol=lf
+@types/netlify__cache-utils/index.d.ts text eol=lf
 assets/js/bundle.ts text eol=lf
 scripts.ts text eol=lf
 uno.config.ts text eol=lf
