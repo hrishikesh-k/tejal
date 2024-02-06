@@ -107,6 +107,8 @@ The layout `.layouts/work/bombae-bantai-brewery.html` has a special config in th
 The site is configured to use some specific frontmatter variables on certain pages. The following is the list of all possible variables along with their explanation:
 
 ```yaml
+_build:
+  list: "never"
 cascade:
   sitemap:
     changefreq: "monthly"
@@ -126,7 +128,8 @@ sitemap:
 title: "Title"
 weight: 0
 ```
-
+- `build`: This can be used by all pages, but it is currently only used on the `./content/404/index.md` to exclude it from the sitemap. This is configured as per [Hugo's documentation on build options](https://www.gohugo.io/content-management/build-options/). 
+  - `list`: This determines when to include the page within page collections. Refer to Hugo's documentation on build options, linked above.
 - `cascade`: This can be used by all list pages and all properties applied here are automatically passed down to all its children, unless overridden by the child. Ideally, only `./content/work/advertising/_index.md` and `./content/work/fashion/_index.md` should need this.
   - `sitemap`: This is configured as per [Hugo's documentation on sitemap configuration](https://www.gohugo.io/templates/sitemap-template/#override-default-values).
 - `description`: This can be used by all the pages. It sets the SEO description of the page. It is recommended to keep it in the range of 120 to 160 charters.

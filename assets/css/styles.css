@@ -1,9 +1,3 @@
-input:focus + span,
-input:not(:placeholder-shown) + span,
-textarea:focus + span,
-textarea:not(:placeholder-shown) + span {
-  --u-apply: transform-scale-75 transform-translate-x--2 transform-translate-y--6;
-}
 media-player[data-started] media-poster {
   --u-apply: hidden;
 }
