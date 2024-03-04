@@ -1,6 +1,6 @@
 {
   "author": {
-    "email": "hello@tejalshinde.com",
+    "email": "portfolio@tejalshinde.com",
     "name": "Tejal Shinde",
     "url": "https://www.tejalshinde.com/"
   },
@@ -10,30 +10,30 @@
   },
   "dependencies": {
     "@appnest/masonry-layout": "2.2.3",
-    "@floating-ui/dom": "1.6.1",
+    "@floating-ui/dom": "1.6.3",
     "@netlify/cache-utils": "5.1.5",
-    "@types/node": "20.11.17",
+    "@types/node": "20.11.24",
     "axios": "1.6.7",
     "chalk": "5.3.0",
-    "hls.js": "1.5.4",
-    "swiper": "11.0.6",
+    "hls.js": "1.5.7",
+    "swiper": "11.0.7",
     "typescript": "5.3.3",
     "unocss": "0.58.5",
-    "vanilla-lazyload": "17.8.5",
-    "vidstack": "1.10.5"
+    "vanilla-lazyload": "17.8.8",
+    "vidstack": "1.10.9"
   },
   "description": "Tejal Shinde's portfolio website made in Hugo, hosted on Netlify.",
   "homepage": "https://www.tejalshinde.com/",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://www.github.com/Hrishikesh-K/tejal.git"
+    "url": "https://www.github.com/hrishikesh-k/tejal.git"
   },
   "scripts": {
     "build": "tsc --project ./scripts.tsconfig.json && node ./scripts.js --build",
     "dev": "tsc --project ./scripts.tsconfig.json && node ./scripts.js --dev"
   },
-  "name": "tejal-shinde",
+  "name": "tejal-shinde-portfolio",
   "type": "module",
   "version": "8.5.0"
 }
