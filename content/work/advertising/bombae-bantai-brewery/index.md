@@ -62,6 +62,7 @@ resources:
     title: "Logo typography variant 3"
   - src: "assets/typography-4.png"
     title: "Logo typography variant 4"
+subtitle: "(Your Bombay Friend)"
 title: "Bombae Bantai Brewery"
-weight: 9
+weight: 10
 ---

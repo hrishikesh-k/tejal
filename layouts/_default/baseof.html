@@ -164,10 +164,10 @@
             class="break-all font-400 m-0 m-b-9 text-9 text-center">
             {{- upper .Title -}}
           </h2>
-          {{- if eq .Title "Bombae Bantai Brewery" -}}
+          {{- if .Params.subtitle -}}
             <p
               class="m-0 m-b-9 m-t--9 text-center">
-              {{- printf "(Your Bombay Friend)" -}}
+              {{- .Params.subtitle -}}
             </p>
           {{- end -}}
           <p

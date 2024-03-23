@@ -142,6 +142,7 @@ weight: 0
   - `src`: This is the path to the image relative to the content file. For example, if the image is in `./content/work/art/[project]/assets/`, the path should be `assets/[path].[ext]`.
   - `title`: This is the alt text for the image.
 - `sitemap`: This can be used by all the pages. This is configured as per [Hugo's documentation on sitemap configuration](https://www.gohugo.io/templates/sitemap-template/#override-default-values).
+- `subtitle`: This can be used by all the project pages. It adds a small text below the title on the page in the center.
 - `title`: This can be used by all the pages. It sets the SEO title of the page, as well as it is appended to the default title of the site.
 - `weight`: This should only be used by the project pages. It determines the order of the projects in the list of projects. The lower the number, the higher the priority. However, the templates are organised in reverse. Thus, the highest `weight` is displayed first.
 
