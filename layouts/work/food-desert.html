@@ -1,0 +1,11 @@
+{{- define "main" -}}
+  {{- warnf "rendering food-desert.html" -}}
+  {{- partial "heading.html" (dict "text" "Posters") -}}
+  {{- partial "image.html" (dict "container" "m-x-auto m-b-6" "name" "poster-1" "parent" .) -}}
+  {{- partial "image.html" (dict "container" "m-x-auto m-b-6" "name" "poster-2" "parent" .) -}}
+  {{- partial "image.html" (dict "container" "m-x-auto m-b-12" "name" "poster-3" "parent" .) -}}
+  {{- partial "heading.html" (dict "text" "Poem") -}}
+  {{- partial "image.html" (dict "container" "m-x-auto m-b-12" "name" "poem" "parent" .) -}}
+  {{- partial "heading.html" (dict "text" "Video") -}}
+  {{- partial "video.html" (dict "name" "video-1" "parent" .) -}}
+{{- end -}}

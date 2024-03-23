@@ -33,5 +33,5 @@ resources:
   - src: "assets/video-1/video-1-poster.jpg"
     title: "Video poster for WECO's Instagram reel"
 title: "WECO"
-weight: 5
+weight: 6
 ---
