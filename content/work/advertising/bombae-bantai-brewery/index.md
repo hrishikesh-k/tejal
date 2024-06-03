@@ -1,5 +1,5 @@
 ---
-description: "A trendy beer brand for Millennials & Gen Zs! Inspired by typefaces, the brand's tone, audience, palettes and lifestyle speak volumes!"
+description: "Experience Bombay in a can: unique flavors and vibrant illustrations that embody the city's spirit and history - sip the essence of Mumbai."
 layout: "bombae-bantai-brewery"
 resources:
   - src: "assets/cover.jpg"

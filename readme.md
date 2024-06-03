@@ -70,6 +70,7 @@ The directory structure is as follows (with the explanation following the diagra
 │   ├── fonts/
 │   │   ├── montserrat-italic.woff2
 │   │   └── montserrat-regular.woff2
+│   ├── 785dfe191d5146e0a0e852fa5003303e.txt
 │   └── favicon.ico
 ├── .gitattributes
 ├── .gitignore
