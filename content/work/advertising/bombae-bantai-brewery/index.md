@@ -64,5 +64,5 @@ resources:
     title: "Logo typography variant 4"
 subtitle: "(Your Bombay Friend)"
 title: "Bombae Bantai Brewery"
-weight: 11
+weight: 12
 ---

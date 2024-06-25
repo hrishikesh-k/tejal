@@ -155,6 +155,10 @@ UnoCSS is configured to scan `./layouts/**/*.html` and `./assets/css/styles.css`
 
 `./assets/css/bundle.scss` is the entrypoint for the CSS bundle. It imports all the CSS files that are required for the site to work. This includes `uno.css` and CSS required by Swiper, imported from `./node_modules`. Any custom CSS that's not supposed to be processed by UnoCSS should also go here.
 
+#### Known issues:
+
+- Cannot upgrade to UnoCSS v0.60.2+ because of this issue: https://github.com/unocss/unocss/issues/3845
+
 ### JavaScript
 
 Hugo is not a JavaScript-based framework. This is good as well as bad for various reasons, but in this case, this means that one would have to write a lot of vanilla JavaScript to get things done, which would have been otherwise very easy to do with a framework. Hugo at least has great JavaScript bundling support - along with TypeScript. The TypeScript configuration stored in `./tsconfig.json` is made as strict as possible and any modifications to that should be made with care.
