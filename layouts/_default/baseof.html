@@ -117,7 +117,7 @@
                   </div>
                   <div
                     class="bg-light-500 dark:bg-dark-500 border-1 border-gray-300 border-solid dark:border-gray-500 box-border group-hover:flex flex-col hidden items-end pos-absolute pos-right-0 z-1">
-                    {{- range (slice ($currentPage.Site.GetPage "/work/advertising/") ($currentPage.Site.GetPage "/work/fashion/")) -}}
+                    {{- range (slice ($currentPage.Site.GetPage "/work/advertising/") ($currentPage.Site.GetPage "/work/fashion/") ($currentPage.Site.GetPage "/work/presentations/")) -}}
                       <a
                         class="hover:bg-light-900 hover:dark:bg-dark-900 box-border decoration-none flex gap-x-1 items-center p-3 pos-relative text-current text-right w-full"
                         href="{{- .RelPermalink -}}">
@@ -159,7 +159,7 @@
     {{- else -}}
       <main
         class="box-border m-x-auto p-t-36 p-x-6 lg:p-x-32 md:p-x-16 w-full">
-        {{- if or (eq .CurrentSection.Title "Advertising") (eq .CurrentSection.Title "Fashion") (eq .CurrentSection.Title "Work") -}}
+        {{- if or (eq .CurrentSection.Title "Advertising") (eq .CurrentSection.Title "Fashion") (eq .CurrentSection.Title "Presentations") (eq .CurrentSection.Title "Work") -}}
           <h2
             class="break-all font-400 m-0 m-b-9 text-9 text-center">
             {{- upper .Title -}}

@@ -45,6 +45,13 @@ The directory structure is as follows (with the explanation following the diagra
 │       │   │   │   └── cover.jpg
 │       │   │   └── index.md
 │       │   └── _index.md
+│       ├── presentations/
+│       │   ├── [project]/
+│       │   │   ├── assets/
+│       │   │   │   ├── presentation.pdf
+│       │   │   │   └── cover.jpg
+│       │   │   └── index.md
+│       │   └── _index.md
 │       └── _index.md
 ├── _index.md
 ├── layouts/

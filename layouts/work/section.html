@@ -1,14 +1,14 @@
 {{- define "main" -}}
   {{- warnf "rendering section.html" -}}
   {{- if eq .CurrentSection.Title "Work" -}}
-    {{- range (slice (.GetPage "/work/advertising/") (.GetPage "/work/fashion/")) -}}
+    {{- range (slice (.GetPage "/work/advertising/") (.GetPage "/work/fashion/") (.GetPage "/work/presentations/")) -}}
       {{- partial "heading.html" (dict "text" .Title) -}}
       <div
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {{- range where .Pages.ByWeight.Reverse "Kind" "eq" "page" -}}
           <a
             class="group pos-relative"
-            href="{{- .RelPermalink -}}">
+            href="{{- if eq .CurrentSection.Title (.GetPage "/work/presentations/").Title -}} {{- (.Resources.GetMatch "assets/presentation.pdf").RelPermalink -}} {{- else -}} {{- .RelPermalink -}} {{- end -}}">
             {{- partial "image.html" (dict "input" (.Resources.GetMatch (printf "assets/%s" "cover.jpg")) "parent" .) -}}
             <h4
               class="bg-dark-900/75 box-border flex font-400 h-full items-center justify-center m-0 opacity-0 group-hover:opacity-100 p-3 pos-absolute pos-left-0 pos-top-0 text-8 text-center text-light-500 transition-duration-500 transition-ease transition-opacity w-full">
@@ -24,7 +24,7 @@
       {{- range where .Pages.ByWeight.Reverse "Kind" "eq" "page" -}}
         <a
           class="group pos-relative"
-          href="{{- .RelPermalink -}}">
+          href="{{- if eq .CurrentSection.Title (.GetPage "/work/presentations/").Title -}} {{- (.Resources.GetMatch "assets/presentation.pdf").RelPermalink -}} {{- else -}} {{- .RelPermalink -}} {{- end -}}">
           {{- partial "image.html" (dict "input" (.Resources.GetMatch (printf "assets/%s" "cover.jpg")) "parent" .) -}}
           <h4
             class="bg-dark-900/75 box-border flex font-400 h-full items-center justify-center m-0 opacity-0 group-hover:opacity-100 p-3 pos-absolute pos-left-0 pos-top-0 text-8 text-center text-light-500 transition-duration-500 transition-ease transition-opacity w-full">
@@ -33,24 +33,28 @@
         </a>
       {{- end -}}
     </div>
-    {{- if eq .Title "Advertising" -}}
-      <a
-        class="decoration-none flex gap-x-2 group items-center m-l-auto m-t-6 pos-relative text-4 text-current md:text-6 w-max"
-        href="{{- (.Site.GetPage "/work/fashion/").RelPermalink -}}">
-        <span>Fashion campaigns</span>
-        {{- partial "icon.html" (dict "name" "circle-arrow-right" "size" 6) -}}
-        <div
-          class="bg-current h-0.5 pos-absolute pos-bottom--1 transition-duration-500 transition-ease transition-width w-0 group-hover:w-full"></div>
-      </a>
-    {{- else -}}
-      <a
-        class="decoration-none flex gap-x-2 group items-center m-l-auto m-t-6 pos-relative text-4 text-current md:text-6 w-max"
-        href="{{- (.Site.GetPage "/work/advertising/").RelPermalink -}}">
-        <span>Advertising campaigns</span>
-        {{- partial "icon.html" (dict "name" "circle-arrow-right" "size" 6) -}}
-        <div
-          class="bg-current h-0.5 pos-absolute pos-bottom--1 transition-duration-500 transition-ease transition-width w-0 group-hover:w-full"></div>
-      </a>
-    {{- end -}}
+    {{- $counter := 0 -}}
+    {{- $title := .Title -}}
+    <div
+      class="flex justify-between">
+      {{- range (slice (.GetPage "/work/advertising/") (.GetPage "/work/fashion/") (.GetPage "/work/presentations/")) -}}
+        {{- if ne .CurrentSection.Title $title -}}
+          <a
+            class="decoration-none flex gap-x-2 group items-center m-t-6 pos-relative text-4 text-current md:text-6 w-max"
+            href="{{- .RelPermalink -}}">
+            {{- if eq $counter 0 -}}
+              {{- partial "icon.html" (dict "name" "circle-arrow-left" "size" 6) -}}
+            {{- end -}}
+            <span>{{- .Title -}}</span>
+            {{- if eq $counter 1 -}}
+              {{- partial "icon.html" (dict "name" "circle-arrow-right" "size" 6) -}}
+            {{- end -}}
+            <div
+              class="bg-current h-0.5 pos-absolute pos-bottom--1 transition-duration-500 transition-ease transition-width w-0 group-hover:w-full"></div>
+          </a>
+          {{- $counter = add 1 $counter -}}
+        {{- end -}}
+      {{- end -}}
+    </div>
   {{- end -}}
 {{- end -}}
