@@ -181,8 +181,8 @@
     {{- end -}}
     <footer
       class="block box-border m-t-12 text-center">&copy; {{ now.Year }} Tejal Shinde</footer>
+    <script
+      src = "{{- (resources.Get "js/bundle.ts" | js.Build (dict "minify" "true")).RelPermalink -}}">
+    </script>
   </body>
-  <script
-    src = "{{- (resources.Get "js/bundle.ts" | js.Build (dict "minify" "true")).RelPermalink -}}">
-  </script>
 </html>
