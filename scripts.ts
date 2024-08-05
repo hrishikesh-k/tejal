@@ -111,10 +111,10 @@ if (argv[2] === '--build') {
         try {
           logWarn(`Performing ${action}...`)
           const actionStatus = await bindOpts({
-            cacheDir: env['NETLIFY_CACHE_DIR'] || '/opt/build/cache'
+            cacheDir: '/opt/build/cache'
           })[action]([
             resourcesDir
-          ])
+          ], {})
           if (actionStatus) {
             logSuccess(`Successfully ${action}d`)
           } else {
@@ -215,7 +215,9 @@ if (argv[2] === '--build') {
   })
   logSuccess('Custom styles watcher successfully set up')
   logWarn('Starting UnoCSS server...')
-  unoProcess = spawn('npx', [...unoCommonArguments, '--watch'], {
+  unoProcess = spawn('npx', unoCommonArguments.concat([
+    '--watch'
+  ]), {
     stdio: 'inherit'
   })
   unoProcess.on('close', unoProcessMessage => {

@@ -4,7 +4,6 @@
   },
   "extends": "./tsconfig.json",
   "include": [
-    "./@types/netlify__cache-utils/index.d.ts",
     "./scripts.ts"
   ]
 }

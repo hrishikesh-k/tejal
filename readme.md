@@ -10,9 +10,6 @@ The directory structure is as follows (with the explanation following the diagra
 
 ```text
 .
-├── @types/
-│   ├── netlify__cache-utils/
-│   │   └── index.d.ts
 ├── assets/
 │   ├── css/
 │   │   ├── bundle.scss
