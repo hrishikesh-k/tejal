@@ -2,7 +2,7 @@ media-player[data-started] media-poster {
   --u-apply: hidden;
 }
 media-poster img {
-  --u-apply: h-full pos-absolute pos-left-1/2 transform-translate-x--1/2;
+  --u-apply: h-full pos-absolute pos-left-1/2 pos-top-1/2 transform-translate-x--1/2 transform-translate-y--1/2;
 }
 video {
   --u-apply: max-h-screen-80;
