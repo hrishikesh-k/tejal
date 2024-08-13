@@ -13,5 +13,5 @@ resources:
   - src: "assets/tax-day.jpg"
     title: "Final output of Tax Day project"
 title: "Casino"
-weight: 11
+weight: 8
 ---

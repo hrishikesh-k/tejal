@@ -30,5 +30,5 @@ resources:
     title: "Video poster for Instagram filter"
 subtitle: "- Hulu"
 title: "Gender Diversity"
-weight: 8
+weight: 11
 ---

@@ -123,5 +123,5 @@ resources:
   - src: "assets/spade-13.png"
     title: "Card design for King of Spades"
 title: "Zoddlini"
-weight: 7
+weight: 6
 ---

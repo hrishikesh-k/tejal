@@ -23,5 +23,5 @@ resources:
   - src: "assets/video-2/video-2-poster.jpg"
     title: "Video poster for marketing video of Global Wellness"
 title: "Global Wellness"
-weight: 9
+weight: 12
 ---
