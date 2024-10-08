@@ -72,12 +72,14 @@ themeButton.addEventListener('click', () => {
   window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', checkTheme)
 })
 document.querySelectorAll<HTMLFormElement>('form').forEach(form => {
-  form.querySelectorAll<HTMLTextAreaElement>('textarea').forEach(textarea => {
-    textarea.addEventListener('input', () => {
-      textarea.style.height = 'auto'
-      textarea.style.height = `${textarea.scrollHeight + 2}px`
+  if (form.name === 'contact') {
+    form.querySelectorAll<HTMLTextAreaElement>('textarea').forEach(textarea => {
+      textarea.addEventListener('input', () => {
+        textarea.style.height = 'auto'
+        textarea.style.height = `${textarea.scrollHeight + 2}px`
+      })
     })
-  })
+  }
   form.addEventListener('submit', async event => {
     event.preventDefault()
     const formStatus = document.createElement('p')
@@ -85,7 +87,13 @@ document.querySelectorAll<HTMLFormElement>('form').forEach(form => {
     formStatus.innerText = 'Submitting...'
     form.appendChild(formStatus)
     try {
-      await wretch().addon(wretchFormDataAddon).post(new FormData(form), '/').res()
+      if (form.name === 'contact') {
+        await wretch().addon(wretchFormDataAddon).post(new FormData(form), '/').res()
+      } else if (form.name === 'password') {
+        await wretch().post({
+          password: form.querySelector<HTMLInputElement>('input[type="password"]')!.value
+        }, location.href).res()
+      }
       form.reset()
       formStatus.classList.remove('bg-yellow-500', 'text-dark-500')
       formStatus.classList.add('bg-green-500', 'text-light-500')
@@ -99,6 +107,9 @@ document.querySelectorAll<HTMLFormElement>('form').forEach(form => {
       setTimeout(() => {
         formStatus.remove()
       }, 5000)
+      if (form.name === 'password') {
+        location.reload()
+      }
     }
   })
 })

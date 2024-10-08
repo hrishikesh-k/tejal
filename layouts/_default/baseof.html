@@ -20,7 +20,7 @@
       {{- end -}}
     {{- end -}}
     <link
-      href="{{- (resources.Get "css/bundle.scss" | resources.ToCSS (dict "includePaths" (slice "node_modules") "outputStyle" "compressed" "transpiler" "dartsass")).RelPermalink -}}"
+      href="{{- (resources.Get "css/bundle.scss" | css.Sass (dict "includePaths" (slice "node_modules") "outputStyle" "compressed" "transpiler" "dartsass")).RelPermalink -}}"
       rel="stylesheet"/>
     <meta
       charset="utf-8"/>

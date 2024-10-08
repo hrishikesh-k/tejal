@@ -1,5 +1,5 @@
 [build]
-  command = "curl -LJO https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && tar -xf dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && rm dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && export PATH=/opt/build/repo/dart-sass:$PATH && npm run build"
+  command = "curl -JO https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && tar -xf dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && rm dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && export PATH=/opt/build/repo/dart-sass:$PATH && npm run build"
   publish = "./public/"
   [build.environment]
     DART_SASS_VERSION = "1.79.4"
@@ -10,6 +10,8 @@
 
 [dev]
   command = "npm run dev"
+  framework = "#custom"
+  targetPort = 1313
 
 [functions]
   deno_import_map = "./netlify/edge-functions/import_map.json"
