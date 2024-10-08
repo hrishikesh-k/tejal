@@ -33,6 +33,7 @@
   },
   "include": [
     "./assets/**/*.ts",
+    "./netlify/**/*.ts",
     "./uno.config.ts"
   ]
 }

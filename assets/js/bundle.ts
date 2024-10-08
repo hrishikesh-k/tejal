@@ -1,12 +1,13 @@
 import {autoPlacement, computePosition, offset, shift} from '@floating-ui/dom'
 import {Autoplay, EffectCards, Navigation} from 'swiper/modules'
-import axios from 'axios'
 import Hls from 'hls.js'
 import {isHLSProvider, type MediaProviderChangeEvent} from 'vidstack'
 import LazyLoad from 'vanilla-lazyload'
 import type {MediaPlayerElement} from 'vidstack/elements'
 import {register, type SwiperContainer} from 'swiper/element/bundle'
 import type {SwiperModule, SwiperOptions} from 'swiper/types'
+import wretch from 'wretch'
+import wretchFormDataAddon from 'wretch/addons/formData'
 import '@appnest/masonry-layout'
 import 'vidstack/player'
 import 'vidstack/player/layouts'
@@ -77,32 +78,28 @@ document.querySelectorAll<HTMLFormElement>('form').forEach(form => {
       textarea.style.height = `${textarea.scrollHeight + 2}px`
     })
   })
-  form.addEventListener('submit', event => {
+  form.addEventListener('submit', async event => {
     event.preventDefault()
     const formStatus = document.createElement('p')
     formStatus.classList.add('bg-yellow-500', 'box-border', 'm-t-6', 'p-2', 'text-center', 'text-dark-500')
     formStatus.innerText = 'Submitting...'
     form.appendChild(formStatus)
-    axios({
-      data: new FormData(form),
-      method: 'post',
-      responseType: 'text',
-      url: '/'
-    }).then(() => {
+    try {
+      await wretch().addon(wretchFormDataAddon).post(new FormData(form), '/').res()
       form.reset()
       formStatus.classList.remove('bg-yellow-500', 'text-dark-500')
       formStatus.classList.add('bg-green-500', 'text-light-500')
       formStatus.innerText = 'Successfully submitted!'
-    }, formSubmitError => {
+    } catch (formSubmitError) {
       console.error('Error submitting form: ', formSubmitError)
       formStatus.classList.remove('bg-yellow-500', 'text-dark-500')
       formStatus.classList.add('bg-red-500', 'text-light-500')
       formStatus.innerText = 'Failed to submit form!'
-    }).finally(() => {
+    } finally {
       setTimeout(() => {
         formStatus.remove()
       }, 5000)
-    })
+    }
   })
 })
 document.querySelector<HTMLButtonElement>('button[aria-label="Toggle navigation"]')!.addEventListener('click', () => {

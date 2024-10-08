@@ -27,6 +27,8 @@ The directory structure is as follows (with the explanation following the diagra
 │   │   └── index.md
 │   ├── contact/
 │   │   └── index.md
+│   ├── password/
+│   │   └── index.md
 │   └── work/
 │       ├── advertising/
 │       │   ├── [project]/
@@ -57,7 +59,8 @@ The directory structure is as follows (with the explanation following the diagra
 │   ├── page/
 │   │   ├── 404.html
 │   │   ├── about.html
-│   │   └── contact.html
+│   │   ├── contact.html
+│   │   └── password.html
 │   ├── partials/
 │   │   ├── gallery.html
 │   │   ├── heading.html
