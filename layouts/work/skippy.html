@@ -1,0 +1,23 @@
+{{- define "main" -}}
+  {{- warnf "rendering skippy.html" -}}
+  {{- partial "heading.html" (dict "text" "Tweets") -}}
+  <p
+    class="m-0 m-b-6">A focus on highlighting Key Selling Points of Skippy's Peanut Butter through the copy. These USPs include smoothness, high protein content as well as being creamy.</p>
+  {{- partial "gallery.html" (dict "classes" "max-w-5/6 md:max-w-11/12" "element" "swiper" "last" 6 "name" "tweet" "parent" . "swiper" (dict "modules" (slice "autoplay" "navigation"))) -}}
+  {{- partial "heading.html" (dict "text" "Filters") -}}
+  <p
+    class="m-0 m-b-6">User-generated content on platforms like Instagram and Snapchat, particularly through engaging AR filters, has immense sharing potential. When users share these interactive filters with friends, it creates a ripple effect. Friends who see them are likely to use and share the filters, leading to an expansive reach. Hootsuite reports that consumers view user-generated content as 2.4 times more authentic than brand-created content, enhancing Skippy's credibility and engagement.</p>
+  <div
+    class="pos-relative skippy-filters">
+    {{- partial "gallery.html" (dict "classes" "max-w-3/4" "element" "swiper" "last" 4 "name" "filter" "parent" . "swiper" (dict "centeredSlides" true "modules" (slice "autoplay" "navigation"))) -}}
+    {{- partial "gallery.html" (dict "classes" "max-w-3/4" "element" "swiper" "images" (slice "frame") "parent" . "swiper" (dict "centeredSlides" true)) -}}
+  </div>
+  {{- partial "heading.html" (dict "text" "Games") -}}
+  <p
+    class="m-0 m-b-6">Play the videos:</p>
+  <div
+    class="flex flex-wrap md:flex-nowrap gap-6">
+    {{- partial "video.html" (dict "name" "video-1" "parent" .) -}}
+    {{- partial "video.html" (dict "name" "video-2" "parent" .) -}}
+  </div>
+{{- end -}}

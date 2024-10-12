@@ -1,0 +1,6 @@
+{{- define "main" -}}
+  {{- warnf "rendering casino.html" -}}
+  {{- partial "gallery.html" (dict "images" (slice "$7500" "jersey-seasons") "parent" .) -}}
+  {{- partial "gallery.html" (dict "images" (slice "rush-rewards" "rivers-swipe-dine") "parent" .) -}}
+  {{- partial "image.html" (dict "container" "m-x-auto m-b-12" "name" "tax-day" "parent" .) -}}
+{{- end -}}

@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: {{ (.Site.GetPage "/404").RelPermalink }}
+Sitemap: {{ .Site.BaseURL -}}sitemap.xml

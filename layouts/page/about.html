@@ -1,0 +1,56 @@
+{{- define "main" -}}
+  {{- warnf "rendering about.html" -}}
+  <div
+    class="flex flex-wrap gap-9 lg:gap-x-12 xl:gap-x-18 items-center justify-center m-b-12 pos-relative">
+    {{- partial "image.html" (dict "container" "flex-1" "image" "h-full max-h-screen-80" "name" "about" "parent" .) -}}
+    <div
+      class="lg:flex-1">
+      <h2
+        class="font-400 m-0 text-9 text-center">{{- upper "Tejal Shinde" -}}</h2>
+      <p
+        class="font-leading-8 lg:font-leading-5 xl:font-leading-8 m-0 m-b-9 m-t-6 text-4">Art is not just what I do; it's who I am.<br/>My journey in advertising has been fueled by a passion for creativity and a commitment to addressing societal issues through impactful campaigns. With an academic background in advertising and a knack for problem-solving, I believe I bring a unique perspective to the table.<br/>I don't just think outside the box; I live outside it.<br/><br/>As the strongest believer in kindness, I prioritize compassion, empathy and respect in every aspect of my life. I firmly believe that kindness not only enriches relationships but also fosters positive environments where individuals can thrive. Whether in personal interactions or professional settings, I strive to embody kindness as a guiding principle, recognizing its power to create meaningful connections and contribute to a more harmonious world.</p>
+        <div
+          class="flex gap-x-4 items-center justify-center">
+          {{- $commonAttributes := "block" -}}
+          <a
+            class="text-current"
+            href="https://www.facebook.com/tejal.shinde.9/"
+            rel="nofollow noopener noreffer"
+            target="_blank">
+            {{- partial "tooltip.html" (dict "label" "Facebook" "name" "square-facebook" "size" 8) -}}
+          </a>
+          <a
+            class="text-current"
+            href="https://www.instagram.com/thebubblebreaker/"
+            rel="nofollow noopener noreffer"
+            target="_blank">
+            {{- partial "tooltip.html" (dict "label" "Instagram" "name" "square-instagram" "size" 8) -}}
+          </a>
+          <a
+            class="text-current"
+            href="https://www.linkedin.com/in/tejal-shinde/"
+            rel="nofollow noopener noreffer"
+            target="_blank">
+            {{- partial "tooltip.html" (dict "label" "LinkedIn" "name" "linkedin" "size" 8) -}}
+          </a>
+          <a
+            class="text-current"
+            href="mailto:shindevtejal@gmail.com"
+            rel="nofollow noopener noreffer"
+            target="_blank">
+            {{- partial "tooltip.html" (dict "label" "E-mail" "name" "square-envelope" "size" 8) -}}
+          </a>
+        </div>
+      <a
+        class="decoration-none flex gap-x-2 group items-center m-l-auto m-t-6 pos-relative xl:pos-absolute xl:pos-bottom-0 xl:pos-right-0 text-4 text-current lg:text-6 w-max"
+        download="[Tejal Shinde] - Resume.pdf"
+        href="{{- (.Resources.GetMatch "assets/resume.pdf").RelPermalink -}}">
+        {{- partial "icon.html" (dict "name" "download" "size" 6) -}}
+        <span>Download résumé</span>
+        <div
+          class="bg-current h-0.5 pos-absolute pos-bottom--1 transition-duration-500 transition-ease transition-width w-0 group-hover:w-full"></div>
+      </a>
+    </div>
+  </div>
+  {{- partial "video.html" (dict "name" "video-1" "parent" .) -}}
+{{- end -}}
