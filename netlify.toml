@@ -1,25 +1,17 @@
 [build]
-  command = "curl -JO https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && tar -xf dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && rm dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && export PATH=/opt/build/repo/dart-sass:$PATH && npm run build"
-  publish = "./public/"
+  command = "npm run build"
+  publish = "./dist/"
   [build.environment]
-    DART_SASS_VERSION = "1.79.4"
-    HUGO_VERSION = "0.135.0"
     NODE_VERSION = "20.18.0"
     NPM_VERSION = "10.9.0"
-    TZ = "Asia/Kolkata"
-
-[dev]
-  command = "npm run dev"
-  framework = "#custom"
-  targetPort = 1313
 
 [functions]
   deno_import_map = "./netlify/edge-functions/import_map.json"
 
 [[headers]]
-  for = "/*"
+  for = "/_astro/*"
   [headers.values]
-    content-security-policy = "frame-src www.google.com; media-src 'self' blob:; style-src 'self' 'unsafe-inline';"
+    cache-control = "immutable, max-age=31536000, public"
 
 [[redirects]]
   force = true
@@ -31,3 +23,4 @@
   from = "/*"
   status = 404
   to = "/404/"
+  

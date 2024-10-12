@@ -1,14 +1,9 @@
+.astro/
 .DS_Store
-.hugo_build.lock
 .idea/
 .netlify/
 .vscode/
-assets/css/vidstack
-assets/css/styles.css.bak.css
-assets/css/uno.css
 desktop.ini
+dist/
 node_modules/
-public/
-resources/
-scripts.js
 thumbs.db

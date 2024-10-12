@@ -1,0 +1,64 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.3/schema.json",
+  "css": {
+    "formatter": {
+      "quoteStyle": "single"
+    }
+  },
+  "files": {
+    "ignore": [
+      "**/.netlify/**",
+      "**/assets/**",
+      "**/dist/**",
+      "**/node_modules/**"
+    ]
+  },
+  "formatter": {
+    "indentStyle": "space"
+  },
+  "javascript": {
+    "formatter": {
+      "bracketSameLine": true,
+      "quoteStyle": "single",
+      "semicolons": "asNeeded",
+      "trailingCommas": "none"
+    },
+    "globals": ["Netlify"]
+  },
+  "json": {
+    "parser": {
+      "allowTrailingCommas": false
+    }
+  },
+  "linter": {
+    "rules": {
+      "all": true
+    }
+  },
+  "overrides": [
+    {
+      "include": [
+        "**/netlify/edge-functions/**",
+        "**/astro.config.ts",
+        "**/uno.config.ts"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["**/*.astro"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUnusedVariables": "off"
+          }
+        }
+      }
+    }
+  ]
+}

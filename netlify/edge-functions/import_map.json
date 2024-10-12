@@ -1,5 +1,5 @@
 {
   "imports": {
-    "jose": "https://esm.sh/jose@5.9.3"
+    "jose": "https://www.esm.sh/jose@5.9.4"
   }
 }

@@ -5,11 +5,7 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "exactOptionalPropertyTypes": true,
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
     "moduleResolution": "bundler",
     "noEmit": true,
@@ -20,20 +16,16 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "paths": {
-      "~/client/*": [
-        "./src/*"
-      ]
-    },
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ],
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext",
     "verbatimModuleSyntax": true
   },
-  "include": [
-    "./assets/**/*.ts",
-    "./netlify/**/*.ts",
-    "./uno.config.ts"
-  ]
+  "include": ["./assets/**/*.ts", "./netlify/**/*.ts", "./uno.config.ts"]
 }
