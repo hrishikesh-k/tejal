@@ -2,7 +2,7 @@
   command = "curl -JO https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && tar -xf dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && rm dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && export PATH=/opt/build/repo/dart-sass:$PATH && npm run build"
   publish = "./public/"
   [build.environment]
-    DART_SASS_VERSION = "1.79.4"
+    DART_SASS_VERSION = "1.79.5"
     HUGO_VERSION = "0.135.0"
     NODE_VERSION = "20.18.0"
     NPM_VERSION = "10.9.0"
