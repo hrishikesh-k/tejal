@@ -36,6 +36,9 @@ export default async function (req: Request, context: Context) {
 
     try {
       body = await req.json()
+      if (!body.password) {
+        throw new Error('invalid req body')
+      }
     } catch {
       return Response.json(
         {
@@ -47,21 +50,10 @@ export default async function (req: Request, context: Context) {
       )
     }
 
-    if (!body.hasOwnProperty('password')) {
-      return Response.json(
-        {
-          msg: 'password missing'
-        },
-        {
-          status: 400
-        }
-      )
-    }
-
     if (body.password !== Netlify.env.get('PROJECT_PASSWORD')) {
       return Response.json(
         {
-          msg: 'password missing'
+          msg: 'password incorrect'
         },
         {
           status: 401
