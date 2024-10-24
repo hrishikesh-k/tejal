@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content'
+
+const posts = await getCollection('advertising')
+---
+
+{
+  posts
+    .sort((currentPost, nextPost) => currentPost.data.weight - nextPost.data.weight)
+    .reverse()
+    .map(post => (
+      <a href={`/work/${post.collection}/${post.slug}/`}>
+        <h3>{post.data.title}</h3>
+      </a>
+    ))
+}

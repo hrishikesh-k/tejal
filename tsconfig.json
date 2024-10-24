@@ -16,6 +16,9 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "paths": {
+      "~/*": ["./src/*"]
+    },
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
@@ -24,8 +27,15 @@
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "strict": true,
+    "strictNullChecks": true,
     "target": "ESNext",
     "verbatimModuleSyntax": true
   },
-  "include": ["./assets/**/*.ts", "./netlify/**/*.ts", "./uno.config.ts"]
+  "include": [
+    "./netlify/**/*.ts",
+    "./src/**/*.astro",
+    "./src/**/*.ts",
+    "./astro.config.ts",
+    "./uno.config.ts"
+  ]
 }

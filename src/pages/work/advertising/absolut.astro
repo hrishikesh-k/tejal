@@ -1,0 +1,7 @@
+---
+import { getEntry } from 'astro:content'
+
+const post = await getEntry('advertising', 'absolut')
+---
+
+<h1>{post.data.title}</h1>
