@@ -23,8 +23,7 @@
       "quoteStyle": "single",
       "semicolons": "asNeeded",
       "trailingCommas": "none"
-    },
-    "globals": ["Netlify"]
+    }
   },
   "json": {
     "parser": {
@@ -33,10 +32,19 @@
   },
   "linter": {
     "rules": {
-      "all": true
+      "all": true,
+      "complexity": {
+        "useLiteralKeys": "off"
+      }
     }
   },
   "overrides": [
+    {
+      "include": ["**/netlify/edge-functions/**"],
+      "javascript": {
+        "globals": ["Netlify"]
+      }
+    },
     {
       "include": [
         "**/netlify/edge-functions/**",
