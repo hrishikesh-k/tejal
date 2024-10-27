@@ -6,14 +6,14 @@ interface Props {
 const { title } = Astro.props
 ---
 
-<html class="w-full" lang="en">
+<html class="h-0 min-h-full w-full" lang="en">
   <head>
     <meta charset="utf-8"/>
     <meta content="initial-scale=1,width=device-width" name="viewport">
     <title>{title}</title>
   </head>
-  <body class="w-full">
-    <header class="dark:bg-dark-500 border-0 border-bottom-1 border-solid left-0 pos-fixed top-0 w-full z-1"></header>
+  <body class="bg-light-500 dark:bg-dark-500 box-border h-0 m-0 min-h-full w-full">
+    <header class="dark:bg-dark-500 border-0 border-b-1 border-solid left-0 pos-fixed top-0 w-full z-1"></header>
     <slot/>
   </body>
 </html>
