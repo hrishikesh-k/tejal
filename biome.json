@@ -9,7 +9,6 @@
     "ignore": [
       "**/.astro/**",
       "**/.netlify/**",
-      "**/assets/**",
       "**/dist/**",
       "**/node_modules/**"
     ]
@@ -46,11 +45,7 @@
       }
     },
     {
-      "include": [
-        "**/netlify/edge-functions/**",
-        "**/astro.config.ts",
-        "**/uno.config.ts"
-      ],
+      "include": ["**/netlify/edge-functions/**", "**/astro.config.ts"],
       "linter": {
         "rules": {
           "style": {
@@ -66,6 +61,21 @@
           "correctness": {
             "noUnusedImports": "off",
             "noUnusedVariables": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["**/*.svelte"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUndeclaredVariables": "off",
+            "noUnusedImports": "off",
+            "noUnusedVariables": "off"
+          },
+          "style": {
+            "useConst": "off"
           }
         }
       }

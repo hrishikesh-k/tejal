@@ -11,19 +11,26 @@
   "description": "Tejal Shinde's portfolio website made in Astro, hosted on Netlify.",
   "devDependencies": {
     "@astrojs/language-server": "2.15.4",
+    "@astrojs/svelte": "5.7.2",
     "@astrojs/ts-plugin": "1.10.4",
     "@biomejs/biome": "1.9.4",
+    "@floating-ui/dom": "1.6.12",
     "@netlify/edge-functions": "2.11.0",
-    "@types/node": "22.8.1",
+    "@types/node": "22.8.4",
     "astro": "4.16.7",
     "jose": "5.9.6",
-    "netlify-cli": "17.37.1",
+    "netlify-cli": "17.37.2",
+    "svelte": "5.1.4",
+    "svelte-language-server": "0.17.2",
     "typescript": "5.6.3",
-    "unocss": "0.63.6"
+    "typescript-svelte-plugin": "0.3.42"
   },
   "homepage": "https://www.tejalshinde.com/",
   "license": "MIT",
   "name": "tejal-shinde-portfolio",
+  "overrides": {
+    "@sveltejs/vite-plugin-svelte": "4.0.0"
+  },
   "private": true,
   "repository": {
     "type": "git",

@@ -1,10 +1,10 @@
+import svelte from '@astrojs/svelte'
 import { defineConfig } from 'astro/config'
-import unoCss from 'unocss/astro'
 
 export default defineConfig({
   build: {
     inlineStylesheets: 'never'
   },
-  integrations: [unoCss()],
+  integrations: [svelte()],
   trailingSlash: 'always'
 })

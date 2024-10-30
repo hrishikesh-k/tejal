@@ -1,11 +1,12 @@
 .gitattributes eol=lf text
 .gitignore eol=lf text
 *.astro eol=lf text
+*.css eol=lf text
 *.json eol=lf text
 *.m3u8 eol=lf text
 *.md eol=lf text
 *.toml eol=lf text
 *.txt eol=lf text
 *.vtt eol=lf text
+astro.config.ts eol=lf text
 netlify/edge-functions/password.ts eol=lf text
-uno.config.ts eol=lf text

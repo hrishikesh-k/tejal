@@ -22,6 +22,9 @@
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
+      },
+      {
+        "name": "typescript-svelte-plugin"
       }
     ],
     "skipDefaultLibCheck": true,
@@ -34,8 +37,8 @@
   "include": [
     "./netlify/**/*.ts",
     "./src/**/*.astro",
+    "./src/**/*.svelte",
     "./src/**/*.ts",
-    "./astro.config.ts",
-    "./uno.config.ts"
+    "./astro.config.ts"
   ]
 }
