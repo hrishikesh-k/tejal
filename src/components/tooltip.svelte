@@ -1,7 +1,18 @@
 <script lang="ts">
 import { autoPlacement, computePosition, offset, shift } from '@floating-ui/dom'
-import { tick } from 'svelte'
-import Icon from '~/islands/icon.svelte'
+import { type ComponentProps, tick } from 'svelte'
+// biome-ignore lint/style/useImportType: also used as component, but Biome can't check Svelte
+import Icon from '~/components/icon.svelte'
+
+let {
+  icon,
+  onclick,
+  text
+}: {
+  icon: ComponentProps<typeof Icon>['name']
+  onclick?: () => void
+  text: string
+} = $props()
 
 let button: HTMLButtonElement | null = $state(null)
 let left = $state(0)
@@ -31,9 +42,9 @@ function onmouseleave() {
   showTooltip = false
 }
 </script>
-<button bind:this={button} class="bg-light-900 dark:bg-dark-100 block border-0 border-rounded-1.5 cursor-pointer outline-0 p-2 text-current" onmouseenter={onmouseenter} onmouseleave={onmouseleave}>
-  <Icon name="moon"/>
+<button bind:this={button} class="bg-light-900 dark:bg-dark-100 block border-0 border-rounded-1.5 cursor-pointer outline-0 p-2 text-current" {onclick} {onmouseenter} {onmouseleave}>
+  <Icon name={icon}/>
   {#if showTooltip}
-    <span bind:this={tooltip} class="bg-light-900 dark:bg-dark-100 border-rounded-1 p-2 pointer-none pos-absolute text-3 text-current" style:left="{left}px" style:top="{top}px">Toggle theme</span>
+    <span bind:this={tooltip} class="bg-light-900 dark:bg-dark-100 border-rounded-1 p-2 pointer-none pos-absolute text-3 text-current" style:left="{left}px" style:top="{top}px">{text}</span>
   {/if}
 </button>
