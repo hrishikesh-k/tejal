@@ -8,7 +8,7 @@ const icons = {
 } as const
 
 let {
-  name = 'tejal',
+  name,
   size = 4
 }: {
   name: keyof typeof icons

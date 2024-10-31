@@ -17,8 +17,8 @@
     "@biomejs/biome": "1.9.4",
     "@floating-ui/dom": "1.6.12",
     "@netlify/edge-functions": "2.11.0",
-    "@types/node": "22.8.4",
-    "astro": "4.16.7",
+    "@types/node": "22.8.5",
+    "astro": "4.16.8",
     "jose": "5.9.6",
     "netlify-cli": "17.37.2",
     "svelte": "5.1.6",
@@ -43,6 +43,7 @@
     "dev": "astro dev",
     "lint": "biome check"
   },
+  "packageManager": "npm@10.9.0",
   "type": "module",
   "version": "9.0.0"
 }

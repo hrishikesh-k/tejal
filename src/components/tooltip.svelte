@@ -43,7 +43,7 @@ function onmouseleave() {
 }
 </script>
 <button bind:this={button} class="bg-light-900 dark:bg-dark-100 block border-0 border-rounded-1.5 cursor-pointer outline-0 p-2 text-current" {onclick} {onmouseenter} {onmouseleave}>
-  <Icon name={icon}/>
+  <Icon name={icon} size={5}/>
   {#if showTooltip}
     <span bind:this={tooltip} class="bg-light-900 dark:bg-dark-100 border-rounded-1 p-2 pointer-none pos-absolute text-3 text-current" style:left="{left}px" style:top="{top}px">{text}</span>
   {/if}

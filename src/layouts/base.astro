@@ -1,5 +1,6 @@
 ---
 import Icon from '~/components/icon.svelte'
+import Navigation from '~/components/navigation.svelte'
 import Theme from '~/components/theme.svelte'
 import '~/assets/styles.css'
 
@@ -17,14 +18,16 @@ const { title } = Astro.props
     <title>{title}</title>
   </head>
   <body class="bg-light-500 dark:bg-dark-500 box-border font-montserrat h-0 m-0 min-h-full text-dark-500 dark:text-light-500 w-full">
-    <header class="bg-light-500 dark:bg-dark-500 border-0 border-b-0.25 border-gray-300 border-solid box-border flex h-24 items-center justify-between left-0 p-x-6 lg:p-x-32 md:p-x-16 pos-fixed top-0 w-full z-1">
-      <a class="decoration-none flex gap-x-3 items-center text-current" href="/">
-        <Icon name="tejal" size={10}/>
-        <span class="hidden md:block uppercase">Tejal Shinde</span>
-      </a>
-      <div class="flex gap-x-3 items-center">
-        <nav></nav>
-        <Theme client:load/>
+    <header class="bg-light-500 dark:bg-dark-500 border-0 border-b-0.25 border-gray-300 dark:border-gray-500 border-solid box-border h-24 left-0 p-x-6 lg:p-x-32 md:p-x-16 pos-fixed top-0 w-full z-1">
+      <div class="flex h-full items-center justify-between max-w-300 m-x-auto">
+        <a class="decoration-none flex gap-x-3 items-center text-current" href="/">
+          <Icon name="tejal" size={10}/>
+          <span class="hidden md:block uppercase">Tejal Shinde</span>
+        </a>
+        <div class="flex gap-x-3 items-center">
+          <Navigation client:load/>
+          <Theme client:load/>
+        </div>
       </div>
     </header>
     <slot/>

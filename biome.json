@@ -48,6 +48,9 @@
       "include": ["**/netlify/edge-functions/**", "**/astro.config.ts"],
       "linter": {
         "rules": {
+          "correctness": {
+            "noNodejsModules": "off"
+          },
           "style": {
             "noDefaultExport": "off"
           }
