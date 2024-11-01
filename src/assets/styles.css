@@ -350,8 +350,32 @@
 
 /* region top */
 
+.top--30 {
+  top: -7.5rem;
+}
+
 .top-0 {
   top: 0;
+}
+
+.top-4 {
+  top: 1rem;
+}
+
+/* endregion */
+
+/* region transition-duration */
+
+.transition-duration-250 {
+  transition-duration: 250ms;
+}
+
+/* endregion */
+
+/* region transition-property */
+
+.transition-top {
+  transition-property: top;
 }
 
 /* endregion */

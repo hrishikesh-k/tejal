@@ -4,6 +4,7 @@ import Icon from '~/components/icon.svelte'
 import Tooltip from '~/components/tooltip.svelte'
 
 let icon: 'moon' | 'sun-bright' = $state('moon')
+let open = $state(false)
 let theme: 'dark' | 'light' = $state('light')
 
 function checkTheme() {
@@ -20,7 +21,11 @@ function checkTheme() {
     .addEventListener('change', checkTheme)
 }
 
-function onclick() {
+function onclickNavigation() {
+  open = !open
+}
+
+function onclickTheme() {
   if (theme === 'dark') {
     theme = 'light'
   } else {
@@ -44,7 +49,7 @@ $effect(() => {
 
 onMount(checkTheme)
 </script>
-<nav class="bg-light-500 dark:bg-dark-500 flex flex-col md:flex-row gap-x-3 items-center left-0 pos-absolute md:pos-static top-0 w-full md:w-unset">
+<nav class="bg-light-500 dark:bg-dark-500 flex flex-col md:flex-row gap-x-3 items-center left-0 pos-absolute md:pos-static transition-duration-250 transition-top w-full md:w-unset" class:top-4={open} class:top--30={!open}>
   <div class="box-border cursor-pointer flex gap-x-1 group items-center justify-center p-2 pos-relative w-full md:w-unset">
     <span>Work</span>
     <Icon name="caret-down" size={3}/>
@@ -57,7 +62,7 @@ onMount(checkTheme)
   <a class="after:bg-current after:border-rounded-0.25 after:bottom-0.5 box-border decoration-none after:h-0.5 after:left-0 p-2 pos-relative after:pos-absolute text-center text-current after:transition-duration-250 after:transition-width w-full md:w-unset after:w-0 hover:after:w-full" href="/about/">About</a>
   <a class="after:bg-current after:border-rounded-0.25 after:bottom-0.5 box-border decoration-none after:h-0.5 after:left-0 p-2 pos-relative after:pos-absolute text-center text-current after:transition-duration-250 after:transition-width w-full md:w-unset after:w-0 hover:after:w-full" href="/contact/">Contact</a>
 </nav>
-<Tooltip {icon} {onclick} text="Toggle theme"/>
+<Tooltip {icon} onclick={onclickTheme} text="Toggle theme"/>
 <div class="block md:hidden z-1">
-  <Tooltip icon="bars" text="Toggle navigation"/>
+  <Tooltip onclick={onclickNavigation} icon="bars" text="Toggle navigation"/>
 </div>
