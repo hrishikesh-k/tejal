@@ -56,6 +56,16 @@
   border-radius: 0.375rem;
 }
 
+.border-b-rounded-1\.5 {
+  border-bottom-left-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+}
+
+.border-t-rounded-1\.5 {
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+}
+
 /* endregion */
 
 /* region border-style */
@@ -206,6 +216,10 @@
   justify-content: space-between;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 /* endregion */
 
 /* region left */
@@ -292,13 +306,25 @@
 
 /* region right */
 
-.right-0 {
-  right: 0;
+.right-3\/8 {
+  right: 37.5%;
+}
+
+/* endregion */
+
+/* region row-gap */
+
+.gap-y-1\.5 {
+  row-gap: 0.375rem;
 }
 
 /* endregion */
 
 /* region text-align */
+
+.text-center {
+  text-align: center;
+}
 
 .text-right {
   text-align: right;
@@ -356,6 +382,14 @@
 
 .after\:bg-current::after {
   background-color: currentColor;
+}
+
+/* endregion */
+
+/* region border-radius */
+
+.after\:border-rounded-0\.25::after {
+  border-radius: 0.0625rem;
 }
 
 /* endregion */
@@ -448,6 +482,26 @@
 
 /* region hover */
 
+/* region background-color */
+
+.hover\:bg-light-900:hover {
+  background-color: #dde1e3;
+}
+
+/* endregion */
+
+/* region dark */
+
+/* region background-color */
+
+.dark .hover\:dark\:bg-dark-900:hover {
+  background-color: #0f0f0f;
+}
+
+/* endregion */
+
+/* endregion
+
 /* region after */
 
 /* region width */
@@ -498,6 +552,10 @@
     display: block;
   }
 
+  .md\:hidden {
+    display: none;
+  }
+
   /* endregion */
 
   /* region flex-direction */
@@ -513,6 +571,28 @@
   .lg\:p-x-16 {
     padding-left: 4rem;
     padding-right: 4rem;
+  }
+
+  /* endregion */
+
+  /* region position */
+
+  .md\:pos-static {
+    position: static;
+  }
+
+  /* endregion */
+
+  /* region right */
+  .md\:right-0 {
+    right: 0;
+  }
+  /* endregion */
+
+  /* region width */
+
+  .md\:w-unset {
+    width: unset;
   }
 
   /* endregion */

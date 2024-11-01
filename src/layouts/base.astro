@@ -1,6 +1,6 @@
 ---
 import Icon from '~/components/icon.svelte'
-import Theme from '~/components/theme.svelte'
+import Navigation from '~/components/navigation.svelte'
 import '~/assets/styles.css'
 
 interface Props {
@@ -22,20 +22,7 @@ interface Props {
           <span class="hidden md:block uppercase">Tejal Shinde</span>
         </a>
         <div class="flex gap-x-3 items-center">
-          <nav class="flex flex-col md:flex-row gap-3 items-center">
-            <div class="box-border cursor-pointer flex gap-x-1 group items-center p-2 pos-relative">
-              <span>Work</span>
-              <Icon name="caret-down" size={3}/>
-              <div class="bg-light-500 dark:bg-dark-500 border-0.25 border-gray-300 dark:border-gray-500 border-solid bottom--26 box-border hidden group-hover:block pos-absolute right-0">
-                <a class="block box-border decoration-none p-2 text-current text-right" href="/work/advertising/">Advertising</a>
-                <a class="block box-border decoration-none p-2 text-current text-right" href="/work/fashion/">Fashion</a>
-                <a class="block box-border decoration-none p-2 text-current text-right" href="/work/presentations/">Presentations</a>
-              </div>
-            </div>
-            <a class="after:bg-current after:bottom-0.5 box-border decoration-none after:h-0.5 after:left-0 p-2 pos-relative after:pos-absolute text-current after:transition-duration-250 after:transition-width after:w-0 hover:after:w-full" href="/about/">About</a>
-            <a class="after:bg-current after:bottom-0.5 box-border decoration-none after:h-0.5 after:left-0 p-2 pos-relative after:pos-absolute text-current after:transition-duration-250 after:transition-width after:w-0 hover:after:w-full" href="/contact/">Contact</a>
-          </nav>
-          <Theme client:load/>
+          <Navigation client:load/>
         </div>
       </div>
     </header>
