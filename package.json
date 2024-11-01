@@ -39,7 +39,7 @@
     "url": "https://www.github.com/hrishikesh-k/tejal.git"
   },
   "scripts": {
-    "build": "svelte-check && astro check && astro build",
+    "build": "astro sync && svelte-check && astro check && astro build",
     "dev": "astro dev",
     "lint": "biome check"
   },
