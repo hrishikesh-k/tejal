@@ -72,8 +72,20 @@
   border-width: 0;
 }
 
+.border-0\.25 {
+  border-width: 0.0625rem;
+}
+
 .border-b-0\.25 {
   border-bottom-width: 0.0625rem;
+}
+
+/* endregion */
+
+/* region bottom */
+
+.bottom--26 {
+  bottom: -6.5rem;
 }
 
 /* endregion */
@@ -99,6 +111,10 @@
 /* endregion */
 
 /* region column-gap */
+
+.gap-x-1 {
+  column-gap: 0.25rem;
+}
 
 .gap-x-3 {
   column-gap: 0.75rem;
@@ -138,6 +154,14 @@
 
 /* endregion */
 
+/* region flex-direction */
+
+.flex-col {
+  flex-direction: column;
+}
+
+/* endregion */
+
 /* region font-family */
 .font-montserrat {
   font-family: 'Montserrat', sans-serif;
@@ -148,6 +172,14 @@
 
 .text-3 {
   font-size: 0.75rem;
+}
+
+/* endregion */
+
+/* region gap */
+
+.gap-3 {
+  gap: 0.75rem;
 }
 
 /* endregion */
@@ -252,6 +284,26 @@
   position: fixed;
 }
 
+.pos-relative {
+  position: relative;
+}
+
+/* endregion */
+
+/* region right */
+
+.right-0 {
+  right: 0;
+}
+
+/* endregion */
+
+/* region text-align */
+
+.text-right {
+  text-align: right;
+}
+
 /* endregion */
 
 /* region text-decoration */
@@ -294,7 +346,79 @@
 
 /* endregion */
 
-/* region dark-mode */
+/* region after */
+
+[class*='after:']::after {
+  content: '';
+}
+
+/* region background-color */
+
+.after\:bg-current::after {
+  background-color: currentColor;
+}
+
+/* endregion */
+
+/* region bottom */
+
+.after\:bottom-0\.5::after {
+  bottom: 0.125rem;
+}
+
+/* endregion */
+
+/* region height */
+
+.after\:h-0\.5::after {
+  height: 0.125rem;
+}
+
+/* endregion */
+
+/* region left */
+
+.after\:left-0::after {
+  left: 0;
+}
+
+/* endregion */
+
+/* region position */
+
+.after\:pos-absolute::after {
+  position: absolute;
+}
+
+/* endregion */
+
+/* region transition-duration */
+
+.after\:transition-duration-250::after {
+  transition-duration: 250ms;
+}
+
+/* endregion */
+
+/* region transition-property */
+
+.after\:transition-width::after {
+  transition-property: width;
+}
+
+/* endregion */
+
+/* region width */
+
+.after\:w-0::after {
+  width: 0;
+}
+
+/* endregion */
+
+/* endregion */
+
+/* region dark */
 
 /* region background-color */
 
@@ -316,6 +440,34 @@
 
 .dark .dark\:text-light-500 {
   color: #f2f2f2;
+}
+
+/* endregion */
+
+/* endregion */
+
+/* region hover */
+
+/* region after */
+
+/* region width */
+
+.hover\:after\:w-full:hover::after {
+  width: 100%;
+}
+
+/* endregion */
+
+/* endregion */
+
+/* endregion */
+
+/* region group-hover */
+
+/* region display */
+
+.group:hover .group-hover\:block {
+  display: block;
 }
 
 /* endregion */
@@ -344,6 +496,14 @@
 
   .md\:block {
     display: block;
+  }
+
+  /* endregion */
+
+  /* region flex-direction */
+
+  .md\:flex-row {
+    flex-direction: row;
   }
 
   /* endregion */

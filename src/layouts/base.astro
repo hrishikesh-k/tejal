@@ -1,21 +1,18 @@
 ---
 import Icon from '~/components/icon.svelte'
-import Navigation from '~/components/navigation.svelte'
 import Theme from '~/components/theme.svelte'
 import '~/assets/styles.css'
 
 interface Props {
   title: string
 }
-
-const { title } = Astro.props
 ---
 
 <html class="h-0 min-h-full w-full" lang="en">
   <head>
     <meta charset="utf-8"/>
-    <meta content="initial-scale=1,width=device-width" name="viewport">
-    <title>{title}</title>
+    <meta content="initial-scale=1, width=device-width" name="viewport">
+    <title>{Astro.props.title}</title>
   </head>
   <body class="bg-light-500 dark:bg-dark-500 box-border font-montserrat h-0 m-0 min-h-full text-dark-500 dark:text-light-500 w-full">
     <header class="bg-light-500 dark:bg-dark-500 border-0 border-b-0.25 border-gray-300 dark:border-gray-500 border-solid box-border h-24 left-0 p-x-6 lg:p-x-32 md:p-x-16 pos-fixed top-0 w-full z-1">
@@ -25,7 +22,19 @@ const { title } = Astro.props
           <span class="hidden md:block uppercase">Tejal Shinde</span>
         </a>
         <div class="flex gap-x-3 items-center">
-          <Navigation client:load/>
+          <nav class="flex flex-col md:flex-row gap-3 items-center">
+            <div class="box-border cursor-pointer flex gap-x-1 group items-center p-2 pos-relative">
+              <span>Work</span>
+              <Icon name="caret-down" size={3}/>
+              <div class="bg-light-500 dark:bg-dark-500 border-0.25 border-gray-300 dark:border-gray-500 border-solid bottom--26 box-border hidden group-hover:block pos-absolute right-0">
+                <a class="block box-border decoration-none p-2 text-current text-right" href="/work/advertising/">Advertising</a>
+                <a class="block box-border decoration-none p-2 text-current text-right" href="/work/fashion/">Fashion</a>
+                <a class="block box-border decoration-none p-2 text-current text-right" href="/work/presentations/">Presentations</a>
+              </div>
+            </div>
+            <a class="after:bg-current after:bottom-0.5 box-border decoration-none after:h-0.5 after:left-0 p-2 pos-relative after:pos-absolute text-current after:transition-duration-250 after:transition-width after:w-0 hover:after:w-full" href="/about/">About</a>
+            <a class="after:bg-current after:bottom-0.5 box-border decoration-none after:h-0.5 after:left-0 p-2 pos-relative after:pos-absolute text-current after:transition-duration-250 after:transition-width after:w-0 hover:after:w-full" href="/contact/">Contact</a>
+          </nav>
           <Theme client:load/>
         </div>
       </div>
