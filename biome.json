@@ -45,7 +45,11 @@
       }
     },
     {
-      "include": ["**/netlify/edge-functions/**", "**/astro.config.ts"],
+      "include": [
+        "**/netlify/edge-functions/**",
+        "**/astro.config.ts",
+        "**/uno.config.ts"
+      ],
       "linter": {
         "rules": {
           "correctness": {

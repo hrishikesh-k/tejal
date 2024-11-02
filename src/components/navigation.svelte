@@ -59,8 +59,8 @@ onMount(checkTheme)
       <a class="hover:bg-light-900 hover:dark:bg-dark-900 block border-b-rounded-1.5 box-border decoration-none p-2 text-current text-right" href="/work/presentations/">Presentations</a>
     </div>
   </div>
-  <a class="after:bg-current after:border-rounded-0.25 after:bottom-0.5 box-border decoration-none after:h-0.5 after:left-0 p-2 pos-relative after:pos-absolute text-center text-current after:transition-duration-250 after:transition-width w-full md:w-unset after:w-0 hover:after:w-full" href="/about/">About</a>
-  <a class="after:bg-current after:border-rounded-0.25 after:bottom-0.5 box-border decoration-none after:h-0.5 after:left-0 p-2 pos-relative after:pos-absolute text-center text-current after:transition-duration-250 after:transition-width w-full md:w-unset after:w-0 hover:after:w-full" href="/contact/">Contact</a>
+  <a class="after:bg-current after:border-rounded-0.25 after:bottom-0.5 box-border decoration-none after:h-0.5 after:left-0 p-2 pos-relative after:pos-absolute text-center text-current after:transition-duration-250 after:transition-width w-full after:w-0 hover:after:w-full md:w-unset" href="/about/">About</a>
+  <a class="after:bg-current after:border-rounded-0.25 after:bottom-0.5 box-border decoration-none after:h-0.5 after:left-0 p-2 pos-relative after:pos-absolute text-center text-current after:transition-duration-250 after:transition-width w-full after:w-0 after:hover:w-full md:w-unset" href="/contact/">Contact</a>
 </nav>
 <Tooltip {icon} onclick={onclickTheme} text="Toggle theme"/>
 <div class="block md:hidden z-1">

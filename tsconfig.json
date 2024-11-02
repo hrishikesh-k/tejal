@@ -39,6 +39,7 @@
     "./src/**/*.astro",
     "./src/**/*.svelte",
     "./src/**/*.ts",
-    "./astro.config.ts"
+    "./astro.config.ts",
+    "./uno.config.ts"
   ]
 }

@@ -1,12 +1,13 @@
 import { fileURLToPath } from 'node:url'
 import svelte from '@astrojs/svelte'
 import { defineConfig } from 'astro/config'
+import uno from 'unocss/astro'
 
 export default defineConfig({
   build: {
     inlineStylesheets: 'never'
   },
-  integrations: [svelte()],
+  integrations: [svelte(), uno()],
   trailingSlash: 'always',
   vite: {
     resolve: {
