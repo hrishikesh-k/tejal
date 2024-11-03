@@ -26,7 +26,7 @@ export default defineConfig({
         [
           'items-center',
           {
-            'align-items': 'items-center'
+            'align-items': 'center'
           }
         ]
       ]

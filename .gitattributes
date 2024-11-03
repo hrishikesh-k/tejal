@@ -11,3 +11,4 @@
 *.vtt eol=lf text
 astro.config.ts eol=lf text
 netlify/edge-functions/password.ts eol=lf text
+uno.config.ts eol=lf text
