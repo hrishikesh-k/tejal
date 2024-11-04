@@ -9,6 +9,7 @@
     "ignore": [
       "**/.astro/**",
       "**/.netlify/**",
+      "**/assets/**/*.ts",
       "**/dist/**",
       "**/node_modules/**"
     ]

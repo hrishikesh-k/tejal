@@ -3,6 +3,16 @@ import { defineCollection, z } from 'astro:content'
 const advertisingCollection = defineCollection({
   schema: (context) =>
     z.object({
+      assets: z.optional(
+        z
+          .array(
+            z.object({
+              alt: z.string(),
+              img: context.image()
+            })
+          )
+          .default([])
+      ),
       cover: context.image(),
       description: z.string(),
       draft: z.optional(z.boolean().default(false)),

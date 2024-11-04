@@ -20,7 +20,7 @@ let {
 
 let widths = $derived(
   presetWidths
-    .filter((presetWidth) => presetWidth < maxWidth && presetWidth < width)
+    .filter((presetWidth) => presetWidth < maxWidth && presetWidth <= width)
     .concat([maxWidth])
 )
 
@@ -36,8 +36,7 @@ onMount(() => {
       callback_loaded(el) {
         el.classList.remove('blur-2')
         el.classList.remove('filter')
-      },
-      elements_selector: 'img'
+      }
     })
   }
 })
@@ -68,5 +67,5 @@ onMount(() => {
       <source data-srcset="{generateImageCdnUrl(width)}" media="(max-width: {width}px)"/>
     {/if}
   {/each}
-  <img {alt} class="block blur-2 filter h-full object-contain transition-duration-250 w-full" {height} src="{generateImageCdnUrl(64)}" {width}/>
+  <img {alt} class="block blur-2 filter h-full lazy object-contain transition-duration-250 transition-filter w-full" {height} src="{generateImageCdnUrl(64)}" {width}/>
 </picture>

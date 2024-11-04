@@ -78,7 +78,7 @@ export default defineConfig({
         [
           'blur-2',
           {
-            '--u-blur': '0.5rem'
+            '--u-blur': 'blur(0.5rem)'
           }
         ]
       ]
@@ -314,15 +314,6 @@ export default defineConfig({
         [
           'filter',
           {
-            '--u-blur': '0',
-            '--u-brightness': '0',
-            '--u-contrast': '0',
-            '--u-drop-shadow': '0',
-            '--u-grayscale': '0',
-            '--u-hue-rotate': '0',
-            '--u-invert': '0',
-            '--u-saturate': '0',
-            '--u-sepia': '0',
             filter:
               'var(--u-blur) var(--u-brightness) var(--u-contrast) var(--u-drop-shadow) var(--u-grayscale) var(--u-hue-rotate) var(--u-invert) var(--u-saturate) var(--u-sepia)'
           }
@@ -800,6 +791,12 @@ export default defineConfig({
     {
       name: 'transition-property',
       rules: [
+        [
+          'transition-filter',
+          {
+            'transition-property': 'filter'
+          }
+        ],
         [
           'transition-top',
           {
