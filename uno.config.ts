@@ -73,6 +73,17 @@ export default defineConfig({
       ]
     },
     {
+      name: 'blur',
+      rules: [
+        [
+          'blur-2',
+          {
+            '--u-blur': '0.5rem'
+          }
+        ]
+      ]
+    },
+    {
       name: 'border-color',
       rules: [
         [
@@ -273,6 +284,12 @@ export default defineConfig({
           }
         ],
         [
+          'grid',
+          {
+            display: 'grid'
+          }
+        ],
+        [
           'hidden',
           {
             display: 'none'
@@ -287,6 +304,27 @@ export default defineConfig({
           'fill-current',
           {
             fill: 'currentColor'
+          }
+        ]
+      ]
+    },
+    {
+      name: 'filter',
+      rules: [
+        [
+          'filter',
+          {
+            '--u-blur': '0',
+            '--u-brightness': '0',
+            '--u-contrast': '0',
+            '--u-drop-shadow': '0',
+            '--u-grayscale': '0',
+            '--u-hue-rotate': '0',
+            '--u-invert': '0',
+            '--u-saturate': '0',
+            '--u-sepia': '0',
+            filter:
+              'var(--u-blur) var(--u-brightness) var(--u-contrast) var(--u-drop-shadow) var(--u-grayscale) var(--u-hue-rotate) var(--u-invert) var(--u-saturate) var(--u-sepia)'
           }
         ]
       ]
@@ -326,6 +364,46 @@ export default defineConfig({
           'text-3',
           {
             'font-size': '0.75rem'
+          }
+        ],
+        [
+          'text-8',
+          {
+            'font-size': '2rem'
+          }
+        ]
+      ]
+    },
+    {
+      name: 'font-weight',
+      rules: [
+        [
+          'font-400',
+          {
+            'font-weight': '400'
+          }
+        ]
+      ]
+    },
+    {
+      name: 'grid-template-columns',
+      rules: [
+        [
+          'grid-cols-1',
+          {
+            'grid-template-columns': 'repeat(1, minmax(0, 1fr))'
+          }
+        ],
+        [
+          'grid-cols-2',
+          {
+            'grid-template-columns': 'repeat(2, minmax(0, 1fr))'
+          }
+        ],
+        [
+          'grid-cols-3',
+          {
+            'grid-template-columns': 'repeat(3, minmax(0, 1fr))'
           }
         ]
       ]
@@ -460,6 +538,18 @@ export default defineConfig({
           }
         ],
         [
+          'm-b-4',
+          {
+            'margin-bottom': '1rem'
+          }
+        ],
+        [
+          'm-t-12',
+          {
+            'margin-top': '3rem'
+          }
+        ],
+        [
           'm-x-auto',
           {
             'margin-left': 'auto',
@@ -496,6 +586,17 @@ export default defineConfig({
       ]
     },
     {
+      name: 'object-fit',
+      rules: [
+        [
+          'object-contain',
+          {
+            'object-fit': 'contain'
+          }
+        ]
+      ]
+    },
+    {
       name: 'outline-width',
       rules: [
         [
@@ -507,12 +608,29 @@ export default defineConfig({
       ]
     },
     {
+      name: 'overflow',
+      rules: [
+        [
+          'overflow-hidden',
+          {
+            overflow: 'hidden'
+          }
+        ]
+      ]
+    },
+    {
       name: 'padding',
       rules: [
         [
           'p-2',
           {
             padding: '0.5rem'
+          }
+        ],
+        [
+          'p-t-16',
+          {
+            'padding-top': '4rem'
           }
         ],
         [

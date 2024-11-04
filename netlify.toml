@@ -5,6 +5,9 @@
     NODE_VERSION = "22.11.0"
     NPM_VERSION = "10.9.0"
 
+[dev]
+  framework = "astro"
+
 [functions]
   deno_import_map = "./netlify/edge-functions/import_map.json"
 

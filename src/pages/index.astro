@@ -1,7 +1,23 @@
 ---
+import Picture from '~/components/picture.svelte'
+import { advertisingPosts } from '~/content/posts.ts'
 import Base from '~/layouts/base.astro'
 ---
 
 <Base title="Tejal Shinde">
-  <h1 class="m-0">Hello</h1>
+  <h3 class="font-400 m-0 m-b-4 m-t-12 text-8">Advertising</h3>
+  <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2">
+    {
+      advertisingPosts.slice(0, 3).map(post => {
+        return (
+          <>
+            <a class="group pos-relative" href={`/work/${post.collection}/${post.slug}/`}>
+              <Picture alt="foo" client:load height={post.data.cover.height} src={post.data.cover.src} width={post.data.cover.width}/>
+              <h4>{post.data.title}</h4>
+            </a>
+          </>
+        )
+      })
+    }
+  </div>
 </Base>
