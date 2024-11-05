@@ -16,6 +16,7 @@ const advertisingCollection = defineCollection({
       cover: context.image(),
       description: z.string(),
       draft: z.optional(z.boolean().default(false)),
+      subtitle: z.optional(z.string()),
       title: z.string(),
       weight: z.number()
     }),

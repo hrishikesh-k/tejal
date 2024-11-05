@@ -63,34 +63,6 @@
       }
     },
     {
-      "include": ["**/picture.svelte"],
-      "linter": {
-        "rules": {
-          "style": {
-            "useNamingConvention": {
-              "level": "warn",
-              "options": {
-                "conventions": [
-                  {
-                    "formats": ["camelCase", "snake_case"],
-                    "selector": {
-                      "kind": "objectLiteralMethod"
-                    }
-                  },
-                  {
-                    "formats": ["camelCase", "snake_case"],
-                    "selector": {
-                      "kind": "objectLiteralProperty"
-                    }
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    {
       "include": ["**/*.astro"],
       "linter": {
         "rules": {

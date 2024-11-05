@@ -33,6 +33,7 @@ onMount(() => {
     window.ll.update()
   } else {
     window.ll = new LazyLoad({
+      // biome-ignore lint/style/useNamingConvention: library code
       callback_loaded(el) {
         el.classList.remove('blur-2')
         el.classList.remove('filter')
@@ -51,7 +52,7 @@ onMount(() => {
               this would be required when you're at the max width
           - else:
             - set the current width as the only available width.
-              this would happen if you set a width lower than or equal to the min width from preset_widths
+              this would happen if you set a width lower than or equal to the min width from presetWidths
         - else:
           - set the current width as the max width and generate the image for the current width.
       - end loop

@@ -19,13 +19,17 @@
 }
 
 :root {
-  --u-blur: ;
-  --u-brightness: ;
-  --u-contrast: ;
-  --u-drop-shadow: ;
-  --u-grayscale: ;
-  --u-hue-rotate: ;
-  --u-invert: ;
-  --u-saturate: ;
-  --u-sepia: ;
+  --u-blur: 0;
+  --u-brightness: 1;
+  --u-contrast: 1;
+  --u-drop-shadow: 0 0 transparent;
+  --u-grayscale: 0;
+  --u-hue-rotate: 0;
+  --u-invert: 0;
+  --u-saturate: 1;
+  --u-sepia: 0;
+}
+
+[class*='after:']::after {
+  content: '';
 }

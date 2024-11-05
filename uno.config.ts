@@ -1,6 +1,11 @@
 import { defineConfig } from 'unocss'
 
 export default defineConfig({
+  layers: {
+    default: 1,
+    lg: 3,
+    md: 2
+  },
   presets: [
     {
       name: 'after',
@@ -59,6 +64,12 @@ export default defineConfig({
           }
         ],
         [
+          'bg-dark-900/75',
+          {
+            'background-color': 'rgb(15 15 15/0.75)'
+          }
+        ],
+        [
           'bg-light-500',
           {
             'background-color': '#f2f2f2'
@@ -78,7 +89,7 @@ export default defineConfig({
         [
           'blur-2',
           {
-            '--u-blur': 'blur(0.5rem)'
+            '--u-blur': '0.5rem' // 'blur(0.5rem)'
           }
         ]
       ]
@@ -181,6 +192,12 @@ export default defineConfig({
           }
         ],
         [
+          'bottom--2',
+          {
+            bottom: '-0.25rem'
+          }
+        ],
+        [
           'bottom-0.5',
           {
             bottom: '0.125rem'
@@ -229,6 +246,12 @@ export default defineConfig({
           'gap-x-1',
           {
             'column-gap': '0.25rem'
+          }
+        ],
+        [
+          'gap-x-2',
+          {
+            'column-gap': '0.5rem'
           }
         ],
         [
@@ -315,7 +338,7 @@ export default defineConfig({
           'filter',
           {
             filter:
-              'var(--u-blur) var(--u-brightness) var(--u-contrast) var(--u-drop-shadow) var(--u-grayscale) var(--u-hue-rotate) var(--u-invert) var(--u-saturate) var(--u-sepia)'
+              'blur(var(--u-blur)) brightness(var(--u-brightness)) contrast(var(--u-contrast)) drop-shadow(var(--u-drop-shadow)) grayscale(var(--u-grayscale)) hue-rotate(var(--u-hue-rotate)) invert(var(--u-invert)) saturate(var(--u-saturate)) sepia(var(--u-sepia))'
           }
         ]
       ]
@@ -355,6 +378,18 @@ export default defineConfig({
           'text-3',
           {
             'font-size': '0.75rem'
+          }
+        ],
+        [
+          'text-4',
+          {
+            'font-size': '1rem'
+          }
+        ],
+        [
+          'text-6',
+          {
+            'font-size': '1.5rem'
           }
         ],
         [
@@ -474,6 +509,12 @@ export default defineConfig({
           }
         ],
         [
+          'justify-end',
+          {
+            'justify-content': 'end'
+          }
+        ],
+        [
           'justify-center',
           {
             'justify-content': 'center'
@@ -501,10 +542,12 @@ export default defineConfig({
               return matcher
             }
             return {
+              layer: 'lg',
               matcher: matcher.slice(3),
               parent: '@media (min-width: 1024px)'
             }
-          }
+          },
+          order: 2
         }
       ]
     },
@@ -535,6 +578,18 @@ export default defineConfig({
           }
         ],
         [
+          'm-l-auto',
+          {
+            'margin-left': 'auto'
+          }
+        ],
+        [
+          'm-t-6',
+          {
+            'margin-top': '1.5rem'
+          }
+        ],
+        [
           'm-t-12',
           {
             'margin-top': '3rem'
@@ -558,6 +613,7 @@ export default defineConfig({
               return matcher
             }
             return {
+              layer: 'md',
               matcher: matcher.slice(3),
               parent: '@media (min-width: 768px)'
             }
@@ -583,6 +639,23 @@ export default defineConfig({
           'object-contain',
           {
             'object-fit': 'contain'
+          }
+        ]
+      ]
+    },
+    {
+      name: 'opacity',
+      rules: [
+        [
+          'opacity-0',
+          {
+            opacity: '0'
+          }
+        ],
+        [
+          'opacity-100',
+          {
+            opacity: '1'
           }
         ]
       ]
@@ -616,6 +689,12 @@ export default defineConfig({
           'p-2',
           {
             padding: '0.5rem'
+          }
+        ],
+        [
+          'p-3',
+          {
+            padding: '0.75rem'
           }
         ],
         [
@@ -785,6 +864,12 @@ export default defineConfig({
           {
             'transition-duration': '250ms'
           }
+        ],
+        [
+          'transition-duration-500',
+          {
+            'transition-duration': '500ms'
+          }
         ]
       ]
     },
@@ -795,6 +880,12 @@ export default defineConfig({
           'transition-filter',
           {
             'transition-property': 'filter'
+          }
+        ],
+        [
+          'transition-opacity',
+          {
+            'transition-property': 'opacity'
           }
         ],
         [
@@ -818,6 +909,12 @@ export default defineConfig({
           'w-0',
           {
             width: '0'
+          }
+        ],
+        [
+          'w-fit',
+          {
+            width: 'fit-content'
           }
         ],
         [
