@@ -37,7 +37,8 @@
   },
   "include": [
     "./netlify/**/*.ts",
-    "./src/components/*.svelte",
+    "./src/components/astro/*.astro",
+    "./src/components/svelte/*.svelte",
     "./src/content/*.ts",
     "./src/layouts/*.astro",
     "./src/pages/*.astro",

@@ -89,7 +89,7 @@ export default defineConfig({
         [
           'blur-2',
           {
-            '--u-blur': '0.5rem' // 'blur(0.5rem)'
+            '--u-blur': '0.5rem'
           }
         ]
       ]
@@ -361,6 +361,17 @@ export default defineConfig({
       ]
     },
     {
+      name: 'flex-wrap',
+      rules: [
+        [
+          'flex-wrap',
+          {
+            'flex-wrap': 'wrap'
+          }
+        ]
+      ]
+    },
+    {
       name: 'font-family',
       rules: [
         [
@@ -506,12 +517,6 @@ export default defineConfig({
           'justify-between',
           {
             'justify-content': 'space-between'
-          }
-        ],
-        [
-          'justify-end',
-          {
-            'justify-content': 'end'
           }
         ],
         [
@@ -779,17 +784,6 @@ export default defineConfig({
           'right-3/8',
           {
             right: '37.5%'
-          }
-        ]
-      ]
-    },
-    {
-      name: 'row-gap',
-      rules: [
-        [
-          'gap-y-1.5',
-          {
-            'row-gap': '0.375rem'
           }
         ]
       ]

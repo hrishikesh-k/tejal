@@ -1,0 +1,50 @@
+---
+const presetWidths = [320, 375, 414, 640, 768, 1024, 1280, 1440, 1920]
+
+interface Props {
+  alt: string
+  height: number
+  maxWidth?: number
+  src: string
+  width: number
+}
+
+const { alt, height, maxWidth = 1920, src, width } = Astro.props
+
+const widths = presetWidths
+  .filter((presetWidth) => presetWidth < maxWidth && presetWidth <= width)
+  .concat([maxWidth])
+
+function generateImageCdnUrl(w: number) {
+  return `/.netlify/images?url=${src}&w=${w}`
+}
+---
+<picture class="block overflow-hidden">
+  {
+    widths.map((w, i) => {
+      if (i === widths.length - 1) {
+        if (widths.length > 1) {
+          return <source data-srcset={generateImageCdnUrl(w)} media={`(min-width: ${widths[i - 1]}px)`}/>
+        }
+        return <source data-srcset={generateImageCdnUrl(w)}/>
+      }
+      return <source data-srcset={generateImageCdnUrl(w)} media={`(max-width: ${w}px)`}/>
+    })
+  }
+  <img alt={alt} class="block blur-2 filter h-full lazy object-contain transition-duration-250 transition-filter w-full" height={height} src={generateImageCdnUrl(64)} width={width}/>
+</picture>
+
+<script>
+  import LazyLoad from 'vanilla-lazyload'
+  if (window.ll) {
+    window.ll.update()
+  } else {
+    window.ll = new LazyLoad({
+      // biome-ignore lint/style/useNamingConvention: library code
+      callback_loaded(el) {
+        el.classList.remove('blur-2')
+        el.classList.remove('filter')
+      }
+    })
+  }
+</script>

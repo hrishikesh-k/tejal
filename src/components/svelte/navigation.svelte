@@ -1,7 +1,39 @@
 <script lang="ts">
 import { onMount } from 'svelte'
-import Icon from '~/components/icon.svelte'
-import Tooltip from '~/components/tooltip.svelte'
+import Icon from '~/components/svelte/icon.svelte'
+import Tooltip from '~/components/svelte/tooltip.svelte'
+
+const mainAnchorClass = [
+  'after:bg-current',
+  'after:border-rounded-0.25',
+  'after:bottom-0.5',
+  'box-border',
+  'decoration-none',
+  'after:h-0.5',
+  'after:left-0',
+  'p-2',
+  'pos-relative',
+  'after:pos-absolute',
+  'text-center',
+  'text-current',
+  'after:transition-duration-250',
+  'after:transition-width',
+  'w-full',
+  'after:w-0',
+  'after:hover:w-full',
+  'md:w-unset'
+].join(' ')
+
+const subAnchorClass = [
+  'hover:bg-light-900',
+  'hover:dark:bg-dark-900',
+  'block',
+  'box-border',
+  'decoration-none',
+  'p-2',
+  'text-current',
+  'text-right'
+].join(' ')
 
 let icon: 'moon' | 'sun-bright' = $state('moon')
 let open = $state(false)
@@ -54,13 +86,13 @@ onMount(checkTheme)
     <span>Work</span>
     <Icon name="caret-down" size={3}/>
     <div class="bg-light-500 dark:bg-dark-500 border-0.25 border-gray-300 dark:border-gray-500 border-rounded-1.5 border-solid bottom--26 box-border hidden group-hover:block pos-absolute right-3/8 md:right-0 z-1">
-      <a class="hover:bg-light-900 hover:dark:bg-dark-900 block box-border border-t-rounded-1.5 decoration-none p-2 text-current text-right" href="/work/advertising/">Advertising</a>
-      <a class="hover:bg-light-900 hover:dark:bg-dark-900 block box-border decoration-none p-2 text-current text-right" href="/work/fashion/">Fashion</a>
-      <a class="hover:bg-light-900 hover:dark:bg-dark-900 block border-b-rounded-1.5 box-border decoration-none p-2 text-current text-right" href="/work/presentations/">Presentations</a>
+      <a class="{subAnchorClass} border-t-rounded-1.5" href="/work/advertising/">Advertising</a>
+      <a class={subAnchorClass} href="/work/fashion/">Fashion</a>
+      <a class="{subAnchorClass} border-b-rounded-1.5" href="/work/presentations/">Presentations</a>
     </div>
   </div>
-  <a class="after:bg-current after:border-rounded-0.25 after:bottom-0.5 box-border decoration-none after:h-0.5 after:left-0 p-2 pos-relative after:pos-absolute text-center text-current after:transition-duration-250 after:transition-width w-full after:w-0 after:hover:w-full md:w-unset" href="/about/">About</a>
-  <a class="after:bg-current after:border-rounded-0.25 after:bottom-0.5 box-border decoration-none after:h-0.5 after:left-0 p-2 pos-relative after:pos-absolute text-center text-current after:transition-duration-250 after:transition-width w-full after:w-0 after:hover:w-full md:w-unset" href="/contact/">Contact</a>
+  <a class={mainAnchorClass} href="/about/">About</a>
+  <a class={mainAnchorClass} href="/contact/">Contact</a>
 </nav>
 <Tooltip {icon} onclick={onclickTheme} text="Toggle theme"/>
 <div class="block md:hidden z-1">

@@ -1,28 +1,9 @@
 ---
-import Icon from '~/components/icon.svelte'
-import Picture from '~/components/picture.svelte'
+import Section from '~/components/astro/section.astro'
 import { advertisingPosts } from '~/content/posts.ts'
 import Base from '~/layouts/base.astro'
 ---
 
 <Base title="Tejal Shinde">
-  <h3 class="font-400 m-0 m-b-4 m-t-12 text-8">Advertising</h3>
-  <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2">
-    {
-      advertisingPosts.slice(0, 3).map(post => {
-        return (
-          <>
-            <a class="group pos-relative" href={`/work/advertising/${post.slug}/`}>
-              <Picture alt={`cover art for ${post.data.title}`} client:load height={post.data.cover.height} src={post.data.cover.src} width={post.data.cover.width}/>
-              <h4 class="bg-dark-900/75 box-border flex font-400 h-full items-center justify-center left-0 m-0 opacity-0 group-hover:opacity-100 p-3 pos-absolute text-8 top-0 text-center text-light-500 transition-duration-500 transition-opacity w-full">{post.data.title}</h4>
-            </a>
-          </>
-        )
-      })
-    }
-  </div>
-  <a class="after:bg-current after:border-rounded-0.25 after:bottom--2 decoration-none flex gap-x-2 after:h-0.5 items-center justify-end after:left-0 m-l-auto m-t-6 pos-relative after:pos-absolute text-4 text-current md:text-6 after:transition-duration-250 after:transition-width w-fit after:w-0 after:hover:w-full" href="/work/advertising/">
-    <span>Explore all</span>
-    <Icon name="circle-arrow-right" size={6}/>
-  </a>
+  <Section posts={advertisingPosts} title="Advertising"/>
 </Base>

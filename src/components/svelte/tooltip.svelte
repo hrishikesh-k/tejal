@@ -2,7 +2,7 @@
 import { autoPlacement, computePosition, offset, shift } from '@floating-ui/dom'
 import { type ComponentProps, tick } from 'svelte'
 // biome-ignore lint/style/useImportType: also used as component, but Biome can't check Svelte
-import Icon from '~/components/icon.svelte'
+import Icon from '~/components/svelte/icon.svelte'
 
 let {
   icon,
