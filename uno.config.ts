@@ -4,7 +4,8 @@ export default defineConfig({
   layers: {
     default: 1,
     lg: 3,
-    md: 2
+    md: 2,
+    xl: 4
   },
   presets: [
     {
@@ -259,6 +260,18 @@ export default defineConfig({
           {
             'column-gap': '0.75rem'
           }
+        ],
+        [
+          'gap-x-12',
+          {
+            'column-gap': '3rem'
+          }
+        ],
+        [
+          'gap-x-18',
+          {
+            'column-gap': '4.5rem'
+          }
         ]
       ]
     },
@@ -344,6 +357,17 @@ export default defineConfig({
       ]
     },
     {
+      name: 'flex-basis',
+      rules: [
+        [
+          'flex-basis-0',
+          {
+            'flex-basis': '0'
+          }
+        ]
+      ]
+    },
+    {
       name: 'flex-direction',
       rules: [
         [
@@ -356,6 +380,28 @@ export default defineConfig({
           'flex-row',
           {
             'flex-direction': 'row'
+          }
+        ]
+      ]
+    },
+    {
+      name: 'flex-grow',
+      rules: [
+        [
+          'flex-grow-1',
+          {
+            'flex-grow': '1'
+          }
+        ]
+      ]
+    },
+    {
+      name: 'flex-shrink',
+      rules: [
+        [
+          'flex-shrink-1',
+          {
+            'flex-shrink': '1'
           }
         ]
       ]
@@ -407,6 +453,12 @@ export default defineConfig({
           'text-8',
           {
             'font-size': '2rem'
+          }
+        ],
+        [
+          'text-9',
+          {
+            'font-size': '2.25rem'
           }
         ]
       ]
@@ -551,8 +603,7 @@ export default defineConfig({
               matcher: matcher.slice(3),
               parent: '@media (min-width: 1024px)'
             }
-          },
-          order: 2
+          }
         }
       ]
     },
@@ -580,6 +631,12 @@ export default defineConfig({
           'm-b-4',
           {
             'margin-bottom': '1rem'
+          }
+        ],
+        [
+          'm-b-12',
+          {
+            'margin-bottom': '3rem'
           }
         ],
         [
@@ -894,6 +951,23 @@ export default defineConfig({
             'transition-property': 'width'
           }
         ]
+      ]
+    },
+    {
+      name: 'xl',
+      variants: [
+        {
+          match(matcher) {
+            if (!matcher.startsWith('xl:')) {
+              return matcher
+            }
+            return {
+              layer: 'xl',
+              matcher: matcher.slice(3),
+              parent: '@media (min-width: 1280px)'
+            }
+          }
+        }
       ]
     },
     {
