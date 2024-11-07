@@ -262,6 +262,12 @@ export default defineConfig({
           }
         ],
         [
+          'gap-x-4',
+          {
+            'column-gap': '1rem'
+          }
+        ],
+        [
           'gap-x-12',
           {
             'column-gap': '3rem'
@@ -608,6 +614,23 @@ export default defineConfig({
       ]
     },
     {
+      name: 'line-height',
+      rules: [
+        [
+          'leading-5',
+          {
+            'line-height': '1.25rem'
+          }
+        ],
+        [
+          'leading-8',
+          {
+            'line-height': '2rem'
+          }
+        ]
+      ]
+    },
+    {
       name: 'max-width',
       rules: [
         [
@@ -634,6 +657,12 @@ export default defineConfig({
           }
         ],
         [
+          'm-b-9',
+          {
+            'margin-bottom': '2.25rem'
+          }
+        ],
+        [
           'm-b-12',
           {
             'margin-bottom': '3rem'
@@ -649,12 +678,6 @@ export default defineConfig({
           'm-t-6',
           {
             'margin-top': '1.5rem'
-          }
-        ],
-        [
-          'm-t-12',
-          {
-            'margin-top': '3rem'
           }
         ],
         [
@@ -760,9 +783,9 @@ export default defineConfig({
           }
         ],
         [
-          'p-t-16',
+          'p-t-36',
           {
-            'padding-top': '4rem'
+            'padding-top': '9rem'
           }
         ],
         [
@@ -852,6 +875,12 @@ export default defineConfig({
           'text-center',
           {
             'text-align': 'center'
+          }
+        ],
+        [
+          'text-justify',
+          {
+            'text-align': 'justify'
           }
         ],
         [

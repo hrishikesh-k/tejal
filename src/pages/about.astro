@@ -1,11 +1,32 @@
 ---
+import about from '~/assets/about/about.jpg'
+import Picture from '~/components/astro/picture.astro'
+import Tooltip from '~/components/svelte/tooltip.svelte'
 import Base from '~/layouts/base.astro'
 ---
 
 <Base title="About">
   <div class="flex flex-wrap lg:gap-x-12 xl:gap-x-18 items-center justify-center m-b-12 pos-relative">
+    <div class="flex-basis-0 flex-grow-1 flex-shrink-1">
+      <Picture alt="Tejal Shinde" height={about.height} src={about.src} width={about.width}/>
+    </div>
     <div class="lg:flex-basis-0 lg:flex-grow-1 lg:flex-shrink-1">
       <h2 class="font-400 m-0 text-9 text-center uppercase">Tejal Shinde</h2>
+      <p class="leading-8 md:leading-5 xl:leading-8 m-0 m-b-9 m-t-6 text-justify">Art is not just what I do; it's who I am.<br/>My journey in advertising has been fueled by a passion for creativity and a commitment to addressing societal issues through impactful campaigns. With an academic background in advertising and a knack for problem-solving, I believe I bring a unique perspective to the table.<br/>I don't just think outside the box; I live outside it.<br/><br/>As the strongest believer in kindness, I prioritize compassion, empathy and respect in every aspect of my life. I firmly believe that kindness not only enriches relationships but also fosters positive environments where individuals can thrive. Whether in personal interactions or professional settings, I strive to embody kindness as a guiding principle, recognizing its power to create meaningful connections and contribute to a more harmonious world.</p>
+      <div class="flex gap-x-4 items-center justify-center">
+        <a class="text-current" href="https://www.facebook.com/tejal.shinde.9/" rel="nofollow noopener noreffer" target="_blank">
+          <Tooltip client:load icon="square-facebook" text="Facebook"/>
+        </a>
+        <a class="text-current" href="https://www.instagram.com/thebubblebreaker/" rel="nofollow noopener noreffer" target="_blank">
+          <Tooltip client:load icon="square-instagram" text="Instagram"/>
+        </a>
+        <a class="text-current" href="https://www.linkedin.com/in/tejal-shinde/" rel="nofollow noopener noreffer" target="_blank">
+          <Tooltip client:load icon="linkedin" text="LinkedIn"/>
+        </a>
+        <a class="text-current" href="mailto:shindevtejal@gmail.com" rel="nofollow noopener noreffer" target="_blank">
+          <Tooltip client:load icon="square-envelope" text="E-mail"/>
+        </a>
+      </div>
     </div>
   </div>
 </Base>
