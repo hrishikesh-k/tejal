@@ -1,3 +1,4 @@
+import transformerDirectives from '@unocss/transformer-directives'
 import { defineConfig } from 'unocss'
 
 export default defineConfig({
@@ -277,6 +278,17 @@ export default defineConfig({
           'gap-x-18',
           {
             'column-gap': '4.5rem'
+          }
+        ]
+      ]
+    },
+    {
+      name: 'content',
+      rules: [
+        [
+          'content',
+          {
+            content: '""'
           }
         ]
       ]
@@ -592,6 +604,12 @@ export default defineConfig({
           'left-0',
           {
             left: '0'
+          }
+        ],
+        [
+          'left-1/2',
+          {
+            left: '50%'
           }
         ]
       ]
@@ -929,9 +947,39 @@ export default defineConfig({
           }
         ],
         [
+          'top-1/2',
+          {
+            top: '50%'
+          }
+        ],
+        [
           'top-4',
           {
             top: '1rem'
+          }
+        ]
+      ]
+    },
+    {
+      name: 'transform',
+      rules: [
+        [
+          'transform',
+          {
+            transform:
+              'scaleX(var(--u-scale-x)) scaleY(var(--u-scale-y)) scaleZ(var(--u-scale-z)) skewX(var(--u-skew-x)) skewY(var(--u-skew-y)) translateX(var(--u-translate-x)) translateY(var(--u-translate-y)) translateZ(var(--u-translate-z)) rotate(var(--u-rotate)) rotateX(var(--u-rotate-x)) rotateY(var(--u-rotate-y)) rotateZ(var(--u-rotate-z))'
+          }
+        ],
+        [
+          'translate-x--1/2',
+          {
+            '--u-translate-x': '-50%'
+          }
+        ],
+        [
+          'translate-y--1/2',
+          {
+            '--u-translate-y': '-50%'
           }
         ]
       ]
@@ -1039,5 +1087,10 @@ export default defineConfig({
         ]
       ]
     }
+  ],
+  transformers: [
+    transformerDirectives({
+      applyVariable: '--u-apply'
+    })
   ]
 })

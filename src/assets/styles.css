@@ -26,10 +26,26 @@
   --u-grayscale: 0;
   --u-hue-rotate: 0;
   --u-invert: 0;
+  --u-rotate: 0;
+  --u-rotate-x: 0;
+  --u-rotate-y: 0;
+  --u-rotate-z: 0;
   --u-saturate: 1;
   --u-sepia: 0;
+  --u-scale-x: 1;
+  --u-scale-y: 1;
+  --u-scale-z: 1;
+  --u-skew-x: 0;
+  --u-skew-y: 0;
+  --u-translate-x: 0;
+  --u-translate-y: 0;
+  --u-translate-z: 0;
 }
 
 [class*='after:']::after {
-  content: '';
+  --u-apply: content;
+}
+
+media-poster > img {
+  --u-apply: 'pos-absolute transform translate-x--1/2 translate-y--1/2 top-1/2 left-1/2 w-full';
 }

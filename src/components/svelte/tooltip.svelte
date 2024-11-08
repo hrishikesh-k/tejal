@@ -42,6 +42,7 @@ function onmouseleave() {
   showTooltip = false
 }
 </script>
+
 <button bind:this={button} class="bg-light-900 dark:bg-dark-100 block border-0 border-rounded-1.5 cursor-pointer outline-0 p-2 text-current" {onclick} {onmouseenter} {onmouseleave}>
   <Icon name={icon} size={5}/>
   {#if showTooltip}

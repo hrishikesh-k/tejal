@@ -30,6 +30,7 @@ let {
 
 const computedSize = $derived(size * 4)
 </script>
+
 <svg class="block fill-current" height={computedSize} viewBox="0 0 48 48" width={computedSize}>
   <path d={icons[name]}/>
 </svg>

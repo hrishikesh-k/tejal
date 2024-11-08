@@ -1,7 +1,9 @@
 ---
 import about from '~/assets/about/about.jpg'
+import vid1Poster from '~/assets/about/video-1-poster.jpg'
 import Picture from '~/components/astro/picture.astro'
 import Tooltip from '~/components/svelte/tooltip.svelte'
+import Video from '~/components/svelte/video.svelte'
 import Base from '~/layouts/base.astro'
 ---
 
@@ -14,19 +16,36 @@ import Base from '~/layouts/base.astro'
       <h2 class="font-400 m-0 text-9 text-center uppercase">Tejal Shinde</h2>
       <p class="leading-8 md:leading-5 xl:leading-8 m-0 m-b-9 m-t-6 text-justify">Art is not just what I do; it's who I am.<br/>My journey in advertising has been fueled by a passion for creativity and a commitment to addressing societal issues through impactful campaigns. With an academic background in advertising and a knack for problem-solving, I believe I bring a unique perspective to the table.<br/>I don't just think outside the box; I live outside it.<br/><br/>As the strongest believer in kindness, I prioritize compassion, empathy and respect in every aspect of my life. I firmly believe that kindness not only enriches relationships but also fosters positive environments where individuals can thrive. Whether in personal interactions or professional settings, I strive to embody kindness as a guiding principle, recognizing its power to create meaningful connections and contribute to a more harmonious world.</p>
       <div class="flex gap-x-4 items-center justify-center">
-        <a class="text-current" href="https://www.facebook.com/tejal.shinde.9/" rel="nofollow noopener noreffer" target="_blank">
-          <Tooltip client:load icon="square-facebook" text="Facebook"/>
-        </a>
-        <a class="text-current" href="https://www.instagram.com/thebubblebreaker/" rel="nofollow noopener noreffer" target="_blank">
-          <Tooltip client:load icon="square-instagram" text="Instagram"/>
-        </a>
-        <a class="text-current" href="https://www.linkedin.com/in/tejal-shinde/" rel="nofollow noopener noreffer" target="_blank">
-          <Tooltip client:load icon="linkedin" text="LinkedIn"/>
-        </a>
-        <a class="text-current" href="mailto:shindevtejal@gmail.com" rel="nofollow noopener noreffer" target="_blank">
-          <Tooltip client:load icon="square-envelope" text="E-mail"/>
-        </a>
+        {
+          [
+            {
+              href: 'https://www.facebook.com/tejal.shinde.9/',
+              icon: 'square-facebook',
+              text: 'Facebook'
+            },
+            {
+              href: 'https://www.instagram.com/thebubblebreaker/',
+              icon: 'square-instagram',
+              text: 'Instagram'
+            },
+            {
+              href: 'https://www.linkedin.com/in/tejal-shinde/',
+              icon: 'linkedin',
+              text: 'LinkedIn'
+            },
+            {
+              href: 'mailto:@shindevtejal@gmail.com',
+              icon: 'square-envelope',
+              text: 'E-mail'
+            }
+          ].map(link => (
+            <a class="text-current" href={link.href} rel="nofollow noopener noreffer" target="_blank">
+              <Tooltip client:load icon={link.icon} text={link.text}/>
+            </a>
+          ))
+        }
       </div>
     </div>
   </div>
+  <Video client:load poster={vid1Poster.src} src="/about/assets/video-1"/>
 </Base>

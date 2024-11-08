@@ -1,5 +1,6 @@
 <script lang="ts">
 import { onMount } from 'svelte'
+import { on } from 'svelte/events'
 import Icon from '~/components/svelte/icon.svelte'
 import Tooltip from '~/components/svelte/tooltip.svelte'
 
@@ -48,9 +49,7 @@ function checkTheme() {
   } else {
     theme = 'light'
   }
-  window
-    .matchMedia('(prefers-color-scheme: dark)')
-    .addEventListener('change', checkTheme)
+  on(window.matchMedia('(prefers-color-scheme: dark)'), 'change', checkTheme)
 }
 
 function onclickNavigation() {
@@ -81,6 +80,7 @@ $effect(() => {
 
 onMount(checkTheme)
 </script>
+
 <nav class="bg-light-500 dark:bg-dark-500 flex flex-col md:flex-row gap-x-3 items-center left-0 pos-absolute md:pos-static transition-duration-250 transition-top w-full md:w-unset" class:top-4={open} class:top--30={!open}>
   <div class="box-border cursor-pointer flex gap-x-1 group items-center justify-center p-2 pos-relative w-full md:w-unset">
     <span>Work</span>
