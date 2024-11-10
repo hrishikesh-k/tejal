@@ -37,9 +37,15 @@ import Base from '~/layouts/base.astro'
               href: 'mailto:@shindevtejal@gmail.com',
               icon: 'square-envelope',
               text: 'E-mail'
+            },
+            {
+              download: '[Tejal Shinde] - Resume.pdf',
+              href: '/about/assets/resume.pdf',
+              icon: 'file-user',
+              text: 'Résumé'
             }
           ].map(link => (
-            <a class="text-current" href={link.href} rel="nofollow noopener noreffer" target="_blank">
+            <a class="text-current" download={link.download} href={link.href} rel="nofollow noopener noreffer" target="_blank">
               <Tooltip client:load icon={link.icon} text={link.text}/>
             </a>
           ))
