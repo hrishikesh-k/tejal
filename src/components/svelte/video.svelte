@@ -11,7 +11,6 @@ let {
   poster,
   src
 }: {
-  cc?: string
   poster: string
   src: string
 } = $props()
@@ -28,5 +27,5 @@ function onProviderChange(event: MediaProviderChangeEvent) {
   <media-provider>
     <media-poster src="/.netlify/images?url={poster}&w=1920"></media-poster>
   </media-provider>
-  <media-video-layout thumbnails="{src}/index.vtt"></media-video-layout>
+  <media-video-layout thumbnails="{src}/thumbs.vtt"></media-video-layout>
 </media-player>

@@ -8,9 +8,9 @@ import Base from '~/layouts/base.astro'
 ---
 
 <Base title="About">
-  <div class="flex flex-wrap lg:gap-x-12 xl:gap-x-18 items-center justify-center m-b-12 pos-relative">
+  <div class="flex flex-wrap gap-9 lg:gap-12 xl:gap-18 items-center justify-center m-b-12 pos-relative">
     <div class="flex-basis-0 flex-grow-1 flex-shrink-1">
-      <Picture alt="Tejal Shinde" height={about.height} src={about.src} width={about.width}/>
+      <Picture alt="Tejal Shinde" height={about.height} rounded src={about.src} width={about.width}/>
     </div>
     <div class="lg:flex-basis-0 lg:flex-grow-1 lg:flex-shrink-1">
       <h2 class="font-400 m-0 text-9 text-center uppercase">Tejal Shinde</h2>
@@ -49,3 +49,12 @@ import Base from '~/layouts/base.astro'
   </div>
   <Video client:load poster={vid1Poster.src} src="/about/assets/video-1"/>
 </Base>
+
+<script>
+  const img = document.querySelector('img[alt="Tejal Shinde"]') as HTMLImageElement
+  const originalHeight = parseInt(img.getAttribute('height') || '0')
+  const parentDiv = (img.parentElement as HTMLPictureElement).parentElement as HTMLDivElement
+  const renderedHeight = parseInt(window.getComputedStyle(img).height.slice(0, -2))
+  const outputWidth = `${(renderedHeight / originalHeight) * parseInt(img.getAttribute('width') || '0')}px`
+  parentDiv.style.maxWidth = outputWidth
+</script>

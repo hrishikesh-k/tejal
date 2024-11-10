@@ -17,12 +17,16 @@ interface Props {
   title: string
 }
 
-const { posts = [], title } = Astro.props
+const {
+  posts = [],
+  title
+} = Astro.props
 
 const collection = title.toLowerCase()
 ---
+
 <h3 class="font-400 m-0 m-b-4 text-8">{Astro.props.title}</h3>
-<div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2">
+<div class="border-rounded-1.5 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 overflow-hidden">
   {
     posts.map(post => (
       <a class="group pos-relative" href={`/work/${collection}/${post.slug}/`}>

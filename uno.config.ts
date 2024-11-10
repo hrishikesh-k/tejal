@@ -267,18 +267,6 @@ export default defineConfig({
           {
             'column-gap': '1rem'
           }
-        ],
-        [
-          'gap-x-12',
-          {
-            'column-gap': '3rem'
-          }
-        ],
-        [
-          'gap-x-18',
-          {
-            'column-gap': '4.5rem'
-          }
         ]
       ]
     },
@@ -493,6 +481,29 @@ export default defineConfig({
       ]
     },
     {
+      name: 'gap',
+      rules: [
+        [
+          'gap-9',
+          {
+            gap: '2.25rem'
+          }
+        ],
+        [
+          'gap-12',
+          {
+            gap: '3rem'
+          }
+        ],
+        [
+          'gap-18',
+          {
+            gap: '4.5rem'
+          }
+        ]
+      ]
+    },
+    {
       name: 'grid-template-columns',
       rules: [
         [
@@ -644,6 +655,17 @@ export default defineConfig({
           'leading-8',
           {
             'line-height': '2rem'
+          }
+        ]
+      ]
+    },
+    {
+      name: 'max-height',
+      rules: [
+        [
+          'max-h-screen-80',
+          {
+            'max-height': '80vh'
           }
         ]
       ]
@@ -977,6 +999,12 @@ export default defineConfig({
           }
         ],
         [
+          'translate-x-0',
+          {
+            '--u-translate-x': '0'
+          }
+        ],
+        [
           'translate-y--1/2',
           {
             '--u-translate-y': '-50%'
@@ -1054,6 +1082,12 @@ export default defineConfig({
           'w-0',
           {
             width: '0'
+          }
+        ],
+        [
+          'w-20',
+          {
+            width: '5rem'
           }
         ],
         [
