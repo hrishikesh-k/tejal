@@ -11,13 +11,14 @@ interface Props {
 
 const { description, subtitle, title } = Astro.props
 
-const seoTitle =
-  Astro.url.pathname === '/index.html' ? title : `${title} | Tejal Shinde`
+const seoTitle = Astro.url.pathname.match(/^\/(?:index\.html)?$/)
+  ? title
+  : `${title} | Tejal Shinde`
 
 const urlRegex = Astro.url.pathname
   .toLowerCase()
   .match(
-    /^\/work\/(?<collection>advertising|fashion|presentations)\/(?:index\.html|(?<slug>[a-z-]*)?\/)$/
+    /^\/work\/(?<collection>advertising|fashion|presentations)\/(?:(?:index\.html)?|(?<slug>[a-z-]*)?\/)$/
   )
 const isCollectionPage = Boolean(
   urlRegex?.groups?.['collection'] && !urlRegex.groups['slug']
