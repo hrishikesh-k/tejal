@@ -42,6 +42,7 @@
     "./src/content/*.ts",
     "./src/layouts/*.astro",
     "./src/pages/**/*.astro",
+    "./src/utils/*.ts",
     "./src/env.d.ts",
     "./astro.config.ts",
     "./uno.config.ts"

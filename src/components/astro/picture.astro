@@ -5,6 +5,7 @@ interface Props {
   alt: string
   height: number
   maxWidth?: number
+  parent?: number
   rounded?: boolean
   src: string
   width: number
@@ -14,6 +15,7 @@ const {
   alt,
   height,
   maxWidth = 1920,
+  parent = 1,
   rounded = false,
   src,
   width
@@ -40,7 +42,7 @@ function generateImageCdnUrl(w: number) {
       return <source data-srcset={generateImageCdnUrl(w)} media={`(max-width: ${w}px)`}/>
     })
   }
-  <img alt={alt} class="block blur-2 filter h-full lazy max-h-screen-80 object-contain transition-duration-250 transition-filter w-full" height={height} src={generateImageCdnUrl(64)} width={width}/>
+  <img alt={alt} class="block blur-2 filter h-full lazy max-h-screen-80 object-contain transition-duration-250 transition-filter w-full" data-ro-parent={parent} height={height} src={generateImageCdnUrl(64)} width={width}/>
 </picture>
 
 <script>

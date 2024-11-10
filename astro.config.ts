@@ -8,6 +8,7 @@ export default defineConfig({
     inlineStylesheets: 'never'
   },
   integrations: [svelte(), uno()],
+  site: 'https://www.tejalshinde.com/',
   trailingSlash: 'always',
   vite: {
     resolve: {

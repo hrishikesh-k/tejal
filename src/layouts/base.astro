@@ -4,20 +4,33 @@ import Navigation from '~/components/svelte/navigation.svelte'
 import '~/assets/styles.css'
 
 interface Props {
+  description?: string
+  subtitle?: string
   title: string
 }
 
-const title =
-  Astro.url.pathname === '/index.html'
-    ? Astro.props.title
-    : `${Astro.props.title} | Tejal Shinde`
+const { description, subtitle, title } = Astro.props
+
+const seoTitle =
+  Astro.url.pathname === '/index.html' ? title : `${title} | Tejal Shinde`
+
+const urlRegex = Astro.url.pathname
+  .toLowerCase()
+  .match(
+    /^\/work\/(?<collection>advertising|fashion|presentations)\/(?:index\.html|(?<slug>[a-z-]*)?\/)$/
+  )
+const isCollectionPage = Boolean(
+  urlRegex?.groups?.['collection'] && !urlRegex.groups['slug']
+)
+const isProjectPage = Boolean(urlRegex?.groups?.['slug'])
 ---
 
 <html class="min-h-full w-full" lang="en">
   <head>
     <meta charset="utf-8"/>
     <meta content="initial-scale=1, width=device-width" name="viewport">
-    <title>{title}</title>
+    <meta content={Astro.generator} name="generator"/>
+    <title>{seoTitle}</title>
   </head>
   <body class="bg-light-500 dark:bg-dark-500 box-border font-montserrat m-0 min-h-full text-dark-500 dark:text-light-500 w-full">
     <header class="bg-light-500 dark:bg-dark-500 border-0 border-b-0.25 border-gray-300 dark:border-gray-500 border-solid box-border h-24 left-0 p-x-6 lg:p-x-32 md:p-x-16 pos-fixed top-0 w-full z-1">
@@ -33,9 +46,40 @@ const title =
     </header>
     <main class="box-border p-t-36 p-x-6 lg:p-x-32 md:p-x-16 w-full">
       <div class="m-x-auto max-w-300">
+        {
+          (isCollectionPage || isProjectPage) &&
+          <h2 class="font-400 m-0 text-9 text-center uppercase" class:list={[{'m-b-6': !subtitle}]}>{title}</h2>
+        }
+        {
+          subtitle &&
+          <p class="m-0 m-b-6 text-center">{subtitle}</p>
+        }
+        {
+          description &&
+          <p class="m-0 m-b-6 text-center">{description}</p>
+        }
         <slot/>
       </div>
     </main>
   <footer class="m-b-6 m-t-12 text-center">&copy; 2024 Tejal Shinde</footer>
   </body>
 </html>
+
+<script>
+  import {setParentWidth} from '~/utils/functions.ts'
+
+  const ro = new ResizeObserver((entries) => {
+    for (const entry of entries) {
+      const parentLevel = parseInt(entry.target.getAttribute('data-ro-parent') || '1')
+      let parent = entry.target as HTMLElement
+      for (let i = 0; i < parentLevel; i++) {
+        parent = parent.parentElement as HTMLElement
+      }
+      setParentWidth(entry.target as HTMLImageElement, parent)
+    }
+  })
+
+  document.querySelectorAll('picture > img').forEach(img => {
+    ro.observe(img)
+  })
+</script>

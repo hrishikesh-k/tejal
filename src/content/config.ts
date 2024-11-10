@@ -8,7 +8,8 @@ const advertisingCollection = defineCollection({
           .array(
             z.object({
               alt: z.string(),
-              img: context.image()
+              img: context.image(),
+              name: z.string()
             })
           )
           .default([])
