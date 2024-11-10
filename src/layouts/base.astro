@@ -67,20 +67,18 @@ const isProjectPage = Boolean(urlRegex?.groups?.['slug'])
 </html>
 
 <script>
-  import {setParentWidth} from '~/utils/functions.ts'
+  const imgToResize = document.querySelectorAll('picture > img')
 
-  const ro = new ResizeObserver((entries) => {
-    for (const entry of entries) {
-      const parentLevel = parseInt(entry.target.getAttribute('data-ro-parent') || '1')
-      let parent = entry.target as HTMLElement
+  new ResizeObserver(() => {
+    imgToResize.forEach((img) => {
+      const parentLevel = parseInt(img.getAttribute('data-ro-parent') || '1')
+      let parent = img as HTMLElement
       for (let i = 0; i < parentLevel; i++) {
         parent = parent.parentElement as HTMLElement
       }
-      setParentWidth(entry.target as HTMLImageElement, parent)
-    }
-  })
-
-  document.querySelectorAll('picture > img').forEach(img => {
-    ro.observe(img)
-  })
+      const originalHeight = Number.parseInt(img.getAttribute('height') || '0')
+      const renderHeight = window.innerHeight * 0.8
+      parent.style.maxWidth = `${Math.round((renderHeight / originalHeight) * Number.parseInt(img.getAttribute('width') || '0'))}px`
+    })
+  }).observe(document.body)
 </script>

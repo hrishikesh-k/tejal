@@ -21,15 +21,3 @@ export function findAsset(
     name: 'placeholder'
   }
 }
-
-export function setParentWidth(img: HTMLImageElement, parent: HTMLElement) {
-  if (window.innerWidth < 1024) {
-    parent.style.removeProperty('max-width')
-  } else {
-    const originalHeight = Number.parseInt(img.getAttribute('height') || '0')
-    const renderedHeight = Number.parseInt(
-      getComputedStyle(img).height.slice(0, -2)
-    )
-    parent.style.maxWidth = `${Math.round((renderedHeight / originalHeight) * Number.parseInt(img.getAttribute('width') || '0'))}px`
-  }
-}
