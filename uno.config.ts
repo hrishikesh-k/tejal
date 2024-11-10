@@ -697,6 +697,12 @@ export default defineConfig({
           }
         ],
         [
+          'm-b-6',
+          {
+            'margin-bottom': '1.5rem'
+          }
+        ],
+        [
           'm-b-9',
           {
             'margin-bottom': '2.25rem'
@@ -718,6 +724,12 @@ export default defineConfig({
           'm-t-6',
           {
             'margin-top': '1.5rem'
+          }
+        ],
+        [
+          'm-t-12',
+          {
+            'margin-top': '3rem'
           }
         ],
         [

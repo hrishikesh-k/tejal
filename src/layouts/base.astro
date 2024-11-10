@@ -8,18 +8,18 @@ interface Props {
 }
 
 const title =
-  Astro.url.pathname === '/'
+  Astro.url.pathname === '/index.html'
     ? Astro.props.title
     : `${Astro.props.title} | Tejal Shinde`
 ---
 
-<html class="h-0 min-h-full w-full" lang="en">
+<html class="min-h-full w-full" lang="en">
   <head>
     <meta charset="utf-8"/>
     <meta content="initial-scale=1, width=device-width" name="viewport">
     <title>{title}</title>
   </head>
-  <body class="bg-light-500 dark:bg-dark-500 box-border font-montserrat h-0 m-0 min-h-full text-dark-500 dark:text-light-500 w-full">
+  <body class="bg-light-500 dark:bg-dark-500 box-border font-montserrat m-0 min-h-full text-dark-500 dark:text-light-500 w-full">
     <header class="bg-light-500 dark:bg-dark-500 border-0 border-b-0.25 border-gray-300 dark:border-gray-500 border-solid box-border h-24 left-0 p-x-6 lg:p-x-32 md:p-x-16 pos-fixed top-0 w-full z-1">
       <div class="flex h-full items-center justify-between max-w-300 m-x-auto">
         <a class="decoration-none flex gap-x-3 items-center text-current" href="/">
@@ -36,5 +36,6 @@ const title =
         <slot/>
       </div>
     </main>
+  <footer class="m-b-6 m-t-12 text-center">&copy; 2024 Tejal Shinde</footer>
   </body>
 </html>

@@ -52,9 +52,17 @@ import Base from '~/layouts/base.astro'
 
 <script>
   const img = document.querySelector('img[alt="Tejal Shinde"]') as HTMLImageElement
-  const originalHeight = parseInt(img.getAttribute('height') || '0')
-  const parentDiv = (img.parentElement as HTMLPictureElement).parentElement as HTMLDivElement
-  const renderedHeight = parseInt(getComputedStyle(img).height.slice(0, -2))
-  const outputWidth = `${Math.round((renderedHeight / originalHeight) * parseInt(img.getAttribute('width') || '0'))}px`
-  parentDiv.style.maxWidth = outputWidth
+  function setParentWidth() {
+    const parentDiv = (img.parentElement as HTMLPictureElement).parentElement as HTMLDivElement
+    if (window.innerWidth < 1024) {
+      parentDiv.style.removeProperty('max-width')
+    } else {
+      const originalHeight = parseInt(img.getAttribute('height') || '0')
+      const renderedHeight = parseInt(getComputedStyle(img).height.slice(0, -2))
+      parentDiv.style.maxWidth = `${Math.round((renderedHeight / originalHeight) * parseInt(img.getAttribute('width') || '0'))}px`
+    }
+  }
+  new ResizeObserver(() => {
+    setParentWidth()
+  }).observe(img)
 </script>
