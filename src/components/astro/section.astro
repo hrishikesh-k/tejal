@@ -17,10 +17,7 @@ interface Props {
   title: string
 }
 
-const {
-  posts = [],
-  title
-} = Astro.props
+const { posts = [], title } = Astro.props
 
 const collection = title.toLowerCase()
 ---

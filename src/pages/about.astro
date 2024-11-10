@@ -54,7 +54,7 @@ import Base from '~/layouts/base.astro'
   const img = document.querySelector('img[alt="Tejal Shinde"]') as HTMLImageElement
   const originalHeight = parseInt(img.getAttribute('height') || '0')
   const parentDiv = (img.parentElement as HTMLPictureElement).parentElement as HTMLDivElement
-  const renderedHeight = parseInt(window.getComputedStyle(img).height.slice(0, -2))
-  const outputWidth = `${(renderedHeight / originalHeight) * parseInt(img.getAttribute('width') || '0')}px`
+  const renderedHeight = parseInt(getComputedStyle(img).height.slice(0, -2))
+  const outputWidth = `${Math.round((renderedHeight / originalHeight) * parseInt(img.getAttribute('width') || '0'))}px`
   parentDiv.style.maxWidth = outputWidth
 </script>
