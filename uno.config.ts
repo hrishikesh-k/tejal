@@ -234,9 +234,21 @@ export default defineConfig({
           }
         ],
         [
+          'text-dark-700',
+          {
+            color: '#1b1b1b'
+          }
+        ],
+        [
           'text-light-500',
           {
             color: '#f2f2f2'
+          }
+        ],
+        [
+          'text-light-700',
+          {
+            color: '#e9ecef'
           }
         ]
       ]
@@ -266,6 +278,12 @@ export default defineConfig({
           'gap-x-4',
           {
             'column-gap': '1rem'
+          }
+        ],
+        [
+          'gap-x-6',
+          {
+            'column-gap': '1.5rem'
           }
         ]
       ]
@@ -416,6 +434,12 @@ export default defineConfig({
       name: 'flex-wrap',
       rules: [
         [
+          'flex-nowrap',
+          {
+            'flex-wrap': 'nowrap'
+          }
+        ],
+        [
           'flex-wrap',
           {
             'flex-wrap': 'wrap'
@@ -484,6 +508,18 @@ export default defineConfig({
       name: 'gap',
       rules: [
         [
+          'gap-3',
+          {
+            gap: '0.75rem'
+          }
+        ],
+        [
+          'gap-6',
+          {
+            gap: '1.5rem'
+          }
+        ],
+        [
           'gap-9',
           {
             gap: '2.25rem'
@@ -548,21 +584,27 @@ export default defineConfig({
       name: 'height',
       rules: [
         [
-          'h-0',
-          {
-            height: '0'
-          }
-        ],
-        [
           'h-0.5',
           {
             height: '0.125rem'
           }
         ],
         [
+          'h-20',
+          {
+            height: '5rem'
+          }
+        ],
+        [
           'h-24',
           {
             height: '6rem'
+          }
+        ],
+        [
+          'h-30',
+          {
+            height: '7.5rem'
           }
         ],
         [
@@ -604,6 +646,12 @@ export default defineConfig({
           'justify-center',
           {
             'justify-content': 'center'
+          }
+        ],
+        [
+          'justify-end',
+          {
+            'justify-content': 'flex-end'
           }
         ]
       ]
@@ -835,6 +883,12 @@ export default defineConfig({
           }
         ],
         [
+          'p-l-6',
+          {
+            'padding-left': '1.5rem'
+          }
+        ],
+        [
           'p-t-36',
           {
             'padding-top': '9rem'
@@ -923,6 +977,12 @@ export default defineConfig({
     {
       name: 'row-gap',
       rules: [
+        [
+          'gap-y-3',
+          {
+            'row-gap': '0.75rem'
+          }
+        ],
         [
           'gap-y-6',
           {

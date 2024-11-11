@@ -16,13 +16,14 @@ const seoTitle = Astro.url.pathname.match(/^\/(?:index\.html)?$/)
   : `${title} | Tejal Shinde`
 
 const urlRegex = Astro.url.pathname.toLowerCase().match(
-  /* test: https://regex101.com/r/ehn1W1/1 */
-  /^\/work\/(?<collection>advertising|fashion|presentations)\/(?:index\.html)?|(?<slug>[a-z-]*)\/(?:index\.html)?$/
+  /* test: https://regex101.com/r/sRIZBv/1 */
+  /^\/work\/(?<collection>advertising|fashion|presentations)\/(?:(?:index\.html)?|(?<slug>[a-z-]*)\/(?:index\.html)?)$/
 )
 
 const isCollectionPage = Boolean(
   urlRegex?.groups?.['collection'] && !urlRegex.groups['slug']
 )
+
 const isProjectPage = Boolean(urlRegex?.groups?.['slug'])
 ---
 
