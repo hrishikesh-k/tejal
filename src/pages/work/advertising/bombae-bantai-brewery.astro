@@ -6,9 +6,25 @@ import { findAsset } from '~/utils/functions.ts'
 
 const post = await getEntry('advertising', 'bombae-bantai-brewery')
 
+const mockup1 = findAsset(post, 'mockup-1')
+const mockup2 = findAsset(post, 'mockup-2')
 const mockup3 = findAsset(post, 'mockup-3')
+const mockup4 = findAsset(post, 'mockup-4')
+const mockup5 = findAsset(post, 'mockup-5')
+const mockup6 = findAsset(post, 'mockup-6')
+const mockup7 = findAsset(post, 'mockup-7')
+const mockup8 = findAsset(post, 'mockup-8')
 ---
 
 <Base description={post.data.description} subtitle={post.data.subtitle as string} title={post.data.title}>
-  <Picture alt={mockup3.alt} height={mockup3.img.height} rounded src={mockup3.img.src} width={mockup3.img.width}/>
+  <div class="flex flex-col gap-y-6 items-center">
+    <Picture alt={mockup3.alt} height={mockup3.img.height} rounded src={mockup3.img.src} width={mockup3.img.width}/>
+    <Picture alt={mockup2.alt} height={mockup2.img.height} rounded src={mockup2.img.src} width={mockup2.img.width}/>
+    <Picture alt={mockup5.alt} height={mockup5.img.height} rounded src={mockup5.img.src} width={mockup5.img.width}/>
+    <Picture alt={mockup1.alt} height={mockup1.img.height} rounded src={mockup1.img.src} width={mockup1.img.width}/>
+    <Picture alt={mockup4.alt} height={mockup4.img.height} rounded src={mockup4.img.src} width={mockup4.img.width}/>
+    <Picture alt={mockup6.alt} height={mockup6.img.height} rounded src={mockup6.img.src} width={mockup6.img.width}/>
+    <Picture alt={mockup7.alt} height={mockup7.img.height} rounded src={mockup7.img.src} width={mockup7.img.width}/>
+    <Picture alt={mockup8.alt} height={mockup8.img.height} rounded src={mockup8.img.src} width={mockup8.img.width}/>
+  </div>
 </Base>

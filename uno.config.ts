@@ -921,6 +921,17 @@ export default defineConfig({
       ]
     },
     {
+      name: 'row-gap',
+      rules: [
+        [
+          'gap-y-6',
+          {
+            'row-gap': '1.5rem'
+          }
+        ]
+      ]
+    },
+    {
       name: 'text-align',
       rules: [
         [

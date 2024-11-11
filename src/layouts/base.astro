@@ -15,11 +15,11 @@ const seoTitle = Astro.url.pathname.match(/^\/(?:index\.html)?$/)
   ? title
   : `${title} | Tejal Shinde`
 
-const urlRegex = Astro.url.pathname
-  .toLowerCase()
-  .match(
-    /^\/work\/(?<collection>advertising|fashion|presentations)\/(?:(?:index\.html)?|(?<slug>[a-z-]*)?\/)$/
-  )
+const urlRegex = Astro.url.pathname.toLowerCase().match(
+  /* test: https://regex101.com/r/ehn1W1/1 */
+  /^\/work\/(?<collection>advertising|fashion|presentations)\/(?:index\.html)?|(?<slug>[a-z-]*)\/(?:index\.html)?$/
+)
+
 const isCollectionPage = Boolean(
   urlRegex?.groups?.['collection'] && !urlRegex.groups['slug']
 )
@@ -71,7 +71,7 @@ const isProjectPage = Boolean(urlRegex?.groups?.['slug'])
 
   new ResizeObserver(() => {
     imgToResize.forEach((img) => {
-      const parentLevel = parseInt(img.getAttribute('data-ro-parent') || '1')
+      const parentLevel = Number.parseInt(img.getAttribute('data-ro-parent') || '1')
       let parent = img as HTMLElement
       for (let i = 0; i < parentLevel; i++) {
         parent = parent.parentElement as HTMLElement
