@@ -16,8 +16,8 @@
       "npm:jose@5.9.6": "npm:jose@5.9.6",
       "npm:netlify-cli@17.37.2": "npm:netlify-cli@17.37.2_@opentelemetry+api@1.8.0_inquirer@6.5.2_@netlify+blobs@8.1.0",
       "npm:sharp@0.33.5": "npm:sharp@0.33.5",
-      "npm:svelte-check@4.0.6": "npm:svelte-check@4.0.6_svelte@5.1.14__acorn@8.14.0_typescript@5.6.3",
-      "npm:svelte-language-server@0.17.4": "npm:svelte-language-server@0.17.4_prettier@3.3.3_svelte@4.2.19_typescript@5.6.3",
+      "npm:svelte-check@4.0.7": "npm:svelte-check@4.0.7_svelte@5.1.14__acorn@8.14.0_typescript@5.6.3",
+      "npm:svelte-language-server@0.17.5": "npm:svelte-language-server@0.17.5_prettier@3.3.3_svelte@4.2.19_typescript@5.6.3",
       "npm:svelte@5.1.14": "npm:svelte@5.1.14_acorn@8.14.0",
       "npm:typescript-svelte-plugin@0.3.43": "npm:typescript-svelte-plugin@0.3.43_svelte@5.1.14__acorn@8.14.0_typescript@5.6.3",
       "npm:typescript@5.6.3": "npm:typescript@5.6.3",
@@ -7372,8 +7372,8 @@
           "which-pm": "which-pm@3.0.0"
         }
       },
-      "prettier-plugin-svelte@3.2.7_prettier@3.3.3_svelte@4.2.19": {
-        "integrity": "sha512-/Dswx/ea0lV34If1eDcG3nulQ63YNr5KPDfMsjbdtpSWOxKKJ7nAc2qlVuYwEvCr4raIuredNoR7K4JCkmTGaQ==",
+      "prettier-plugin-svelte@3.2.8_prettier@3.3.3_svelte@4.2.19": {
+        "integrity": "sha512-PAHmmU5cGZdnhW4mWhmvxuG2PVbbHIxUuPOdUKvfE+d4Qt2d29iU5VWrPdsaW5YqVEE0nqhlvN4eoKmVMpIF3Q==",
         "dependencies": {
           "prettier": "prettier@3.3.3",
           "svelte": "svelte@4.2.19"
@@ -8385,8 +8385,8 @@
         "integrity": "sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==",
         "dependencies": {}
       },
-      "svelte-check@4.0.6_svelte@5.1.14__acorn@8.14.0_typescript@5.6.3": {
-        "integrity": "sha512-2XwmQNJaKbenJbvu5at+DuRpvF4v73Zu7f0/WkMl1O7WDm/IfF+E13t8D0nnRiRcMsNYm9ufHyLwfeMEnebpdg==",
+      "svelte-check@4.0.7_svelte@5.1.14__acorn@8.14.0_typescript@5.6.3": {
+        "integrity": "sha512-24hwo+D5L35HOXsh3Z2sU4WhdDLavlHquYaJhrEqAt+mV1xOVzoMVYThW80n99osDJxyuH+vxjNFkNRL4EvwTg==",
         "dependencies": {
           "@jridgewell/trace-mapping": "@jridgewell/trace-mapping@0.3.25",
           "chokidar": "chokidar@4.0.1",
@@ -8403,8 +8403,8 @@
           "svelte": "svelte@4.2.19"
         }
       },
-      "svelte-language-server@0.17.4_prettier@3.3.3_svelte@4.2.19_typescript@5.6.3": {
-        "integrity": "sha512-aaEaUylLeYRuY7DgKejDGREMtfIRWkCsk5jUsop9sy2vG8/BRmwxIDX7QNw+ybVLMTDwAxtI3x2S2A6Ff7SIhA==",
+      "svelte-language-server@0.17.5_prettier@3.3.3_svelte@4.2.19_typescript@5.6.3": {
+        "integrity": "sha512-g+HekkZYqbShbL6FBqCWHl5oty8JF/7T3xl8NIld1FqSPu0wPgdKttlWcGjpmsgphMyqdwDGOsaNG3qfqjEb1g==",
         "dependencies": {
           "@jridgewell/trace-mapping": "@jridgewell/trace-mapping@0.3.25",
           "@vscode/emmet-helper": "@vscode/emmet-helper@2.8.4",
@@ -8414,7 +8414,7 @@
           "globrex": "globrex@0.1.2",
           "lodash": "lodash@4.17.21",
           "prettier": "prettier@3.3.3",
-          "prettier-plugin-svelte": "prettier-plugin-svelte@3.2.7_prettier@3.3.3_svelte@4.2.19",
+          "prettier-plugin-svelte": "prettier-plugin-svelte@3.2.8_prettier@3.3.3_svelte@4.2.19",
           "svelte": "svelte@4.2.19",
           "svelte2tsx": "svelte2tsx@0.7.23_svelte@4.2.19_typescript@5.6.3",
           "typescript": "typescript@5.6.3",
@@ -9667,8 +9667,8 @@
         "npm:hls.js@1.5.17",
         "npm:jose@5.9.6",
         "npm:netlify-cli@17.37.2",
-        "npm:svelte-check@4.0.6",
-        "npm:svelte-language-server@0.17.4",
+        "npm:svelte-check@4.0.7",
+        "npm:svelte-language-server@0.17.5",
         "npm:svelte@5.1.14",
         "npm:typescript-svelte-plugin@0.3.43",
         "npm:typescript@5.6.3",
