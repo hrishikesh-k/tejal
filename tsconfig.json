@@ -37,13 +37,9 @@
   },
   "include": [
     "./netlify/**/*.ts",
-    "./src/components/astro/*.astro",
-    "./src/components/svelte/*.svelte",
-    "./src/content/*.ts",
-    "./src/layouts/*.astro",
-    "./src/pages/**/*.astro",
-    "./src/utils/*.ts",
-    "./src/env.d.ts",
+    "./src/**/*.astro",
+    "./src/**/*.svelte",
+    "./src/**/*.ts",
     "./astro.config.ts",
     "./uno.config.ts"
   ]

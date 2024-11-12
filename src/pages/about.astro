@@ -1,11 +1,68 @@
 ---
 import about from '~/assets/about/about.jpg'
 import resume from '~/assets/about/resume.pdf?url'
-import vid1Poster from '~/assets/about/video-1-poster.jpg'
+import vid1Manifest from '~/assets/about/video-1/manifest.m3u8?raw'
+import vid1Poster from '~/assets/about/video-1/poster.jpg'
+import vid1ThumbsJpg from '~/assets/about/video-1/thumbs.jpg'
+import vid1ThumbsVtt from '~/assets/about/video-1/thumbs.vtt?raw'
 import Picture from '~/components/astro/picture.astro'
 import Tooltip from '~/components/svelte/tooltip.svelte'
 import Video from '~/components/svelte/video.svelte'
 import Base from '~/layouts/base.astro'
+
+const vid1Segments144p = import.meta.glob<string>(
+  '~/assets/about/video-1/144p/*.m3u8seg',
+  {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  }
+)
+
+const vid1Segments240p = import.meta.glob<string>(
+  '~/assets/about/video-1/240p/*.m3u8seg',
+  {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  }
+)
+
+const vid1Segments360p = import.meta.glob<string>(
+  '~/assets/about/video-1/360p/*.m3u8seg',
+  {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  }
+)
+
+const vid1Segments480p = import.meta.glob<string>(
+  '~/assets/about/video-1/480p/*.m3u8seg',
+  {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  }
+)
+
+const vid1Segments720p = import.meta.glob<string>(
+  '~/assets/about/video-1/720p/*.m3u8seg',
+  {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  }
+)
+
+const vid1Segments1080p = import.meta.glob<string>(
+  '~/assets/about/video-1/1080p/*.m3u8seg',
+  {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  }
+)
 ---
 
 <Base title="About">
@@ -15,7 +72,7 @@ import Base from '~/layouts/base.astro'
     </div>
     <div class="lg:flex-basis-0 lg:flex-grow-1 lg:flex-shrink-1">
       <h2 class="font-400 m-0 text-9 text-center uppercase">Tejal Shinde</h2>
-      <p class="leading-8 md:leading-5 xl:leading-8 m-0 m-b-9 m-t-6 text-justify">Art is not just what I do; it's who I am.<br/>My journey in advertising has been fueled by a passion for creativity and a commitment to addressing societal issues through impactful campaigns. With an academic background in advertising and a knack for problem-solving, I believe I bring a unique perspective to the table.<br/>I don't just think outside the box; I live outside it.<br/><br/>As the strongest believer in kindness, I prioritize compassion, empathy and respect in every aspect of my life. I firmly believe that kindness not only enriches relationships but also fosters positive environments where individuals can thrive. Whether in personal interactions or professional settings, I strive to embody kindness as a guiding principle, recognizing its power to create meaningful connections and contribute to a more harmonious world.</p>
+      <p class="leading-8 md:leading-5 xl:leading-8 m-0 m-b-9 m-t-6">Art is not just what I do; it's who I am.<br/>My journey in advertising has been fueled by a passion for creativity and a commitment to addressing societal issues through impactful campaigns. With an academic background in advertising and a knack for problem-solving, I believe I bring a unique perspective to the table.<br/>I don't just think outside the box; I live outside it.<br/><br/>As the strongest believer in kindness, I prioritize compassion, empathy and respect in every aspect of my life. I firmly believe that kindness not only enriches relationships but also fosters positive environments where individuals can thrive. Whether in personal interactions or professional settings, I strive to embody kindness as a guiding principle, recognizing its power to create meaningful connections and contribute to a more harmonious world.</p>
       <div class="flex gap-x-4 items-center justify-center">
         {
           [
@@ -54,5 +111,15 @@ import Base from '~/layouts/base.astro'
       </div>
     </div>
   </div>
-  <Video client:load poster={vid1Poster.src} src="/about/assets/video-1"/>
+  <Video client:load manifest={vid1Manifest} qualities={{
+    '144': Object.values(vid1Segments144p),
+    '240': Object.values(vid1Segments240p),
+    '360': Object.values(vid1Segments360p),
+    '480': Object.values(vid1Segments480p),
+    '720': Object.values(vid1Segments720p),
+    '1080': Object.values(vid1Segments1080p),
+  }} poster={vid1Poster.src} thumbs={{
+    src: vid1ThumbsJpg.src,
+    manifest: vid1ThumbsVtt
+  }}/>
 </Base>

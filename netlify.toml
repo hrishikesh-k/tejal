@@ -16,6 +16,11 @@
   [headers.values]
     cache-control = "immutable, max-age=31536000, public"
 
+[[headers]]
+  for = "/*.m3u8seg"
+  [headers.values]
+    content-type = "video/mp2t"
+
 [[redirects]]
   force = true
   from = "https://tejal-v8.netlify.app/*"

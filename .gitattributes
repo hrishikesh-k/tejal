@@ -8,11 +8,6 @@
 *.md eol=lf text
 *.svelte eol=lf text
 *.toml eol=lf text
+*.ts eol=lf text
 *.txt eol=lf text
 *.vtt eol=lf text
-astro.config.ts eol=lf text
-netlify/edge-functions/password.ts eol=lf text
-src/content/config.ts eol=lf text
-src/content/posts.ts eol=lf text
-src/env.d.ts eol=lf text
-uno.config.ts eol=lf text

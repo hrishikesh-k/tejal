@@ -1001,12 +1001,6 @@ export default defineConfig({
           }
         ],
         [
-          'text-justify',
-          {
-            'text-align': 'justify'
-          }
-        ],
-        [
           'text-right',
           {
             'text-align': 'right'
