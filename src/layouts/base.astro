@@ -16,12 +16,12 @@ const seoTitle = Astro.url.pathname.match(/^\/(?:index\.html)?$/)
   : `${title} | Tejal Shinde`
 
 const urlRegex = Astro.url.pathname.toLowerCase().match(
-  /* test: https://regex101.com/r/sRIZBv/1 */
-  /^\/work\/(?<collection>advertising|fashion|presentations)\/(?:(?:index\.html)?|(?<slug>[a-z-]*)\/(?:index\.html)?)$/
+  // test: https://regex101.com/r/l7i5OP/1
+  /^\/(?<menu>about|contact|work\/(?<section>advertising|fashion|presentations)(?:\/(?<project>[a-z-]+))?)\/(?:index\.html)?$/
 )
 
-const isCollectionPage = Boolean(
-  urlRegex?.groups?.['collection'] && !urlRegex.groups['slug']
+const isSectionPage = Boolean(
+  urlRegex?.groups?.['section'] && !urlRegex.groups['slug']
 )
 
 const isProjectPage = Boolean(urlRegex?.groups?.['slug'])
@@ -42,14 +42,14 @@ const isProjectPage = Boolean(urlRegex?.groups?.['slug'])
           <span class="hidden md:block uppercase">Tejal Shinde</span>
         </a>
         <div class="flex gap-x-3 items-center">
-          <Navigation client:load/>
+          <Navigation client:load menu={urlRegex?.groups?.['menu']} section={urlRegex?.groups?.['section']}/>
         </div>
       </div>
     </header>
     <main class="box-border p-t-36 p-x-6 lg:p-x-32 md:p-x-16 w-full">
       <div class="m-x-auto max-w-300">
         {
-          (isCollectionPage || isProjectPage) &&
+          (isSectionPage || isProjectPage) &&
           <h2 class="font-400 m-0 text-9 text-center uppercase" class:list={[{'m-b-6': !subtitle}]}>{title}</h2>
         }
         {
@@ -70,6 +70,7 @@ const isProjectPage = Boolean(urlRegex?.groups?.['slug'])
 <script>
   const imgToResize = document.querySelectorAll('picture > img')
 
+  // TODO: https://stackoverflow.com/questions/69196149/
   new ResizeObserver(() => {
     imgToResize.forEach((img) => {
       const parentLevel = Number.parseInt(img.getAttribute('data-ro-parent') || '1')
