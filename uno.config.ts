@@ -1191,6 +1191,12 @@ export default defineConfig({
       name: 'z-index',
       rules: [
         [
+          'z-1',
+          {
+            'z-index': '1'
+          }
+        ],
+        [
           'z-100',
           {
             'z-index': '100'
