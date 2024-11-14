@@ -1,0 +1,114 @@
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-TARGETDURATION:2
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-PLAYLIST-TYPE:VOD
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:2.000000,
+{{% segment %}}
+#EXTINF:1.866667,
+{{% segment %}}
+#EXT-X-ENDLIST
