@@ -1,7 +1,6 @@
 ---
 import about from '~/assets/about/about.jpg'
 import resume from '~/assets/about/resume.pdf?url'
-import vid1Manifest from '~/assets/about/video-1/manifest.m3u8?raw'
 import vid1Poster from '~/assets/about/video-1/poster.jpg'
 import vid1ThumbsJpg from '~/assets/about/video-1/thumbs.jpg'
 import vid1ThumbsVtt from '~/assets/about/video-1/thumbs.vtt?raw'
@@ -105,7 +104,7 @@ const vid1Segments1080p = Object.values(
       </div>
     </div>
   </div>
-  <Video client:load manifest={vid1Manifest} qualities={{
+  <Video client:load qualities={{
     '144': vid1Segments144p,
     '240': vid1Segments240p,
     '360': vid1Segments360p,

@@ -13,12 +13,10 @@ import 'vidstack/player/styles/default/theme.css'
 import 'vidstack/player/styles/default/layouts/video.css'
 
 let {
-  manifest,
   poster,
   qualities,
   thumbs
 }: {
-  manifest: string
   poster: string
   qualities: {
     [Key in '1080' | '720' | '480' | '360' | '240' | '144']: string[]
@@ -28,6 +26,14 @@ let {
     src: string
   }
 } = $props()
+
+if (
+  Object.values(qualities)
+    .map((quality) => quality.length)
+    .some((quality, _, qualityLengths) => quality !== qualityLengths[0])
+) {
+  throw new Error('some qualities have less segments than others')
+}
 
 const blobs: string[] = []
 
@@ -52,96 +58,29 @@ function onProviderChange(event: MediaProviderChangeEvent) {
 
 onMount(() => {
   if (player && videoLayout) {
-    const manifest144p = URL.createObjectURL(
-      new Blob(
-        [
-          manifest.replace(
-            /{{% segment %}}/g,
-            () => `${location.origin}${qualities['144'].shift()}`
-          )
-        ],
-        {
-          type: 'application/x-mpegurl'
-        }
-      )
-    )
+    const manifest =
+      '#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-TARGETDURATION:2\n#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-PLAYLIST-TYPE:VOD\n'
 
-    const manifest240p = URL.createObjectURL(
-      new Blob(
-        [
-          manifest.replace(
-            /{{% segment %}}/g,
-            () => `${location.origin}${qualities['240'].shift()}`
-          )
-        ],
-        {
-          type: 'application/x-mpegurl'
-        }
-      )
-    )
+    let newM3u8 = m3u8
 
-    const manifest360p = URL.createObjectURL(
-      new Blob(
-        [
-          manifest.replace(
-            /{{% segment %}}/g,
-            () => `${location.origin}${qualities['360'].shift()}`
-          )
-        ],
-        {
+    for (const quality of Object.keys(qualities)) {
+      const currentQuality = qualities[quality as keyof typeof qualities]
+      let qualityManifest = manifest
+      for (const src of currentQuality) {
+        qualityManifest += `#EXTINF:2.000000,\n${location.origin}${src}\n`
+      }
+      qualityManifest += '#EXT-X-ENDLIST\n'
+      qualityManifest = URL.createObjectURL(
+        new Blob([qualityManifest], {
           type: 'application/x-mpegurl'
-        }
+        })
       )
-    )
-
-    const manifest480p = URL.createObjectURL(
-      new Blob(
-        [
-          manifest.replace(
-            /{{% segment %}}/g,
-            () => `${location.origin}${qualities['480'].shift()}`
-          )
-        ],
-        {
-          type: 'application/x-mpegurl'
-        }
+      newM3u8 = newM3u8.replace(
+        new RegExp(`{{% ${quality}p %}}`),
+        qualityManifest
       )
-    )
-
-    const manifest720p = URL.createObjectURL(
-      new Blob(
-        [
-          manifest.replace(
-            /{{% segment %}}/g,
-            () => `${location.origin}${qualities['720'].shift()}`
-          )
-        ],
-        {
-          type: 'application/x-mpegurl'
-        }
-      )
-    )
-
-    const manifest1080p = URL.createObjectURL(
-      new Blob(
-        [
-          manifest.replace(
-            /{{% segment %}}/g,
-            () => `${location.origin}${qualities['1080'].shift()}`
-          )
-        ],
-        {
-          type: 'application/x-mpegurl'
-        }
-      )
-    )
-
-    let newM3u8 = m3u8.replace('{{% 144p %}}', manifest144p)
-    newM3u8 = newM3u8.replace('{{% 240p %}}', manifest240p)
-    newM3u8 = newM3u8.replace('{{% 360p %}}', manifest360p)
-    newM3u8 = newM3u8.replace('{{% 480p %}}', manifest480p)
-    newM3u8 = newM3u8.replace('{{% 720p %}}', manifest720p)
-    newM3u8 = newM3u8.replace('{{% 1080p %}}', manifest1080p)
+      blobs.push(qualityManifest)
+    }
 
     const newThumbs = URL.createObjectURL(
       new Blob(
@@ -163,12 +102,6 @@ onMount(() => {
       })
     )
 
-    blobs.push(manifest144p)
-    blobs.push(manifest240p)
-    blobs.push(manifest360p)
-    blobs.push(manifest480p)
-    blobs.push(manifest720p)
-    blobs.push(manifest1080p)
     blobs.push(newM3u8)
     blobs.push(newThumbs)
 
