@@ -4,14 +4,14 @@
     "specifiers": {
       "npm:@astrojs/check@0.9.4": "npm:@astrojs/check@0.9.4_typescript@5.6.3",
       "npm:@astrojs/language-server@2.15.4": "npm:@astrojs/language-server@2.15.4_typescript@5.6.3_@volar+language-service@2.4.8",
-      "npm:@astrojs/svelte@5.7.3": "npm:@astrojs/svelte@5.7.3_astro@4.16.11__@babel+core@7.26.0__typescript@5.6.3__@types+node@22.9.0__vite@5.4.10___@types+node@22.9.0__zod@3.23.8_svelte@5.1.16__acorn@8.14.0_typescript@5.6.3_@types+node@22.9.0",
+      "npm:@astrojs/svelte@5.7.3": "npm:@astrojs/svelte@5.7.3_astro@4.16.12__@babel+core@7.26.0__typescript@5.6.3__@types+node@22.9.0__vite@5.4.10___@types+node@22.9.0__zod@3.23.8_svelte@5.1.16__acorn@8.14.0_typescript@5.6.3_@types+node@22.9.0",
       "npm:@astrojs/ts-plugin@1.10.4": "npm:@astrojs/ts-plugin@1.10.4",
       "npm:@biomejs/biome@1.9.4": "npm:@biomejs/biome@1.9.4",
       "npm:@floating-ui/dom@1.6.12": "npm:@floating-ui/dom@1.6.12",
       "npm:@netlify/edge-functions@2.11.0": "npm:@netlify/edge-functions@2.11.0",
       "npm:@types/node@22.9.0": "npm:@types/node@22.9.0",
       "npm:@unocss/transformer-directives@0.64.0": "npm:@unocss/transformer-directives@0.64.0",
-      "npm:astro@4.16.11": "npm:astro@4.16.11_@babel+core@7.26.0_typescript@5.6.3_@types+node@22.9.0_vite@5.4.10__@types+node@22.9.0_zod@3.23.8",
+      "npm:astro@4.16.12": "npm:astro@4.16.12_@babel+core@7.26.0_typescript@5.6.3_@types+node@22.9.0_vite@5.4.10__@types+node@22.9.0_zod@3.23.8",
       "npm:hls.js@1.5.17": "npm:hls.js@1.5.17",
       "npm:jose@5.9.6": "npm:jose@5.9.6",
       "npm:netlify-cli@17.37.2": "npm:netlify-cli@17.37.2_@opentelemetry+api@1.8.0_inquirer@6.5.2_@netlify+blobs@8.1.0",
@@ -113,11 +113,11 @@
           "prismjs": "prismjs@1.29.0"
         }
       },
-      "@astrojs/svelte@5.7.3_astro@4.16.11__@babel+core@7.26.0__typescript@5.6.3__@types+node@22.9.0__vite@5.4.10___@types+node@22.9.0__zod@3.23.8_svelte@5.1.16__acorn@8.14.0_typescript@5.6.3_@types+node@22.9.0": {
+      "@astrojs/svelte@5.7.3_astro@4.16.12__@babel+core@7.26.0__typescript@5.6.3__@types+node@22.9.0__vite@5.4.10___@types+node@22.9.0__zod@3.23.8_svelte@5.1.16__acorn@8.14.0_typescript@5.6.3_@types+node@22.9.0": {
         "integrity": "sha512-0PAwn2KLVpGsJppG8dWM1P9+/VrjAdhMWgEgwC1PjY2xFG565bTw7OuGaS5zh5Fu4AcjVoBkVQKjW/N3mLnrJA==",
         "dependencies": {
           "@sveltejs/vite-plugin-svelte": "@sveltejs/vite-plugin-svelte@3.1.2_svelte@5.1.16__acorn@8.14.0_vite@5.4.10__@types+node@22.9.0_@types+node@22.9.0",
-          "astro": "astro@4.16.11_@babel+core@7.26.0_typescript@5.6.3_@types+node@22.9.0_vite@5.4.10__@types+node@22.9.0_zod@3.23.8",
+          "astro": "astro@4.16.12_@babel+core@7.26.0_typescript@5.6.3_@types+node@22.9.0_vite@5.4.10__@types+node@22.9.0_zod@3.23.8",
           "svelte": "svelte@5.1.16_acorn@8.14.0",
           "svelte2tsx": "svelte2tsx@0.7.23_svelte@5.1.16__acorn@8.14.0_typescript@5.6.3",
           "typescript": "typescript@5.6.3"
@@ -2683,8 +2683,8 @@
         "integrity": "sha512-JvqziE0Wc0rXQfma0HZC/aY7URXHFuZV84fJRtP8u+lhp0JYCNd5wJzVXP45t0PH0Mej3ynlzvdyITYIu0G4LQ==",
         "dependencies": {}
       },
-      "astro@4.16.11_@babel+core@7.26.0_typescript@5.6.3_@types+node@22.9.0_vite@5.4.10__@types+node@22.9.0_zod@3.23.8": {
-        "integrity": "sha512-Pm0ATut4f8kM2OKbSDbatO5Q/f2ynt1dbc5UGQN8I5bFnJvDbJj3R1NE513BOXXv4GQBKJZUshcZEMvlZpA61g==",
+      "astro@4.16.12_@babel+core@7.26.0_typescript@5.6.3_@types+node@22.9.0_vite@5.4.10__@types+node@22.9.0_zod@3.23.8": {
+        "integrity": "sha512-NnFeIKhGW6MdXCQT2hRariUwfxqJUIRs6qKqaovaQkTojzxh2r1L8C49qanKc+huH9wK2C94VZB2T/tosyRl1A==",
         "dependencies": {
           "@astrojs/compiler": "@astrojs/compiler@2.10.3",
           "@astrojs/internal-helpers": "@astrojs/internal-helpers@0.4.1",
@@ -2952,7 +2952,7 @@
         "integrity": "sha512-ZIc+Q62revdMcqC6aChtW4jz3My3klmCO1fEmINZY/8J3EpBg5/A/D0AKmBveUh6pgoeycoMkVMko84tuYS+Gg==",
         "dependencies": {
           "caniuse-lite": "caniuse-lite@1.0.30001680",
-          "electron-to-chromium": "electron-to-chromium@1.5.57",
+          "electron-to-chromium": "electron-to-chromium@1.5.58",
           "node-releases": "node-releases@2.0.18",
           "update-browserslist-db": "update-browserslist-db@1.1.1_browserslist@4.24.2"
         }
@@ -3833,8 +3833,8 @@
         "integrity": "sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==",
         "dependencies": {}
       },
-      "electron-to-chromium@1.5.57": {
-        "integrity": "sha512-xS65H/tqgOwUBa5UmOuNSLuslDo7zho0y/lgQw35pnrqiZh7UOWHCeL/Bt6noJATbA6tpQJGCifsFsIRZj1Fqg==",
+      "electron-to-chromium@1.5.58": {
+        "integrity": "sha512-al2l4r+24ZFL7WzyPTlyD0fC33LLzvxqLCwurtBibVPghRGO9hSTl+tis8t1kD7biPiH/en4U0I7o/nQbYeoVA==",
         "dependencies": {}
       },
       "emmet@2.4.11": {
@@ -9662,7 +9662,7 @@
         "npm:@netlify/edge-functions@2.11.0",
         "npm:@types/node@22.9.0",
         "npm:@unocss/transformer-directives@0.64.0",
-        "npm:astro@4.16.11",
+        "npm:astro@4.16.12",
         "npm:hls.js@1.5.17",
         "npm:jose@5.9.6",
         "npm:netlify-cli@17.37.2",

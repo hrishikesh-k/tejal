@@ -1,10 +1,73 @@
 ---
 import { getEntry } from 'astro:content'
+import vid1Manifest from '~/assets/global-wellness/video-1/manifest.m3u8?raw'
+import vid1Poster from '~/assets/global-wellness/video-1/poster.jpg'
+import vid1ThumbsJpg from '~/assets/global-wellness/video-1/thumbs.jpg'
+import vid1ThumbsVtt from '~/assets/global-wellness/video-1/thumbs.vtt?raw'
+import Video from '~/components/svelte/video.svelte'
 import Base from '~/layouts/base.astro'
 
 const post = await getEntry('advertising', 'global-wellness')
+
+const vid1Segments144p = Object.values(
+  import.meta.glob<string>('~/assets/global-wellness/video-1/144p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments240p = Object.values(
+  import.meta.glob<string>('~/assets/global-wellness/video-1/240p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments360p = Object.values(
+  import.meta.glob<string>('~/assets/global-wellness/video-1/360p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments480p = Object.values(
+  import.meta.glob<string>('~/assets/global-wellness/video-1/480p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments720p = Object.values(
+  import.meta.glob<string>('~/assets/global-wellness/video-1/720p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments1080p = Object.values(
+  import.meta.glob<string>('~/assets/global-wellness/video-1/1080p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
 ---
 
 <Base description={post.data.description} subtitle={post.data.subtitle as string} title={post.data.title}>
-
+  <Video client:load manifest={vid1Manifest} qualities={{
+    '144': vid1Segments144p,
+    '240': vid1Segments240p,
+    '360': vid1Segments360p,
+    '480': vid1Segments480p,
+    '720': vid1Segments720p,
+    '1080': vid1Segments1080p,
+  }} poster={vid1Poster.src} thumbs={{
+    src: vid1ThumbsJpg.src,
+    manifest: vid1ThumbsVtt
+  }}/>
 </Base>
