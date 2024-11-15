@@ -6,10 +6,10 @@ import vid1ThumbsVtt from '~/assets/global-wellness/video-1/thumbs.vtt?raw'
 import vid2Poster from '~/assets/global-wellness/video-2/poster.jpg'
 import vid2ThumbsJpg from '~/assets/global-wellness/video-2/thumbs.jpg'
 import vid2ThumbsVtt from '~/assets/global-wellness/video-2/thumbs.vtt?raw'
+import Picture from '~/components/astro/picture.astro'
 import Video from '~/components/svelte/video.svelte'
 import Base from '~/layouts/base.astro'
-import Picture from '~/components/astro/picture.astro'
-import {findAsset} from '~/utils/functions.ts'
+import { findAsset } from '~/utils/functions.ts'
 
 const post = await getEntry('advertising', 'global-wellness')
 
@@ -21,7 +21,7 @@ const mockups = [
   findAsset(post, 'mockup-7'),
   findAsset(post, 'mockup-5'),
   findAsset(post, 'mockup-4'),
-  findAsset(post, 'mockup-6'),
+  findAsset(post, 'mockup-6')
 ]
 
 const vid1Segments144p = Object.values(
