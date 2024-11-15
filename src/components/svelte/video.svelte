@@ -27,14 +27,6 @@ let {
   }
 } = $props()
 
-if (
-  Object.values(qualities)
-    .map((quality) => quality.length)
-    .some((quality, _, qualityLengths) => quality !== qualityLengths[0])
-) {
-  throw new Error('some qualities have less segments than others')
-}
-
 const blobs: string[] = []
 
 const m3u8 =

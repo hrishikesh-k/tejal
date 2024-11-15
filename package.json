@@ -23,7 +23,7 @@
     "hls.js": "1.5.17",
     "jose": "5.9.6",
     "netlify-cli": "17.37.2",
-    "svelte": "5.1.16",
+    "svelte": "5.2.0",
     "svelte-check": "4.0.7",
     "svelte-language-server": "0.17.5",
     "typescript": "5.6.3",

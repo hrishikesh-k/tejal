@@ -786,6 +786,13 @@ export default defineConfig({
             'margin-left': 'auto',
             'margin-right': 'auto'
           }
+        ],
+        [
+          'm-y-6',
+          {
+            'margin-bottom': '1.5rem',
+            'margin-top': '1.5rem'
+          }
         ]
       ]
     },
