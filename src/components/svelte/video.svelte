@@ -13,10 +13,12 @@ import 'vidstack/player/styles/default/theme.css'
 import 'vidstack/player/styles/default/layouts/video.css'
 
 let {
+  m3u8 = '#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-STREAM-INF:BANDWIDTH=2780800,RESOLUTION=1920x1080,CODECS="avc1.640028,mp4a.40.2"\n{{% 1080p %}}\n\n#EXT-X-STREAM-INF:BANDWIDTH=2415600,RESOLUTION=1280x720,CODECS="avc1.64001f,mp4a.40.2"\n{{% 720p %}}\n\n#EXT-X-STREAM-INF:BANDWIDTH=2068000,RESOLUTION=854x480,CODECS="avc1.64001f,mp4a.40.2"\n{{% 480p %}}\n\n#EXT-X-STREAM-INF:BANDWIDTH=1720400,RESOLUTION=640x360,CODECS="avc1.64001e,mp4a.40.2"\n{{% 360p %}}\n\n#EXT-X-STREAM-INF:BANDWIDTH=1372800,RESOLUTION=426x240,CODECS="avc1.640015,mp4a.40.2"\n{{% 240p %}}\n\n#EXT-X-STREAM-INF:BANDWIDTH=1025200,RESOLUTION=256x144,CODECS="avc1.64000d,mp4a.40.2"\n{{% 144p %}}\n',
   poster,
   qualities,
   thumbs
 }: {
+  m3u8?: string
   poster: string
   qualities: {
     [Key in '1080' | '720' | '480' | '360' | '240' | '144']: string[]
@@ -28,9 +30,6 @@ let {
 } = $props()
 
 const blobs: string[] = []
-
-const m3u8 =
-  '#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-STREAM-INF:BANDWIDTH=2780800,RESOLUTION=1920x1080,CODECS="avc1.640028,mp4a.40.2"\n{{% 1080p %}}\n\n#EXT-X-STREAM-INF:BANDWIDTH=2415600,RESOLUTION=1280x720,CODECS="avc1.64001f,mp4a.40.2"\n{{% 720p %}}\n\n#EXT-X-STREAM-INF:BANDWIDTH=2068000,RESOLUTION=854x480,CODECS="avc1.64001f,mp4a.40.2"\n{{% 480p %}}\n\n#EXT-X-STREAM-INF:BANDWIDTH=1720400,RESOLUTION=640x360,CODECS="avc1.64001e,mp4a.40.2"\n{{% 360p %}}\n\n#EXT-X-STREAM-INF:BANDWIDTH=1372800,RESOLUTION=426x240,CODECS="avc1.640015,mp4a.40.2"\n{{% 240p %}}\n\n#EXT-X-STREAM-INF:BANDWIDTH=1025200,RESOLUTION=256x144,CODECS="avc1.64000d,mp4a.40.2"\n{{% 144p %}}\n'
 
 let player: MediaPlayerElement | null = $state(null)
 let videoLayout: MediaVideoLayoutElement | null = $state(null)
