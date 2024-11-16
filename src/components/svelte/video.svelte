@@ -13,12 +13,11 @@ import 'vidstack/player/styles/default/theme.css'
 import 'vidstack/player/styles/default/layouts/video.css'
 
 let {
-  m3u8 = '#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-STREAM-INF:BANDWIDTH=2780800,RESOLUTION=1920x1080,CODECS="avc1.640028,mp4a.40.2"\n{{% 1080p %}}\n\n#EXT-X-STREAM-INF:BANDWIDTH=2415600,RESOLUTION=1280x720,CODECS="avc1.64001f,mp4a.40.2"\n{{% 720p %}}\n\n#EXT-X-STREAM-INF:BANDWIDTH=2068000,RESOLUTION=854x480,CODECS="avc1.64001f,mp4a.40.2"\n{{% 480p %}}\n\n#EXT-X-STREAM-INF:BANDWIDTH=1720400,RESOLUTION=640x360,CODECS="avc1.64001e,mp4a.40.2"\n{{% 360p %}}\n\n#EXT-X-STREAM-INF:BANDWIDTH=1372800,RESOLUTION=426x240,CODECS="avc1.640015,mp4a.40.2"\n{{% 240p %}}\n\n#EXT-X-STREAM-INF:BANDWIDTH=1025200,RESOLUTION=256x144,CODECS="avc1.64000d,mp4a.40.2"\n{{% 144p %}}\n',
   poster,
   qualities,
-  thumbs
+  thumbs,
+  vertical
 }: {
-  m3u8?: string
   poster: string
   qualities: {
     [Key in '1080' | '720' | '480' | '360' | '240' | '144']: string[]
@@ -27,9 +26,41 @@ let {
     manifest: string
     src: string
   }
+  vertical?: boolean
 } = $props()
 
 const blobs: string[] = []
+const horizontalDimensions = {
+  '1080': '1920x1080',
+  '720': '1280x720',
+  '480': '854x480',
+  '360': '640x360',
+  '240': '426x240',
+  '144': '256x144'
+}
+const verticalDimensions = {
+  '1080': '1080x1920',
+  '720': '720x1280',
+  '480': '480x854',
+  '360': '360x640',
+  '240': '240x426',
+  '144': '144x256'
+}
+
+let m3u8 = '#EXTM3U\n#EXT-X-VERSION:3\n'
+
+for (const quality in qualities) {
+  const qualityInQualities = quality as keyof typeof qualities
+  if (qualities[qualityInQualities].length > 0) {
+    m3u8 += '#EXT-X-STREAM-INF:BANDWIDTH=2780800,RESOLUTION='
+    if (vertical) {
+      m3u8 += verticalDimensions[qualityInQualities]
+    } else {
+      m3u8 += horizontalDimensions[qualityInQualities]
+    }
+    m3u8 += `,CODECS="avc1.640028,mp4a.40.2"\n{{% ${quality}p %}}\n\n`
+  }
+}
 
 let player: MediaPlayerElement | null = $state(null)
 let videoLayout: MediaVideoLayoutElement | null = $state(null)
@@ -101,12 +132,19 @@ onMount(() => {
       type: 'application/x-mpegurl'
     }
 
+    if (window.re) {
+      window.re()
+    }
+
     videoLayout.thumbnails = newThumbs
+
+    // TODO: Generate thumbs on the fly
+    // TODO: Set vertical quality indicator correctly
   }
 })
 </script>
 
-<media-player bind:this={player} onprovider-change={onProviderChange}>
+<media-player bind:this={player} onprovider-change={onProviderChange} style:aspect-ratio={vertical ? '9/16' : '16/9'}>
   <media-provider>
     <media-poster src="/.netlify/images?url={poster}&w=1920"></media-poster>
   </media-provider>

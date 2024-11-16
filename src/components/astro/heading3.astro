@@ -1,0 +1,8 @@
+---
+interface Props {
+  text: string
+}
+
+const { text } = Astro.props
+---
+<h3 id={text.toLowerCase().trim().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/--+/g, '-')} class="font-400 m-0 m-b-4 m-t-12 text-8">{text}</h3>

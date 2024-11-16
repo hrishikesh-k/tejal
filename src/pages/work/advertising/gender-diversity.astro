@@ -3,10 +3,33 @@ import { getEntry } from 'astro:content'
 import vid1Poster from '~/assets/gender-diversity/video-1/poster.jpg'
 import vid1ThumbsJpg from '~/assets/gender-diversity/video-1/thumbs.jpg'
 import vid1ThumbsVtt from '~/assets/gender-diversity/video-1/thumbs.vtt?raw'
+import vid2Poster from '~/assets/gender-diversity/video-2/poster.jpg'
+import vid2ThumbsJpg from '~/assets/gender-diversity/video-2/thumbs.jpg'
+import vid2ThumbsVtt from '~/assets/gender-diversity/video-2/thumbs.vtt?raw'
+import Heading3 from '~/components/astro/heading3.astro'
 import Video from '~/components/svelte/video.svelte'
 import Base from '~/layouts/base.astro'
+import { findAsset } from '~/utils/functions.ts'
+import Picture from '../../../components/astro/picture.astro'
 
 const post = await getEntry('advertising', 'gender-diversity')
+
+const awards = [findAsset(post, 'awards-1'), findAsset(post, 'awards-2')]
+
+const carProjection = findAsset(post, 'car-projection')
+
+const oohs = [
+  findAsset(post, 'ooh-1'),
+  findAsset(post, 'ooh-2'),
+  findAsset(post, 'ooh-3')
+]
+
+const posters = [
+  findAsset(post, 'poster-1'),
+  findAsset(post, 'poster-2'),
+  findAsset(post, 'poster-3'),
+  findAsset(post, 'poster-4')
+]
 
 const vid1Segments144p = Object.values(
   import.meta.glob<string>('~/assets/gender-diversity/video-1/144p/*.m3u8seg', {
@@ -58,6 +81,38 @@ const vid1Segments1080p = Object.values(
     }
   )
 )
+
+const vid2Segments144p = Object.values(
+  import.meta.glob<string>('~/assets/gender-diversity/video-2/144p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid2Segments240p = Object.values(
+  import.meta.glob<string>('~/assets/gender-diversity/video-2/240p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid2Segments360p = Object.values(
+  import.meta.glob<string>('~/assets/gender-diversity/video-2/360p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid2Segments480p = Object.values(
+  import.meta.glob<string>('~/assets/gender-diversity/video-2/480p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
 ---
 
 <Base description={post.data.description} subtitle={post.data.subtitle as string} title={post.data.title}>
@@ -72,4 +127,38 @@ const vid1Segments1080p = Object.values(
     src: vid1ThumbsJpg.src,
     manifest: vid1ThumbsVtt
   }}/>
+  <Heading3 text="Posters"/>
+  <div class="flex flex-col gap-y-6 items-center">
+    {
+      posters.map((poster) => <Picture alt={poster.alt} height={poster.img.height} rounded src={poster.img.src} width={poster.img.width}/>)
+    }
+  </div>
+  <Heading3 text="Awards"/>
+  <div class="flex flex-col gap-y-6 items-center">
+    {
+      awards.map((award) => <Picture alt={award.alt} height={award.img.height} rounded src={award.img.src} width={award.img.width}/>)
+    }
+  </div>
+  <Heading3 text="Outdoor"/>
+  <div class="flex flex-col gap-y-6 items-center">
+    {
+      oohs.map((ooh) => <Picture alt={ooh.alt} height={ooh.img.height} rounded src={ooh.img.src} width={ooh.img.width}/>)
+    }
+  </div>
+  <Heading3 text="Car Projection"/>
+  <div class="flex flex-col items-center">
+    <Picture alt={carProjection.alt} height={carProjection.img.height} rounded src={carProjection.img.src} width={carProjection.img.width}/>
+  </div>
+  <Heading3 text="Instagram"/>
+  <div class="flex flex-col items-center">
+    <Video client:load qualities={{
+      '144': vid2Segments144p,
+      '240': vid2Segments240p,
+      '360': vid2Segments360p,
+      '480': vid2Segments480p
+    }} poster={vid2Poster.src} thumbs={{
+      src: vid2ThumbsJpg.src,
+      manifest: vid2ThumbsVtt
+    }} vertical/>
+  </div>
 </Base>
