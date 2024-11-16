@@ -1,0 +1,36 @@
+---
+import { getEntry } from 'astro:content'
+import Heading3 from '~/components/astro/heading3.astro'
+import Picture from '~/components/astro/picture.astro'
+import Swiper from '~/components/svelte/swiper.svelte'
+import Base from '~/layouts/base.astro'
+import { findAsset } from '~/utils/functions.ts'
+
+const post = await getEntry('advertising', 'weco')
+
+const facebooks = [
+  findAsset(post, 'facebook-1'),
+  findAsset(post, 'facebook-2'),
+  findAsset(post, 'facebook-3'),
+  findAsset(post, 'facebook-4'),
+  findAsset(post, 'facebook-5'),
+  findAsset(post, 'facebook-6'),
+  findAsset(post, 'facebook-7'),
+  findAsset(post, 'facebook-8'),
+  findAsset(post, 'facebook-9'),
+  findAsset(post, 'facebook-10')
+]
+---
+
+<Base description={post.data.description} title={post.data.title}>
+  <Heading3 text="Facebook / Instagram"/>
+  <Swiper client:load>
+    {
+      facebooks.map(facebook => (
+        <swiper-slide>
+          <Picture alt={facebook.alt} height={facebook.img.height} rounded src={facebook.img.src} width={facebook.img.width}/>
+        </swiper-slide>
+      ))
+    }
+  </Swiper>
+</Base>
