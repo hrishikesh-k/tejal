@@ -1,7 +1,7 @@
 <script lang="ts">
 import { type Snippet, onMount } from 'svelte'
 import type { SwiperContainer } from 'swiper/element'
-import { register } from 'swiper/element/bundle'
+import { register } from 'swiper/element'
 import { Autoplay, Navigation } from 'swiper/modules'
 import type { SwiperOptions } from 'swiper/types'
 
