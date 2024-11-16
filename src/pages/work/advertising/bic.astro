@@ -1,0 +1,40 @@
+---
+import { getEntry } from 'astro:content'
+import Picture from '~/components/astro/picture.astro'
+import Base from '~/layouts/base.astro'
+import { findAsset } from '~/utils/functions.ts'
+
+const post = await getEntry('advertising', 'bic')
+
+const ambients = [findAsset(post, 'ambient-1'), findAsset(post, 'ambient-2')]
+
+const guerrillas = [
+  findAsset(post, 'guerrilla-1'),
+  findAsset(post, 'guerrilla-2')
+]
+
+const sabotages = [findAsset(post, 'sabotage-1'), findAsset(post, 'sabotage-2')]
+---
+
+<Base description={post.data.description} title={post.data.title}>
+  <p class="m-0 m-b-6">The strategy statement for ambient ads is: "Get anyone who is walking alone at night, to feel safe by providing light during the dark, because it highlights their way home." In an attempt to stop crime after darkness, the brand BIC highlighter wants to roll out an outdoor campaign which provides bright light on the street by highlighting safety issues.</p>
+  <div class="flex flex-col gap-y-6 items-center m-y-6">
+    {
+      ambients.map((ambient) => <Picture alt={ambient.alt} height={ambient.img.height} rounded src={ambient.img.src} width={ambient.img.width}/>)
+    }
+  </div>
+  <hr class="m-y-12"/>
+  <p class="m-0 m-b-6">The strategy statement for guerrilla ads is: "Get people to be aware of safety by making them see the necessary boundaries because making them alert should be highlighted." Establishing boundaries is good for one and the people around you. Boundaries are the guidelines that have been created, to manage your actions and interactions.</p>
+  <div class="flex flex-col gap-y-6 items-center m-y-6">
+    {
+      guerrillas.map((guerrilla) => <Picture alt={guerrilla.alt} height={guerrilla.img.height} rounded src={guerrilla.img.src} width={guerrilla.img.width}/>)
+    }
+  </div>
+  <hr class="m-y-12"/>
+  <p class="m-0 m-b-6">The strategy statement for sabotage ads is: "Get people to know about the nutritional facts by making the reality stand out because it will help consumers make healthy and informed choices." Advertising is littered with words like "nutritious", "healthy" and "goodness" – even when they're not – we're drawn into the illusion that we're making better choices.</p>
+  <div class="flex flex-col gap-y-6 items-center m-y-6">
+    {
+      sabotages.map((sabotage) => <Picture alt={sabotage.alt} height={sabotage.img.height} rounded src={sabotage.img.src} width={sabotage.img.width}/>)
+    }
+  </div>
+</Base>

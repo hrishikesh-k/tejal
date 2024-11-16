@@ -793,6 +793,13 @@ export default defineConfig({
             'margin-bottom': '1.5rem',
             'margin-top': '1.5rem'
           }
+        ],
+        [
+          'm-y-12',
+          {
+            'margin-bottom': '3rem',
+            'margin-top': '3rem'
+          }
         ]
       ]
     },
