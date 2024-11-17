@@ -51,7 +51,7 @@ onMount(() => {
         }
       },
       cardsEffect: {
-        slideShadows: false,
+        slideShadows: false
       },
       centeredSlides: effect === 'cards',
       effect,
