@@ -1,6 +1,15 @@
 ---
 assets:
   - alt: ""
+    img: "~/assets/weco/bag-1.jpg"
+    name: "bag-1"
+  - alt: ""
+    img: "~/assets/weco/bag-2.jpg"
+    name: "bag-2"
+  - alt: ""
+    img: "~/assets/weco/email.jpg"
+    name: "email"
+  - alt: ""
     img: "~/assets/weco/facebook-1.jpg"
     name: "facebook-1"
   - alt: ""

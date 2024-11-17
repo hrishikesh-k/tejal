@@ -1,12 +1,20 @@
 ---
 import { getEntry } from 'astro:content'
+import vid1Poster from '~/assets/weco/video-1/poster.jpg'
+import vid1ThumbsJpg from '~/assets/weco/video-1/thumbs.jpg'
+import vid1ThumbsVtt from '~/assets/weco/video-1/thumbs.vtt?raw'
 import Heading3 from '~/components/astro/heading3.astro'
 import Picture from '~/components/astro/picture.astro'
 import Swiper from '~/components/svelte/swiper.svelte'
+import Video from '~/components/svelte/video.svelte'
 import Base from '~/layouts/base.astro'
 import { findAsset } from '~/utils/functions.ts'
 
 const post = await getEntry('advertising', 'weco')
+
+const bags = [findAsset(post, 'bag-1'), findAsset(post, 'bag-2')]
+
+const email = findAsset(post, 'email')
 
 const facebooks = [
   findAsset(post, 'facebook-1'),
@@ -20,6 +28,54 @@ const facebooks = [
   findAsset(post, 'facebook-9'),
   findAsset(post, 'facebook-10')
 ]
+
+const vid1Segments144p = Object.values(
+  import.meta.glob<string>('~/assets/weco/video-1/144p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments240p = Object.values(
+  import.meta.glob<string>('~/assets/weco/video-1/240p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments360p = Object.values(
+  import.meta.glob<string>('~/assets/weco/video-1/360p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments480p = Object.values(
+  import.meta.glob<string>('~/assets/weco/video-1/480p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments720p = Object.values(
+  import.meta.glob<string>('~/assets/weco/video-1/720p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments1080p = Object.values(
+  import.meta.glob<string>('~/assets/weco/video-1/1080p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
 ---
 
 <Base description={post.data.description} title={post.data.title}>
@@ -33,4 +89,34 @@ const facebooks = [
       ))
     }
   </Swiper>
+  <div class="flex flex-wrap gap-6">
+    <div class="md:flex-basis-0 md:flex-grow-1 md:flex-shrink-1">
+      <Heading3 text="E-mail"/>
+        <div class="flex flex-col items-center">
+          <Picture alt={email.alt} height={email.img.height} rounded src={email.img.src} width={email.img.width}/>
+        </div>
+    </div>
+    <div class="md:flex-basis-0 md:flex-grow-1 md:flex-shrink-1">
+      <Heading3 text="Bag Stuffer"/>
+      <div class="flex flex-col gap-y-6 items-center">
+        {
+          bags.map((bag) => <Picture alt={bag.alt} height={bag.img.height} rounded src={bag.img.src} width={bag.img.width}/>)
+        }
+      </div>
+    </div>
+  </div>
+  <Heading3 text="Instagram"/>
+  <div class="flex flex-col items-center">
+    <Video client:load qualities={{
+      '144': vid1Segments144p,
+      '240': vid1Segments240p,
+      '360': vid1Segments360p,
+      '480': vid1Segments480p,
+      '720': vid1Segments720p,
+      '1080': vid1Segments1080p
+    }} poster={vid1Poster.src} thumbs={{
+      src: vid1ThumbsJpg.src,
+      manifest: vid1ThumbsVtt
+    }} vertical/>
+  </div>
 </Base>
