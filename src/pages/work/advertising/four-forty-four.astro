@@ -1,0 +1,61 @@
+---
+import { getEntry } from 'astro:content'
+import Heading3 from '~/components/astro/heading3.astro'
+import Picture from '~/components/astro/picture.astro'
+import Base from '~/layouts/base.astro'
+import { findAsset } from '~/utils/functions.ts'
+
+const post = await getEntry('advertising', 'four-forty-four')
+
+const allStar1 = findAsset(post, 'allstar-1')
+
+const allStars = [findAsset(post, 'allstar-2'), findAsset(post, 'allstar-3')]
+
+const durexs = [findAsset(post, 'durex-1'), findAsset(post, 'durex-2')]
+
+const hamiltons = [findAsset(post, 'hamilton-1'), findAsset(post, 'hamilton-2')]
+
+const hersheyss = [findAsset(post, 'hersheys-1'), findAsset(post, 'hersheys-2')]
+---
+
+<Base description={post.data.description} title={post.data.title}>
+  <Heading3 text="Hamilton Beach"/>
+  <p class="m-0 m-b-6">The campaign for the home appliances company Hamilton Beach's "Stack & Press Bowl Chopper" took a humorous approach by signifying the chopping of patriarchy. Atypical to the brand's advertising strategy, the objective for this campaign was to leave the audience with a dual message — a utilitarian one, and the other a social one.</p>
+  <div class="flex flex-col gap-y-6 items-center">
+    {
+      hamiltons.map((hamilton) => <Picture alt={hamilton.alt} height={hamilton.img.height} rounded src={hamilton.img.src} width={hamilton.img.width}/>)
+    }
+  </div>
+  <Heading3 text="Durex"/>
+  <p class="m-0 m-b-6">For world's leading sexual well-being brand, Durex, the objective was to produce quirky advertisements while still breaking the stigma and talking about underrepresented subjects. The first advertisement showcases that the brand caters to many a different sizes. The second advertisement talks about the importance of safe sex. The direction for this campaign was to indirectly portray both of the above mentioned messages in a manner that doesn't seem lewd.</p>
+  <div class="flex flex-col gap-y-6 items-center">
+    {
+      durexs.map((durex) => <Picture alt={durex.alt} height={durex.img.height} rounded src={durex.img.src} width={durex.img.width}/>)
+    }
+  </div>
+  <Heading3 text="Allstar"/>
+  <p class="m-0 m-b-6">Allstar, the fencing clothing, weapons, and installations brand is known for their high quality and steadily evolving nature. The campaign above shows Allstar products in a manner unconventional to the brand — a manner that shows their products in a real life setting. The campaign was almost like a testimonial for the values of innovation and performance the brand is known for.</p>
+  <div class="flex flex-col items-center m-b-6">
+    <Picture alt={allStar1.alt} height={allStar1.img.height} rounded src={allStar1.img.src} width={allStar1.img.width}/>
+  </div>
+  <div class="flex justify-center gap-x-6">
+    {
+      allStars.map((allStar) => (
+        <div style={`flex: calc(${allStar.img.width}/${allStar.img.height})`}>
+          <Picture alt={allStar.alt} height={allStar.img.height} parent={2} rounded src={allStar.img.src} width={allStar.img.width}/>
+        </div>
+      ))
+    }
+  </div>
+  <Heading3 text="Hershey's"/>
+  <p class="m-0 m-b-6">Hershey's' advertising strategy is traditionally focused on the emotional connection consumers have with the Hershey's brand as a whole. The vision behind this campaign was to stay on track with Hershey's actual advertising strategy but steering away from the usual imagery and videos. As such this campaign is in itself a pun for the "Hershey's Kisses" chocolate. Each kiss stain represents a different flavour of the chocolate. While a kiss stain intrinsically is a symbol of emotion and love, the usage of graphical illustrations is a step away from what Hershey's as a brand conventionally do.</p>
+  <div class="flex justify-center gap-x-6">
+    {
+      hersheyss.map((hersheys) => (
+        <div style={`flex: calc(${hersheys.img.width}/${hersheys.img.height})`}>
+          <Picture alt={hersheys.alt} height={hersheys.img.height} parent={2} rounded src={hersheys.img.src} width={hersheys.img.width}/>
+        </div>
+      ))
+    }
+  </div>
+</Base>
