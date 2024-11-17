@@ -4,6 +4,7 @@ import type { SwiperContainer } from 'swiper/element'
 import { register } from 'swiper/element'
 import { Autoplay, Navigation } from 'swiper/modules'
 import type { SwiperOptions } from 'swiper/types'
+import Icon from '~/components/svelte/icon.svelte'
 
 let {
   children
@@ -11,11 +12,24 @@ let {
   children: Snippet
 } = $props()
 
+const navButtonClass = [
+  'bg-transparent',
+  'block',
+  'border-0',
+  'cursor-pointer',
+  'outline-0',
+  'p-0',
+  'pos-absolute',
+  'text-current',
+  'top-1/2',
+  'transform translate-y--1/2'
+].join(' ')
+
 let swiperContainer: null | SwiperContainer = $state(null)
 
 onMount(() => {
   register()
-  if (swiperContainer) {
+  if (swiperContainer?.parentElement) {
     Object.assign(swiperContainer, {
       autoplay: {
         delay: 5000,
@@ -35,6 +49,14 @@ onMount(() => {
       },
       grabCursor: true,
       modules: [Autoplay, Navigation],
+      navigation: {
+        nextEl: swiperContainer.parentElement.querySelector(
+          'button:nth-child(2)'
+        ),
+        prevEl: swiperContainer.parentElement.querySelector(
+          'button:nth-child(1)'
+        )
+      },
       spaceBetween: 24,
       speed: 500
     } as SwiperOptions)
@@ -57,6 +79,14 @@ onMount(() => {
 })
 </script>
 
-<swiper-container bind:this={swiperContainer} init="false">
-  {@render children()}
-</swiper-container>
+<div class="pos-relative">
+  <button class="{navButtonClass} left-0">
+    <Icon name="circle-arrow-left"/>
+  </button>
+  <button class="{navButtonClass} right-0">
+    <Icon name="circle-arrow-right"/>
+  </button>
+  <swiper-container bind:this={swiperContainer} class="max-w-5/6 md:max-w-11/12" init="false">
+    {@render children()}
+  </swiper-container>
+</div>

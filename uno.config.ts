@@ -82,6 +82,12 @@ export default defineConfig({
           {
             'background-color': '#dde1e3'
           }
+        ],
+        [
+          'bg-transparent',
+          {
+            'background-color': 'transparent'
+          }
         ]
       ]
     },
@@ -722,6 +728,18 @@ export default defineConfig({
       name: 'max-width',
       rules: [
         [
+          'max-w-5/6',
+          {
+            'max-width': '83.33%'
+          }
+        ],
+        [
+          'max-w-11/12',
+          {
+            'max-width': '91.67%'
+          }
+        ],
+        [
           'max-w-300',
           {
             'max-width': '75rem'
@@ -884,6 +902,12 @@ export default defineConfig({
     {
       name: 'padding',
       rules: [
+        [
+          'p-0',
+          {
+            padding: '0'
+          }
+        ],
         [
           'p-2',
           {

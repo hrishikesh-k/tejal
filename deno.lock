@@ -15,7 +15,7 @@
       "npm:hls.js@1.5.17": "npm:hls.js@1.5.17",
       "npm:jose@5.9.6": "npm:jose@5.9.6",
       "npm:netlify-cli@17.37.2": "npm:netlify-cli@17.37.2_@opentelemetry+api@1.8.0_inquirer@6.5.2_@netlify+blobs@8.1.0",
-      "npm:svelte-check@4.0.8": "npm:svelte-check@4.0.8_svelte@5.2.2__acorn@8.14.0_typescript@5.6.3",
+      "npm:svelte-check@4.0.9": "npm:svelte-check@4.0.9_svelte@5.2.2__acorn@8.14.0_typescript@5.6.3",
       "npm:svelte-language-server@0.17.6": "npm:svelte-language-server@0.17.6_prettier@3.3.3_svelte@4.2.19_typescript@5.6.3",
       "npm:svelte@5.2.2": "npm:svelte@5.2.2_acorn@8.14.0",
       "npm:swiper@11.1.14": "npm:swiper@11.1.14",
@@ -8400,8 +8400,8 @@
         "integrity": "sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==",
         "dependencies": {}
       },
-      "svelte-check@4.0.8_svelte@5.2.2__acorn@8.14.0_typescript@5.6.3": {
-        "integrity": "sha512-nYxbPa0GJySVLhrplvpdGGdwst/7r/H9N991PVYk3BtSIuWBw5ihItHCDJu7hE1S0bPSRJ6IJ2yTCQeDUk0ZDg==",
+      "svelte-check@4.0.9_svelte@5.2.2__acorn@8.14.0_typescript@5.6.3": {
+        "integrity": "sha512-SVNCz2L+9ZELGli7G0n3B3QE5kdf0u27RtKr2ZivWQhcWIXatZxwM4VrQ6AiA2k9zKp2mk5AxkEhdjbpjv7rEw==",
         "dependencies": {
           "@jridgewell/trace-mapping": "@jridgewell/trace-mapping@0.3.25",
           "chokidar": "chokidar@4.0.1",
@@ -9674,7 +9674,7 @@
         "npm:hls.js@1.5.17",
         "npm:jose@5.9.6",
         "npm:netlify-cli@17.37.2",
-        "npm:svelte-check@4.0.8",
+        "npm:svelte-check@4.0.9",
         "npm:svelte-language-server@0.17.6",
         "npm:svelte@5.2.2",
         "npm:swiper@11.1.14",
