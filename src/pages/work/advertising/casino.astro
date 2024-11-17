@@ -1,0 +1,36 @@
+---
+import { getEntry } from 'astro:content'
+import Picture from '~/components/astro/picture.astro'
+import Base from '~/layouts/base.astro'
+import { findAsset } from '~/utils/functions.ts'
+
+const post = await getEntry('advertising', 'casino')
+
+const $7500 = findAsset(post, '$7500')
+const jerseySeasons = findAsset(post, 'jersey-seasons')
+const riversSwipeDine = findAsset(post, 'rivers-swipe-dine')
+const rushRewards = findAsset(post, 'rush-rewards')
+const taxDay = findAsset(post, 'tax-day')
+---
+
+<Base description={post.data.description} title={post.data.title}>
+  <div class="flex gap-x-6 justify-center m-b-6">
+    <div style={`flex: calc(${$7500.img.width}/${$7500.img.height})`}>
+      <Picture alt={$7500.alt} height={$7500.img.height} parent={2} rounded src={$7500.img.src} width={$7500.img.width}/>
+    </div>
+    <div style={`flex: calc(${jerseySeasons.img.width}/${jerseySeasons.img.height})`}>
+      <Picture alt={jerseySeasons.alt} height={jerseySeasons.img.height} parent={2} rounded src={jerseySeasons.img.src} width={jerseySeasons.img.width}/>
+    </div>
+  </div>
+  <div class="flex gap-x-6 justify-center m-b-6">
+    <div style={`flex: calc(${rushRewards.img.width}/${rushRewards.img.height})`}>
+      <Picture alt={rushRewards.alt} height={rushRewards.img.height} parent={2} rounded src={rushRewards.img.src} width={rushRewards.img.width}/>
+    </div>
+    <div style={`flex: calc(${riversSwipeDine.img.width}/${riversSwipeDine.img.height})`}>
+      <Picture alt={riversSwipeDine.alt} height={riversSwipeDine.img.height} parent={2} rounded src={riversSwipeDine.img.src} width={riversSwipeDine.img.width}/>
+    </div>
+  </div>
+  <div class="flex flex-col items-center">
+    <Picture alt={taxDay.alt} height={taxDay.img.height} rounded src={taxDay.img.src} width={taxDay.img.width}/>
+  </div>
+</Base>
