@@ -2,14 +2,17 @@
 import { type Snippet, onMount } from 'svelte'
 import type { SwiperContainer } from 'swiper/element'
 import { register } from 'swiper/element'
-import { Autoplay, Navigation } from 'swiper/modules'
+import { Autoplay, EffectCards, Navigation } from 'swiper/modules'
 import type { SwiperOptions } from 'swiper/types'
 import Icon from '~/components/svelte/icon.svelte'
+import 'swiper/element/css/effect-cards'
 
 let {
-  children
+  children,
+  effect
 }: {
   children: Snippet
+  effect?: 'cards'
 } = $props()
 
 const navButtonClass = [
@@ -47,8 +50,15 @@ onMount(() => {
           slidesPerView: 3
         }
       },
+      cardsEffect: {
+        slideShadows: false,
+      },
+      centeredSlides: effect === 'cards',
+      effect,
       grabCursor: true,
-      modules: [Autoplay, Navigation],
+      modules: [Autoplay, effect === 'cards' && EffectCards, Navigation].filter(
+        Boolean
+      ),
       navigation: {
         nextEl: swiperContainer.parentElement.querySelector(
           'button:nth-child(2)'

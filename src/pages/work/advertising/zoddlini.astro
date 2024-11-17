@@ -1,0 +1,85 @@
+---
+import { getEntry } from 'astro:content'
+import Heading3 from '~/components/astro/heading3.astro'
+import Picture from '~/components/astro/picture.astro'
+import Swiper from '~/components/svelte/swiper.svelte'
+import Base from '~/layouts/base.astro'
+import { findAsset } from '~/utils/functions.ts'
+
+const post = await getEntry('advertising', 'zoddlini')
+
+const clubs = [
+  findAsset(post, 'club-1'),
+  findAsset(post, 'club-2'),
+  findAsset(post, 'club-3'),
+  findAsset(post, 'club-4'),
+  findAsset(post, 'club-5'),
+  findAsset(post, 'club-6'),
+  findAsset(post, 'club-7'),
+  findAsset(post, 'club-8'),
+  findAsset(post, 'club-9'),
+  findAsset(post, 'club-10'),
+  findAsset(post, 'club-11'),
+  findAsset(post, 'club-12'),
+  findAsset(post, 'club-13')
+]
+
+const diamonds = [
+  findAsset(post, 'diamond-1'),
+  findAsset(post, 'diamond-2'),
+  findAsset(post, 'diamond-3'),
+  findAsset(post, 'diamond-4'),
+  findAsset(post, 'diamond-5'),
+  findAsset(post, 'diamond-6'),
+  findAsset(post, 'diamond-7'),
+  findAsset(post, 'diamond-8'),
+  findAsset(post, 'diamond-9'),
+  findAsset(post, 'diamond-10'),
+  findAsset(post, 'diamond-11'),
+  findAsset(post, 'diamond-12'),
+  findAsset(post, 'diamond-13')
+]
+
+const mockups = [
+  findAsset(post, 'mockup-1'),
+  findAsset(post, 'mockup-2'),
+  findAsset(post, 'mockup-3'),
+  findAsset(post, 'mockup-4')
+]
+---
+
+<Base description={post.data.description} title={post.data.title}>
+  <div class="flex flex-col gap-y-6 items-center">
+    {
+      mockups.map((mockup) => <Picture alt={mockup.alt} height={mockup.img.height} rounded src={mockup.img.src} width={mockup.img.width}/>)
+    }
+  </div>
+  <Heading3 text="Concept"/>
+  <p class="m-0">The typeface chosen to highlight and be at the centre of this project is 'Oddlini'. Released in 2019 by Shuji Kikuchi, Oddlini is a serif font built over Helvetica without being too geometric - rounds and curves of the typeface are not perfect. Combining typography created using the typeface with inspiration drawn from Zodiac signs — the project came to be known as Zoddlini. A different take on the everyday deck of cards. Twelve Zodiac symbols replace the traditional face cards. The elements of astrology take place on the four suits.</p>
+  <div class="grid gap-12 grid-cols-1 md:grid-cols-2 justify-items-center m-b-6">
+    <div class="w-full">
+      <Heading3 center text="Clubs"/>
+      <Swiper client:load effect="cards">
+        {
+          clubs.map((club) => (
+            <swiper-slide>
+              <Picture alt={club.alt} height={club.img.height} parent={2} rounded src={club.img.src} width={club.img.width}/>
+            </swiper-slide>
+          ))
+        }
+      </Swiper>
+    </div>
+      <div class="w-full">
+        <Heading3 center text="Diamonds"/>
+        <Swiper client:load effect="cards">
+          {
+            diamonds.map((diamond) => (
+              <swiper-slide>
+                <Picture alt={diamond.alt} height={diamond.img.height} parent={2} rounded src={diamond.img.src} width={diamond.img.width}/>
+              </swiper-slide>
+            ))
+          }
+        </Swiper>
+      </div>
+  </div>
+</Base>

@@ -663,6 +663,17 @@ export default defineConfig({
       ]
     },
     {
+      name: 'justify-items',
+      rules: [
+        [
+          'justify-items-center',
+          {
+            'justify-items': 'center'
+          }
+        ]
+      ]
+    },
+    {
       name: 'left',
       rules: [
         [
