@@ -8,6 +8,8 @@ import { findAsset } from '~/utils/functions.ts'
 
 const post = await getEntry('advertising', 'zoddlini')
 
+const back = findAsset(post, 'back')
+
 const clubs = [
   findAsset(post, 'club-1'),
   findAsset(post, 'club-2'),
@@ -40,6 +42,43 @@ const diamonds = [
   findAsset(post, 'diamond-13')
 ]
 
+const hearts = [
+  findAsset(post, 'heart-1'),
+  findAsset(post, 'heart-2'),
+  findAsset(post, 'heart-3'),
+  findAsset(post, 'heart-4'),
+  findAsset(post, 'heart-5'),
+  findAsset(post, 'heart-6'),
+  findAsset(post, 'heart-7'),
+  findAsset(post, 'heart-8'),
+  findAsset(post, 'heart-9'),
+  findAsset(post, 'heart-10'),
+  findAsset(post, 'heart-11'),
+  findAsset(post, 'heart-12'),
+  findAsset(post, 'heart-13')
+]
+
+const jokers = [
+  findAsset(post, 'joker-1'),
+  findAsset(post, 'joker-2')
+]
+
+const spades = [
+  findAsset(post, 'spade-1'),
+  findAsset(post, 'spade-2'),
+  findAsset(post, 'spade-3'),
+  findAsset(post, 'spade-4'),
+  findAsset(post, 'spade-5'),
+  findAsset(post, 'spade-6'),
+  findAsset(post, 'spade-7'),
+  findAsset(post, 'spade-8'),
+  findAsset(post, 'spade-9'),
+  findAsset(post, 'spade-10'),
+  findAsset(post, 'spade-11'),
+  findAsset(post, 'spade-12'),
+  findAsset(post, 'spade-13')
+]
+
 const mockups = [
   findAsset(post, 'mockup-1'),
   findAsset(post, 'mockup-2'),
@@ -56,30 +95,78 @@ const mockups = [
   </div>
   <Heading3 text="Concept"/>
   <p class="m-0">The typeface chosen to highlight and be at the centre of this project is 'Oddlini'. Released in 2019 by Shuji Kikuchi, Oddlini is a serif font built over Helvetica without being too geometric - rounds and curves of the typeface are not perfect. Combining typography created using the typeface with inspiration drawn from Zodiac signs — the project came to be known as Zoddlini. A different take on the everyday deck of cards. Twelve Zodiac symbols replace the traditional face cards. The elements of astrology take place on the four suits.</p>
-  <div class="grid gap-12 grid-cols-1 md:grid-cols-2 justify-items-center m-b-6">
+  <div class="grid gap-x-12 grid-cols-1 md:grid-cols-2 justify-items-center">
     <div class="w-full">
       <Heading3 center text="Clubs"/>
-      <Swiper client:load effect="cards">
+      <Swiper client:load effect="cards" maxWidth="max-w-3/5 lg:max-w-1/2">
         {
           clubs.map((club) => (
             <swiper-slide>
-              <Picture alt={club.alt} height={club.img.height} parent={2} rounded src={club.img.src} width={club.img.width}/>
+              <Picture alt={club.alt} height={club.img.height} parent={2} src={club.img.src} width={club.img.width}/>
             </swiper-slide>
           ))
         }
       </Swiper>
     </div>
-      <div class="w-full">
-        <Heading3 center text="Diamonds"/>
-        <Swiper client:load effect="cards">
-          {
-            diamonds.map((diamond) => (
-              <swiper-slide>
-                <Picture alt={diamond.alt} height={diamond.img.height} parent={2} rounded src={diamond.img.src} width={diamond.img.width}/>
-              </swiper-slide>
-            ))
-          }
-        </Swiper>
-      </div>
+    <div class="w-full">
+      <Heading3 center text="Diamonds"/>
+      <Swiper client:load effect="cards" maxWidth="max-w-3/5 lg:max-w-1/2">
+        {
+          diamonds.map((diamond) => (
+            <swiper-slide>
+              <Picture alt={diamond.alt} height={diamond.img.height} parent={2} src={diamond.img.src} width={diamond.img.width}/>
+            </swiper-slide>
+          ))
+        }
+      </Swiper>
+    </div>
   </div>
+  <div class="grid gap-x-12 grid-cols-1 md:grid-cols-2 justify-items-center">
+    <div class="w-full">
+      <Heading3 center text="Hearts"/>
+      <Swiper client:load effect="cards" maxWidth="max-w-3/5 lg:max-w-1/2">
+        {
+          hearts.map((heart) => (
+            <swiper-slide>
+              <Picture alt={heart.alt} height={heart.img.height} parent={2} src={heart.img.src} width={heart.img.width}/>
+            </swiper-slide>
+          ))
+        }
+      </Swiper>
+    </div>
+    <div class="w-full">
+      <Heading3 center text="Spades"/>
+      <Swiper client:load effect="cards" maxWidth="max-w-3/5 lg:max-w-1/2">
+        {
+          spades.map((spade) => (
+            <swiper-slide>
+              <Picture alt={spade.alt} height={spade.img.height} parent={2} src={spade.img.src} width={spade.img.width}/>
+            </swiper-slide>
+          ))
+        }
+      </Swiper>
+    </div>
+  </div>
+  <div class="grid gap-x-12 grid-cols-1 md:grid-cols-2 justify-items-center">
+    <div class="w-full">
+      <Heading3 center text="Jokers"/>
+      <Swiper client:load effect="cards" maxWidth="max-w-3/5 lg:max-w-1/2">
+        {
+          jokers.map((joker) => (
+            <swiper-slide>
+              <Picture alt={joker.alt} height={joker.img.height} parent={2} src={joker.img.src} width={joker.img.width}/>
+            </swiper-slide>
+          ))
+        }
+      </Swiper>
+    </div>
+    <div class="w-full">
+      <Heading3 center text="Back"/>
+      <Swiper client:load effect="cards" maxWidth="max-w-3/5 lg:max-w-1/2">
+        <swiper-slide>
+          <Picture alt={back.alt} height={back.img.height} parent={2} src={back.img.src} width={back.img.width}/>
+        </swiper-slide>
+      </Swiper>
+    </div>
+</div>
 </Base>

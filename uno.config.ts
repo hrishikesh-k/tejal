@@ -291,6 +291,12 @@ export default defineConfig({
           {
             'column-gap': '1.5rem'
           }
+        ],
+        [
+          'gap-x-12',
+          {
+            'column-gap': '3rem'
+          }
         ]
       ]
     },
@@ -328,6 +334,24 @@ export default defineConfig({
               matcher: matcher.slice(5),
               selector(s) {
                 return `.dark ${s}`
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      name: 'disabled',
+      variants: [
+        {
+          match(matcher) {
+            if (!matcher.startsWith('disabled:')) {
+              return matcher
+            }
+            return {
+              matcher: matcher.slice(9),
+              selector(s) {
+                return `${s}[disabled]`
               }
             }
           }
@@ -739,6 +763,18 @@ export default defineConfig({
       name: 'max-width',
       rules: [
         [
+          'max-w-1/2',
+          {
+            'max-width': '50%'
+          }
+        ],
+        [
+          'max-w-3/5',
+          {
+            'max-width': '60%'
+          }
+        ],
+        [
           'max-w-5/6',
           {
             'max-width': '83.33%'
@@ -878,6 +914,12 @@ export default defineConfig({
           'opacity-0',
           {
             opacity: '0'
+          }
+        ],
+        [
+          'opacity-50',
+          {
+            opacity: '0.5'
           }
         ],
         [

@@ -7,12 +7,17 @@ import type { SwiperOptions } from 'swiper/types'
 import Icon from '~/components/svelte/icon.svelte'
 import 'swiper/element/css/effect-cards'
 
+// TODO: switch to tooltip
+// TODO: hide navigation on a single slide
+
 let {
   children,
-  effect
+  effect,
+  maxWidth
 }: {
   children: Snippet
   effect?: 'cards'
+  maxWidth?: string
 } = $props()
 
 const navButtonClass = [
@@ -20,12 +25,17 @@ const navButtonClass = [
   'block',
   'border-0',
   'cursor-pointer',
+  'disabled:opacity-50',
   'outline-0',
   'p-0',
+  'disabled:pointer-none',
   'pos-absolute',
   'text-current',
   'top-1/2',
-  'transform translate-y--1/2'
+  'transform',
+  'transition-duration-250',
+  'transition-opacity',
+  'translate-y--1/2'
 ].join(' ')
 
 let swiperContainer: null | SwiperContainer = $state(null)
@@ -39,7 +49,7 @@ onMount(() => {
         disableOnInteraction: false,
         pauseOnMouseEnter: true
       },
-      breakpoints: {
+      breakpoints: effect !== 'cards' && {
         640: {
           slidesPerView: 1
         },
@@ -56,6 +66,7 @@ onMount(() => {
       centeredSlides: effect === 'cards',
       effect,
       grabCursor: true,
+      injectStyles: effect === 'cards' && ['.swiper{overflow: visible}'],
       modules: [Autoplay, effect === 'cards' && EffectCards, Navigation].filter(
         Boolean
       ),
@@ -96,7 +107,7 @@ onMount(() => {
   <button class="{navButtonClass} right-0">
     <Icon name="circle-arrow-right"/>
   </button>
-  <swiper-container bind:this={swiperContainer} class="max-w-5/6 md:max-w-11/12" init="false">
+  <swiper-container bind:this={swiperContainer} class="block {maxWidth ?? 'max-w-5/6 md:max-w-11/12'}" init="false">
     {@render children()}
   </swiper-container>
 </div>
