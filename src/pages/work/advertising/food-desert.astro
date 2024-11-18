@@ -1,0 +1,94 @@
+---
+import { getEntry } from 'astro:content'
+import vid1Poster from '~/assets/food-desert/video-1/poster.jpg'
+import vid1ThumbsJpg from '~/assets/food-desert/video-1/thumbs.jpg'
+import vid1ThumbsVtt from '~/assets/food-desert/video-1/thumbs.vtt?raw'
+import Heading3 from '~/components/astro/heading3.astro'
+import Picture from '~/components/astro/picture.astro'
+import Video from '~/components/svelte/video.svelte'
+import Base from '~/layouts/base.astro'
+import { findAsset } from '~/utils/functions.ts'
+
+const post = await getEntry('advertising', 'food-desert')
+
+const poem = findAsset(post, 'poem')
+
+const posters = [
+  findAsset(post, 'poster-1'),
+  findAsset(post, 'poster-2'),
+  findAsset(post, 'poster-3')
+]
+
+const vid1Segments144p = Object.values(
+  import.meta.glob<string>('~/assets/food-desert/video-1/144p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments240p = Object.values(
+  import.meta.glob<string>('~/assets/food-desert/video-1/240p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments360p = Object.values(
+  import.meta.glob<string>('~/assets/food-desert/video-1/360p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments480p = Object.values(
+  import.meta.glob<string>('~/assets/food-desert/video-1/480p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments720p = Object.values(
+  import.meta.glob<string>('~/assets/food-desert/video-1/720p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments1080p = Object.values(
+  import.meta.glob<string>('~/assets/food-desert/video-1/1080p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+---
+
+<Base description={post.data.description} subtitle={post.data.subtitle as string} title={post.data.title}>
+  <Heading3 text="Posters"/>
+  <div class="flex flex-col gap-y-6 items-center">
+    {
+      posters.map((poster) => <Picture alt={poster.alt} height={poster.img.height} rounded src={poster.img.src} width={poster.img.width}/>)
+    }
+  </div>
+  <Heading3 text="Poem"/>
+  <div class="flex flex-col items-center">
+    <Picture alt={poem.alt} height={poem.img.height} rounded src={poem.img.src} width={poem.img.width}/>
+  </div>
+  <Heading3 text="Video"/>
+  <Video client:load qualities={{
+    '144': vid1Segments144p,
+    '240': vid1Segments240p,
+    '360': vid1Segments360p,
+    '480': vid1Segments480p,
+    '720': vid1Segments720p,
+    '1080': vid1Segments1080p,
+  }} poster={vid1Poster.src} thumbs={{
+    src: vid1ThumbsJpg.src,
+    manifest: vid1ThumbsVtt
+  }}/>
+</Base>
