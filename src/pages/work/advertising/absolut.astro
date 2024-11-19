@@ -1,7 +1,108 @@
 ---
 import { getEntry } from 'astro:content'
+import vid1Poster from '~/assets/absolut/video-1/poster.jpg'
+import vid1ThumbsJpg from '~/assets/absolut/video-1/thumbs.jpg'
+import vid1ThumbsVtt from '~/assets/absolut/video-1/thumbs.vtt?raw'
+import Heading3 from '~/components/astro/heading3.astro'
+import Picture from '~/components/astro/picture.astro'
+import Video from '~/components/svelte/video.svelte'
+import Base from '~/layouts/base.astro'
+import { findAsset } from '~/utils/functions'
 
 const post = await getEntry('advertising', 'absolut')
+
+const blazes = [findAsset(post, 'blaze-1'), findAsset(post, 'blaze-2')]
+
+const blooms = [findAsset(post, 'bloom-1'), findAsset(post, 'bloom-2')]
+
+const hydration = findAsset(post, 'hydration')
+
+const vid1Segments144p = Object.values(
+  import.meta.glob<string>('~/assets/absolut/video-1/144p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments240p = Object.values(
+  import.meta.glob<string>('~/assets/absolut/video-1/240p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments360p = Object.values(
+  import.meta.glob<string>('~/assets/absolut/video-1/360p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments480p = Object.values(
+  import.meta.glob<string>('~/assets/absolut/video-1/480p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments720p = Object.values(
+  import.meta.glob<string>('~/assets/absolut/video-1/720p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments1080p = Object.values(
+  import.meta.glob<string>('~/assets/absolut/video-1/1080p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
 ---
 
-<h1>{post.data.title}</h1>
+<Base description={post.data.description} title={post.data.title}>
+  <Heading3 text="Absolut Bloom"/>
+  <div class="flex gap-x-6 m-b-6">
+    {
+      blooms.map((bloom) => (
+        <div style={`flex: calc(${bloom.img.width}/${bloom.img.height})`}>
+          <Picture alt={bloom.alt} height={bloom.img.height} parent={2} rounded src={bloom.img.src} width={bloom.img.width}/>
+        </div>
+      ))
+    }
+  </div>
+  <Heading3 text="Absolut Blaze"/>
+  <div class="flex gap-x-6 m-b-6">
+    {
+      blazes.map((blaze) => (
+        <div style={`flex: calc(${blaze.img.width}/${blaze.img.height})`}>
+          <Picture alt={blaze.alt} height={blaze.img.height} parent={2} rounded src={blaze.img.src} width={blaze.img.width}/>
+        </div>
+      ))
+    }
+  </div>
+  <Heading3 text="Absolut Hydration"/>
+  <div class="flex flex-col items-center">
+    <Picture alt={hydration.alt} height={hydration.img.height} rounded src={hydration.img.src} width={hydration.img.width}/>
+  </div>
+  <Heading3 text="Absolut Mystical"/>
+  <div class="flex flex-col items-center">
+    <Video client:load qualities={{
+      '144': vid1Segments144p,
+      '240': vid1Segments240p,
+      '360': vid1Segments360p,
+      '480': vid1Segments480p,
+      '720': vid1Segments720p,
+      '1080': vid1Segments1080p,
+    }} poster={vid1Poster.src} thumbs={{
+      src: vid1ThumbsJpg.src,
+      manifest: vid1ThumbsVtt
+    }}/>
+  </div>
+</Base>
