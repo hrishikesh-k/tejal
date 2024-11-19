@@ -36,7 +36,7 @@ assets:
   - alt: ""
     img: "~/assets/skippy/tweet-6.jpg"
     name: "tweet-6"
-cover: "~/assets/skippy/cover.jpg"
+cover: "~/assets/skippy/cover-a.jpg"
 description: "A project that revamps a struggling brand's online presence with creative tweets and campaigns for Twitter, Instagram, Snapchat, and Facebook."
 title: "Skippy"
 weight: 4

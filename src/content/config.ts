@@ -24,7 +24,20 @@ const defaultCollection = defineCollection({
   type: 'content'
 })
 
+const presentationCollection = defineCollection({
+  schema: (context) =>
+    z.object({
+      cover: context.image(),
+      draft: z.optional(z.boolean().default(false)),
+      pdf: z.optional(z.boolean().default(true)),
+      title: z.string(),
+      weight: z.number()
+    }),
+  type: 'content'
+})
+
 export const collections = {
   advertising: defaultCollection,
-  fashion: defaultCollection
+  fashion: defaultCollection,
+  presentation: presentationCollection
 }
