@@ -1,9 +1,10 @@
 ---
 import Section from '~/components/astro/section.astro'
-import { advertisingPosts } from '~/content/posts.ts'
+import { advertisingPosts, fashionPosts } from '~/content/posts.ts'
 import Base from '~/layouts/base.astro'
 ---
 
 <Base title="Tejal Shinde">
   <Section explore posts={advertisingPosts.slice(0, 3)} title="Advertising"/>
+  <Section explore posts={fashionPosts.slice(0, 3)} title="Fashion"/>
 </Base>

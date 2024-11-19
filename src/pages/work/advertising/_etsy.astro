@@ -1,0 +1,9 @@
+---
+import { getEntry } from 'astro:content'
+import Base from '~/layouts/base.astro'
+
+const post = await getEntry('advertising', 'etsy')
+---
+
+<Base description={post.data.description} title={post.data.title}>
+</Base>

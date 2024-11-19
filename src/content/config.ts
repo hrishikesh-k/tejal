@@ -1,6 +1,6 @@
 import { defineCollection, z } from 'astro:content'
 
-const advertisingCollection = defineCollection({
+const defaultCollection = defineCollection({
   schema: (context) =>
     z.object({
       assets: z.optional(
@@ -24,12 +24,7 @@ const advertisingCollection = defineCollection({
   type: 'content'
 })
 
-const fashionCollection = defineCollection({
-  schema: {},
-  type: 'content'
-})
-
 export const collections = {
-  advertising: advertisingCollection,
-  fashionCollection: fashionCollection
+  advertising: defaultCollection,
+  fashion: defaultCollection
 }

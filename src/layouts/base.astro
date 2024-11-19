@@ -68,14 +68,18 @@ const isProjectPage = Boolean(urlRegex?.groups?.['slug'])
 </html>
 
 <script>
+  import {resizeMasonry} from "~/utils/functions.ts"
+
   const imgToResize = document.querySelectorAll('picture > img')
+  const masonryToResize = document.querySelectorAll<HTMLDivElement>('[data-masonry]')
   const mediaPlayersToResize = document.querySelectorAll('media-player')
 
   let timeout: NodeJS.Timeout
 
   function resizeElements() {
     const maxHeight = window.innerHeight * 0.8
-    imgToResize.forEach((img) => {
+
+    for (const img of imgToResize) {
       const parentLevel = Number.parseInt(img.getAttribute('data-ro-parent') || '1')
       if (parentLevel > 0) {
         let parent = img as HTMLElement
@@ -84,9 +88,13 @@ const isProjectPage = Boolean(urlRegex?.groups?.['slug'])
         }
         parent.style.maxWidth = `${Math.round((maxHeight / Number.parseInt(img.getAttribute('height') || '0')) * Number.parseInt(img.getAttribute('width') || '0'))}px`
       }
-    })
+    }
 
-    mediaPlayersToResize.forEach((player) => {
+    for (const masonry of masonryToResize) {
+      resizeMasonry(masonry)
+    }
+
+    for (const player of mediaPlayersToResize) {
       const computedStyles = getComputedStyle(player)
       console.log(player, computedStyles.getPropertyValue('--player-height'))
       const originalHeight = Number.parseInt(computedStyles.height)
@@ -94,7 +102,8 @@ const isProjectPage = Boolean(urlRegex?.groups?.['slug'])
       if (originalHeight > originalWidth) {
         player.style.maxWidth = `${Math.round((maxHeight / originalHeight) * originalWidth)}px`
       }
-    })
+    }
+
   }
 
   window.addEventListener('resize', () => {
