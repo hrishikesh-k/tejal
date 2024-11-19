@@ -1,0 +1,26 @@
+---
+import { getEntry } from 'astro:content'
+import Picture from '~/components/astro/picture.astro'
+import Base from '~/layouts/base.astro'
+import { findAsset } from '~/utils/functions.ts'
+
+const post = await getEntry('fashion', 'riding-bitch')
+
+const ridingBitchs = [
+  findAsset(post, 'riding-bitch-1'),
+  findAsset(post, 'riding-bitch-2')
+]
+---
+
+<Base description={post.data.description} title={post.data.title}>
+  <p class="m-0 m-b-6">"Riding Bitch" delves into the concept of toxic masculinity within motorcycle club and workplace subcultures. Through the use of symbols, shapes, and materials emblematic of these worlds, the collection reimagines the narrative, placing women in powerful, dominant roles while challenging traditional gender norms.</p>
+  <div class="flex gap-x-6 items-center justify-center">
+    {
+      ridingBitchs.map((ridingBitch) => (
+        <div style={`flex: calc(${ridingBitch.img.width}/${ridingBitch.img.height})`}>
+          <Picture alt={ridingBitch.alt} height={ridingBitch.img.height} parent={2} rounded src={ridingBitch.img.src} width={ridingBitch.img.width}/>
+        </div>
+      ))
+    }
+  </div>
+</Base>

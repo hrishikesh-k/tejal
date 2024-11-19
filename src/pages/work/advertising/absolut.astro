@@ -68,7 +68,7 @@ const vid1Segments1080p = Object.values(
 
 <Base description={post.data.description} title={post.data.title}>
   <Heading3 text="Absolut Bloom"/>
-  <div class="flex gap-x-6 m-b-6">
+  <div class="flex gap-x-6">
     {
       blooms.map((bloom) => (
         <div style={`flex: calc(${bloom.img.width}/${bloom.img.height})`}>
@@ -78,7 +78,7 @@ const vid1Segments1080p = Object.values(
     }
   </div>
   <Heading3 text="Absolut Blaze"/>
-  <div class="flex gap-x-6 m-b-6">
+  <div class="flex gap-x-6">
     {
       blazes.map((blaze) => (
         <div style={`flex: calc(${blaze.img.width}/${blaze.img.height})`}>
