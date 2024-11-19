@@ -77,12 +77,13 @@ const isProjectPage = Boolean(urlRegex?.groups?.['slug'])
     const maxHeight = window.innerHeight * 0.8
     imgToResize.forEach((img) => {
       const parentLevel = Number.parseInt(img.getAttribute('data-ro-parent') || '1')
-      let parent = img as HTMLElement
-      for (let i = 0; i < parentLevel; i++) {
-        parent = parent.parentElement as HTMLElement
+      if (parentLevel > 0) {
+        let parent = img as HTMLElement
+        for (let i = 0; i < parentLevel; i++) {
+          parent = parent.parentElement as HTMLElement
+        }
+        parent.style.maxWidth = `${Math.round((maxHeight / Number.parseInt(img.getAttribute('height') || '0')) * Number.parseInt(img.getAttribute('width') || '0'))}px`
       }
-      const originalHeight = Number.parseInt(img.getAttribute('height') || '0')
-      parent.style.maxWidth = `${Math.round((maxHeight / originalHeight) * Number.parseInt(img.getAttribute('width') || '0'))}px`
     })
 
     mediaPlayersToResize.forEach((player) => {

@@ -8,16 +8,19 @@ import Icon from '~/components/svelte/icon.svelte'
 import 'swiper/element/css/effect-cards'
 
 // TODO: switch to tooltip
-// TODO: hide navigation on a single slide
 
 let {
+  center,
   children,
   effect,
-  maxWidth
+  maxWidth,
+  noNavigation
 }: {
+  center?: boolean
   children: Snippet
   effect?: 'cards'
   maxWidth?: string
+  noNavigation?: boolean
 } = $props()
 
 const navButtonClass = [
@@ -63,14 +66,16 @@ onMount(() => {
       cardsEffect: {
         slideShadows: false
       },
-      centeredSlides: effect === 'cards',
+      centeredSlides: center || effect === 'cards',
       effect,
       grabCursor: true,
       injectStyles: effect === 'cards' && ['.swiper{overflow: visible}'],
-      modules: [Autoplay, effect === 'cards' && EffectCards, Navigation].filter(
-        Boolean
-      ),
-      navigation: {
+      modules: [
+        Autoplay,
+        effect === 'cards' && EffectCards,
+        !noNavigation && Navigation
+      ].filter(Boolean),
+      navigation: !noNavigation && {
         nextEl: swiperContainer.parentElement.querySelector(
           'button:nth-child(2)'
         ),
@@ -101,12 +106,14 @@ onMount(() => {
 </script>
 
 <div class="pos-relative">
-  <button class="{navButtonClass} left-0">
-    <Icon name="circle-arrow-left"/>
-  </button>
-  <button class="{navButtonClass} right-0">
-    <Icon name="circle-arrow-right"/>
-  </button>
+  {#if !noNavigation}
+    <button class="{navButtonClass} left-0">
+      <Icon name="circle-arrow-left"/>
+    </button>
+    <button class="{navButtonClass} right-0">
+      <Icon name="circle-arrow-right"/>
+    </button>
+  {/if}
   <swiper-container bind:this={swiperContainer} class="block {maxWidth ?? 'max-w-5/6 md:max-w-11/12'}" init="false">
     {@render children()}
   </swiper-container>
