@@ -30,6 +30,7 @@ function generateImageCdnUrl(w: number) {
 }
 ---
 
+<!-- TODO: figure out why all sizes are being generated for all images -->
 <picture class="block h-full overflow-hidden w-full" class:list={[{'border-rounded-1.5': rounded}]}>
   {
     widths.map((w, i) => {

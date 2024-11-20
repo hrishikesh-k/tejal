@@ -1,0 +1,47 @@
+---
+import { getEntry } from 'astro:content'
+import Heading3 from '~/components/astro/heading3.astro'
+import Picture from '~/components/astro/picture.astro'
+import Swiper from '~/components/svelte/swiper.svelte'
+import Base from '~/layouts/base.astro'
+import { findAsset } from '~/utils/functions.ts'
+
+const post = await getEntry('advertising', 'etsy')
+
+const mockups = [
+  findAsset(post, 'mockup-1'),
+  findAsset(post, 'mockup-2'),
+  findAsset(post, 'mockup-3'),
+  findAsset(post, 'mockup-4'),
+  findAsset(post, 'mockup-5'),
+  findAsset(post, 'mockup-6'),
+  findAsset(post, 'mockup-7')
+]
+
+const tweets = [
+  findAsset(post, 'tweet-1'),
+  findAsset(post, 'tweet-2'),
+  findAsset(post, 'tweet-3'),
+  findAsset(post, 'tweet-4'),
+  findAsset(post, 'tweet-5')
+]
+---
+
+<Base description={post.data.description} title={post.data.title}>
+  <Heading3 text="Tweets"/>
+  <Swiper client:load>
+    {
+      tweets.map((tweet) => (
+        <swiper-slide>
+          <Picture alt={tweet.alt} height={tweet.img.height} parent={2} rounded src={tweet.img.src} width={tweet.img.width}/>
+        </swiper-slide>
+      ))
+    }
+  </Swiper>
+  <Heading3 text="Final Output"/>
+  <div class="flex flex-col gap-y-6 items-center">
+    {
+      mockups.map((mockup) => <Picture alt={mockup.alt} height={mockup.img.height} rounded src={mockup.img.src} width={mockup.img.width}/>)
+    }
+  </div>
+</Base>
