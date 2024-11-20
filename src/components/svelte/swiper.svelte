@@ -8,6 +8,7 @@ import Icon from '~/components/svelte/icon.svelte'
 import 'swiper/element/css/effect-cards'
 
 // TODO: switch to tooltip
+// TODO: skippy inactive opacity
 
 let {
   center,

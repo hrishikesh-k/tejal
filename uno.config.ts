@@ -72,6 +72,12 @@ export default defineConfig({
           }
         ],
         [
+          'bg-green-500',
+          {
+            'background-color': '#22c55e'
+          }
+        ],
+        [
           'bg-light-500',
           {
             'background-color': '#f2f2f2'
@@ -84,9 +90,21 @@ export default defineConfig({
           }
         ],
         [
+          'bg-red-500',
+          {
+            'background-color': '#ef4444'
+          }
+        ],
+        [
           'bg-transparent',
           {
             'background-color': 'transparent'
+          }
+        ],
+        [
+          'bg-yellow-500',
+          {
+            'background-color': '#eab308'
           }
         ]
       ]
@@ -620,6 +638,12 @@ export default defineConfig({
           }
         ],
         [
+          'h-19.5',
+          {
+            height: '4.875rem'
+          }
+        ],
+        [
           'h-20',
           {
             height: '5rem'
@@ -710,6 +734,12 @@ export default defineConfig({
           'left-1/2',
           {
             left: '50%'
+          }
+        ],
+        [
+          'left-2',
+          {
+            left: '0.5rem'
           }
         ]
       ]
@@ -889,6 +919,12 @@ export default defineConfig({
       name: 'min-height',
       rules: [
         [
+          'min-h-36',
+          {
+            'min-height': '9rem'
+          }
+        ],
+        [
           'min-h-full',
           {
             'min-height': '100%'
@@ -1009,6 +1045,42 @@ export default defineConfig({
       ]
     },
     {
+      name: 'peer-focus',
+      variants: [
+        {
+          match(matcher) {
+            if (!matcher.startsWith('peer-focus:')) {
+              return matcher
+            }
+            return {
+              matcher: matcher.slice(11),
+              selector(s) {
+                return `.peer:focus ~ ${s}`
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      name: 'peer-not-placeholder-shown',
+      variants: [
+        {
+          match(matcher) {
+            if (!matcher.startsWith('peer-not-placeholder-shown:')) {
+              return matcher
+            }
+            return {
+              matcher: matcher.slice(27),
+              selector(s) {
+                return `.peer:not(:placeholder-shown) ~ ${s}`
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
       name: 'pointer-events',
       rules: [
         [
@@ -1044,6 +1116,17 @@ export default defineConfig({
           'pos-static',
           {
             position: 'static'
+          }
+        ]
+      ]
+    },
+    {
+      name: 'resize',
+      rules: [
+        [
+          'resize-none',
+          {
+            resize: 'none'
           }
         ]
       ]
@@ -1143,6 +1226,12 @@ export default defineConfig({
           }
         ],
         [
+          'top-1.8125',
+          {
+            top: '0.453125rem'
+          }
+        ],
+        [
           'top-4',
           {
             top: '1rem'
@@ -1154,10 +1243,24 @@ export default defineConfig({
       name: 'transform',
       rules: [
         [
+          'scale-75',
+          {
+            '--u-scale-x': '75%',
+            '--u-scale-y': '75%',
+            '--u-scale-z': '75%'
+          }
+        ],
+        [
           'transform',
           {
             transform:
               'scaleX(var(--u-scale-x)) scaleY(var(--u-scale-y)) scaleZ(var(--u-scale-z)) skewX(var(--u-skew-x)) skewY(var(--u-skew-y)) translateX(var(--u-translate-x)) translateY(var(--u-translate-y)) translateZ(var(--u-translate-z)) rotate(var(--u-rotate)) rotateX(var(--u-rotate-x)) rotateY(var(--u-rotate-y)) rotateZ(var(--u-rotate-z))'
+          }
+        ],
+        [
+          'translate-x--2',
+          {
+            '--u-translate-x': '-0.5rem'
           }
         ],
         [
@@ -1173,9 +1276,26 @@ export default defineConfig({
           }
         ],
         [
+          'translate-y--8',
+          {
+            '--u-translate-y': '-2rem'
+          }
+        ],
+        [
           'translate-y--1/2',
           {
             '--u-translate-y': '-50%'
+          }
+        ]
+      ]
+    },
+    {
+      name: 'transform-origin',
+      rules: [
+        [
+          'transform-origin-left',
+          {
+            'transform-origin': 'left'
           }
         ]
       ]
@@ -1216,6 +1336,12 @@ export default defineConfig({
           'transition-top',
           {
             'transition-property': 'top'
+          }
+        ],
+        [
+          'transition-transform',
+          {
+            'transition-property': 'transform'
           }
         ],
         [
