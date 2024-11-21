@@ -108,11 +108,9 @@ const isProjectPage = Boolean(urlRegex?.groups?.['slug'])
       const parentDiv = recaptcha.parentElement as HTMLDivElement
       if (vw < 420) {
         parentDiv.classList.remove('m-y-6')
-        parentDiv.classList.add('m-y-4.5')
         parentDiv.classList.add('scale-75')
       } else {
         parentDiv.classList.remove('scale-75')
-        parentDiv.classList.remove('m-y-4.5')
         parentDiv.classList.add('m-y-6')
       }
     }

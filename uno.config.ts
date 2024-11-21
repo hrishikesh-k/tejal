@@ -889,13 +889,6 @@ export default defineConfig({
           }
         ],
         [
-          'm-y-4.5',
-          {
-            'margin-bottom': '1.125rem',
-            'margin-top': '1.125rem'
-          }
-        ],
-        [
           'm-y-6',
           {
             'margin-bottom': '1.5rem',
@@ -1435,7 +1428,7 @@ export default defineConfig({
       ]
     }
   ],
-  safelist: ['m-y-4.5', 'scale-75'],
+  safelist: ['scale-75'],
   transformers: [
     transformerDirectives({
       applyVariable: '--u-apply'
