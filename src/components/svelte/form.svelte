@@ -111,8 +111,8 @@ async function onsubmit(event: Event) {
     <textarea class="{inputClass} min-h-36 resize-none" name="Message" {oninput} placeholder="&nbsp;" required></textarea>
     <span class={spanClass}>Message</span>
   </label>
-  <div class="h-19.5 m-t-6 transform transform-origin-left transition-duration-250 transition-transform" data-netlify-recaptcha="true"></div>
-  <button class="bg-dark-500 dark:bg-light-500 hover:bg-dark-900 hover:dark:bg-light-900 border-0 border-rounded-1 cursor-pointer font-montserrat m-t-6 p-2 text-4 text-light-500 dark:text-dark-500" type="submit">Submit</button>
+  <div class="h-19.5 m-y-6 transform transform-origin-left transition-duration-250 transition-transform" data-netlify-recaptcha="true"></div>
+  <button class="bg-dark-500 dark:bg-light-500 hover:bg-dark-900 hover:dark:bg-light-900 border-0 border-rounded-1 cursor-pointer font-montserrat p-2 text-4 text-light-500 dark:text-dark-500" type="submit">Submit</button>
   {#if formStatus}
     <p class="{formStatusClass} box-border m-t-6 p-2 text-center">{formStatusText}</p>
   {/if}
