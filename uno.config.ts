@@ -821,12 +821,6 @@ export default defineConfig({
           {
             'max-width': '75rem'
           }
-        ],
-        [
-          'max-w-full',
-          {
-            'max-width': '100%'
-          }
         ]
       ]
     },
