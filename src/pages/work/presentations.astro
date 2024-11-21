@@ -1,0 +1,9 @@
+---
+import Section from '~/components/astro/section.astro'
+import { presentationPosts } from '~/content/posts.ts'
+import Base from '~/layouts/base.astro'
+---
+
+<Base description="" title="Presentations">
+    <Section posts={presentationPosts} title="Presentations"/>
+</Base>

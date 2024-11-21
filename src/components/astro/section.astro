@@ -81,14 +81,14 @@ function findPresentation(slug: string): string | undefined {
   <div class="flex justify-between m-t-6">
     {
       jumpLinks.map((link, index) => (
-        index === 0 ?
-        <a class="after:bg-current after:border-rounded-0.25 after:bottom--2 decoration-none flex gap-x-2 after:h-0.5 items-center after:left-0 pos-relative after:pos-absolute text-4 text-current md:text-6 after:transition-duration-250 after:transition-width after:w-0 after:hover:w-full" href={`/work/${link.toLowerCase()}`}>
-          <Icon name="circle-arrow-left" size={6}/>
+        <a class="after:bg-current after:border-rounded-0.25 after:bottom--2 decoration-none flex gap-x-2 after:h-0.5 items-center after:left-0 pos-relative after:pos-absolute text-4 text-current md:text-6 after:transition-duration-250 after:transition-width after:w-0 after:hover:w-full" href={`/work/${link.toLowerCase()}/`}>
+          {
+            index === 0 && <Icon name="circle-arrow-left" size={6}/>
+          }
           <span>{link}</span>
-        </a> :
-        <a class="after:bg-current after:border-rounded-0.25 after:bottom--2 decoration-none flex gap-x-2 after:h-0.5 items-center after:left-0 pos-relative after:pos-absolute text-4 text-current md:text-6 after:transition-duration-250 after:transition-width after:w-0 after:hover:w-full" href={`/work/${link.toLowerCase()}`}>
-          <span>{link}</span>
-          <Icon name="circle-arrow-right" size={6}/>
+          {
+            index === 1 && <Icon name="circle-arrow-right" size={6}/>
+          }
         </a>
       ))
     }
