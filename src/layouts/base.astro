@@ -109,10 +109,8 @@ const isProjectPage = Boolean(urlRegex?.groups?.['slug'])
       if (recaptcha.parentElement) {
         if (vw < 420) {
           recaptcha.style.transform = 'scale(0.75)'
-          recaptcha.style.transformOrigin = 'left'
         } else {
           recaptcha.style.removeProperty('transform')
-          recaptcha.style.removeProperty('transform-origin')
         }
       }
     }
