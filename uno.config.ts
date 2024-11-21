@@ -1422,6 +1422,7 @@ export default defineConfig({
       ]
     }
   ],
+  safelist: ['scale-75'],
   transformers: [
     transformerDirectives({
       applyVariable: '--u-apply'
