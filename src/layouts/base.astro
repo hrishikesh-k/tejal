@@ -106,12 +106,11 @@ const isProjectPage = Boolean(urlRegex?.groups?.['slug'])
     }
 
     for (const recaptcha of recaptchaToResize) {
-      if (recaptcha.parentElement) {
-        if (vw < 420) {
-          recaptcha.style.transform = 'scale(0.75)'
-        } else {
-          recaptcha.style.removeProperty('transform')
-        }
+      const parentDiv = recaptcha.parentElement as HTMLDivElement
+      if (vw < 420) {
+        parentDiv.classList.add('scale-75')
+      } else {
+        parentDiv.classList.remove('scale-75')
       }
     }
   }
