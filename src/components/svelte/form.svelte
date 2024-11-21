@@ -88,6 +88,7 @@ async function onsubmit(event: Event) {
 
 <!-- TODO: placeholder colour -->
 <form action="/contact/" class="md:flex-basis-0 md:flex-grow-1 md:flex-shrink-1" data-netlify="true" data-netlify-recaptcha="true" method="post" name="contact" {onsubmit}>
+  <input type="hidden" name="form-name" value="contact">
   <div class="flex gap-x-2 items-center">
     <label class="block flex-basis-0 flex-grow-1 flex-shrink-1 pos-relative">
       <input class={inputClass} name="First name" placeholder="&nbsp;" required>
