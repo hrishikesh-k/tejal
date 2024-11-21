@@ -38,20 +38,11 @@ const presentationSlugRelations = [
 let jumpLinks: string[] = []
 
 if (title === 'Advertising') {
-  jumpLinks = [
-    'Fashion',
-    'Presentations'
-  ]
+  jumpLinks = ['Fashion', 'Presentations']
 } else if (title === 'Fashion') {
-  jumpLinks = [
-    'Advertising',
-    'Presentations'
-  ]
+  jumpLinks = ['Advertising', 'Presentations']
 } else if (title === 'Presentations') {
-  jumpLinks = [
-    'Advertising',
-    'Fashion'
-  ]
+  jumpLinks = ['Advertising', 'Fashion']
 }
 
 function findPresentation(slug: string): string | undefined {
