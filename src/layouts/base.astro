@@ -70,15 +70,14 @@ const isProjectPage = Boolean(urlRegex?.groups?.['slug'])
 <script>
   import { resizeMasonry } from '~/utils/functions.ts'
 
-  const imgToResize = document.querySelectorAll('picture > img')
-  const masonryToResize = document.querySelectorAll<HTMLDivElement>('[data-masonry]')
-  const mediaPlayersToResize = document.querySelectorAll('media-player')
-  const recaptchaToResize = document.querySelectorAll<HTMLDivElement>('.g-recaptcha')
-
   let timeout: NodeJS.Timeout
 
   function resizeElements() {
+    const imgToResize = document.querySelectorAll('picture > img')
+    const masonryToResize = document.querySelectorAll<HTMLDivElement>('[data-masonry]')
     const maxHeight = window.innerHeight * 0.8
+    const mediaPlayersToResize = document.querySelectorAll('media-player')
+    const recaptchaToResize = document.querySelectorAll('.g-recaptcha')
     const vw = document.documentElement.clientWidth
 
     for (const img of imgToResize) {
