@@ -35,6 +35,25 @@ const presentationSlugRelations = [
   }
 ]
 
+let jumpLinks: string[] = []
+
+if (title === 'Advertising') {
+  jumpLinks = [
+    'Fashion',
+    'Presentations'
+  ]
+} else if (title === 'Fashion') {
+  jumpLinks = [
+    'Advertising',
+    'Presentations'
+  ]
+} else if (title === 'Presentations') {
+  jumpLinks = [
+    'Advertising',
+    'Fashion'
+  ]
+}
+
 function findPresentation(slug: string): string | undefined {
   const findBySlug = presentationSlugRelations.find(
     (presentation) => presentation.slug === slug
@@ -63,11 +82,26 @@ function findPresentation(slug: string): string | undefined {
 </div>
 
 {
-  explore &&
+  explore ?
   <a class="after:bg-current after:border-rounded-0.25 after:bottom--2 decoration-none flex gap-x-2 after:h-0.5 items-center after:left-0 m-l-auto m-t-6 pos-relative after:pos-absolute text-4 text-current md:text-6 after:transition-duration-250 after:transition-width w-fit after:w-0 after:hover:w-full" href={`/work/${collection}/`}>
     <span>Explore all</span>
     <Icon name="circle-arrow-right" size={6}/>
-  </a>
+  </a> :
+  <div class="flex justify-between m-t-6">
+    {
+      jumpLinks.map((link, index) => (
+        index === 0 ?
+        <a class="after:bg-current after:border-rounded-0.25 after:bottom--2 decoration-none flex gap-x-2 after:h-0.5 items-center after:left-0 pos-relative after:pos-absolute text-4 text-current md:text-6 after:transition-duration-250 after:transition-width after:w-0 after:hover:w-full" href={`/work/${link.toLowerCase()}`}>
+          <Icon name="circle-arrow-left" size={6}/>
+          <span>{link}</span>
+        </a> :
+        <a class="after:bg-current after:border-rounded-0.25 after:bottom--2 decoration-none flex gap-x-2 after:h-0.5 items-center after:left-0 pos-relative after:pos-absolute text-4 text-current md:text-6 after:transition-duration-250 after:transition-width after:w-0 after:hover:w-full" href={`/work/${link.toLowerCase()}`}>
+          <span>{link}</span>
+          <Icon name="circle-arrow-right" size={6}/>
+        </a>
+      ))
+    }
+  </div>
 }
 
 <!-- TODO: rounded corners -->
