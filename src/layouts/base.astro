@@ -106,12 +106,14 @@ const isProjectPage = Boolean(urlRegex?.groups?.['slug'])
     }
 
     for (const recaptcha of recaptchaToResize) {
-      if (vw < 420) {
-        recaptcha.style.transform = 'scale(0.75)'
-        recaptcha.style.transformOrigin = 'left'
-      } else {
-        recaptcha.style.removeProperty('transform')
-        recaptcha.style.removeProperty('transform-origin')
+      if (recaptcha.parentElement) {
+        if (vw < 420) {
+          recaptcha.style.transform = 'scale(0.75)'
+          recaptcha.style.transformOrigin = 'left'
+        } else {
+          recaptcha.style.removeProperty('transform')
+          recaptcha.style.removeProperty('transform-origin')
+        }
       }
     }
   }
