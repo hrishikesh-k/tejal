@@ -3,7 +3,7 @@
   publish = "./dist/"
   [build.environment]
     NODE_VERSION = "22.11.0"
-    NPM_VERSION = "10.9.0"
+    NPM_VERSION = "10.9.1"
 
 [dev]
   framework = "astro"
@@ -26,6 +26,12 @@
   from = "https://tejal-v8.netlify.app/*"
   status = 301
   to = "https://www.tejalshinde.com/:splat"
+
+[[redirects]]
+  force = true
+  from = "/sitemap.xml"
+  status = 200
+  to = "/sitemap-0.xml"
 
 [[redirects]]
   from = "/*"

@@ -1,4 +1,5 @@
 import { fileURLToPath } from 'node:url'
+import sitemap from '@astrojs/sitemap'
 import svelte from '@astrojs/svelte'
 import { defineConfig } from 'astro/config'
 import uno from 'unocss/astro'
@@ -7,7 +8,7 @@ export default defineConfig({
   build: {
     inlineStylesheets: 'never'
   },
-  integrations: [svelte(), uno()],
+  integrations: [sitemap(), svelte(), uno()],
   site: 'https://www.tejalshinde.com/',
   trailingSlash: 'always',
   vite: {
