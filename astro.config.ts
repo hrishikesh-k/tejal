@@ -20,7 +20,7 @@ export default defineConfig({
         hooks: {
           'astro:build:done': (options) => {
             let sitemap =
-              '<?xml encoding="UTF-8" version="1.0"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+              '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
             for (const page of options.pages.sort((a, b) =>
               a.pathname.localeCompare(b.pathname, 'en', {
                 numeric: true
