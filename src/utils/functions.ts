@@ -23,7 +23,7 @@ export function findAsset(
 }
 
 export function resizeMasonry(masonry: HTMLDivElement, vw: number) {
-  let columns = 0
+  let columns: number
 
   if (vw < 640) {
     columns = 1

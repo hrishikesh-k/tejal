@@ -1,4 +1,5 @@
 ---
+import OgImage from '~/assets/og.jpg'
 import Icon from '~/components/svelte/icon.svelte'
 import Navigation from '~/components/svelte/navigation.svelte'
 import '~/assets/styles.css'
@@ -10,6 +11,35 @@ interface Props {
 }
 
 const { description, subtitle, title } = Astro.props
+
+const jsonSchema: {
+  '@context': 'https://schema.org/'
+  '@graph': [
+    {
+      '@type': 'Website'
+      name: 'Tejal Shinde'
+      url: string
+    },
+    {
+      '@type': 'BreadcrumbList'
+      itemListElement: Array<{
+        '@type': 'ListItem'
+        item: string
+        name: string
+        position: number
+      }>
+    }?
+  ]
+} = {
+  '@context': 'https://schema.org/',
+  '@graph': [
+    {
+      '@type': 'Website',
+      name: 'Tejal Shinde',
+      url: Astro.url.href
+    }
+  ]
+}
 
 const seoTitle = Astro.url.pathname.match(/^\/(?:index\.html)?$/)
   ? title
@@ -25,15 +55,40 @@ const isSectionPage = Boolean(
 )
 
 const isProjectPage = Boolean(urlRegex?.groups?.['slug'])
+
+if (isSectionPage) {
+  jsonSchema['@graph'].push({
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        item: Astro.url.href,
+        name: 'Tejal Shinde',
+        position: 1
+      }
+    ]
+  })
+}
 ---
 
 <html class="min-h-full w-full" lang="en">
   <head>
-    <link href="/sitemap.xml" rel="sitemap"/>
     <meta charset="utf-8"/>
-    <meta content="initial-scale=1, width=device-width" name="viewport">
+    <meta content="Tejal Shinde" name="author"/>
+    <!-- TODO: need to separate description from SEO -->
+    <meta content={description} name="description"/>
     <meta content={Astro.generator} name="generator"/>
+    <meta content="initial-scale=1, width=device-width" name="viewport"/>
+    <meta content={new URL(OgImage.src, Astro.url)} property="og:image"/>
+    <meta content="Open Graph cover for Tejal Shinde's portfolio" property="og:image:alt"/>
+    <meta content="630" property="og:image:height"/>
+    <meta content="image/jpeg" property="og:image:type"/>
+    <meta content="1200" property="og:image:width"/>
+    <meta content={seoTitle} property="og:title"/>
+    <meta content="website" property="og:type"/>
+    <meta content={Astro.url} property="og:url"/>
     <title>{seoTitle}</title>
+    <script is:inline set:html={JSON.stringify(jsonSchema)} type="application/ld+json"></script>
   </head>
   <body class="bg-light-500 dark:bg-dark-500 box-border font-montserrat m-0 min-h-full text-dark-500 dark:text-light-500 w-full">
     <header class="bg-light-500 dark:bg-dark-500 border-0 border-b-0.25 border-gray-300 dark:border-gray-500 border-solid box-border h-24 left-0 p-x-6 lg:p-x-32 md:p-x-16 pos-fixed top-0 w-full z-100">

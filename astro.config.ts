@@ -20,12 +20,13 @@ export default defineConfig({
         hooks: {
           'astro:build:done': (options) => {
             let sitemap =
-              '<?xml encoding="UTF-8" version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+              '<?xml encoding="UTF-8" version="1.0"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
             for (const page of options.pages.sort((a, b) =>
               a.pathname.localeCompare(b.pathname, 'en', {
                 numeric: true
               })
             )) {
+              // TODO: Git does not maintain mtime probably
               sitemap += `<url><loc>${new URL(page.pathname, config.site).href}</loc><lastmod>${statSync(
                 join(
                   cwd(),
