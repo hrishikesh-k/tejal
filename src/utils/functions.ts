@@ -1,5 +1,8 @@
 import type { InferEntrySchema } from 'astro:content'
+import type { MediaPlayerElement } from 'vidstack/elements'
 import placeholder from '~/assets/placeholder.png'
+
+const maxHeight = window.innerHeight * 0.8
 
 export function findAsset(
   post: {
@@ -22,17 +25,19 @@ export function findAsset(
   }
 }
 
-export function resizeMasonry(masonry: HTMLDivElement, vw: number) {
-  let columns: number
-
-  if (vw < 640) {
-    columns = 1
-  } else if (vw < 768) {
-    columns = 2
-  } else {
-    columns = 3
+function resizeImage(img: HTMLImageElement) {
+  const parentLevel = Number.parseInt(img.getAttribute('data-ro-parent') || '1')
+  if (parentLevel > 0) {
+    let parent: HTMLElement = img
+    for (let i = 0; i < parentLevel; i++) {
+      parent = parent.parentElement as HTMLElement
+    }
+    parent.style.maxWidth = `${Math.round((maxHeight / Number.parseInt(img.getAttribute('height') || '0')) * Number.parseInt(img.getAttribute('width') || '0'))}px`
   }
+}
 
+function resizeMasonry(masonry: HTMLDivElement, vw: number) {
+  const columns = vw < 640 ? 1 : vw < 768 ? 2 : 3
   const gap = 24
   const columnHeights = new Array(columns).fill(0)
   const columnWidth = (masonry.clientWidth - (columns - 1) * gap) / columns
@@ -50,4 +55,281 @@ export function resizeMasonry(masonry: HTMLDivElement, vw: number) {
   }
 
   masonry.style.height = `${Math.max(...columnHeights)}px`
+}
+
+function resizePlayer(player: MediaPlayerElement) {
+  const computedStyles = getComputedStyle(player)
+  const originalHeight = Number.parseInt(computedStyles.height)
+  const originalWidth = Number.parseInt(computedStyles.width)
+
+  if (originalHeight > originalWidth) {
+    player.style.maxWidth = `${Math.round((maxHeight / originalHeight) * originalWidth)}px`
+  }
+}
+
+function resizeRecaptcha(recaptcha: HTMLDivElement, vw: number) {
+  const parentDiv = recaptcha.parentElement as HTMLDivElement
+  parentDiv.classList.remove(vw < 420 ? 'm-y-6' : 'scale-75')
+  parentDiv.classList.add(vw < 420 ? 'scale-75' : 'm-y-6')
+}
+
+function roundCorners(
+  index: number,
+  length: number,
+  link: HTMLAnchorElement,
+  vw: number
+) {
+  for (const prop of [
+    'border-radius',
+    'border-bottom-left-radius',
+    'border-bottom-right-radius',
+    'border-top-left-radius',
+    'border-top-right-radius'
+  ]) {
+    link.style.removeProperty(prop)
+  }
+
+  if (length === 1) {
+    setBorderRadius(link, ['borderRadius'])
+    return
+  }
+
+  if (length === 2) {
+    roundCornersLength2(index, link, vw)
+    return
+  }
+
+  if (length === 3) {
+    roundCornersLength3(index, link, vw)
+    return
+  }
+
+  roundCornersLengthGt3(index, length, link, vw)
+}
+
+function roundCornersInit(container: HTMLDivElement, vw: number) {
+  const linksToRound = container.querySelectorAll('a')
+
+  for (const [index, link] of linksToRound.entries()) {
+    roundCorners(index, linksToRound.length, link, vw)
+  }
+}
+
+function roundCornersLength2(
+  index: number,
+  link: HTMLAnchorElement,
+  vw: number
+) {
+  if (index === 0) {
+    setBorderRadius(
+      link,
+      vw < 640
+        ? ['borderTopLeftRadius', 'borderTopRightRadius']
+        : ['borderTopLeftRadius', 'borderBottomLeftRadius']
+    )
+  } else {
+    setBorderRadius(
+      link,
+      vw < 640
+        ? ['borderBottomLeftRadius', 'borderBottomRightRadius']
+        : ['borderTopRightRadius', 'borderBottomRightRadius']
+    )
+  }
+}
+
+function roundCornersLength3(
+  index: number,
+  link: HTMLAnchorElement,
+  vw: number
+) {
+  if (index === 0) {
+    setBorderRadius(
+      link,
+      vw < 640
+        ? ['borderTopLeftRadius', 'borderTopRightRadius']
+        : vw < 1024
+          ? ['borderTopLeftRadius']
+          : ['borderTopLeftRadius', 'borderBottomLeftRadius']
+    )
+  } else if (index === 1 && vw < 1024 && vw >= 640) {
+    setBorderRadius(link, ['borderTopRightRadius', 'borderBottomRightRadius'])
+  } else if (index === 2) {
+    setBorderRadius(
+      link,
+      vw < 1024
+        ? ['borderBottomLeftRadius', 'borderBottomRightRadius']
+        : ['borderTopRightRadius', 'borderBottomRightRadius']
+    )
+  }
+}
+
+function roundCornersLengthGt3(
+  index: number,
+  length: number,
+  link: HTMLAnchorElement,
+  vw: number
+) {
+  if (vw < 640) {
+    roundCornersLengthGt3Sm(index, length, link)
+    return
+  }
+
+  if (vw < 1024 && vw >= 640) {
+    roundCornersLengthGt3Md(index, length, link)
+    return
+  }
+
+  roundCornersLengthGt3Lg(index, length, link)
+}
+
+function roundCornersLengthGt3Lg(
+  index: number,
+  length: number,
+  link: HTMLAnchorElement
+) {
+  const remainder = length % 3
+
+  if (index === 0) {
+    setBorderRadius(link, ['borderTopLeftRadius'])
+    return
+  }
+
+  if (index === 2) {
+    setBorderRadius(link, ['borderTopRightRadius'])
+    return
+  }
+
+  if (remainder === 0 && index >= length - 3) {
+    const radiusMapping = {
+      [length - 3]: ['borderBottomLeftRadius'],
+      [length - 1]: ['borderBottomRightRadius']
+    }
+
+    setBorderRadius(
+      link,
+      radiusMapping[index] as Parameters<typeof setBorderRadius>[1]
+    )
+    return
+  }
+
+  if (remainder === 1 && index >= length - 2) {
+    setBorderRadius(
+      link,
+      index === length - 2
+        ? ['borderBottomRightRadius']
+        : ['borderBottomLeftRadius', 'borderBottomRightRadius']
+    )
+    return
+  }
+
+  if (remainder === 2 && index >= length - 2) {
+    setBorderRadius(
+      link,
+      index === length - 2
+        ? ['borderBottomLeftRadius']
+        : ['borderBottomRightRadius']
+    )
+  }
+}
+
+function roundCornersLengthGt3Md(
+  index: number,
+  length: number,
+  link: HTMLAnchorElement
+) {
+  const remainder = length % 2
+  if (index === 0) {
+    setBorderRadius(link, ['borderTopLeftRadius'])
+  } else if (index === 1) {
+    setBorderRadius(link, ['borderTopRightRadius'])
+  } else if (remainder === 0 && index >= length - 2) {
+    setBorderRadius(
+      link,
+      index === length - 2
+        ? ['borderBottomLeftRadius']
+        : ['borderBottomRightRadius']
+    )
+  } else if (remainder === 1 && index >= length - 2) {
+    setBorderRadius(
+      link,
+      index === length - 2
+        ? ['borderBottomRightRadius']
+        : ['borderBottomLeftRadius', 'borderBottomRightRadius']
+    )
+  }
+}
+
+function roundCornersLengthGt3Sm(
+  index: number,
+  length: number,
+  link: HTMLAnchorElement
+) {
+  if (index === 0) {
+    setBorderRadius(link, ['borderTopLeftRadius', 'borderTopRightRadius'])
+  } else if (index === length - 1) {
+    setBorderRadius(link, ['borderBottomLeftRadius', 'borderBottomRightRadius'])
+  }
+}
+
+function setBorderRadius(
+  link: HTMLAnchorElement,
+  styles: Array<
+    | 'borderRadius'
+    | 'borderBottomLeftRadius'
+    | 'borderBottomRightRadius'
+    | 'borderTopLeftRadius'
+    | 'borderTopRightRadius'
+  >
+) {
+  for (const property of styles) {
+    link.style[property] = '0.375rem'
+  }
+}
+
+// added this function here to Biome can lint it
+export function addWindowResizeEventHandler() {
+  let timeout: NodeJS.Timeout
+
+  function windowResizeHandler() {
+    const imgToResize =
+      document.querySelectorAll<HTMLImageElement>('picture > img')
+    const linksToRoundContainers = document.querySelectorAll<HTMLDivElement>(
+      'div.grid.grid-cols-1.overflow-hidden'
+    )
+    const masonryToResize =
+      document.querySelectorAll<HTMLDivElement>('[data-masonry]')
+    const mediaPlayersToResize =
+      document.querySelectorAll<MediaPlayerElement>('media-player')
+    const recaptchaToResize =
+      document.querySelectorAll<HTMLDivElement>('.g-recaptcha')
+    const vw = document.documentElement.clientWidth
+
+    for (const img of imgToResize) {
+      resizeImage(img)
+    }
+
+    for (const container of linksToRoundContainers) {
+      roundCornersInit(container, vw)
+    }
+
+    for (const masonry of masonryToResize) {
+      resizeMasonry(masonry, vw)
+    }
+
+    for (const player of mediaPlayersToResize) {
+      resizePlayer(player)
+    }
+
+    for (const recaptcha of recaptchaToResize) {
+      resizeRecaptcha(recaptcha, vw)
+    }
+  }
+
+  window.addEventListener('resize', () => {
+    clearTimeout(timeout)
+    timeout = setTimeout(windowResizeHandler, 250)
+  })
+
+  window.rh = windowResizeHandler
+  window.rh()
 }
