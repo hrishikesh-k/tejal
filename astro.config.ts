@@ -26,7 +26,6 @@ export default defineConfig({
                 numeric: true
               })
             )) {
-              // TODO: Git does not maintain mtime probably
               sitemap += `<url><loc>${new URL(page.pathname, config.site).href}</loc><lastmod>${statSync(
                 join(
                   cwd(),

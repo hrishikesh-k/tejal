@@ -1586,7 +1586,6 @@
 1733043976|src/pages/work/presentations.astro
 1733044289|src/pages/index.astro
 1733044296|src/pages/work.astro
-1733058414|astro.config.ts
 1733057056|src/components/astro/section.astro
 1733050517|src/components/svelte/video.svelte
 1733049134|src/env.d.ts
@@ -1597,3 +1596,4 @@
 1733066166|package.json
 1733063723|src/layouts/base.astro
 1733067510|src/utils/functions.ts
+1733058414|astro.config.ts
