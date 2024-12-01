@@ -1591,9 +1591,9 @@
 1733040359|src/pages/about.astro
 1733040333|src/pages/contact.astro
 1733043953|src/components/astro/heading3.astro
-1733043976|src/components/astro/section.astro
-1733043471|src/pages/index.astro
-1733043976|src/pages/work.astro
 1733043278|src/pages/work/advertising.astro
 1733043281|src/pages/work/fashion.astro
 1733043976|src/pages/work/presentations.astro
+1733044261|src/components/astro/section.astro
+1733044289|src/pages/index.astro
+1733044296|src/pages/work.astro

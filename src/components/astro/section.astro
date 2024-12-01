@@ -8,6 +8,7 @@ import Icon from '~/components/svelte/icon.svelte'
 interface Props {
   explore?: boolean
   jumpLinks?: boolean
+  noTitleMarginTop?: boolean
   posts: Array<{
     data: {
       cover: {
@@ -23,7 +24,14 @@ interface Props {
   title: string
 }
 
-const { explore = false, jumpLinks, posts = [], showTitle, title } = Astro.props
+const {
+  explore = false,
+  jumpLinks,
+  noTitleMarginTop,
+  posts = [],
+  showTitle,
+  title
+} = Astro.props
 
 const collection = title.toLowerCase()
 
@@ -61,7 +69,7 @@ function findPresentation(slug: string): string | undefined {
 
 {
   showTitle &&
-  <Heading3 noMarginTop text={title}/>
+  <Heading3 noMarginTop={Boolean(noTitleMarginTop)} text={title}/>
 }
 <div class="border-rounded-1.5 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 overflow-hidden">
   {
