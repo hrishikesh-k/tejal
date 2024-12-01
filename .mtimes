@@ -2,7 +2,6 @@
 1732085931|biome.json
 1732085931|license.md
 1732960159|mtimestore
-1732952701|netlify.toml
 1732085931|netlify/edge-functions/import_map.json
 1732085931|netlify/edge-functions/password.ts
 1732085931|public/785dfe191d5146e0a0e852fa5003303e.txt
@@ -1597,3 +1596,4 @@
 1733063723|src/layouts/base.astro
 1733067510|src/utils/functions.ts
 1733058414|astro.config.ts
+1733076510|netlify.toml
