@@ -1,6 +1,15 @@
 ---
+import Section from '~/components/astro/section.astro'
+import {
+  advertisingPosts,
+  fashionPosts,
+  presentationPosts
+} from '~/content/posts.ts'
 import Base from '~/layouts/base.astro'
 ---
 
 <Base description="Browse through Tejal Shinde's breathtaking portfolio, showcasing her diverse range of captivating projects and creative endeavours." title="Work">
+  <Section posts={advertisingPosts} showTitle title="Advertising"/>
+  <Section posts={fashionPosts} showTitle title="Fashion"/>
+  <Section posts={presentationPosts} showTitle title="Presentations"/>
 </Base>

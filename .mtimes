@@ -1535,10 +1535,8 @@
 1732085939|src/assets/zoddlini/spade-7.png
 1732085939|src/assets/zoddlini/spade-8.png
 1732085939|src/assets/zoddlini/spade-9.png
-1732085939|src/components/astro/heading3.astro
 1732085939|src/components/astro/masonry.astro
 1732087379|src/components/astro/picture.astro
-1732168992|src/components/astro/section.astro
 1732180793|src/components/svelte/form.svelte
 1732085939|src/components/svelte/icon.svelte
 1732098727|src/components/svelte/swiper.svelte
@@ -1565,7 +1563,6 @@
 1732085939|src/content/presentation/skippy.md
 1732085939|src/content/presentation/swoon.md
 1732085939|src/env.d.ts
-1732168201|src/pages/work/advertising.astro
 1732085939|src/pages/work/advertising/absolut.astro
 1732085939|src/pages/work/advertising/bic.astro
 1732085939|src/pages/work/advertising/bombae-bantai-brewery.astro
@@ -1579,7 +1576,6 @@
 1732085939|src/pages/work/advertising/skippy.astro
 1732085939|src/pages/work/advertising/weco.astro
 1732085939|src/pages/work/advertising/zoddlini.astro
-1732085939|src/pages/work/fashion.astro
 1732085939|src/pages/work/fashion/diversity.astro
 1732085939|src/pages/work/fashion/kindness.astro
 1732085939|src/pages/work/fashion/riding-bitch.astro
@@ -1594,6 +1590,10 @@
 1733040221|src/layouts/base.astro
 1733040359|src/pages/about.astro
 1733040333|src/pages/contact.astro
-1733040294|src/pages/index.astro
-1733040316|src/pages/work.astro
-1733040512|src/pages/work/presentations.astro
+1733043953|src/components/astro/heading3.astro
+1733043976|src/components/astro/section.astro
+1733043471|src/pages/index.astro
+1733043976|src/pages/work.astro
+1733043278|src/pages/work/advertising.astro
+1733043281|src/pages/work/fashion.astro
+1733043976|src/pages/work/presentations.astro

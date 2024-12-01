@@ -9,7 +9,7 @@ import Base from '~/layouts/base.astro'
 ---
 
 <Base description="Explore the creative world of Tejal Shinde - a versatile Art Director and Fashion Model through her captivating online portfolio." title="Tejal Shinde">
-  <Section explore posts={advertisingPosts.slice(0, 3)} title="Advertising"/>
-  <Section explore posts={fashionPosts.slice(0, 3)} title="Fashion"/>
-  <Section explore posts={presentationPosts.slice(0, 3)} title="Presentations"/>
+  <Section explore posts={advertisingPosts.slice(0, 3)} showTitle title="Advertising"/>
+  <Section explore posts={fashionPosts.slice(0, 3)} showTitle title="Fashion"/>
+  <Section explore posts={presentationPosts.slice(0, 3)} showTitle title="Presentations"/>
 </Base>

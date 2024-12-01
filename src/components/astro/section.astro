@@ -1,11 +1,13 @@
 ---
 import presentationSkippy from '~/assets/skippy/presentation.pdf'
 import presentationSwoon from '~/assets/swoon/presentation.pdf'
+import Heading3 from '~/components/astro/heading3.astro'
 import Picture from '~/components/astro/picture.astro'
 import Icon from '~/components/svelte/icon.svelte'
 
 interface Props {
   explore?: boolean
+  jumpLinks?: boolean
   posts: Array<{
     data: {
       cover: {
@@ -17,10 +19,11 @@ interface Props {
     }
     slug: string
   }>
+  showTitle?: boolean
   title: string
 }
 
-const { explore = false, posts = [], title } = Astro.props
+const { explore = false, jumpLinks, posts = [], showTitle, title } = Astro.props
 
 const collection = title.toLowerCase()
 
@@ -35,14 +38,14 @@ const presentationSlugRelations = [
   }
 ]
 
-let jumpLinks: string[] = []
+let jumpLink: string[] = []
 
 if (title === 'Advertising') {
-  jumpLinks = ['Fashion', 'Presentations']
+  jumpLink = ['Fashion', 'Presentations']
 } else if (title === 'Fashion') {
-  jumpLinks = ['Advertising', 'Presentations']
+  jumpLink = ['Advertising', 'Presentations']
 } else if (title === 'Presentations') {
-  jumpLinks = ['Advertising', 'Fashion']
+  jumpLink = ['Advertising', 'Fashion']
 }
 
 function findPresentation(slug: string): string | undefined {
@@ -57,10 +60,9 @@ function findPresentation(slug: string): string | undefined {
 ---
 
 {
-  explore &&
-  <h3 class="font-400 m-0 m-b-4 text-8">{title}</h3>
+  showTitle &&
+  <Heading3 noMarginTop text={title}/>
 }
-
 <div class="border-rounded-1.5 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 overflow-hidden">
   {
     posts.map(post => (
@@ -71,16 +73,18 @@ function findPresentation(slug: string): string | undefined {
     ))
   }
 </div>
-
 {
-  explore ?
+  explore &&
   <a class="after:bg-current after:border-rounded-0.25 after:bottom--2 decoration-none flex gap-x-2 after:h-0.5 items-center after:left-0 m-l-auto m-t-6 pos-relative after:pos-absolute text-4 text-current md:text-6 after:transition-duration-250 after:transition-width w-fit after:w-0 after:hover:w-full" href={`/work/${collection}/`}>
     <span>Explore all</span>
     <Icon name="circle-arrow-right" size={6}/>
-  </a> :
+  </a>
+}
+{
+  jumpLinks &&
   <div class="flex justify-between m-t-6">
     {
-      jumpLinks.map((link, index) => (
+      jumpLink.map((link, index) => (
         <a class="after:bg-current after:border-rounded-0.25 after:bottom--2 decoration-none flex gap-x-2 after:h-0.5 items-center after:left-0 pos-relative after:pos-absolute text-4 text-current md:text-6 after:transition-duration-250 after:transition-width after:w-0 after:hover:w-full" href={`/work/${link.toLowerCase()}/`}>
           {
             index === 0 && <Icon name="circle-arrow-left" size={6}/>

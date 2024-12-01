@@ -1,9 +1,11 @@
 ---
 interface Props {
   center?: boolean
+  noMarginTop?: boolean
   text: string
 }
 
-const { center = false, text } = Astro.props
+const { center, noMarginTop, text } = Astro.props
 ---
-<h3 id={text.toLowerCase().trim().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/--+/g, '-')} class="font-400 m-0 m-b-4 m-t-12 text-8" class:list={{'text-center': center}}>{text}</h3>
+
+<h3 id={text.toLowerCase().trim().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/--+/g, '-')} class="font-400 m-0 m-b-4 text-8" class:list={{'m-t-12': !noMarginTop, 'text-center': center}}>{text}</h3>
