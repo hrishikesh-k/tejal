@@ -71,10 +71,10 @@ function findPresentation(slug: string): string | undefined {
   showTitle &&
   <Heading3 noMarginTop={Boolean(noTitleMarginTop)} text={title}/>
 }
-<div class="border-rounded-1.5 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 overflow-hidden">
   {
-    posts.map(post => (
-      <a class="group pos-relative" href={collection === 'presentations' ? findPresentation(post.slug) : `/work/${collection}/${post.slug}/`}>
+    posts.map((post) => (
+      <a class="group pos-relative overflow-hidden" href={collection === 'presentations' ? findPresentation(post.slug) : `/work/${collection}/${post.slug}/`}>
         <Picture alt={`cover art for ${post.data.title}`} height={post.data.cover.height} parent={2} src={post.data.cover.src} width={post.data.cover.width}/>
         <h4 class="bg-dark-900/75 box-border flex font-400 h-full items-center justify-center left-0 m-0 opacity-0 group-hover:opacity-100 p-3 pos-absolute text-8 top-0 text-center text-light-500 transition-duration-500 transition-opacity w-full">{post.data.title}</h4>
       </a>
@@ -106,5 +106,3 @@ function findPresentation(slug: string): string | undefined {
     }
   </div>
 }
-
-<!-- TODO: rounded corners -->

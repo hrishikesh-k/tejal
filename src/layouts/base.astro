@@ -124,7 +124,6 @@ const finalJsonSchema = {
   <head>
     <meta charset="utf-8"/>
     <meta content="Tejal Shinde" name="author"/>
-    <!-- TODO: need to separate description from SEO -->
     <meta content={description} name="description"/>
     <meta content={Astro.generator} name="generator"/>
     <meta content="initial-scale=1, width=device-width" name="viewport"/>
@@ -177,8 +176,9 @@ const finalJsonSchema = {
 
   let timeout: NodeJS.Timeout
 
-  function resizeElements() {
+  function windowResizeHandler() {
     const imgToResize = document.querySelectorAll('picture > img')
+    const linksToRoundContainers = document.querySelectorAll<HTMLDivElement>('div.grid.grid-cols-1.overflow-hidden')
     const masonryToResize = document.querySelectorAll<HTMLDivElement>('[data-masonry]')
     const maxHeight = window.innerHeight * 0.8
     const mediaPlayersToResize = document.querySelectorAll('media-player')
@@ -193,6 +193,124 @@ const finalJsonSchema = {
           parent = parent.parentElement as HTMLElement
         }
         parent.style.maxWidth = `${Math.round((maxHeight / Number.parseInt(img.getAttribute('height') || '0')) * Number.parseInt(img.getAttribute('width') || '0'))}px`
+      }
+    }
+
+    for (const container of linksToRoundContainers) {
+      const borderRadius = '0.375rem'
+      const linksToRound = container.querySelectorAll('a')
+
+      for (const [index, link] of linksToRound.entries()) {
+        link.style.removeProperty('border-radius')
+        link.style.removeProperty('border-bottom-left-radius')
+        link.style.removeProperty('border-bottom-right-radius')
+        link.style.removeProperty('border-top-left-radius')
+        link.style.removeProperty('border-top-right-radius')
+
+        if (linksToRound.length === 1) {
+          link.style.borderRadius = borderRadius
+        } else if (linksToRound.length === 2) {
+          if (index === 0) {
+            if (vw < 640) {
+              link.style.borderTopLeftRadius = borderRadius
+              link.style.borderTopRightRadius = borderRadius
+            } else {
+              link.style.borderTopLeftRadius = borderRadius
+              link.style.borderBottomLeftRadius = borderRadius
+            }
+          } else {
+            if (vw < 640) {
+              link.style.borderBottomLeftRadius = borderRadius
+              link.style.borderBottomRightRadius = borderRadius
+            } else {
+              link.style.borderTopRightRadius = borderRadius
+              link.style.borderBottomRightRadius = borderRadius
+            }
+          }
+        } else if (linksToRound.length === 3) {
+          if (index === 0) {
+            if (vw < 640) {
+              link.style.borderTopLeftRadius = borderRadius
+              link.style.borderTopRightRadius = borderRadius
+            } else if (vw < 1024 && vw > 640) {
+              link.style.borderTopLeftRadius = borderRadius
+            } else {
+              link.style.borderTopLeftRadius = borderRadius
+              link.style.borderBottomLeftRadius = borderRadius
+            }
+          } else if (index === 1) {
+            if (vw < 1024 && vw >= 640) {
+              link.style.borderBottomRightRadius = borderRadius
+              link.style.borderTopRightRadius = borderRadius
+            }
+          } else {
+            if (vw < 1024) {
+              link.style.borderBottomLeftRadius = borderRadius
+              link.style.borderBottomRightRadius = borderRadius
+            } else {
+              link.style.borderBottomRightRadius = borderRadius
+              link.style.borderTopRightRadius = borderRadius
+            }
+          }
+        } else {
+          if (vw < 640) {
+            if (index === 0) {
+              link.style.borderTopLeftRadius = borderRadius
+              link.style.borderTopRightRadius = borderRadius
+            } else if (index === linksToRound.length - 1) {
+              link.style.borderBottomLeftRadius = borderRadius
+              link.style.borderBottomRightRadius = borderRadius
+            }
+          } else if (vw < 1024 && vw >= 640) {
+            const remainder = linksToRound.length % 2
+
+            if (index === 0) {
+              link.style.borderTopLeftRadius = borderRadius
+            } else if (index === 1) {
+              link.style.borderTopRightRadius = borderRadius
+            } else if (remainder === 0) {
+              if (index === linksToRound.length - 2) {
+                link.style.borderBottomLeftRadius = borderRadius
+              } else if (index === linksToRound.length - 1) {
+                link.style.borderBottomRightRadius = borderRadius
+              }
+            } else {
+              if (index === linksToRound.length - 2) {
+                link.style.borderBottomRightRadius = borderRadius
+              } else if (index === linksToRound.length - 1) {
+                link.style.borderBottomLeftRadius = borderRadius
+                link.style.borderBottomRightRadius = borderRadius
+              }
+            }
+          } else {
+            const remainder = linksToRound.length % 3
+
+            if (index === 0) {
+              link.style.borderTopLeftRadius = borderRadius
+            } else if (index === 2) {
+              link.style.borderTopRightRadius = borderRadius
+            } else if (remainder === 0) {
+              if (index === linksToRound.length - 3) {
+                link.style.borderBottomLeftRadius = borderRadius
+              } else if (index === linksToRound.length - 1) {
+                link.style.borderBottomRightRadius = borderRadius
+              }
+            } else if (remainder === 1) {
+              if (index === linksToRound.length - 2) {
+                link.style.borderBottomRightRadius = borderRadius
+              } else if (index === linksToRound.length - 1) {
+                link.style.borderBottomLeftRadius = borderRadius
+                link.style.borderBottomRightRadius = borderRadius
+              }
+            } else if (remainder === 2) {
+              if (index === linksToRound.length - 2) {
+                link.style.borderBottomLeftRadius = borderRadius
+              } else if (index === linksToRound.length - 1) {
+                link.style.borderBottomRightRadius = borderRadius
+              }
+            }
+          }
+        }
       }
     }
 
@@ -223,9 +341,9 @@ const finalJsonSchema = {
 
   window.addEventListener('resize', () => {
     clearTimeout(timeout)
-    timeout = setTimeout(resizeElements, 250)
+    timeout = setTimeout(windowResizeHandler, 250)
   })
 
-  window.re = resizeElements
-  window.re()
+  window.rh = windowResizeHandler
+  window.rh()
 </script>

@@ -4,9 +4,10 @@ import { defineConfig } from 'unocss'
 export default defineConfig({
   layers: {
     default: 1,
-    lg: 3,
-    md: 2,
-    xl: 4
+    lg: 4,
+    md: 3,
+    sm: 2,
+    xl: 5
   },
   presets: [
     {
@@ -1169,6 +1170,23 @@ export default defineConfig({
             'row-gap': '1.5rem'
           }
         ]
+      ]
+    },
+    {
+      name: 'sm',
+      variants: [
+        {
+          match(matcher) {
+            if (!matcher.startsWith('sm:')) {
+              return matcher
+            }
+            return {
+              layer: 'sm',
+              matcher: matcher.slice(3),
+              parent: '@media (min-width: 640px)'
+            }
+          }
+        }
       ]
     },
     {

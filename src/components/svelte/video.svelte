@@ -132,8 +132,8 @@ onMount(() => {
       type: 'application/x-mpegurl'
     }
 
-    if (window.re) {
-      window.re()
+    if (window.rh) {
+      window.rh()
     }
 
     videoLayout.thumbnails = newThumbs
