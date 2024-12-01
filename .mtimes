@@ -2,14 +2,11 @@
 1732085931|.gitignore
 1732959367|astro.config.ts
 1732085931|biome.json
-1732167646|deno.lock
 1732085931|license.md
 1732960159|mtimestore
 1732952701|netlify.toml
 1732085931|netlify/edge-functions/import_map.json
 1732085931|netlify/edge-functions/password.ts
-1732952790|package-lock.json
-1732952718|package.json
 1732085931|public/785dfe191d5146e0a0e852fa5003303e.txt
 1732085931|public/favicon.ico
 1732548925|public/robots.txt
@@ -1545,7 +1542,6 @@
 1732168992|src/components/astro/section.astro
 1732180793|src/components/svelte/form.svelte
 1732085939|src/components/svelte/icon.svelte
-1732085939|src/components/svelte/navigation.svelte
 1732098727|src/components/svelte/swiper.svelte
 1732085939|src/components/svelte/tooltip.svelte
 1732085939|src/components/svelte/video.svelte
@@ -1570,7 +1566,6 @@
 1732085939|src/content/presentation/skippy.md
 1732085939|src/content/presentation/swoon.md
 1732085939|src/env.d.ts
-1732958634|src/layouts/base.astro
 1732085939|src/pages/about.astro
 1732097187|src/pages/contact.astro
 1732085939|src/pages/index.astro
@@ -1596,4 +1591,9 @@
 1732953577|src/utils/functions.ts
 1732085939|tsconfig.json
 1732180601|uno.config.ts
-1732960296|.mtimes
+1733038205|deno.lock
+1733035137|package-lock.json
+1733035129|package.json
+1733037829|src/components/svelte/navigation.svelte
+1733037663|src/layouts/base.astro
+1733036590|src/pages/work.astro

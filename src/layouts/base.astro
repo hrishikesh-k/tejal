@@ -12,13 +12,32 @@ interface Props {
 
 const { description, subtitle, title } = Astro.props
 
+const seoTitleSuffix = ' | Tejal Shinde'
+
+const seoTitle = Astro.url.pathname.match(/^\/(?:index\.html)?$/)
+  ? title
+  : `${title}${seoTitleSuffix}`
+
+const urlRegex = Astro.url.pathname.toLowerCase().match(
+  // test: https://regex101.com/r/HVqakl/1
+  /^\/(?<menu>about|contact|work)(?:\/(?<section>(?<=work\/)(advertising|fashion|presentations))\/?(?<project>[a-z-]+)?)?\/?(?:index\.html)?$/
+)
+
+const isProjectPage = Boolean(urlRegex?.groups?.['project'])
+
+const isSectionPage = Boolean(urlRegex?.groups?.['section'] && !isProjectPage)
+
+const isMenuPage = Boolean(
+  urlRegex?.groups?.['menu'] && !isProjectPage && !isSectionPage
+)
+
 const jsonSchema: {
   '@context': 'https://schema.org/'
   '@graph': [
     {
       '@type': 'Website'
       name: 'Tejal Shinde'
-      url: string
+      url: 'https://www.tejalshinde.com/'
     },
     {
       '@type': 'BreadcrumbList'
@@ -27,8 +46,8 @@ const jsonSchema: {
         item: string
         name: string
         position: number
-      }>
-    }?
+      } | null>
+    } | null
   ]
 } = {
   '@context': 'https://schema.org/',
@@ -36,37 +55,65 @@ const jsonSchema: {
     {
       '@type': 'Website',
       name: 'Tejal Shinde',
-      url: Astro.url.href
-    }
+      url: 'https://www.tejalshinde.com/'
+    },
+    isMenuPage || isProjectPage || isSectionPage
+      ? {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              item: 'https://www.tejalshinde.com/',
+              name: 'Tejal Shinde',
+              position: 1
+            },
+            (() => {
+              const menu = urlRegex?.groups?.['menu'] || ''
+              return {
+                '@type': 'ListItem',
+                item: new URL(`/${menu}/`, 'https://www.tejalshinde.com/').href,
+                name: `${menu.slice(0, 1).toUpperCase()}${menu.slice(1)}${seoTitleSuffix}`,
+                position: 2
+              }
+            })(),
+            isProjectPage || isSectionPage
+              ? (() => {
+                  const section = urlRegex?.groups?.['section'] || ''
+                  return {
+                    '@type': 'ListItem',
+                    item: new URL(
+                      `/work/${section}/`,
+                      'https://www.tejalshinde.com/'
+                    ).href,
+                    name: `${section.slice(0, 1).toUpperCase()}${section.slice(1)}${seoTitleSuffix}`,
+                    position: 3
+                  }
+                })()
+              : null,
+            isProjectPage
+              ? {
+                  '@type': 'ListItem',
+                  item: Astro.url.href,
+                  name: seoTitle,
+                  position: 4
+                }
+              : null
+          ]
+        }
+      : null
   ]
 }
 
-const seoTitle = Astro.url.pathname.match(/^\/(?:index\.html)?$/)
-  ? title
-  : `${title} | Tejal Shinde`
-
-const urlRegex = Astro.url.pathname.toLowerCase().match(
-  // test: https://regex101.com/r/l7i5OP/1
-  /^\/(?<menu>about|contact|work\/(?<section>advertising|fashion|presentations)(?:\/(?<project>[a-z-]+))?)\/(?:index\.html)?$/
-)
-
-const isSectionPage = Boolean(
-  urlRegex?.groups?.['section'] && !urlRegex.groups['slug']
-)
-
-const isProjectPage = Boolean(urlRegex?.groups?.['slug'])
-
-if (isSectionPage) {
-  jsonSchema['@graph'].push({
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        item: Astro.url.href,
-        name: 'Tejal Shinde',
-        position: 1
+const finalJsonSchema = {
+  ...jsonSchema,
+  '@graph': jsonSchema['@graph'].filter(Boolean).map((item) => {
+    if (item?.['@type'] === 'BreadcrumbList') {
+      return {
+        ...item,
+        itemListElement: item.itemListElement.filter(Boolean)
       }
-    ]
+    }
+    return item
   })
 }
 ---
@@ -88,7 +135,7 @@ if (isSectionPage) {
     <meta content="website" property="og:type"/>
     <meta content={Astro.url} property="og:url"/>
     <title>{seoTitle}</title>
-    <script is:inline set:html={JSON.stringify(jsonSchema)} type="application/ld+json"></script>
+    <script is:inline set:html={JSON.stringify(finalJsonSchema)} type="application/ld+json"></script>
   </head>
   <body class="bg-light-500 dark:bg-dark-500 box-border font-montserrat m-0 min-h-full text-dark-500 dark:text-light-500 w-full">
     <header class="bg-light-500 dark:bg-dark-500 border-0 border-b-0.25 border-gray-300 dark:border-gray-500 border-solid box-border h-24 left-0 p-x-6 lg:p-x-32 md:p-x-16 pos-fixed top-0 w-full z-100">

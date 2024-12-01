@@ -103,7 +103,7 @@ onMount(checkTheme)
 </script>
 
 <nav class="bg-light-500 dark:bg-dark-500 flex flex-col md:flex-row gap-x-3 items-center left-0 pos-absolute md:pos-static transition-duration-250 transition-top w-full md:w-unset" class:top-4={open} class:top--30={!open}>
-  <div class="cursor-pointer flex gap-x-1 group items-center justify-center {mainAnchorBaseClass} {menu?.startsWith('work') && mainAnchorActiveClass}">
+  <div class="cursor-pointer flex gap-x-1 group items-center justify-center {mainAnchorBaseClass} {menu === 'work' && mainAnchorActiveClass}">
     <span>Work</span>
     <Icon name="caret-down" size={3}/>
     <div class="bg-light-500 dark:bg-dark-500 border-0.25 border-gray-300 dark:border-gray-500 border-rounded-1.5 border-solid bottom--26 box-border hidden group-hover:block pos-absolute right-3/8 md:right-0 z-1">
