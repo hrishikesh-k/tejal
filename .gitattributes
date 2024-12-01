@@ -1,13 +1,13 @@
 .gitattributes eol=lf text
 .gitignore eol=lf text
 .mtimes eol=lf text
+mtimestore eol=lf text
 *.astro eol=lf text
 *.css eol=lf text
 *.json eol=lf text
 *.lock eol=lf text
 *.m3u8 eol=lf text
 *.md eol=lf text
-*.sh eol=lf text
 *.svelte eol=lf text
 *.toml eol=lf text
 *.ts eol=lf text

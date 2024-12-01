@@ -1,4 +1,3 @@
-1732959699|.gitattributes
 1732085931|.gitignore
 1732959367|astro.config.ts
 1732085931|biome.json
@@ -1566,9 +1565,6 @@
 1732085939|src/content/presentation/skippy.md
 1732085939|src/content/presentation/swoon.md
 1732085939|src/env.d.ts
-1732085939|src/pages/about.astro
-1732097187|src/pages/contact.astro
-1732085939|src/pages/index.astro
 1732168201|src/pages/work/advertising.astro
 1732085939|src/pages/work/advertising/absolut.astro
 1732085939|src/pages/work/advertising/bic.astro
@@ -1587,7 +1583,6 @@
 1732085939|src/pages/work/fashion/diversity.astro
 1732085939|src/pages/work/fashion/kindness.astro
 1732085939|src/pages/work/fashion/riding-bitch.astro
-1732169093|src/pages/work/presentations.astro
 1732953577|src/utils/functions.ts
 1732085939|tsconfig.json
 1732180601|uno.config.ts
@@ -1595,5 +1590,10 @@
 1733035137|package-lock.json
 1733035129|package.json
 1733037829|src/components/svelte/navigation.svelte
-1733037663|src/layouts/base.astro
-1733036590|src/pages/work.astro
+1733038335|.gitattributes
+1733040221|src/layouts/base.astro
+1733040359|src/pages/about.astro
+1733040333|src/pages/contact.astro
+1733040294|src/pages/index.astro
+1733040316|src/pages/work.astro
+1733040512|src/pages/work/presentations.astro
