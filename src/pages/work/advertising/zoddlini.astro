@@ -84,7 +84,7 @@ const mockups = [
 ]
 ---
 
-<Base description={post.data.description} title={post.data.title}>
+<Base cover={post.data.cover.src} description={post.data.description} title={post.data.title}>
   <div class="flex flex-col gap-y-6 items-center">
     {
       mockups.map((mockup) => <Picture alt={mockup.alt} height={mockup.img.height} rounded src={mockup.img.src} width={mockup.img.width}/>)

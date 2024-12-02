@@ -13,7 +13,7 @@ const rushRewards = findAsset(post, 'rush-rewards')
 const taxDay = findAsset(post, 'tax-day')
 ---
 
-<Base description={post.data.description} title={post.data.title}>
+<Base cover={post.data.cover.src} description={post.data.description} title={post.data.title}>
   <div class="flex gap-x-6 justify-center m-b-6">
     <div style={`flex: calc(${$7500.img.width}/${$7500.img.height})`}>
       <Picture alt={$7500.alt} height={$7500.img.height} parent={2} rounded src={$7500.img.src} width={$7500.img.width}/>

@@ -27,7 +27,7 @@ const tweets = [
 ]
 ---
 
-<Base description={post.data.description} title={post.data.title}>
+<Base cover={post.data.cover.src} description={post.data.description} title={post.data.title}>
   <Heading3 text="Tweets"/>
   <Swiper client:load>
     {

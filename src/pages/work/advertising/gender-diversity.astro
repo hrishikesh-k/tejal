@@ -115,7 +115,7 @@ const vid2Segments480p = Object.values(
 )
 ---
 
-<Base description={post.data.description} subtitle={post.data.subtitle as string} title={post.data.title}>
+<Base cover={post.data.cover.src} description={post.data.description} subtitle={post.data.subtitle as string} title={post.data.title}>
   <Video client:load qualities={{
     '144': vid1Segments144p,
     '240': vid1Segments240p,

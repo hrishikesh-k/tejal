@@ -2,15 +2,17 @@
 import OgImage from '~/assets/og.jpg'
 import Icon from '~/components/svelte/icon.svelte'
 import Navigation from '~/components/svelte/navigation.svelte'
+import { url } from '~/utils/constants.ts'
 import '~/assets/styles.css'
 
 interface Props {
+  cover?: string
   description: string
   subtitle?: string
   title: string
 }
 
-const { description, subtitle, title } = Astro.props
+const { cover, description, subtitle, title } = Astro.props
 
 const seoTitleSuffix = ' | Tejal Shinde'
 
@@ -37,7 +39,7 @@ const jsonSchema: {
     {
       '@type': 'Website'
       name: 'Tejal Shinde'
-      url: 'https://www.tejalshinde.com/'
+      url: typeof url
     },
     {
       '@type': 'BreadcrumbList'
@@ -48,6 +50,22 @@ const jsonSchema: {
         position: number
       } | null>
       name: 'Breadcrumbs'
+    } | null,
+    {
+      '@type': 'BlogPosting'
+      author: {
+        '@type': 'Person'
+        name: 'Tejal Shinde'
+        url: typeof url
+      }
+      description: string
+      headline: string
+      image: string
+      mainEntityOfPage: {
+        '@id': string
+        '@type': 'WebPage'
+      }
+      url: typeof url
     } | null
   ]
 } = {
@@ -56,7 +74,7 @@ const jsonSchema: {
     {
       '@type': 'Website',
       name: 'Tejal Shinde',
-      url: 'https://www.tejalshinde.com/'
+      url
     },
     isMenuPage || isProjectPage || isSectionPage
       ? {
@@ -64,7 +82,7 @@ const jsonSchema: {
           itemListElement: [
             {
               '@type': 'ListItem',
-              item: 'https://www.tejalshinde.com/',
+              item: url,
               name: 'Tejal Shinde',
               position: 1
             },
@@ -72,7 +90,7 @@ const jsonSchema: {
               const menu = urlRegex?.groups?.['menu'] || ''
               return {
                 '@type': 'ListItem',
-                item: new URL(`/${menu}/`, 'https://www.tejalshinde.com/').href,
+                item: new URL(`/${menu}/`, url).href,
                 name: `${menu.slice(0, 1).toUpperCase()}${menu.slice(1)}${seoTitleSuffix}`,
                 position: 2
               }
@@ -82,10 +100,7 @@ const jsonSchema: {
                   const section = urlRegex?.groups?.['section'] || ''
                   return {
                     '@type': 'ListItem',
-                    item: new URL(
-                      `/work/${section}/`,
-                      'https://www.tejalshinde.com/'
-                    ).href,
+                    item: new URL(`/work/${section}/`, url).href,
                     name: `${section.slice(0, 1).toUpperCase()}${section.slice(1)}${seoTitleSuffix}`,
                     position: 3
                   }
@@ -101,6 +116,24 @@ const jsonSchema: {
               : null
           ],
           name: 'Breadcrumbs'
+        }
+      : null,
+    isProjectPage
+      ? {
+          '@type': 'BlogPosting',
+          author: {
+            '@type': 'Person',
+            name: 'Tejal Shinde',
+            url
+          },
+          description,
+          headline: seoTitle,
+          image: `${url}${(cover || '').slice(1)}`,
+          mainEntityOfPage: {
+            '@id': Astro.url.href,
+            '@type': 'WebPage'
+          },
+          url
         }
       : null
   ]

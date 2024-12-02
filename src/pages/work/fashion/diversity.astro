@@ -16,7 +16,7 @@ const diversitys = [
 ]
 ---
 
-<Base description={post.data.description} title={post.data.title}>
+<Base cover={post.data.cover.src} description={post.data.description} title={post.data.title}>
   <Masonry>
     {
       diversitys.map((diversity) => <Picture alt={diversity.alt} height={diversity.img.height} rounded src={diversity.img.src} width={diversity.img.width}/>)
