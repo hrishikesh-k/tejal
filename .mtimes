@@ -1,6 +1,5 @@
 1733038335|.gitattributes
 1732085931|.gitignore
-1733158480|astro.config.ts
 1732085931|biome.json
 1732085931|license.md
 1732960159|mtimestore
@@ -8,7 +7,6 @@
 1732085931|netlify/edge-functions/password.ts
 1732085931|public/785dfe191d5146e0a0e852fa5003303e.txt
 1732085931|public/favicon.ico
-1732548925|public/robots.txt
 1733163043|readme.md
 1732085931|src/assets/about/about.jpg
 1732085931|src/assets/about/resume.pdf
@@ -1583,10 +1581,12 @@
 1733229727|tsconfig.json
 1733230765|src/components/astro/section.astro
 1733230856|src/content.config.ts
-1733236207|deno.lock
 1733236248|netlify.toml
-1733232779|package-lock.json
-1733232766|package.json
 1733233837|src/components/astro/picture.astro
 1733233645|src/components/svelte/video.svelte
-1733233325|src/pages/404.astro
+1733236987|astro.config.ts
+1733237929|deno.lock
+1733237652|package-lock.json
+1733237613|package.json
+1733237533|public/robots.txt
+1733237435|src/pages/404.astro

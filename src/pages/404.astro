@@ -1,0 +1,16 @@
+---
+import Heading3 from '~/components/astro/heading3.astro'
+import Icon from '~/components/svelte/icon.svelte'
+import Base from '~/layouts/base.astro'
+---
+
+<Base description="You've stumbled upon an uncharted territory." title="404">
+  <Heading3 center noMarginTop text="Error 404"/>
+  <p class="m-0 m-b-6">Lost in creativity, eh? You've stumbled upon an uncharted territory. But fear not, I'm always crafting something new. Maybe there would be something new here in a while? For now, let's get back on track!</p>
+  <div class="flex justify-center">
+    <a class="after:bg-current after:border-rounded-0.25 after:bottom--2 decoration-none flex gap-x-2 after:h-0.5 items-center after:left-0 pos-relative after:pos-absolute text-4 text-current md:text-6 after:transition-duration-250 after:transition-width after:w-0 after:hover:w-full" href="/">
+      <Icon name="circle-arrow-left" size={6}/>
+      <span>Return home</span>
+    </a>
+  </div>
+</Base>

@@ -21,11 +21,13 @@ export default defineConfig({
           'astro:build:done': (options) => {
             let sitemap =
               '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">'
-            for (const page of options.pages.sort((a, b) =>
-              a.pathname.localeCompare(b.pathname, 'en', {
-                numeric: true
-              })
-            )) {
+            for (const page of options.pages
+              .filter((page) => page.pathname !== '404/')
+              .sort((a, b) =>
+                a.pathname.localeCompare(b.pathname, 'en', {
+                  numeric: true
+                })
+              )) {
               sitemap += `<url><loc>${new URL(page.pathname, config.site).href}</loc><lastmod>${statSync(
                 join(
                   cwd(),
