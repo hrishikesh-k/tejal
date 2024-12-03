@@ -18,7 +18,7 @@ const mainAnchorBaseClass = [
   'after:bg-current',
   'after:border-rounded-0.25',
   'after:bottom-0.5',
-        'after:content',
+  'after:content',
   'box-border',
   'decoration-none',
   'after:h-0.5',

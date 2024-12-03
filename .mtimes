@@ -1585,8 +1585,8 @@
 1733245520|src/assets/styles.css
 1733245528|src/components/astro/section.astro
 1733244978|src/components/svelte/form.svelte
-1733245545|src/components/svelte/navigation.svelte
 1733244469|src/components/svelte/swiper.svelte
 1733245427|src/components/svelte/video.svelte
 1733245567|src/pages/404.astro
 1733244596|uno.config.ts
+1733247456|src/components/svelte/navigation.svelte
