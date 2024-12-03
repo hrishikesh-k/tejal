@@ -23,6 +23,7 @@ const inputClass = [
 
 const spanClass = [
   'left-2',
+  'opacity-50',
   'pointer-none',
   'pos-absolute',
   'peer-focus:scale-75',
@@ -86,7 +87,6 @@ async function onsubmit(event: Event) {
 }
 </script>
 
-<!-- TODO: placeholder colour -->
 <form action="/contact/" class="md:flex-basis-0 md:flex-grow-1 md:flex-shrink-1 max-w-full" data-netlify="true" data-netlify-recaptcha="true" method="post" name="contact" {onsubmit}>
   <input type="hidden" name="form-name" value="contact">
   <div class="flex gap-x-2 items-center">
@@ -111,7 +111,7 @@ async function onsubmit(event: Event) {
     <textarea class="{inputClass} min-h-36 resize-none" name="Message" {oninput} placeholder="&nbsp;" required></textarea>
     <span class={spanClass}>Message</span>
   </label>
-  <div class="h-19.5 m-y-6 transform transform-origin-left transition-duration-250 transition-transform" data-netlify-recaptcha="true"><!-- TODO: transition margin as well --></div>
+  <div class="h-19.5 m-y-6 transform transform-origin-left transition-duration-250 transition-margin-transform" data-netlify-recaptcha="true"></div>
   <button class="bg-dark-500 dark:bg-light-500 hover:bg-dark-900 hover:dark:bg-light-900 border-0 border-rounded-1 cursor-pointer font-montserrat p-2 text-4 text-light-500 dark:text-dark-500" type="submit">Submit</button>
   {#if formStatus}
     <p class="{formStatusClass} box-border m-t-6 p-2 text-center">{formStatusText}</p>

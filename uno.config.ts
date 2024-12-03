@@ -1351,6 +1351,12 @@ export default defineConfig({
           }
         ],
         [
+          'transition-margin-transform',
+          {
+            'transition-property': 'margin, transform'
+          }
+        ],
+        [
           'transition-opacity',
           {
             'transition-property': 'opacity'

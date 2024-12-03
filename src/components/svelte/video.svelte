@@ -151,7 +151,7 @@ onMount(() => {
 
 <media-player bind:this={player} onprovider-change={onProviderChange} style:aspect-ratio={vertical ? '9/16' : '16/9'}>
   <media-provider>
-    <media-poster src="/images/1920{poster}"></media-poster>
+    <media-poster class="vds-poster" src="/images/1920{poster}"></media-poster>
   </media-provider>
   <media-video-layout bind:this={videoLayout}></media-video-layout>
 </media-player>

@@ -41,15 +41,3 @@
   --u-translate-y: 0;
   --u-translate-z: 0;
 }
-
-[class*='after:']::after {
-  --u-apply: content;
-}
-
-media-poster > img {
-  --u-apply: 'pos-absolute transform translate-x--1/2 translate-y--1/2 top-1/2 transition-duration-250 transition-opacity left-1/2 w-full';
-}
-
-[data-started]:not([data-ended]) media-poster > img {
-  --u-apply: opacity-0;
-}
