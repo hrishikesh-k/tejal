@@ -1529,7 +1529,6 @@
 1732085939|src/content/advertising/bic.md
 1732085939|src/content/advertising/bombae-bantai-brewery.md
 1732085939|src/content/advertising/casino.md
-1732087490|src/content/advertising/etsy.md
 1732085939|src/content/advertising/food-desert.md
 1732085939|src/content/advertising/gender-diversity.md
 1732085939|src/content/advertising/global-wellness.md
@@ -1579,9 +1578,6 @@
 1733233837|src/components/astro/picture.astro
 1733236987|astro.config.ts
 1733237533|public/robots.txt
-1733247229|deno.lock
-1733246922|package-lock.json
-1733246916|package.json
 1733245520|src/assets/styles.css
 1733245528|src/components/astro/section.astro
 1733244978|src/components/svelte/form.svelte
@@ -1590,3 +1586,7 @@
 1733245567|src/pages/404.astro
 1733244596|uno.config.ts
 1733247456|src/components/svelte/navigation.svelte
+1733259349|deno.lock
+1733258790|package-lock.json
+1733258781|package.json
+1733258709|src/content/advertising/etsy.md
