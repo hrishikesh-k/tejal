@@ -36,6 +36,7 @@
     "verbatimModuleSyntax": true
   },
   "include": [
+    "./.astro/types.d.ts",
     "./netlify/**/*.ts",
     "./src/**/*.astro",
     "./src/**/*.svelte",

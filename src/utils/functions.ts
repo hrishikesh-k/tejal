@@ -7,7 +7,6 @@ export function findAsset(
     collection: string
     data: InferEntrySchema<'advertising'>
     id: string
-    slug: string
   },
   name: string
 ) {
