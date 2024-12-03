@@ -1,8 +1,7 @@
 ---
 import { getEntry } from 'astro:content'
 import vid1Poster from '~/assets/absolut/video-1/poster.jpg'
-import vid1ThumbsJpg from '~/assets/absolut/video-1/thumbs.jpg'
-import vid1ThumbsVtt from '~/assets/absolut/video-1/thumbs.vtt?raw'
+import vid1Thumbs from '~/assets/absolut/video-1/thumbs.jpg'
 import Heading3 from '~/components/astro/heading3.astro'
 import Picture from '~/components/astro/picture.astro'
 import Video from '~/components/svelte/video.svelte'
@@ -93,17 +92,14 @@ const vid1Segments1080p = Object.values(
   </div>
   <Heading3 text="Absolut Mystical"/>
   <div class="flex flex-col items-center">
-    <Video client:load qualities={{
+    <Video client:load duration={16} qualities={{
       '144': vid1Segments144p,
       '240': vid1Segments240p,
       '360': vid1Segments360p,
       '480': vid1Segments480p,
       '720': vid1Segments720p,
       '1080': vid1Segments1080p,
-    }} poster={vid1Poster.src} thumbs={{
-      src: vid1ThumbsJpg.src,
-      manifest: vid1ThumbsVtt
-    }}/>
+    }} poster={vid1Poster.src} thumbs={vid1Thumbs.src}/>
   </div>
   <Heading3 text="Brand chosen"/>
   <p class="m-0">Absolut has been consistent with its brand positioning from its name and the unique identity of its bottle to its premium image as it as a brand has reached the absolut world of fame.</p>

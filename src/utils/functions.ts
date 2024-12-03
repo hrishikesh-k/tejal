@@ -2,8 +2,6 @@ import type { InferEntrySchema } from 'astro:content'
 import type { MediaPlayerElement } from 'vidstack/elements'
 import placeholder from '~/assets/placeholder.png'
 
-const maxHeight = window.innerHeight * 0.8
-
 export function findAsset(
   post: {
     collection: string
@@ -32,7 +30,7 @@ function resizeImage(img: HTMLImageElement) {
     for (let i = 0; i < parentLevel; i++) {
       parent = parent.parentElement as HTMLElement
     }
-    parent.style.maxWidth = `${Math.round((maxHeight / Number.parseInt(img.getAttribute('height') || '0')) * Number.parseInt(img.getAttribute('width') || '0'))}px`
+    parent.style.maxWidth = `${Math.round(((window.innerHeight * 0.8) / Number.parseInt(img.getAttribute('height') || '0')) * Number.parseInt(img.getAttribute('width') || '0'))}px`
   }
 }
 
@@ -63,7 +61,7 @@ function resizePlayer(player: MediaPlayerElement) {
   const originalWidth = Number.parseInt(computedStyles.width)
 
   if (originalHeight > originalWidth) {
-    player.style.maxWidth = `${Math.round((maxHeight / originalHeight) * originalWidth)}px`
+    player.style.maxWidth = `${Math.round(((window.innerHeight * 0.8) / originalHeight) * originalWidth)}px`
   }
 }
 

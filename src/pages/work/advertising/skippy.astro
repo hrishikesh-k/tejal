@@ -1,11 +1,9 @@
 ---
 import { getEntry } from 'astro:content'
 import vid1Poster from '~/assets/skippy/video-1/poster.jpg'
-import vid1ThumbsJpg from '~/assets/skippy/video-1/thumbs.jpg'
-import vid1ThumbsVtt from '~/assets/skippy/video-1/thumbs.vtt?raw'
+import vid1Thumbs from '~/assets/skippy/video-1/thumbs.jpg'
 import vid2Poster from '~/assets/skippy/video-2/poster.jpg'
-import vid2ThumbsJpg from '~/assets/skippy/video-2/thumbs.jpg'
-import vid2ThumbsVtt from '~/assets/skippy/video-2/thumbs.vtt?raw'
+import vid2Thumbs from '~/assets/skippy/video-2/thumbs.jpg'
 import Heading3 from '~/components/astro/heading3.astro'
 import Picture from '~/components/astro/picture.astro'
 import Swiper from '~/components/svelte/swiper.svelte'
@@ -166,27 +164,21 @@ const vid2Segments1080p = Object.values(
   <Heading3 text="Games"/>
   <p class="m-0 m-b-6">Play the videos:</p>
   <div class="flex flex-wrap gap-6 items-center justify-center">
-    <Video client:load qualities={{
+    <Video client:load duration={21} qualities={{
       '144': vid1Segments144p,
       '240': vid1Segments240p,
       '360': vid1Segments360p,
       '480': vid1Segments480p,
       '720': vid1Segments720p,
       '1080': vid1Segments1080p
-    }} poster={vid1Poster.src} thumbs={{
-      src: vid1ThumbsJpg.src,
-      manifest: vid1ThumbsVtt
-    }} vertical/>
-    <Video client:load qualities={{
+    }} poster={vid1Poster.src} thumbs={vid1Thumbs.src} vertical/>
+    <Video client:load duration={20} qualities={{
       '144': vid2Segments144p,
       '240': vid2Segments240p,
       '360': vid2Segments360p,
       '480': vid2Segments480p,
       '720': vid2Segments720p,
       '1080': vid2Segments1080p
-    }} poster={vid2Poster.src} thumbs={{
-      src: vid2ThumbsJpg.src,
-      manifest: vid2ThumbsVtt
-    }} vertical/>
+    }} poster={vid2Poster.src} thumbs={vid2Thumbs.src} vertical/>
   </div>
 </Base>

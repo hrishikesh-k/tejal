@@ -13,19 +13,18 @@ import 'vidstack/player/styles/default/theme.css'
 import 'vidstack/player/styles/default/layouts/video.css'
 
 let {
+  duration,
   poster,
   qualities,
   thumbs,
   vertical
 }: {
+  duration: number
   poster: string
   qualities: {
     [Key in '1080' | '720' | '480' | '360' | '240' | '144']: string[]
   }
-  thumbs: {
-    manifest: string
-    src: string
-  }
+  thumbs: string
   vertical?: boolean
 } = $props()
 
@@ -62,8 +61,47 @@ for (const quality in qualities) {
   }
 }
 
+let newM3u8 = m3u8
 let player: MediaPlayerElement | null = $state(null)
 let videoLayout: MediaVideoLayoutElement | null = $state(null)
+
+function generateM3u8ForQuality(_m3u8: string, quality: string) {
+  const currentQuality = qualities[quality as keyof typeof qualities]
+
+  let manifest =
+    '#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-TARGETDURATION:2\n#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-PLAYLIST-TYPE:VOD\n'
+
+  for (const [index, src] of currentQuality.entries()) {
+    const indexWithDuration = index * 2 + 2
+    manifest += `#EXTINF:${indexWithDuration > duration ? indexWithDuration - duration : 2}.000000,\n${location.origin}${src}\n`
+  }
+
+  manifest += '#EXT-X-ENDLIST\n'
+  manifest = URL.createObjectURL(
+    new Blob([manifest], {
+      type: 'application/x-mpegurl'
+    })
+  )
+
+  blobs.push(manifest)
+  newM3u8 = newM3u8.replace(new RegExp(`{{% ${quality}p %}}`), manifest)
+}
+
+function generateThumbsVtt() {
+  let thumbsvtt = 'WEBVTT\n\n'
+
+  for (let i = 0; i < duration; i += 2) {
+    const height = vertical ? 320 : 108
+    const thumbnailIndex = i / 2
+    thumbsvtt += `${new Date(i * 1000).toISOString().substring(11, 19)}.000 --> ${new Date((i + 2) * 1000).toISOString().substring(11, 19)}.000\n${location.origin}${thumbs}}#xywh=${(thumbnailIndex % 10) * 192},${Math.floor(thumbnailIndex / 10) * height},${192},${height}\n\n`
+  }
+
+  return URL.createObjectURL(
+    new Blob([thumbsvtt], {
+      type: 'text/vtt'
+    })
+  )
+}
 
 function onbeforeunload() {
   for (const blob of blobs) {
@@ -80,43 +118,11 @@ function onProviderChange(event: MediaProviderChangeEvent) {
 
 onMount(() => {
   if (player && videoLayout) {
-    const manifest =
-      '#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-TARGETDURATION:2\n#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-PLAYLIST-TYPE:VOD\n'
-
-    let newM3u8 = m3u8
+    const newThumbs = generateThumbsVtt()
 
     for (const quality of Object.keys(qualities)) {
-      const currentQuality = qualities[quality as keyof typeof qualities]
-      let qualityManifest = manifest
-      for (const src of currentQuality) {
-        qualityManifest += `#EXTINF:2.000000,\n${location.origin}${src}\n`
-      }
-      qualityManifest += '#EXT-X-ENDLIST\n'
-      qualityManifest = URL.createObjectURL(
-        new Blob([qualityManifest], {
-          type: 'application/x-mpegurl'
-        })
-      )
-      newM3u8 = newM3u8.replace(
-        new RegExp(`{{% ${quality}p %}}`),
-        qualityManifest
-      )
-      blobs.push(qualityManifest)
+      generateM3u8ForQuality(m3u8, quality)
     }
-
-    const newThumbs = URL.createObjectURL(
-      new Blob(
-        [
-          thumbs.manifest.replaceAll(
-            '{{% thumbs %}}',
-            `${location.origin}${thumbs.src}`
-          )
-        ],
-        {
-          type: 'text/vtt'
-        }
-      )
-    )
 
     newM3u8 = URL.createObjectURL(
       new Blob([newM3u8], {
@@ -138,7 +144,6 @@ onMount(() => {
 
     videoLayout.thumbnails = newThumbs
 
-    // TODO: Generate thumbs on the fly
     // TODO: Set vertical quality indicator correctly
   }
 })

@@ -2,8 +2,7 @@
 import about from '~/assets/about/about.jpg'
 import resume from '~/assets/about/resume.pdf?url'
 import vid1Poster from '~/assets/about/video-1/poster.jpg'
-import vid1ThumbsJpg from '~/assets/about/video-1/thumbs.jpg'
-import vid1ThumbsVtt from '~/assets/about/video-1/thumbs.vtt?raw'
+import vid1Thumbs from '~/assets/about/video-1/thumbs.jpg'
 import Picture from '~/components/astro/picture.astro'
 import Tooltip from '~/components/svelte/tooltip.svelte'
 import Video from '~/components/svelte/video.svelte'
@@ -104,15 +103,12 @@ const vid1Segments1080p = Object.values(
       </div>
     </div>
   </div>
-  <Video client:load qualities={{
+  <Video client:load duration={54} qualities={{
     '144': vid1Segments144p,
     '240': vid1Segments240p,
     '360': vid1Segments360p,
     '480': vid1Segments480p,
     '720': vid1Segments720p,
     '1080': vid1Segments1080p,
-  }} poster={vid1Poster.src} thumbs={{
-    src: vid1ThumbsJpg.src,
-    manifest: vid1ThumbsVtt
-  }}/>
+  }} poster={vid1Poster.src} thumbs={vid1Thumbs.src}/>
 </Base>

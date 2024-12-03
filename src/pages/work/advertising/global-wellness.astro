@@ -1,11 +1,9 @@
 ---
 import { getEntry } from 'astro:content'
 import vid1Poster from '~/assets/global-wellness/video-1/poster.jpg'
-import vid1ThumbsJpg from '~/assets/global-wellness/video-1/thumbs.jpg'
-import vid1ThumbsVtt from '~/assets/global-wellness/video-1/thumbs.vtt?raw'
+import vid1Thumbs from '~/assets/global-wellness/video-1/thumbs.jpg'
 import vid2Poster from '~/assets/global-wellness/video-2/poster.jpg'
-import vid2ThumbsJpg from '~/assets/global-wellness/video-2/thumbs.jpg'
-import vid2ThumbsVtt from '~/assets/global-wellness/video-2/thumbs.vtt?raw'
+import vid2Thumbs from '~/assets/global-wellness/video-2/thumbs.jpg'
 import Picture from '~/components/astro/picture.astro'
 import Video from '~/components/svelte/video.svelte'
 import Base from '~/layouts/base.astro'
@@ -122,33 +120,27 @@ const vid2Segments1080p = Object.values(
 ---
 
 <Base cover={post.data.cover.src} description={post.data.description} title={post.data.title}>
-  <Video client:load qualities={{
+  <Video client:load duration={107} qualities={{
     '144': vid2Segments144p,
     '240': vid2Segments240p,
     '360': vid2Segments360p,
     '480': vid2Segments480p,
     '720': vid2Segments720p,
     '1080': vid2Segments1080p,
-  }} poster={vid2Poster.src} thumbs={{
-    src: vid2ThumbsJpg.src,
-    manifest: vid2ThumbsVtt
-  }}/>
+  }} poster={vid2Poster.src} thumbs={vid2Thumbs.src}/>
   <div class="flex flex-col gap-y-6 items-center m-y-6">
     {
       mockups.map((mockup) => <Picture alt={mockup.alt} height={mockup.img.height} rounded src={mockup.img.src} width={mockup.img.width}/>)
     }
   </div>
-  <Video client:load qualities={{
+  <Video client:load duration={38} qualities={{
     '144': vid1Segments144p,
     '240': vid1Segments240p,
     '360': vid1Segments360p,
     '480': vid1Segments480p,
     '720': vid1Segments720p,
     '1080': vid1Segments1080p,
-  }} poster={vid1Poster.src} thumbs={{
-    src: vid1ThumbsJpg.src,
-    manifest: vid1ThumbsVtt
-  }}/>
+  }} poster={vid1Poster.src} thumbs={vid1Thumbs.src}/>
   <div class="flex flex-col items-center m-t-6">
     <Picture alt={mockup1.alt} height={mockup1.img.height} rounded src={mockup1.img.src} width={mockup1.img.width}/>
   </div>
