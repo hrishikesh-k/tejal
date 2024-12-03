@@ -28,6 +28,7 @@
   to = "https://www.tejalshinde.com/:splat"
 
 [[redirects]]
-  from = "/*"
-  status = 404
-  to = "/404/"
+  force = true
+  from = "/images/:w/*"
+  status = 200
+  to = "/.netlify/images/?url=:splat&w=:w"

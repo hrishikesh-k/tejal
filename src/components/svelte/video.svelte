@@ -93,7 +93,7 @@ function generateThumbsVtt() {
   for (let i = 0; i < duration; i += 2) {
     const height = vertical ? 320 : 108
     const thumbnailIndex = i / 2
-    thumbsvtt += `${new Date(i * 1000).toISOString().substring(11, 19)}.000 --> ${new Date((i + 2) * 1000).toISOString().substring(11, 19)}.000\n${location.origin}${thumbs}}#xywh=${(thumbnailIndex % 10) * 192},${Math.floor(thumbnailIndex / 10) * height},${192},${height}\n\n`
+    thumbsvtt += `${new Date(i * 1000).toISOString().substring(11, 19)}.000 --> ${new Date((i + 2) * 1000).toISOString().substring(11, 19)}.000\n${location.origin}${thumbs}#xywh=${(thumbnailIndex % 10) * 192},${Math.floor(thumbnailIndex / 10) * height},${192},${height}\n\n`
   }
 
   return URL.createObjectURL(
@@ -151,7 +151,7 @@ onMount(() => {
 
 <media-player bind:this={player} onprovider-change={onProviderChange} style:aspect-ratio={vertical ? '9/16' : '16/9'}>
   <media-provider>
-    <media-poster src="/.netlify/images?url={poster}&w=1920"></media-poster>
+    <media-poster src="/images/1920{poster}"></media-poster>
   </media-provider>
   <media-video-layout bind:this={videoLayout}></media-video-layout>
 </media-player>

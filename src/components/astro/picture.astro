@@ -21,16 +21,19 @@ const {
   width
 } = Astro.props
 
-const widths = presetWidths
-  .filter((presetWidth) => presetWidth < maxWidth && presetWidth <= width)
-  .concat([maxWidth])
+const widths = presetWidths.filter(
+  (presetWidth) => presetWidth < maxWidth && presetWidth <= width
+)
 
 function generateImageCdnUrl(w: number) {
-  return `/.netlify/images?url=${src}&w=${w}`
+  return `/images/${w}${src}`
+}
+
+if (width >= maxWidth) {
+  widths.push(maxWidth)
 }
 ---
 
-<!-- TODO: figure out why all sizes are being generated for all images -->
 <picture class="block h-full overflow-hidden w-full" class:list={[{'border-rounded-1.5': rounded}]}>
   {
     widths.map((w, i) => {

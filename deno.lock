@@ -19,7 +19,7 @@
       "npm:svelte-language-server@0.17.7": "npm:svelte-language-server@0.17.7_prettier@3.3.3_svelte@4.2.19_typescript@5.7.2",
       "npm:svelte@5.4.0": "npm:svelte@5.4.0_acorn@8.14.0",
       "npm:swiper@11.1.15": "npm:swiper@11.1.15",
-      "npm:typescript-svelte-plugin@0.3.43": "npm:typescript-svelte-plugin@0.3.43_svelte@5.4.0__acorn@8.14.0_typescript@5.6.3",
+      "npm:typescript-svelte-plugin@0.3.44": "npm:typescript-svelte-plugin@0.3.44_svelte@5.4.0__acorn@8.14.0_typescript@5.6.3",
       "npm:typescript@5.6.3": "npm:typescript@5.6.3",
       "npm:typescript@5.7.2": "npm:typescript@5.7.2",
       "npm:unocss@0.65.0": "npm:unocss@0.65.0_@types+node@22.10.1_typescript@5.6.3",
@@ -8743,8 +8743,8 @@
           "semver": "semver@7.6.3"
         }
       },
-      "typescript-svelte-plugin@0.3.43_svelte@5.4.0__acorn@8.14.0_typescript@5.6.3": {
-        "integrity": "sha512-n7WBWB+y91YOniN6RloG7jujsidwDn4F8ttDoC3r8gJT+t2IZUE6+ktwXnlwhCa8IuRB0nr7sT+wV4RL7reJTg==",
+      "typescript-svelte-plugin@0.3.44_svelte@5.4.0__acorn@8.14.0_typescript@5.6.3": {
+        "integrity": "sha512-EO/wj/ir9rwz+xJ3VI47K+vwvNC+iAZBgQiyv3MmhJcUSt11YxvbotL78jxXdytui/DpUPSEOhuDnLw+LTNaeA==",
         "dependencies": {
           "@jridgewell/sourcemap-codec": "@jridgewell/sourcemap-codec@1.5.0",
           "svelte2tsx": "svelte2tsx@0.7.28_svelte@5.4.0__acorn@8.14.0_typescript@5.6.3"
@@ -9621,7 +9621,7 @@
         "npm:svelte-language-server@0.17.7",
         "npm:svelte@5.4.0",
         "npm:swiper@11.1.15",
-        "npm:typescript-svelte-plugin@0.3.43",
+        "npm:typescript-svelte-plugin@0.3.44",
         "npm:typescript@5.7.2",
         "npm:unocss@0.65.0",
         "npm:vanilla-lazyload@19.1.3",

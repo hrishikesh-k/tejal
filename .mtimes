@@ -4,7 +4,6 @@
 1732085931|biome.json
 1732085931|license.md
 1732960159|mtimestore
-1733076510|netlify.toml
 1732085931|netlify/edge-functions/import_map.json
 1732085931|netlify/edge-functions/password.ts
 1732085931|public/785dfe191d5146e0a0e852fa5003303e.txt
@@ -1527,13 +1526,11 @@
 1732085939|src/assets/zoddlini/spade-9.png
 1733043953|src/components/astro/heading3.astro
 1732085939|src/components/astro/masonry.astro
-1732087379|src/components/astro/picture.astro
 1732180793|src/components/svelte/form.svelte
 1732085939|src/components/svelte/icon.svelte
 1733037829|src/components/svelte/navigation.svelte
 1732098727|src/components/svelte/swiper.svelte
 1732085939|src/components/svelte/tooltip.svelte
-1733216135|src/components/svelte/video.svelte
 1732085939|src/content/advertising/absolut.md
 1732085939|src/content/advertising/bic.md
 1732085939|src/content/advertising/bombae-bantai-brewery.md
@@ -1578,9 +1575,6 @@
 1733043976|src/pages/work/presentations.astro
 1733159260|src/utils/constants.ts
 1733047766|uno.config.ts
-1733230449|deno.lock
-1733230404|package-lock.json
-1733230394|package.json
 1732085935|src/assets/four-forty-four/hersheys-1.png
 1732085935|src/assets/four-forty-four/hersheys-2.png
 1733230213|src/content/advertising/four-forty-four.md
@@ -1589,3 +1583,10 @@
 1733229727|tsconfig.json
 1733230765|src/components/astro/section.astro
 1733230856|src/content.config.ts
+1733236207|deno.lock
+1733236248|netlify.toml
+1733232779|package-lock.json
+1733232766|package.json
+1733233837|src/components/astro/picture.astro
+1733233645|src/components/svelte/video.svelte
+1733233325|src/pages/404.astro
