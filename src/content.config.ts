@@ -57,7 +57,7 @@ const fashionCollection = defineCollection({
 
 const presentationCollection = defineCollection({
   loader: glob({
-    base: './src/content/presentations/',
+    base: './src/content/presentation/',
     pattern: '**/[^_]*.md'
   }),
   schema: (context) =>

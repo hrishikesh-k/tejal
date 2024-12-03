@@ -57,11 +57,11 @@ if (title === 'Advertising') {
 }
 
 function findPresentation(id: string): string | undefined {
-  const findBySlug = presentationSlugRelations.find(
+  const findById = presentationSlugRelations.find(
     (presentation) => presentation.id === id
   )
-  if (findBySlug) {
-    return findBySlug.presentation
+  if (findById) {
+    return findById.presentation
   }
   return
 }
