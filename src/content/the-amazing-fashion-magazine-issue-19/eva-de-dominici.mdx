@@ -3,3 +3,64 @@ cover: "~/assets/eva-de-dominici/cover.jpg"
 title: "Eva De Dominici"
 weight: 3
 ---
+
+import page1 from '~/assets/eva-de-dominici/page-1.jpg'
+import page2 from '~/assets/eva-de-dominici/page-2.jpg'
+import page3 from '~/assets/eva-de-dominici/page-3.jpg'
+import page4 from '~/assets/eva-de-dominici/page-4.jpg'
+import page5 from '~/assets/eva-de-dominici/page-5.jpg'
+import page6 from '~/assets/eva-de-dominici/page-6.jpg'
+import page7 from '~/assets/eva-de-dominici/page-7.jpg'
+import page8 from '~/assets/eva-de-dominici/page-8.jpg'
+import page9 from '~/assets/eva-de-dominici/page-9.jpg'
+import Picture from '~/components/astro/picture.astro'
+import Swiper from '~/components/astro/swiper.astro'
+
+export const pages = [
+  {
+    alt: '',
+    img: page1
+  },
+  {
+    alt: '',
+    img: page2
+  },
+  {
+    alt: '',
+    img: page3
+  },
+  {
+    alt: '',
+    img: page4
+  },
+  {
+    alt: '',
+    img: page5
+  },
+  {
+    alt: '',
+    img: page6
+  },
+  {
+    alt: '',
+    img: page7
+  },
+  {
+    alt: '',
+    img: page8
+  },
+  {
+    alt: '',
+    img: page9
+  }
+]
+
+<Swiper effect="fade">
+  {
+    pages.map((page) => (
+      <div class="swiper-slide">
+        <Picture alt={page.alt} height={page.img.height} rounded src={page.img.src} width={page.img.width}/>
+      </div>
+    ))
+  }
+</Swiper>
