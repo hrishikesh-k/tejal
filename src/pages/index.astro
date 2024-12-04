@@ -9,9 +9,11 @@ import {
   presentationPosts
 } from '~/content/posts.ts'
 import Base from '~/layouts/base.astro'
+import Heading3 from '../components/astro/heading3.astro'
 ---
 
 <Base description="Explore the creative world of Tejal Shinde - a versatile Art Director and Fashion Model through her captivating online portfolio." title="Tejal Shinde">
+    <Heading3 noMarginTop text="AMAZING Magazine vol. 19"/>
     <Swiper client:load>
       {
         issue19Posts.map((post) => (
