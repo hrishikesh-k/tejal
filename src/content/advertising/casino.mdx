@@ -1,0 +1,33 @@
+---
+cover: "~/assets/casino/cover.jpg"
+description: "Delivering compelling campaigns, this project features event posters that inspire and captivate audiences."
+title: "Casino"
+weight: 8
+---
+
+import dollar7500 from '~/assets/casino/$7500.jpg'
+import jerseySeasons from '~/assets/casino/jersey-seasons.jpg'
+import riversSwipeDine from '~/assets/casino/rivers-swipe-dine.jpg'
+import rushRewards from '~/assets/casino/rush-rewards.jpg'
+import taxDay from '~/assets/casino/tax-day.jpg'
+import Picture from '~/components/astro/picture.astro'
+
+<div class="flex gap-x-6 justify-center m-b-6">
+<div style={`flex: calc(${dollar7500.width}/${dollar7500.height})`}>
+  <Picture alt="{% alt %}" height={dollar7500.height} parent={2} rounded src={dollar7500.src} width={dollar7500.width}/>
+</div>
+<div style={`flex: calc(${jerseySeasons.width}/${jerseySeasons.height})`}>
+  <Picture alt="{% alt %}" height={jerseySeasons.height} parent={2} rounded src={jerseySeasons.src} width={jerseySeasons.width}/>
+</div>
+</div>
+<div class="flex gap-x-6 justify-center m-b-6">
+<div style={`flex: calc(${rushRewards.width}/${rushRewards.height})`}>
+  <Picture alt="{% alt %}" height={rushRewards.height} parent={2} rounded src={rushRewards.src} width={rushRewards.width}/>
+</div>
+<div style={`flex: calc(${riversSwipeDine.width}/${riversSwipeDine.height})`}>
+  <Picture alt="{% alt %}" height={riversSwipeDine.height} parent={2} rounded src={riversSwipeDine.src} width={riversSwipeDine.width}/>
+</div>
+</div>
+<div class="flex flex-col items-center">
+  <Picture alt="{% alt %}" height={taxDay.height} rounded src={taxDay.src} width={taxDay.width}/>
+</div>

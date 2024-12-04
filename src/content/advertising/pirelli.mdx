@@ -1,0 +1,27 @@
+---
+cover: "~/assets/pirelli/cover.jpg"
+description: "A project presenting unique approach towards visually driven ambient campaign for Pirelli, solving problems or seizing opportunities, with creative finesse."
+title: "Pirelli"
+weight: 3
+---
+
+import mockup1 from '~/assets/pirelli/mockup-1.jpg'
+import mockup2 from '~/assets/pirelli/mockup-2.jpg'
+import Picture from '~/components/astro/picture.astro'
+
+export const mockups = [
+  {
+    alt: '',
+    img: mockup1
+  },
+  {
+    alt: '',
+    img: mockup2
+  }
+]
+
+<div class="flex flex-col gap-y-6 items-center m-y-6">
+  {
+    mockups.map((mockup) => <Picture alt={mockup.alt} height={mockup.img.height} rounded src={mockup.img.src} width={mockup.img.width}/>)
+  }
+</div>

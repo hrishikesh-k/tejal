@@ -1,0 +1,100 @@
+---
+cover: "~/assets/food-desert/cover.jpg"
+description: "The campaign shows how Ford's pickup truck has marked its place in terms of delivering healthy and nutritious food in every corner of the country."
+subtitle: "- Ford"
+title: "Food Desert"
+weight: 5
+---
+
+import poem from '~/assets/food-desert/poem.jpg'
+import poster1 from '~/assets/food-desert/poster-1.jpg'
+import poster2 from '~/assets/food-desert/poster-2.jpg'
+import poster3 from '~/assets/food-desert/poster-3.jpg'
+import vid1Poster from '~/assets/food-desert/video-1/poster.jpg'
+import vid1Thumbs from '~/assets/food-desert/video-1/thumbs.jpg'
+import Heading3 from '~/components/astro/heading3.astro'
+import Picture from '~/components/astro/picture.astro'
+import Video from '~/components/svelte/video.svelte'
+
+export const posters = [
+  {
+    alt: '',
+    img: poster1
+  },
+  {
+    alt: '',
+    img: poster2
+  },
+  {
+    alt: '',
+    img: poster3
+  }
+]
+
+export const vid1Segments144p = Object.values(
+  import.meta.glob('~/assets/food-desert/video-1/144p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+export const vid1Segments240p = Object.values(
+  import.meta.glob('~/assets/food-desert/video-1/240p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+export const vid1Segments360p = Object.values(
+  import.meta.glob('~/assets/food-desert/video-1/360p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+export const vid1Segments480p = Object.values(
+  import.meta.glob('~/assets/food-desert/video-1/480p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+export const vid1Segments720p = Object.values(
+  import.meta.glob('~/assets/food-desert/video-1/720p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+export const vid1Segments1080p = Object.values(
+  import.meta.glob('~/assets/food-desert/video-1/1080p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+<Heading3 text="Posters"/>
+<div class="flex flex-col gap-y-6 items-center">
+  {
+    posters.map((poster) => <Picture alt={poster.alt} height={poster.img.height} rounded src={poster.img.src} width={poster.img.width}/>)
+  }
+</div>
+<Heading3 text="Poem"/>
+<div class="flex flex-col items-center">
+  <Picture alt="{% alt %}" height={poem.height} rounded src={poem.src} width={poem.width}/>
+</div>
+<Heading3 text="Video"/>
+<Video client:load duration={84} qualities={{
+  '144': vid1Segments144p,
+  '240': vid1Segments240p,
+  '360': vid1Segments360p,
+  '480': vid1Segments480p,
+  '720': vid1Segments720p,
+  '1080': vid1Segments1080p,
+}} poster={vid1Poster.src} thumbs={vid1Thumbs.src}/>

@@ -1577,3 +1577,16 @@
 1733305645|src/content.config.ts
 1733306971|src/content/advertising/absolut.mdx
 1733309154|src/utils/functions.ts
+1733306524|src/content/advertising/bic.mdx
+1733307598|src/content/advertising/bombae-bantai-brewery.mdx
+1733307972|src/content/advertising/casino.mdx
+1733308314|src/content/advertising/etsy.mdx
+1733308594|src/content/advertising/food-desert.mdx
+1733309020|src/content/advertising/four-forty-four.mdx
+1733309594|src/content/advertising/gender-diversity.mdx
+1733309874|src/content/advertising/global-wellness.mdx
+1733310035|src/content/advertising/pirelli.mdx
+1733319478|src/content/advertising/skippy.mdx
+1733319833|src/content/advertising/weco.mdx
+1733320953|src/content/advertising/zoddlini.mdx
+1733306076|src/pages/work/advertising/[id].astro

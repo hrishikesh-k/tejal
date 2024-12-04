@@ -1,0 +1,280 @@
+---
+cover: "~/assets/bombae-bantai-brewery/cover.jpg"
+description: "Experience Bombay in a can: unique flavors and vibrant illustrations that embody the city's spirit and history - sip the essence of Mumbai."
+subtitle: "(Your Bombay Friend)"
+title: "Bombae Bantai Brewery"
+weight: 13
+---
+
+import dieline from '~/assets/bombae-bantai-brewery/dieline.png'
+import flavour1 from '~/assets/bombae-bantai-brewery/flavour-1.png'
+import flavour2 from '~/assets/bombae-bantai-brewery/flavour-2.png'
+import flavour3 from '~/assets/bombae-bantai-brewery/flavour-3.png'
+import grid from '~/assets/bombae-bantai-brewery/grid.jpg'
+import label1 from '~/assets/bombae-bantai-brewery/label-1.jpg'
+import label2 from '~/assets/bombae-bantai-brewery/label-2.jpg'
+import label3 from '~/assets/bombae-bantai-brewery/label-3.jpg'
+import mockup1 from '~/assets/bombae-bantai-brewery/mockup-1.jpg'
+import mockup2 from '~/assets/bombae-bantai-brewery/mockup-2.jpg'
+import mockup3 from '~/assets/bombae-bantai-brewery/mockup-3.jpg'
+import mockup4 from '~/assets/bombae-bantai-brewery/mockup-4.png'
+import mockup5 from '~/assets/bombae-bantai-brewery/mockup-5.jpg'
+import mockup6 from '~/assets/bombae-bantai-brewery/mockup-6.jpg'
+import mockup7 from '~/assets/bombae-bantai-brewery/mockup-7.jpg'
+import mockup8 from '~/assets/bombae-bantai-brewery/mockup-8.jpg'
+import mockup9 from '~/assets/bombae-bantai-brewery/mockup-9.jpg'
+import mockup10 from '~/assets/bombae-bantai-brewery/mockup-10.jpg'
+import mockup11 from '~/assets/bombae-bantai-brewery/mockup-11.jpg'
+import mockup12 from '~/assets/bombae-bantai-brewery/mockup-12.jpg'
+import mockup13 from '~/assets/bombae-bantai-brewery/mockup-13.jpg'
+import mockup14 from '~/assets/bombae-bantai-brewery/mockup-14.jpg'
+import mockup15 from '~/assets/bombae-bantai-brewery/mockup-15.jpg'
+import moodboard1 from '~/assets/bombae-bantai-brewery/moodboard-1.jpg'
+import moodboard2 from '~/assets/bombae-bantai-brewery/moodboard-2.jpg'
+import typography1 from '~/assets/bombae-bantai-brewery/typography-1.png'
+import typography2 from '~/assets/bombae-bantai-brewery/typography-2.png'
+import typography3 from '~/assets/bombae-bantai-brewery/typography-3.png'
+import typography4 from '~/assets/bombae-bantai-brewery/typography-4.png'
+import Heading3 from '~/components/astro/heading3.astro'
+import Picture from '~/components/astro/picture.astro'
+
+export const labels = [
+  {
+    alt: '',
+    img: label1
+  },
+  {
+    alt: '',
+    img: label2
+  },
+    {
+    alt: '',
+    img: label3
+  }
+]
+
+export const mockups = [
+  {
+    alt: '',
+    img: mockup1
+  },
+  {
+    alt: '',
+    img: mockup2
+  },
+  {
+    alt: '',
+    img: mockup3
+  },
+  {
+    alt: '',
+    img: mockup4
+  },
+  {
+    alt: '',
+    img: mockup5
+  },
+  {
+    alt: '',
+    img: mockup6
+  },
+  {
+    alt: '',
+    img: mockup7
+  },
+  {
+    alt: '',
+    img: mockup8
+  },
+  {
+    alt: '',
+    img: mockup9
+  },
+  {
+    alt: '',
+    img: mockup10
+  },
+  {
+    alt: '',
+    img: mockup11
+  },
+  {
+    alt: '',
+    img: mockup12
+  },
+  {
+    alt: '',
+    img: mockup13
+  }
+]
+
+export const moodboards = [
+  {
+    alt: '',
+    img: mockup1
+  },
+  {
+    alt: '',
+    img: mockup2
+  }
+]
+
+export const typographys = [
+  {
+    alt: '',
+    img: typography1
+  },
+  {
+    alt: '',
+    img: typography2
+  },
+    {
+    alt: '',
+    img: typography3
+  },
+  {
+    alt: '',
+    img: typography4
+  }
+]
+
+<div class="flex flex-col gap-y-6 items-center">
+  {
+    mockups.map((mockup) => <Picture alt={mockup.alt} height={mockup.img.height} rounded src={mockup.img.src} width={mockup.img.width}/>)
+  }
+</div>
+<Heading3 text="Concert tickets for promotion"/>
+<div class="flex flex-col items-center">
+  <Picture alt="{% alt %}" height={mockup14.height} rounded src={mockup14.src} width={mockup14.width}/>
+</div>
+<Heading3 text="Instagram story promotion"/>
+<div class="flex flex-col items-center">
+  <Picture alt="{% alt %}" height={mockup15.height} rounded src={mockup15.src} width={mockup15.width}/>
+</div>
+<Heading3 text="Approach"/>
+<p class="m-0 m-b-6">Bombae Bantai is a project about a brewery, a beer brand that offers a collection of 3 flavours of beers: Sugarush India Pale Ale, Sweet Lime Blonde and Cumin Wheat Ale. Each can has a unique design that symbolises iconic features of the city of Bombay (Mumbai). The work is inspired by The Gateway of India, the Mumbai local train and the Bombay-Worli sea-link.</p>
+<ul class="m-0 m-b-6 p-l-6">
+  <li>The Gateway of India is a symbol of the history of this city as it's a historical monument.</li>
+  <li>The Mumbai Local Train is the city's lifeline and thus, a symbol of the present.</li>
+  <li>The Bandra Worli Sea Link is the symbol of the future of Mumbai because of this state-of-the-art construction and great display of modern engineering.</li>
+</ul>
+<p class="m-0 m-b-6">In this project, a new typeface has been developed, inspired by graphics, visuals and typefaces on vibrant Indian trucks found and loved all over the country.</p>
+<Heading3 text="Moodboards"/>
+<div class="flex flex-col gap-y-6 items-center">
+  {
+    moodboards.map((moodboard) => <Picture alt={moodboard.alt} height={moodboard.img.height} rounded src={moodboard.img.src} width={moodboard.img.width}/>)
+  }
+</div>
+<Heading3 text="Colours"/>
+<p class="m-0 m-b-6">The colour palette largely included shades and tints of greens, blues and yellows drawing from the ingredients of the brews themselves. For example, the green chosen for the Sugarush India Pale Ale derives its colour from a sugarcane, the main ingredient for the flavour. The refreshing lime yellow on the Sweet Lime Blonde packaging expresses the characteristics of its namesake fruit. Lastly, the blue of the Cumin Wheat Ale was chosen to represent the thirst quenching nature of the Indian drink 'Jaljeera' it is formulated on.</p>
+<div class="flex gap-6 m-b-6">
+  <div class="flex flex-basis-0 flex-col flex-grow-1 flex-shrink-1 gap-x-6 gap-y-3 items-center justify-end">
+    <p class="m-0">Primary</p>
+    <div class="md:flex-basis-0 md:flex-grow-1 md:flex-shrink-1 w-full">
+      <div class="flex flex-basis-0 flex-grow-1 flex-shrink-1 h-20 items-center justify-center" style="background-color: #ffffcc;">
+        <p class="m-0 text-dark-700 uppercase">#ffffcc</p>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-basis-0 flex-col flex-grow-1 flex-shrink-1 gap-x-6 gap-y-3 items-center justify-end">
+    <p class="m-0">Secondary</p>
+    <div class="md:flex-basis-0 md:flex-grow-1 md:flex-shrink-1 w-full">
+      <div class="flex flex-basis-0 flex-grow-1 flex-shrink-1 h-20 items-center justify-center" style="background-color: #f50057;">
+        <p class="m-0 text-light-700 uppercase">#f50057</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flex flex-wrap md:flex-nowrap gap-6">
+  <div class="flex flex-basis-0 flex-col flex-grow-1 flex-shrink-1 gap-x-6 gap-y-3 items-center justify-end">
+    <p class="m-0">Flavour</p>
+    <div class="flex flex-basis-0 flex-grow-1 flex-shrink-1 gap-3 w-full">
+      <div class="flex flex-basis-0 flex-grow-1 flex-shrink-1 h-20 items-center justify-center" style="background-color: #fdd835;">
+        <p class="m-0 text-dark-700 uppercase">#fdd835</p>
+      </div>
+      <div class="flex flex-basis-0 flex-grow-1 flex-shrink-1 h-20 items-center justify-center" style="background-color: #7cb342;">
+        <p class="m-0 text-dark-700 uppercase">#7cb342</p>
+      </div>
+      <div class="flex flex-basis-0 flex-grow-1 flex-shrink-1 h-20 items-center justify-center" style="background-color: #99cccc;">
+        <p class="m-0 text-dark-700 uppercase">#99cccc</p>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-basis-0 flex-col flex-grow-1 flex-shrink-1 gap-x-6 gap-y-3 items-center justify-end">
+    <p class="m-0">Logo</p>
+    <div class="flex flex-basis-0 flex-grow-1 flex-shrink-1 gap-3 w-full">
+      <div class="flex flex-basis-0 flex-grow-1 flex-shrink-1 h-20 items-center justify-center" style="background-color: #fdd835;">
+        <p class="m-0 text-dark-700 uppercase">#fdd835</p>
+      </div>
+      <div class="flex flex-basis-0 flex-grow-1 flex-shrink-1 h-20 items-center justify-center" style="background-color: #ff9800;">
+        <p class="m-0 text-dark-700 uppercase">#ff9800</p>
+      </div>
+      <div class="flex flex-basis-0 flex-grow-1 flex-shrink-1 h-20 items-center justify-center" style="background-color: #c41c00;">
+        <p class="m-0 text-light-700 uppercase">#c41c00</p>
+      </div>
+    </div>
+    <div class="flex flex-basis-0 flex-grow-1 flex-shrink-1 gap-3 w-full">
+      <div class="flex flex-basis-0 flex-grow-1 flex-shrink-1 h-20 items-center justify-center" style="background-color: #7cb342;">
+        <p class="m-0 text-dark-700 uppercase">#7cb342</p>
+      </div>
+      <div class="flex flex-basis-0 flex-grow-1 flex-shrink-1 h-20 items-center justify-center" style="background-color: #2e7d32;">
+        <p class="m-0 text-light-700 uppercase">#2e7d32</p>
+      </div>
+      <div class="flex flex-basis-0 flex-grow-1 flex-shrink-1 h-20 items-center justify-center" style="background-color: #00bcd4;">
+        <p class="m-0 text-dark-700 uppercase">#00bcd4</p>
+      </div>
+    </div>
+  </div>
+</div>
+<Heading3 text="Typography"/>
+{
+  [0, 2].map((num) => (
+    <div class="flex gap-x-6 m-b-6">
+      {
+        typographys.slice(num, num + 2).map((typography) => (
+          <div style={`flex: calc(${typography.img.width}/${typography.img.height})`}>
+            <Picture alt={typography.alt} height={typography.img.height} parent={2} rounded src={typography.img.src} width={typography.img.width}/>
+          </div>
+        ))
+      }
+    </div>
+  ))
+}
+<Heading3 text="Grid"/>
+<div class="flex flex-col items-center">
+  <Picture alt="{% alt %}}" height={grid.height} rounded src={grid.src} width={grid.width}/>
+</div>
+<Heading3 text="Labels"/>
+<div class="flex flex-col gap-y-6 items-center">
+  {
+    labels.map((label) => <Picture alt={label.alt} height={label.img.height} rounded src={label.img.src} width={label.img.width}/>)
+  }
+</div>
+<Heading3 text="Flavours"/>
+<div class="flex flex-wrap gap-6">
+  <div class="flex flex-col md:flex-basis-0 md:flex-grow-1 md:flex-shrink-1 gap-y-3 items-center w-full">
+    <p class="m-0 text-center">Sugarush India Pale Ale (गन्ना)</p>
+    <div class="h-30">
+      <Picture alt="{% alt %}" height={flavour1.height} parent={2} rounded src={flavour1.src} width={flavour1.width}/>
+    </div>
+    <p class="m-0">Sugarcane juice is a very popular drink, especially during summer months as a refreshing form of heat relief.</p>
+  </div>
+  <div class="flex flex-col md:flex-basis-0 md:flex-grow-1 md:flex-shrink-1 gap-y-3 items-center w-full">
+    <p class="m-0 text-center">Sweet Lime Blonde (नींबू)</p>
+    <div class="h-30">
+      <Picture alt="{% alt %}" height={flavour2.height} parent={2} rounded src={flavour2.src} width={flavour2.width}/>
+    </div>
+    <p class="m-0">When combined with cumin powder, chat masala and black salt, lemon juice acts as the best coolant to your body.</p>
+  </div>
+  <div class="flex flex-col md:flex-basis-0 md:flex-grow-1 md:flex-shrink-1 gap-y-3 items-center w-full">
+    <p class="m-0 text-center">Cumin Wheat Ale (जलजीरा)</p>
+    <div class="h-30">
+      <Picture alt="{% alt %}" height={flavour3.height} parent={2} rounded src={flavour3.src} width={flavour3.width}/>
+    </div>
+    <p class="m-0">A drink mixed with cumin powder is sometimes served as an appetizer, as it is intended to "startle" the taste buds.</p>
+  </div>
+</div>
+<Heading3 text="Dieline"/>
+<div class="flex flex-col items-center">
+  <Picture alt="{% alt %}" height={dieline.height} rounded src={dieline.src} width={dieline.width}/>
+</div>

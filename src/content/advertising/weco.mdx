@@ -1,0 +1,166 @@
+---
+cover: "~/assets/weco/cover.jpg"
+description: "An integrated marketing campaign, that announces WECO's impending Thanksgiving holiday menu drop."
+title: "WECO"
+weight: 9
+---
+
+import bag1 from '~/assets/weco/bag-1.jpg'
+import bag2 from '~/assets/weco/bag-2.jpg'
+import email from '~/assets/weco/email.jpg'
+import facebook1 from '~/assets/weco/facebook-1.jpg'
+import facebook2 from '~/assets/weco/facebook-2.jpg'
+import facebook3 from '~/assets/weco/facebook-3.jpg'
+import facebook4 from '~/assets/weco/facebook-4.jpg'
+import facebook5 from '~/assets/weco/facebook-5.jpg'
+import facebook6 from '~/assets/weco/facebook-6.jpg'
+import facebook7 from '~/assets/weco/facebook-7.jpg'
+import facebook8 from '~/assets/weco/facebook-8.jpg'
+import facebook9 from '~/assets/weco/facebook-9.jpg'
+import facebook10 from '~/assets/weco/facebook-10.jpg'
+import vid1Poster from '~/assets/weco/video-1/poster.jpg'
+import vid1Thumbs from '~/assets/weco/video-1/thumbs.jpg'
+import Heading3 from '~/components/astro/heading3.astro'
+import Picture from '~/components/astro/picture.astro'
+import Swiper from '~/components/svelte/swiper.svelte'
+import Video from '~/components/svelte/video.svelte'
+
+export const bags = [
+  {
+    alt: '',
+    img: bag1
+  },
+  {
+    alt: '',
+    img: bag2
+  }
+]
+
+export const facebooks = [
+  {
+    alt: '',
+    img: facebook1
+  },
+  {
+    alt: '',
+    img: facebook2
+  },
+  {
+    alt: '',
+    img: facebook3
+  },
+  {
+    alt: '',
+    img: facebook4
+  },
+  {
+    alt: '',
+    img: facebook5
+  },
+  {
+    alt: '',
+    img: facebook6
+  },
+  {
+    alt: '',
+    img: facebook7
+  },
+  {
+    alt: '',
+    img: facebook8
+  },
+  {
+    alt: '',
+    img: facebook9
+  },
+  {
+    alt: '',
+    img: facebook10
+  }
+]
+
+export const vid1Segments144p = Object.values(
+  import.meta.glob('~/assets/weco/video-1/144p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+export const vid1Segments240p = Object.values(
+  import.meta.glob('~/assets/weco/video-1/240p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+export const vid1Segments360p = Object.values(
+  import.meta.glob('~/assets/weco/video-1/360p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+export const vid1Segments480p = Object.values(
+  import.meta.glob('~/assets/weco/video-1/480p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+export const vid1Segments720p = Object.values(
+  import.meta.glob('~/assets/weco/video-1/720p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+export const vid1Segments1080p = Object.values(
+  import.meta.glob('~/assets/weco/video-1/1080p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+<Heading3 text="Facebook / Instagram"/>
+<Swiper client:load>
+{
+  facebooks.map((facebook) => (
+    <swiper-slide>
+      <Picture alt={facebook.alt} height={facebook.img.height} parent={2} rounded src={facebook.img.src} width={facebook.img.width}/>
+    </swiper-slide>
+  ))
+}
+</Swiper>
+<div class="flex flex-wrap gap-6">
+<div class="md:flex-basis-0 md:flex-grow-1 md:flex-shrink-1">
+  <Heading3 text="E-mail"/>
+  <div class="flex flex-col items-center">
+    <Picture alt="{% alt %}" height={email.height} rounded src={email.src} width={email.width}/>
+  </div>
+</div>
+<div class="md:flex-basis-0 md:flex-grow-1 md:flex-shrink-1">
+  <Heading3 text="Bag Stuffer"/>
+  <div class="flex flex-col gap-y-6 items-center">
+    {
+      bags.map((bag) => <Picture alt={bag.alt} height={bag.img.height} rounded src={bag.img.src} width={bag.img.width}/>)
+    }
+  </div>
+</div>
+</div>
+<Heading3 text="Instagram"/>
+<div class="flex flex-col items-center">
+  <Video client:load duration={25} qualities={{
+    '144': vid1Segments144p,
+    '240': vid1Segments240p,
+    '360': vid1Segments360p,
+    '480': vid1Segments480p,
+    '720': vid1Segments720p,
+    '1080': vid1Segments1080p
+  }} poster={vid1Poster.src} thumbs={vid1Thumbs.src} vertical/>
+</div>
