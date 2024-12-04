@@ -178,7 +178,7 @@ export const vid2Segments1080p = Object.values(
   {
     tweets.map((tweet) => (
       <swiper-slide>
-        <Picture alt={tweet.alt} height={tweet.img.height} parent={2} rounded src={tweet.img.src} width={tweet.img.width}/>
+        <Picture alt={tweet.alt} height={tweet.img.height} rounded src={tweet.img.src} width={tweet.img.width}/>
       </swiper-slide>
     ))
   }
@@ -190,7 +190,7 @@ export const vid2Segments1080p = Object.values(
     {
       filters.map((filter) => (
         <swiper-slide>
-          <Picture alt={filter.alt} height={filter.img.height} parent={0} rounded src={filter.img.src} width={filter.img.width}/>
+          <Picture alt={filter.alt} height={filter.img.height} rounded src={filter.img.src} width={filter.img.width}/>
         </swiper-slide>
       ))
     }
@@ -198,7 +198,7 @@ export const vid2Segments1080p = Object.values(
   <div class="pointer-none pos-absolute top-0 w-full">
     <Swiper center client:load noNavigation>
       <swiper-slide>
-        <Picture alt="{% alt %}" height={frame.height} parent={0} rounded src={frame.src} width={frame.width}/>
+        <Picture alt="{% alt %}" height={frame.height} rounded src={frame.src} width={frame.width}/>
       </swiper-slide>
     </Swiper>
   </div>

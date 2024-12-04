@@ -19,7 +19,7 @@ const advertisingCollection = defineCollection({
 
 const issue19Collection = defineCollection({
   loader: glob({
-    base: './src/content/issue-19/',
+    base: './src/content/the-amazing-fashion-magazine-issue-19/',
     pattern: '**/[^_]*.mdx'
   }),
   schema: (context) =>
@@ -58,8 +58,8 @@ const modellingCollection = defineCollection({
 
 const presentationCollection = defineCollection({
   loader: glob({
-    base: './src/content/presentation/',
-    pattern: '**/[^_]*.md'
+    base: './src/content/presentations/',
+    pattern: '**/[^_]*.mdx'
   }),
   schema: (context) =>
     z.object({

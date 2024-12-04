@@ -780,17 +780,6 @@ export default defineConfig({
       ]
     },
     {
-      name: 'max-height',
-      rules: [
-        [
-          'max-h-screen-80',
-          {
-            'max-height': '80vh'
-          }
-        ]
-      ]
-    },
-    {
       name: 'max-width',
       rules: [
         [

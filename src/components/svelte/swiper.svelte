@@ -2,10 +2,11 @@
 import { type Snippet, onMount } from 'svelte'
 import type { SwiperContainer } from 'swiper/element'
 import { register } from 'swiper/element'
-import { Autoplay, EffectCards, Navigation } from 'swiper/modules'
+import { Autoplay, EffectCards, EffectFade, Navigation } from 'swiper/modules'
 import type { SwiperOptions } from 'swiper/types'
 import Icon from '~/components/svelte/icon.svelte'
 import 'swiper/element/css/effect-cards'
+import 'swiper/element/css/effect-fade'
 
 let {
   center,
@@ -16,7 +17,7 @@ let {
 }: {
   center?: boolean
   children: Snippet
-  effect?: 'cards'
+  effect?: 'cards' | 'fade'
   maxWidth?: string
   noNavigation?: boolean
 } = $props()
@@ -41,6 +42,7 @@ const navButtonClass = [
 
 let swiperContainer: null | SwiperContainer = $state(null)
 
+// TODO: replace with Astro
 onMount(() => {
   register()
   if (swiperContainer?.parentElement) {
@@ -50,27 +52,29 @@ onMount(() => {
         disableOnInteraction: false,
         pauseOnMouseEnter: true
       },
-      breakpoints: effect !== 'cards' && {
-        640: {
-          slidesPerView: 1
+      breakpoints: effect !== 'cards' &&
+        effect !== 'fade' && {
+          640: {
+            slidesPerView: 1
+          },
+          768: {
+            slidesPerView: 2
+          },
+          1024: {
+            slidesPerView: 3
+          }
         },
-        768: {
-          slidesPerView: 2
-        },
-        1024: {
-          slidesPerView: 3
-        }
-      },
       cardsEffect: {
         slideShadows: false
       },
-      centeredSlides: center || effect === 'cards',
+      centeredSlides: center || effect === 'cards' || effect === 'fade',
       effect,
-      grabCursor: true,
+      grabCursor: effect !== 'fade',
       injectStyles: effect === 'cards' && ['.swiper{overflow: visible}'],
       modules: [
         Autoplay,
         effect === 'cards' && EffectCards,
+        effect === 'fade' && EffectFade,
         !noNavigation && Navigation
       ].filter(Boolean),
       navigation: !noNavigation && {

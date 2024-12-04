@@ -1,15 +1,9 @@
-import type { MediaPlayerElement } from 'vidstack/elements'
+// added script here to Biome can lint it
 
-function resizeImage(img: HTMLImageElement) {
-  const parentLevel = Number.parseInt(img.getAttribute('data-ro-parent') || '1')
-  if (parentLevel > 0) {
-    let parent: HTMLElement = img
-    for (let i = 0; i < parentLevel; i++) {
-      parent = parent.parentElement as HTMLElement
-    }
-    parent.style.maxWidth = `${Math.round(((window.innerHeight * 0.8) / Number.parseInt(img.getAttribute('height') || '0')) * Number.parseInt(img.getAttribute('width') || '0'))}px`
-  }
-}
+import Swiper from 'swiper'
+import { Autoplay, EffectCards, EffectFade } from 'swiper/modules'
+import type { SwiperOptions } from 'swiper/types'
+import type { MediaPlayerElement } from 'vidstack/elements'
 
 function resizeMasonry(masonry: HTMLDivElement, vw: number) {
   const columns = vw < 640 ? 1 : vw < 768 ? 2 : 3
@@ -261,13 +255,52 @@ function setBorderRadius(
   }
 }
 
-// added this function here to Biome can lint it
+export class AstroSwiper extends HTMLElement {
+  connectedCallback() {
+    const options: SwiperOptions = {
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      },
+      cardsEffect: {
+        slideShadows: false
+      },
+      modules: [Autoplay],
+      speed: 500
+    }
+
+    if (this.dataset['effect'] === 'cards') {
+      options.centeredSlides = true
+      options.effect = 'cards'
+      options.modules?.push(EffectCards)
+    } else if (this.dataset['effect'] === 'fade') {
+      options.centeredSlides = true
+      options.effect = 'fade'
+      options.modules?.push(EffectFade)
+    } else {
+      options.breakpoints = {
+        640: {
+          slidesPerView: 1
+        },
+        768: {
+          slidesPerView: 2
+        },
+        1024: {
+          slidesPerView: 3
+        }
+      }
+      options.spaceBetween = 24
+    }
+
+    new Swiper(this, options)
+  }
+}
+
 export function addWindowResizeEventHandler() {
   let timeout: NodeJS.Timeout
 
   function windowResizeHandler() {
-    const imgToResize =
-      document.querySelectorAll<HTMLImageElement>('picture > img')
     const linksToRoundContainers = document.querySelectorAll<HTMLDivElement>(
       'div.grid.grid-cols-1.overflow-hidden'
     )
@@ -278,10 +311,6 @@ export function addWindowResizeEventHandler() {
     const recaptchaToResize =
       document.querySelectorAll<HTMLDivElement>('.g-recaptcha')
     const vw = document.documentElement.clientWidth
-
-    for (const img of imgToResize) {
-      resizeImage(img)
-    }
 
     for (const container of linksToRoundContainers) {
       roundCornersInit(container, vw)
