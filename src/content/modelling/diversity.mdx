@@ -1,0 +1,43 @@
+---
+cover: "~/assets/diversity/cover.jpg"
+description: "Diversity is the kaleidoscope of colours and cultures that enrich our world, celebrating our unique individuality and collective humanity."
+title: "Diversity"
+weight: 1
+---
+
+import diversity1 from '~/assets/diversity/diversity-1.jpg'
+import diversity2 from '~/assets/diversity/diversity-2.jpg'
+import diversity3 from '~/assets/diversity/diversity-3.jpg'
+import diversity4 from '~/assets/diversity/diversity-4.jpg'
+import diversity5 from '~/assets/diversity/diversity-5.jpg'
+import Masonry from '~/components/astro/masonry.astro'
+import Picture from '~/components/astro/picture.astro'
+
+export const diversitys = [
+  {
+    alt: '',
+    img: diversity1
+  },
+  {
+    alt: '',
+    img: diversity2
+  },
+  {
+    alt: '',
+    img: diversity3
+  },
+  {
+    alt: '',
+    img: diversity4
+  },
+  {
+    alt: '',
+    img: diversity5
+  }
+]
+
+<Masonry>
+  {
+    diversitys.map((diversity) => <Picture alt={diversity.alt} height={diversity.img.height} rounded src={diversity.img.src} width={diversity.img.width}/>)
+  }
+</Masonry>

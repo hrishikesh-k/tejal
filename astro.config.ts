@@ -1,4 +1,4 @@
-import { statSync, writeFileSync } from 'node:fs'
+import { existsSync, statSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { cwd } from 'node:process'
 import { fileURLToPath } from 'node:url'
@@ -30,13 +30,20 @@ export default defineConfig({
                   numeric: true
                 })
               )) {
+              const astroFile = join(
+                cwd(),
+                'src',
+                'pages',
+                `${page.pathname === '' ? 'index' : page.pathname.slice(0, -1)}.astro`
+              )
+              const mdxFile = join(
+                cwd(),
+                'src',
+                'content',
+                `${page.pathname.slice(5, -1)}.mdx`
+              )
               sitemap += `<url><loc>${new URL(page.pathname, config.site).href}</loc><lastmod>${statSync(
-                join(
-                  cwd(),
-                  'src',
-                  'pages',
-                  `${page.pathname === '' ? 'index' : page.pathname.slice(0, -1)}.astro`
-                )
+                existsSync(astroFile) ? astroFile : mdxFile
               ).mtime.toISOString()}</lastmod></url>`
             }
             sitemap += '</urlset>'

@@ -55,25 +55,13 @@ const issue19Collection = defineCollection({
 const modellingCollection = defineCollection({
   loader: glob({
     base: './src/content/modelling/',
-    pattern: '**/[^_]*.md'
+    pattern: '**/[^_]*.mdx'
   }),
   schema: (context) =>
     z.object({
-      assets: z.optional(
-        z
-          .array(
-            z.object({
-              alt: z.string(),
-              img: context.image(),
-              name: z.string()
-            })
-          )
-          .default([])
-      ),
       cover: context.image(),
       description: z.string(),
       draft: z.optional(z.boolean().default(false)),
-      subtitle: z.optional(z.string()),
       title: z.string(),
       weight: z.number()
     })

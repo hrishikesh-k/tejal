@@ -1566,7 +1566,6 @@
 1733244596|uno.config.ts
 1733258709|src/content/advertising/etsy.md
 1733038335|.gitattributes
-1733236987|astro.config.ts
 1733296605|deno.lock
 1733296244|package-lock.json
 1733296228|package.json
@@ -1579,16 +1578,11 @@
 1733298826|src/assets/karen-gillan/cover.jpg
 1733245528|src/components/astro/section.astro
 1733247456|src/components/svelte/navigation.svelte
-1733230856|src/content.config.ts
 1733301453|src/content/issue-19/annalise-basso.mdx
-1732085939|src/content/modelling/diversity.md
-1732085939|src/content/modelling/kindness.md
-1732085939|src/content/modelling/riding-bitch.md
 1732085939|src/content/posts.ts
 1733158330|src/layouts/base.astro
 1733044289|src/pages/index.astro
 1733044296|src/pages/work.astro
-1733301774|src/pages/work/advertising/absolut.astro
 1733157968|src/pages/work/advertising/bic.astro
 1733157971|src/pages/work/advertising/bombae-bantai-brewery.astro
 1733157974|src/pages/work/advertising/casino.astro
@@ -1602,6 +1596,7 @@
 1733228600|src/pages/work/advertising/weco.astro
 1733158010|src/pages/work/advertising/zoddlini.astro
 1733297396|src/pages/work/modelling.astro
-1733301678|src/pages/work/modelling/diversity.astro
-1733301678|src/pages/work/modelling/kindness.astro
-1733301678|src/pages/work/modelling/riding-bitch.astro
+1733305448|astro.config.ts
+1733304797|src/content.config.ts
+1733302258|src/content/modelling/diversity.mdx
+1733305069|src/pages/work/advertising/absolut.astro
