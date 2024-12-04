@@ -4,21 +4,10 @@ import { glob } from 'astro/loaders'
 const advertisingCollection = defineCollection({
   loader: glob({
     base: './src/content/advertising/',
-    pattern: '**/[^_]*.md'
+    pattern: '**/[^_]*.mdx'
   }),
   schema: (context) =>
     z.object({
-      assets: z.optional(
-        z
-          .array(
-            z.object({
-              alt: z.string(),
-              img: context.image(),
-              name: z.string()
-            })
-          )
-          .default([])
-      ),
       cover: context.image(),
       description: z.string(),
       draft: z.optional(z.boolean().default(false)),

@@ -1,0 +1,129 @@
+---
+cover: "~/assets/absolut/cover.jpg"
+description: "A set of innovative ad campaigns creatively leveraging Absolut's USP. The goal of this project is to showcase creativity in sustainability."
+title: "Absolut"
+weight: 2
+---
+
+import blaze1 from '~/assets/absolut/blaze-1.jpg'
+import blaze2 from '~/assets/absolut/blaze-2.jpg'
+import bloom1 from '~/assets/absolut/bloom-1.jpg'
+import bloom2 from '~/assets/absolut/bloom-2.jpg'
+import hydration from '~/assets/absolut/hydration.jpg'
+import vid1Poster from '~/assets/absolut/video-1/poster.jpg'
+import vid1Thumbs from '~/assets/absolut/video-1/thumbs.jpg'
+import Heading3 from '~/components/astro/heading3.astro'
+import Picture from '~/components/astro/picture.astro'
+import Video from '~/components/svelte/video.svelte'
+
+export const blazes = [
+  {
+    alt: '',
+    img: blaze1
+  },
+  {
+    alt: '',
+    img: blaze2
+  }
+]
+
+export const blooms = [
+  {
+    alt: '',
+    img: bloom1
+  },
+  {
+    alt: '',
+    img: bloom2
+  }
+]
+
+export const vid1Segments144p = Object.values(
+  import.meta.glob('~/assets/absolut/video-1/144p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+export const vid1Segments240p = Object.values(
+  import.meta.glob('~/assets/absolut/video-1/240p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+export const vid1Segments360p = Object.values(
+  import.meta.glob('~/assets/absolut/video-1/360p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+export const vid1Segments480p = Object.values(
+  import.meta.glob('~/assets/absolut/video-1/480p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+export const vid1Segments720p = Object.values(
+  import.meta.glob('~/assets/absolut/video-1/720p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+export const vid1Segments1080p = Object.values(
+  import.meta.glob('~/assets/absolut/video-1/1080p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+<Heading3 text="Absolut Bloom"/>
+<div class="flex gap-x-6">
+  {
+    blooms.map((bloom) => (
+      <div style={`flex: calc(${bloom.img.width}/${bloom.img.height})`}>
+        <Picture alt={bloom.alt} height={bloom.img.height} parent={2} rounded src={bloom.img.src} width={bloom.img.width}/>
+      </div>
+    ))
+  }
+</div>
+<Heading3 text="Absolut Blaze"/>
+<div class="flex gap-x-6">
+  {
+    blazes.map((blaze) => (
+      <div style={`flex: calc(${blaze.img.width}/${blaze.img.height})`}>
+        <Picture alt={blaze.alt} height={blaze.img.height} parent={2} rounded src={blaze.img.src} width={blaze.img.width}/>
+      </div>
+    ))
+  }
+</div>
+<Heading3 text="Absolut Hydration"/>
+<div class="flex flex-col items-center">
+  <Picture alt="{% alt %}" height={hydration.height} rounded src={hydration.src} width={hydration.width}/>
+</div>
+<Heading3 text="Absolut Mystical"/>
+<div class="flex flex-col items-center">
+  <Video client:load duration={16} qualities={{
+    '144': vid1Segments144p,
+    '240': vid1Segments240p,
+    '360': vid1Segments360p,
+    '480': vid1Segments480p,
+    '720': vid1Segments720p,
+    '1080': vid1Segments1080p,
+  }} poster={vid1Poster.src} thumbs={vid1Thumbs.src}/>
+</div>
+<Heading3 text="Brand chosen"/>
+<p class="m-0">Absolut has been consistent with its brand positioning from its name and the unique identity of its bottle to its premium image as it as a brand has reached the absolut world of fame.</p>
+<Heading3 text="The problem"/>
+<p class="m-0">28 Billion glass bottles and jars go to landfill each year. The average time for a glass bottle to decompose is around 4000 years. While Absolut has made efforts to address its sustainability problem through limited edition bottles made from used and crushed Absolut bottles, it is not a permanent solution. Absolut sells approx 11.7 million 9 litre cases annually. Since many don't dispose of their alcohol bottles in the correct manner, Absolut also adds to the waste that ends in landfill.</p>
+<Heading3 text="The opportunity"/>
+<p class="m-0">Absolut vodka has a unique opportunity to take action and encourage consumers to up-cycle their bottles and put a full stop to the ugly end of life that many of these bottles might face in the landfills.</p>

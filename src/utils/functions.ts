@@ -1,26 +1,4 @@
-import type { InferEntrySchema } from 'astro:content'
 import type { MediaPlayerElement } from 'vidstack/elements'
-import placeholder from '~/assets/placeholder.png'
-
-export function findAsset(
-  post: {
-    collection: string
-    data: InferEntrySchema<'advertising'>
-    id: string
-  },
-  name: string
-) {
-  if (post.data.assets) {
-    return post.data.assets.find((asset) => asset.name === name) as NonNullable<
-      Extract<InferEntrySchema<'advertising'>['assets'], object[]>
-    >[number]
-  }
-  return {
-    alt: 'asset not found',
-    img: placeholder,
-    name: 'placeholder'
-  }
-}
 
 function resizeImage(img: HTMLImageElement) {
   const parentLevel = Number.parseInt(img.getAttribute('data-ro-parent') || '1')
