@@ -11,7 +11,9 @@ import Video from '~/components/svelte/video.svelte'
 import Base from '~/layouts/base.astro'
 import { findAsset } from '~/utils/functions.ts'
 
-const post = await getEntry('advertising', 'skippy')
+const post = (await getEntry('advertising', 'skippy')) as ReturnType<
+  typeof getEntry
+>
 
 const filters = [
   findAsset(post, 'filter-1'),

@@ -5,7 +5,10 @@ import Picture from '~/components/astro/picture.astro'
 import Base from '~/layouts/base.astro'
 import { findAsset } from '~/utils/functions.ts'
 
-const post = await getEntry('advertising', 'bombae-bantai-brewery')
+const post = (await getEntry(
+  'advertising',
+  'bombae-bantai-brewery'
+)) as ReturnType<typeof getEntry>
 
 const dieline = findAsset(post, 'dieline')
 const flavour1 = findAsset(post, 'flavour-1')

@@ -28,9 +28,33 @@ const advertisingCollection = defineCollection({
     })
 })
 
-const fashionCollection = defineCollection({
+const issue19Collection = defineCollection({
   loader: glob({
-    base: './src/content/fashion/',
+    base: './src/content/issue-19/',
+    pattern: '**/[^_]*.mdx'
+  }),
+  schema: (context) =>
+    z.object({
+      assets: z.optional(
+        z
+          .array(
+            z.object({
+              alt: z.string(),
+              img: context.image(),
+              name: z.string()
+            })
+          )
+          .default([])
+      ),
+      cover: context.image(),
+      title: z.string(),
+      weight: z.number()
+    })
+})
+
+const modellingCollection = defineCollection({
+  loader: glob({
+    base: './src/content/modelling/',
     pattern: '**/[^_]*.md'
   }),
   schema: (context) =>
@@ -72,6 +96,7 @@ const presentationCollection = defineCollection({
 
 export const collections = {
   advertising: advertisingCollection,
-  fashion: fashionCollection,
+  issue19: issue19Collection,
+  modelling: modellingCollection,
   presentation: presentationCollection
 }

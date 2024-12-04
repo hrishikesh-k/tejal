@@ -10,7 +10,9 @@ import Video from '~/components/svelte/video.svelte'
 import Base from '~/layouts/base.astro'
 import { findAsset } from '~/utils/functions.ts'
 
-const post = await getEntry('advertising', 'gender-diversity')
+const post = (await getEntry('advertising', 'gender-diversity')) as ReturnType<
+  typeof getEntry
+>
 
 const awards = [findAsset(post, 'awards-1'), findAsset(post, 'awards-2')]
 

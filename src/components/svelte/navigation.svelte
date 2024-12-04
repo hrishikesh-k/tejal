@@ -108,7 +108,7 @@ onMount(checkTheme)
     <span>Work</span>
     <Icon name="caret-down" size={3}/>
     <div class="bg-light-500 dark:bg-dark-500 border-0.25 border-gray-300 dark:border-gray-500 border-rounded-1.5 border-solid bottom--26 box-border hidden group-hover:block pos-absolute right-3/8 md:right-0 z-1">
-      {#each ['Advertising', 'Fashion', 'Presentations'] as sec, index (sec)}
+      {#each ['Advertising', 'Modelling', 'Presentations'] as sec, index (sec)}
         {@const secLower = sec.toLowerCase()}
         <a class="{subAnchorClass} {index === 0 && 'border-t-rounded-1.5'} {index === 2 && 'border-b-rounded-1.5'}" href="/work/{secLower}/">
           {#if secLower === section}

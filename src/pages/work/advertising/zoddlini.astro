@@ -6,7 +6,9 @@ import Swiper from '~/components/svelte/swiper.svelte'
 import Base from '~/layouts/base.astro'
 import { findAsset } from '~/utils/functions.ts'
 
-const post = await getEntry('advertising', 'zoddlini')
+const post = (await getEntry('advertising', 'zoddlini')) as ReturnType<
+  typeof getEntry
+>
 
 const back = findAsset(post, 'back')
 

@@ -4,7 +4,9 @@ import Picture from '~/components/astro/picture.astro'
 import Base from '~/layouts/base.astro'
 import { findAsset } from '~/utils/functions.ts'
 
-const post = await getEntry('advertising', 'pirelli')
+const post = (await getEntry('advertising', 'pirelli')) as ReturnType<
+  typeof getEntry
+>
 
 const mockups = [findAsset(post, 'mockup-1'), findAsset(post, 'mockup-2')]
 ---

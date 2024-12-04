@@ -22,7 +22,7 @@ const seoTitle = Astro.url.pathname.match(/^\/(?:index\.html)?$/)
 
 const urlRegex = Astro.url.pathname.toLowerCase().match(
   // test: https://regex101.com/r/HVqakl/1
-  /^\/(?<menu>about|contact|work)(?:\/(?<section>(?<=work\/)(advertising|fashion|presentations))\/?(?<project>[a-z-]+)?)?\/?(?:index\.html)?$/
+  /^\/(?<menu>about|contact|work)(?:\/(?<section>(?<=work\/)(advertising|modelling|presentations))\/?(?<project>[a-z-]+)?)?\/?(?:index\.html)?$/
 )
 
 const isProjectPage = Boolean(urlRegex?.groups?.['project'])

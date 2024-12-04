@@ -8,7 +8,7 @@ import Video from '~/components/svelte/video.svelte'
 import Base from '~/layouts/base.astro'
 import { findAsset } from '~/utils/functions'
 
-const post = await getEntry('advertising', 'absolut')
+const post = await getEntry('advertising', 'absolut') as ReturnType<typeof getEntry>
 
 const blazes = [findAsset(post, 'blaze-1'), findAsset(post, 'blaze-2')]
 

@@ -21,7 +21,7 @@ interface Props {
     id: string
   }>
   showTitle?: boolean
-  title: string
+  title: 'Advertising' | 'Modelling' | 'Presentations'
 }
 
 const {
@@ -49,11 +49,11 @@ const presentationSlugRelations = [
 let jumpLink: string[] = []
 
 if (title === 'Advertising') {
-  jumpLink = ['Fashion', 'Presentations']
-} else if (title === 'Fashion') {
+  jumpLink = ['Modelling', 'Presentations']
+} else if (title === 'Modelling') {
   jumpLink = ['Advertising', 'Presentations']
 } else if (title === 'Presentations') {
-  jumpLink = ['Advertising', 'Fashion']
+  jumpLink = ['Advertising', 'Modelling']
 }
 
 function findPresentation(id: string): string | undefined {

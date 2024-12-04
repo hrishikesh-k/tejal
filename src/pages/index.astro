@@ -1,15 +1,27 @@
 ---
+import Picture from '~/components/astro/picture.astro'
 import Section from '~/components/astro/section.astro'
+import Swiper from '~/components/svelte/swiper.svelte'
 import {
   advertisingPosts,
-  fashionPosts,
+  issue19Posts,
+  modellingPosts,
   presentationPosts
 } from '~/content/posts.ts'
 import Base from '~/layouts/base.astro'
 ---
 
 <Base description="Explore the creative world of Tejal Shinde - a versatile Art Director and Fashion Model through her captivating online portfolio." title="Tejal Shinde">
-  <Section noTitleMarginTop explore posts={advertisingPosts.slice(0, 3)} showTitle title="Advertising"/>
-  <Section explore posts={fashionPosts.slice(0, 3)} showTitle title="Fashion"/>
+    <Swiper client:load>
+      {
+        issue19Posts.map((post) => (
+          <swiper-slide>
+            <Picture alt="" height={post.data.cover.height} parent={2} rounded src={post.data.cover.src} width={post.data.cover.width}/>
+          </swiper-slide>
+        ))
+      }
+    </Swiper>
+  <Section explore posts={advertisingPosts.slice(0, 3)} showTitle title="Advertising"/>
+  <Section explore posts={modellingPosts.slice(0, 3)} showTitle title="Modelling"/>
   <Section explore posts={presentationPosts.slice(0, 3)} showTitle title="Presentations"/>
 </Base>
