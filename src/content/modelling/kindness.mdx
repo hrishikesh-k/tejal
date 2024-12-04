@@ -1,0 +1,44 @@
+---
+cover: "~/assets/kindness/cover.jpg"
+description: "Experience elegance and grace being flaunted by me in a stunning, breathtaking golden dress adorned with vibrant flowers."
+title: "Kindness"
+weight: 2
+---
+
+import kindness1 from '~/assets/kindness/kindness-1.jpg'
+import kindness2 from '~/assets/kindness/kindness-2.jpg'
+import kindness3 from '~/assets/kindness/kindness-3.jpg'
+import kindness4 from '~/assets/kindness/kindness-4.jpg'
+import kindness5 from '~/assets/kindness/kindness-5.jpg'
+import Masonry from '~/components/astro/masonry.astro'
+import Picture from '~/components/astro/picture.astro'
+
+export const kindnesss = [
+  {
+    alt: '',
+    img: kindness1
+  },
+  {
+    alt: '',
+    img: kindness2
+  },
+  {
+    alt: '',
+    img: kindness3
+  },
+  {
+    alt: '',
+    img: kindness4
+  },
+  {
+    alt: '',
+    img: kindness5
+  }
+]
+
+<p class="m-0 m-b-6">Kindness can be linked to gold in the sense that it holds immense value in human interactions and relationships. Like gold, kindness is precious and enduring. It doesn't tarnish over time, instead, it shines brightly, leaving a lasting impression. People often cherish acts of kindness much like they treasure gold.</p>
+<Masonry>
+  {
+    kindnesss.map((kindness) => <Picture alt={kindness.alt} height={kindness.img.height} rounded src={kindness.img.src} width={kindness.img.width}/>)
+  }
+</Masonry>
