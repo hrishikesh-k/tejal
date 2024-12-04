@@ -1,0 +1,25 @@
+---
+import 'swiper/css'
+import 'swiper/css/autoplay'
+import 'swiper/css/effect-cards'
+import 'swiper/css/effect-fade'
+
+interface Props {
+  effect?: 'fade'
+}
+
+const { effect } = Astro.props
+---
+
+<div class="pos-relative">
+  <astro-swiper class="swiper" data-effect={effect}>
+    <div class="swiper-wrapper">
+      <slot/>
+    </div>
+  </astro-swiper>
+</div>
+
+<script>
+import {AstroSwiper} from '~/utils/functions.ts'
+customElements.define('astro-swiper', AstroSwiper)
+</script>
