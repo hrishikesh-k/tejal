@@ -443,7 +443,7 @@ export class AstroVideo extends HTMLElement {
     window.blobs.push(m3u8)
     window.blobs.push(thumbs)
 
-    player?.addEventListener(
+    player.addEventListener(
       'provider-change',
       (event: MediaProviderChangeEvent) => {
         const provider = event.detail

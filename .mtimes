@@ -1550,7 +1550,6 @@
 1733302258|src/content/modelling/diversity.mdx
 1733304521|src/content/modelling/kindness.mdx
 1733305503|src/pages/work/modelling/[id].astro
-1733306524|src/content/advertising/bic.mdx
 1733310035|src/content/advertising/pirelli.mdx
 1733306076|src/pages/work/advertising/[id].astro
 1733331819|src/assets/annalise-basso/cover.jpg
@@ -1580,7 +1579,6 @@
 1733342316|src/components/astro/picture.astro
 1733343595|src/components/astro/section.astro
 1733343626|src/content.config.ts
-1733343374|src/content/advertising/bombae-bantai-brewery.mdx
 1733343367|src/content/advertising/casino.mdx
 1733343365|src/content/advertising/four-forty-four.mdx
 1733343363|src/content/modelling/riding-bitch.mdx
@@ -1598,9 +1596,6 @@
 1733343599|src/content/presentations/skippy.mdx
 1732085939|src/content/presentations/swoon.mdx
 1733338402|src/pages/work/the-amazing-fashion-magazine-issue-19/[id].astro
-1733345603|deno.lock
-1733345584|package-lock.json
-1733345576|package.json
 1733344066|src/assets/cristin-milioti/page-1.jpg
 1733344066|src/assets/cristin-milioti/page-10.jpg
 1733344066|src/assets/cristin-milioti/page-11.jpg
@@ -1671,7 +1666,6 @@
 1733384881|src/pages/work/the-amazing-fashion-magazine-issue-19.astro
 1733384748|uno.config.ts
 1733390207|src/components/astro/video.astro
-1733388384|src/content/advertising/absolut.mdx
 1733399351|src/content/advertising/food-desert.mdx
 1733399395|src/content/advertising/gender-diversity.mdx
 1733399423|src/content/advertising/global-wellness.mdx
@@ -1680,4 +1674,10 @@
 1733399493|src/env.d.ts
 1733399958|src/layouts/base.astro
 1733390240|src/pages/about.astro
-1733399976|src/utils/functions.ts
+1733423507|deno.lock
+1733423340|package-lock.json
+1733423315|package.json
+1733413530|src/content/advertising/absolut.mdx
+1733413907|src/content/advertising/bic.mdx
+1733423260|src/content/advertising/bombae-bantai-brewery.mdx
+1733400137|src/utils/functions.ts
