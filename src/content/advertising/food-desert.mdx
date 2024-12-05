@@ -14,7 +14,7 @@ import vid1Poster from '~/assets/food-desert/video-1/poster.jpg'
 import vid1Thumbs from '~/assets/food-desert/video-1/thumbs.jpg'
 import Heading3 from '~/components/astro/heading3.astro'
 import Picture from '~/components/astro/picture.astro'
-import Video from '~/components/svelte/video.svelte'
+import Video from '~/components/astro/video.astro'
 
 export const posters = [
   {
@@ -90,7 +90,7 @@ export const vid1Segments1080p = Object.values(
   <Picture alt="{% alt %}" height={poem.height} rounded src={poem.src} width={poem.width}/>
 </div>
 <Heading3 text="Video"/>
-<Video client:load duration={84} qualities={{
+<Video duration={84} qualities={{
   '144': vid1Segments144p,
   '240': vid1Segments240p,
   '360': vid1Segments360p,

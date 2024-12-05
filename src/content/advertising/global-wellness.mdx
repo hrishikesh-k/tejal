@@ -17,7 +17,7 @@ import vid1Thumbs from '~/assets/global-wellness/video-1/thumbs.jpg'
 import vid2Poster from '~/assets/global-wellness/video-2/poster.jpg'
 import vid2Thumbs from '~/assets/global-wellness/video-2/thumbs.jpg'
 import Picture from '~/components/astro/picture.astro'
-import Video from '~/components/svelte/video.svelte'
+import Video from '~/components/astro/video.astro'
 
 export const mockups = [
   {
@@ -142,7 +142,7 @@ export const vid2Segments1080p = Object.values(
   })
 )
 
-<Video client:load duration={107} qualities={{
+<Video duration={107} qualities={{
   '144': vid2Segments144p,
   '240': vid2Segments240p,
   '360': vid2Segments360p,
@@ -155,7 +155,7 @@ export const vid2Segments1080p = Object.values(
     mockups.map((mockup) => <Picture alt={mockup.alt} height={mockup.img.height} rounded src={mockup.img.src} width={mockup.img.width}/>)
   }
 </div>
-<Video client:load duration={38} qualities={{
+<Video duration={38} qualities={{
   '144': vid1Segments144p,
   '240': vid1Segments240p,
   '360': vid1Segments360p,

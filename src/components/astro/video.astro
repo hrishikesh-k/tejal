@@ -1,0 +1,27 @@
+---
+interface Props {
+  duration: number
+  poster: string
+  qualities: {
+    [Key in '1080' | '720' | '480' | '360' | '240' | '144']: string[]
+  }
+  thumbs: string
+  vertical?: boolean
+}
+
+const { duration, poster, qualities, thumbs, vertical } = Astro.props
+---
+
+<astro-video class="w-full" data-duration={duration} data-qualities={JSON.stringify(qualities)} data-thumbs={thumbs} data-vertical={vertical} style={{'aspect-ratio': vertical ? '9/16' : '16/9'}}>
+  <media-player style={{'aspect-ratio': vertical ? '9/16' : '16/9'}}>
+    <media-provider>
+        <media-poster class="vds-poster" src={`/images/1920${poster}`}></media-poster>
+    </media-provider>
+    <media-video-layout></media-video-layout>
+  </media-player>
+</astro-video>
+
+<script>
+import {AstroVideo} from '~/utils/functions'
+customElements.define('astro-video', AstroVideo)
+</script>

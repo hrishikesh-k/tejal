@@ -14,7 +14,7 @@ import vid1Poster from '~/assets/absolut/video-1/poster.jpg'
 import vid1Thumbs from '~/assets/absolut/video-1/thumbs.jpg'
 import Heading3 from '~/components/astro/heading3.astro'
 import Picture from '~/components/astro/picture.astro'
-import Video from '~/components/svelte/video.svelte'
+import Video from '~/components/astro/video.astro'
 
 export const blazes = [
   {
@@ -112,7 +112,7 @@ export const vid1Segments1080p = Object.values(
 </div>
 <Heading3 text="Absolut Mystical"/>
 <div class="flex flex-col items-center">
-  <Video client:load duration={16} qualities={{
+  <Video duration={16} qualities={{
     '144': vid1Segments144p,
     '240': vid1Segments240p,
     '360': vid1Segments360p,

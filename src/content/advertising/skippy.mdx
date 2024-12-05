@@ -24,7 +24,7 @@ import vid2Thumbs from '~/assets/skippy/video-2/thumbs.jpg'
 import Heading3 from '~/components/astro/heading3.astro'
 import Picture from '~/components/astro/picture.astro'
 import Swiper from '~/components/astro/swiper.astro'
-import Video from '~/components/svelte/video.svelte'
+import Video from '~/components/astro/video.astro'
 
 export const filters = [
   {
@@ -206,7 +206,7 @@ export const vid2Segments1080p = Object.values(
 <Heading3 text="Games"/>
 <p class="m-0 m-b-6">Play the videos:</p>
 <div class="flex flex-wrap gap-6 items-center justify-center">
-  <Video client:load duration={21} qualities={{
+  <Video duration={21} qualities={{
     '144': vid1Segments144p,
     '240': vid1Segments240p,
     '360': vid1Segments360p,
@@ -214,7 +214,7 @@ export const vid2Segments1080p = Object.values(
     '720': vid1Segments720p,
     '1080': vid1Segments1080p
   }} poster={vid1Poster.src} thumbs={vid1Thumbs.src} vertical/>
-  <Video client:load duration={20} qualities={{
+  <Video duration={20} qualities={{
     '144': vid2Segments144p,
     '240': vid2Segments240p,
     '360': vid2Segments360p,

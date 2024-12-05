@@ -4,8 +4,8 @@ import resume from '~/assets/about/resume.pdf?url'
 import vid1Poster from '~/assets/about/video-1/poster.jpg'
 import vid1Thumbs from '~/assets/about/video-1/thumbs.jpg'
 import Picture from '~/components/astro/picture.astro'
+import Video from '~/components/astro/video.astro'
 import Tooltip from '~/components/svelte/tooltip.svelte'
-import Video from '~/components/svelte/video.svelte'
 import Base from '~/layouts/base.astro'
 
 const vid1Segments144p = Object.values(
@@ -103,7 +103,7 @@ const vid1Segments1080p = Object.values(
       </div>
     </div>
   </div>
-  <Video client:load duration={54} qualities={{
+  <Video duration={54} qualities={{
     '144': vid1Segments144p,
     '240': vid1Segments240p,
     '360': vid1Segments360p,
