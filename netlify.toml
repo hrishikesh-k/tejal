@@ -31,4 +31,4 @@
   force = true
   from = "/images/:w/*"
   status = 200
-  to = "/.netlify/images/?url=:splat&w=:w"
+  to = "/.netlify/images/?url=/:splat&w=:w"

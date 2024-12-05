@@ -1537,7 +1537,6 @@
 1732085935|src/assets/four-forty-four/hersheys-1.png
 1732085935|src/assets/four-forty-four/hersheys-2.png
 1733229727|tsconfig.json
-1733236248|netlify.toml
 1733237533|public/robots.txt
 1733245520|src/assets/styles.css
 1733244978|src/components/svelte/form.svelte
@@ -1681,3 +1680,4 @@
 1733428441|src/assets/annalise-basso/page-7.jpg
 1733428823|src/assets/annalise-basso/page-8.jpg
 1733428911|src/assets/annalise-basso/page-9.jpg
+1733429464|netlify.toml
