@@ -213,9 +213,9 @@ export default defineConfig({
       name: 'bottom',
       rules: [
         [
-          'bottom--26',
+          'bottom--36',
           {
-            bottom: '-6.5rem'
+            bottom: '-9rem'
           }
         ],
         [
