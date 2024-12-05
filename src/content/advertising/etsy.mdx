@@ -19,7 +19,7 @@ import tweet4 from '~/assets/etsy/tweet-4.jpg'
 import tweet5 from '~/assets/etsy/tweet-5.jpg'
 import Heading3 from '~/components/astro/heading3.astro'
 import Picture from '~/components/astro/picture.astro'
-import Swiper from '~/components/svelte/swiper.svelte'
+import Swiper from '~/components/astro/swiper.astro'
 
 export const mockups = [
   {
@@ -76,12 +76,12 @@ export const tweets = [
 ]
 
 <Heading3 text="Tweets"/>
-<Swiper client:load>
+<Swiper>
   {
     tweets.map((tweet) => (
-      <swiper-slide>
+      <div class="swiper-slide">
         <Picture alt={tweet.alt} height={tweet.img.height} rounded src={tweet.img.src} width={tweet.img.width}/>
-      </swiper-slide>
+      </div>
     ))
   }
 </Swiper>

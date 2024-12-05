@@ -1,22 +1,56 @@
 ---
+import Icon from '~/components/svelte/icon.svelte'
 import 'swiper/css'
 import 'swiper/css/autoplay'
 import 'swiper/css/effect-cards'
 import 'swiper/css/effect-fade'
 
 interface Props {
-  effect?: 'fade'
+  center?: boolean
+  effect?: 'cards' | 'fade'
+  maxWidth?: string
+  noNavigation?: boolean
 }
 
-const { effect } = Astro.props
+const { center, effect, maxWidth, noNavigation } = Astro.props
+
+const navButtonClass = [
+  'bg-transparent',
+  'block',
+  'border-0',
+  'cursor-pointer',
+  'disabled:opacity-50',
+  'outline-0',
+  'p-0',
+  'disabled:pointer-none',
+  'pos-absolute',
+  'text-current',
+  'top-1/2',
+  'transform',
+  'transition-duration-250',
+  'transition-opacity',
+  'translate-y--1/2'
+]
 ---
 
 <div class="pos-relative">
-  <astro-swiper class="swiper" data-effect={effect}>
+  {
+    !noNavigation &&
+    <button class="left-0" class:list={navButtonClass}>
+      <Icon name="circle-arrow-left"/>
+    </button>
+  }
+  <astro-swiper class="swiper" class:list={[{'max-w-5/6 md:max-w-11/12': !maxWidth}, maxWidth]} data-center={center} data-effect={effect} data-navigation={!noNavigation}>
     <div class="swiper-wrapper">
       <slot/>
     </div>
   </astro-swiper>
+  {
+    !noNavigation &&
+    <button class="right-0" class:list={navButtonClass}>
+      <Icon name="circle-arrow-right"/>
+    </button>
+  }
 </div>
 
 <script>

@@ -66,7 +66,7 @@ import mockup3 from '~/assets/zoddlini/mockup-3.jpg'
 import mockup4 from '~/assets/zoddlini/mockup-4.jpg'
 import Heading3 from '~/components/astro/heading3.astro'
 import Picture from '~/components/astro/picture.astro'
-import Swiper from '~/components/svelte/swiper.svelte'
+import Swiper from '~/components/astro/swiper.astro'
 
 export const clubs = [
   {
@@ -328,24 +328,24 @@ export const spades = [
 <div class="grid gap-x-12 grid-cols-1 md:grid-cols-2 justify-items-center">
   <div class="w-full">
     <Heading3 center text="Clubs"/>
-    <Swiper client:load effect="cards" maxWidth="max-w-3/5 lg:max-w-1/2">
+    <Swiper effect="cards" maxWidth="max-w-3/5 lg:max-w-1/2">
       {
         clubs.map((club) => (
-          <swiper-slide>
+          <div class="swiper-slide">
             <Picture alt={club.alt} height={club.img.height} src={club.img.src} width={club.img.width}/>
-          </swiper-slide>
+          </div>
         ))
       }
     </Swiper>
   </div>
   <div class="w-full">
     <Heading3 center text="Diamonds"/>
-    <Swiper client:load effect="cards" maxWidth="max-w-3/5 lg:max-w-1/2">
+    <Swiper effect="cards" maxWidth="max-w-3/5 lg:max-w-1/2">
       {
         diamonds.map((diamond) => (
-          <swiper-slide>
+          <div class="swiper-slide">
             <Picture alt={diamond.alt} height={diamond.img.height} src={diamond.img.src} width={diamond.img.width}/>
-          </swiper-slide>
+          </div>
         ))
       }
     </Swiper>
@@ -354,24 +354,24 @@ export const spades = [
 <div class="grid gap-x-12 grid-cols-1 md:grid-cols-2 justify-items-center">
   <div class="w-full">
     <Heading3 center text="Hearts"/>
-    <Swiper client:load effect="cards" maxWidth="max-w-3/5 lg:max-w-1/2">
+    <Swiper effect="cards" maxWidth="max-w-3/5 lg:max-w-1/2">
       {
         hearts.map((heart) => (
-          <swiper-slide>
+          <div class="swiper-slide">
             <Picture alt={heart.alt} height={heart.img.height} src={heart.img.src} width={heart.img.width}/>
-          </swiper-slide>
+          </div>
         ))
       }
     </Swiper>
   </div>
   <div class="w-full">
     <Heading3 center text="Spades"/>
-    <Swiper client:load effect="cards" maxWidth="max-w-3/5 lg:max-w-1/2">
+    <Swiper effect="cards" maxWidth="max-w-3/5 lg:max-w-1/2">
       {
         spades.map((spade) => (
-          <swiper-slide>
+          <div class="swiper-slide">
             <Picture alt={spade.alt} height={spade.img.height} src={spade.img.src} width={spade.img.width}/>
-          </swiper-slide>
+          </div>
         ))
       }
     </Swiper>
@@ -380,22 +380,22 @@ export const spades = [
 <div class="grid gap-x-12 grid-cols-1 md:grid-cols-2 justify-items-center">
   <div class="w-full">
     <Heading3 center text="Jokers"/>
-    <Swiper client:load effect="cards" maxWidth="max-w-3/5 lg:max-w-1/2">
+    <Swiper effect="cards" maxWidth="max-w-3/5 lg:max-w-1/2">
       {
         jokers.map((joker) => (
-          <swiper-slide>
+          <div class="swiper-slide">
             <Picture alt={joker.alt} height={joker.img.height} src={joker.img.src} width={joker.img.width}/>
-          </swiper-slide>
+          </div>
         ))
       }
     </Swiper>
   </div>
   <div class="w-full">
     <Heading3 center text="Back"/>
-    <Swiper client:load effect="cards" maxWidth="max-w-3/5 lg:max-w-1/2" noNavigation>
-      <swiper-slide>
+    <Swiper effect="cards" maxWidth="max-w-3/5 lg:max-w-1/2" noNavigation>
+      <div class="swiper-slide">
         <Picture alt="{% alt %}" height={back.height} src={back.src} width={back.width}/>
-      </swiper-slide>
+      </div>
     </Swiper>
   </div>
 </div>

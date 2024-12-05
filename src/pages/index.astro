@@ -1,7 +1,7 @@
 ---
 import Picture from '~/components/astro/picture.astro'
 import Section from '~/components/astro/section.astro'
-import Swiper from '~/components/svelte/swiper.svelte'
+import Swiper from '~/components/astro/swiper.astro'
 import {
   advertisingPosts,
   issue19Posts,
@@ -14,14 +14,14 @@ import Heading3 from '../components/astro/heading3.astro'
 
 <Base description="Explore the creative world of Tejal Shinde - a versatile Art Director and Fashion Model through her captivating online portfolio." title="Tejal Shinde">
     <Heading3 noMarginTop text="The Amazing Fashion Magazine (Issue 19)"/>
-    <Swiper client:load>
+    <Swiper>
       {
         issue19Posts.map((post) => (
-          <swiper-slide>
+          <div class="swiper-slide">
             <a href={`/work/the-amazing-fashion-magazine-issue-19/${post.id}/`}>
               <Picture alt={`cover art for ${post.data.title}`} height={post.data.cover.height} rounded src={post.data.cover.src} width={post.data.cover.width}/>
             </a>
-          </swiper-slide>
+          </div>
         ))
       }
     </Swiper>

@@ -22,7 +22,7 @@ import vid1Poster from '~/assets/weco/video-1/poster.jpg'
 import vid1Thumbs from '~/assets/weco/video-1/thumbs.jpg'
 import Heading3 from '~/components/astro/heading3.astro'
 import Picture from '~/components/astro/picture.astro'
-import Swiper from '~/components/svelte/swiper.svelte'
+import Swiper from '~/components/astro/swiper.astro'
 import Video from '~/components/svelte/video.svelte'
 
 export const bags = [
@@ -128,14 +128,14 @@ export const vid1Segments1080p = Object.values(
 )
 
 <Heading3 text="Facebook / Instagram"/>
-<Swiper client:load>
-{
-  facebooks.map((facebook) => (
-    <swiper-slide>
-      <Picture alt={facebook.alt} height={facebook.img.height} rounded src={facebook.img.src} width={facebook.img.width}/>
-    </swiper-slide>
-  ))
-}
+<Swiper>
+  {
+    facebooks.map((facebook) => (
+      <div class="swiper-slide">
+        <Picture alt={facebook.alt} height={facebook.img.height} rounded src={facebook.img.src} width={facebook.img.width}/>
+      </div>
+    ))
+  }
 </Swiper>
 <div class="flex flex-wrap gap-6">
 <div class="md:flex-basis-0 md:flex-grow-1 md:flex-shrink-1">

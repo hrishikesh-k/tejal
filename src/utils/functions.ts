@@ -1,7 +1,7 @@
 // added script here to Biome can lint it
 
 import Swiper from 'swiper'
-import { Autoplay, EffectCards, EffectFade } from 'swiper/modules'
+import { Autoplay, EffectCards, EffectFade, Navigation } from 'swiper/modules'
 import type { SwiperOptions } from 'swiper/types'
 import type { MediaPlayerElement } from 'vidstack/elements'
 
@@ -291,6 +291,18 @@ export class AstroSwiper extends HTMLElement {
         }
       }
       options.spaceBetween = 24
+    }
+
+    if (this.dataset['center']) {
+      options.centeredSlides = true
+    }
+
+    if (this.dataset['navigation'] === 'true') {
+      options.modules?.push(Navigation)
+      options.navigation = {
+        nextEl: this.nextElementSibling as HTMLButtonElement,
+        prevEl: this.previousElementSibling as HTMLButtonElement
+      }
     }
 
     new Swiper(this, options)
