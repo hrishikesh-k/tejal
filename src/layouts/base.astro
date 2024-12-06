@@ -101,7 +101,13 @@ const jsonSchema: {
                   return {
                     '@type': 'ListItem',
                     item: new URL(`/work/${section}/`, url).href,
-                    name: `${section.slice(0, 1).toUpperCase()}${section.slice(1)}${seoTitleSuffix}`,
+                    name: `${section
+                      .split('-')
+                      .map(
+                        (subPart) =>
+                          `${subPart.slice(0, 1).toUpperCase()}${subPart.slice(1)}`
+                      )
+                      .join(' ')}${seoTitleSuffix}`,
                     position: 3
                   }
                 })()
