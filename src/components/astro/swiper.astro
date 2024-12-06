@@ -36,7 +36,7 @@ const navButtonClass = [
 <div class="pos-relative">
   {
     !noNavigation &&
-    <button class="left-0" class:list={navButtonClass} type="button">
+    <button aria-label="previous slide" class="left-0" class:list={navButtonClass} type="button">
       <Icon name="circle-arrow-left"/>
     </button>
   }
@@ -47,7 +47,7 @@ const navButtonClass = [
   </astro-swiper>
   {
     !noNavigation &&
-    <button class="right-0" class:list={navButtonClass} type="button">
+    <button aria-label="next slide" class="right-0" class:list={navButtonClass} type="button">
       <Icon name="circle-arrow-right"/>
     </button>
   }
