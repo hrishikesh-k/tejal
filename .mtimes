@@ -1522,7 +1522,6 @@
 1733043953|src/components/astro/heading3.astro
 1732085939|src/components/astro/masonry.astro
 1732085939|src/components/svelte/icon.svelte
-1732085939|src/components/svelte/tooltip.svelte
 1732085939|src/content/fashion/diversity.md
 1732085939|src/content/fashion/kindness.md
 1732085939|src/content/fashion/riding-bitch.md
@@ -1566,7 +1565,6 @@
 1733343599|src/content/presentations/skippy.mdx
 1732085939|src/content/presentations/swoon.mdx
 1733338402|src/pages/work/the-amazing-fashion-magazine-issue-19/[id].astro
-1733383275|src/components/astro/swiper.astro
 1733382270|src/pages/index.astro
 1733384818|src/components/svelte/navigation.svelte
 1733384881|src/pages/work/the-amazing-fashion-magazine-issue-19.astro
@@ -1665,7 +1663,6 @@
 1733474691|src/content/advertising/food-desert.mdx
 1733476629|src/content/advertising/four-forty-four.mdx
 1733478480|src/content/advertising/zoddlini.mdx
-1733475698|src/layouts/base.astro
 1733478909|src/content/advertising/gender-diversity.mdx
 1733479212|src/content/advertising/global-wellness.mdx
 1733479281|src/content/advertising/pirelli.mdx
@@ -1681,3 +1678,6 @@
 1733486788|src/content/the-amazing-fashion-magazine-issue-19/eva-de-dominici.mdx
 1733486877|src/content/the-amazing-fashion-magazine-issue-19/into-the-wilderness.mdx
 1733486930|src/content/the-amazing-fashion-magazine-issue-19/karen-gillan.mdx
+1733488350|src/components/astro/swiper.astro
+1733488422|src/components/svelte/tooltip.svelte
+1733488310|src/layouts/base.astro
