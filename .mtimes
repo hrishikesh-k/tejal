@@ -1549,7 +1549,6 @@
 1733302258|src/content/modelling/diversity.mdx
 1733304521|src/content/modelling/kindness.mdx
 1733305503|src/pages/work/modelling/[id].astro
-1733310035|src/content/advertising/pirelli.mdx
 1733306076|src/pages/work/advertising/[id].astro
 1733331819|src/assets/annalise-basso/cover.jpg
 1733331873|src/assets/chicagos-ron-trent/cover.jpg
@@ -1583,10 +1582,6 @@
 1733384881|src/pages/work/the-amazing-fashion-magazine-issue-19.astro
 1733384748|uno.config.ts
 1733390207|src/components/astro/video.astro
-1733399395|src/content/advertising/gender-diversity.mdx
-1733399423|src/content/advertising/global-wellness.mdx
-1733399448|src/content/advertising/skippy.mdx
-1733399468|src/content/advertising/weco.mdx
 1733399493|src/env.d.ts
 1733390240|src/pages/about.astro
 1733413530|src/content/advertising/absolut.mdx
@@ -1681,3 +1676,8 @@
 1733476629|src/content/advertising/four-forty-four.mdx
 1733478480|src/content/advertising/zoddlini.mdx
 1733475698|src/layouts/base.astro
+1733478909|src/content/advertising/gender-diversity.mdx
+1733479212|src/content/advertising/global-wellness.mdx
+1733479281|src/content/advertising/pirelli.mdx
+1733479718|src/content/advertising/skippy.mdx
+1733482022|src/content/advertising/weco.mdx
