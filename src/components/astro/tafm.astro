@@ -1,0 +1,24 @@
+---
+import Heading3 from '~/components/astro/heading3.astro'
+import Picture from '~/components/astro/picture.astro'
+import Swiper from '~/components/astro/swiper.astro'
+import Icon from '~/components/svelte/icon.svelte'
+import { issue19Posts } from '~/content/posts.ts'
+---
+
+<Heading3 noMarginTop text="The Amazing Fashion Magazine (Issue 19)"/>
+<Swiper>
+  {
+    issue19Posts.map((post) => (
+      <div class="swiper-slide">
+        <a href={`/work/the-amazing-fashion-magazine-issue-19/${post.id}/`}>
+          <Picture alt={`cover art for ${post.data.title}`} height={post.data.cover.height} rounded src={post.data.cover.src} width={post.data.cover.width}/>
+        </a>
+      </div>
+    ))
+  }
+</Swiper>
+<a class="after:bg-current after:border-rounded-0.25 after:bottom--2 after:content decoration-none flex gap-x-2 after:h-0.5 items-center after:left-0 m-l-auto m-t-6 pos-relative after:pos-absolute text-4 text-current md:text-6 after:transition-duration-250 after:transition-width w-fit after:w-0 after:hover:w-full" href="/work/the-amazing-fashion-magazine-issue-19/">
+  <span>Explore all</span>
+  <Icon name="circle-arrow-right" size={6}/>
+</a>

@@ -1,5 +1,6 @@
 ---
 import Section from '~/components/astro/section.astro'
+import Tafm from '~/components/astro/tafm.astro'
 import {
   advertisingPosts,
   modellingPosts,
@@ -9,6 +10,7 @@ import Base from '~/layouts/base.astro'
 ---
 
 <Base description="Browse through Tejal Shinde's breathtaking portfolio, showcasing her diverse range of captivating projects and creative endeavours." title="Work">
+  <Tafm/>
   <Section noTitleMarginTop posts={advertisingPosts} showTitle title="Advertising"/>
   <Section posts={modellingPosts} showTitle title="Modelling"/>
   <Section posts={presentationPosts} showTitle title="Presentations"/>
