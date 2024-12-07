@@ -1538,7 +1538,6 @@
 1733229727|tsconfig.json
 1733237533|public/robots.txt
 1733245520|src/assets/styles.css
-1733244978|src/components/svelte/form.svelte
 1733245567|src/pages/404.astro
 1733038335|.gitattributes
 1732085939|src/content/posts.ts
@@ -1564,7 +1563,6 @@
 1733343599|src/content/presentations/skippy.mdx
 1732085939|src/content/presentations/swoon.mdx
 1733338402|src/pages/work/the-amazing-fashion-magazine-issue-19/[id].astro
-1733384818|src/components/svelte/navigation.svelte
 1733399493|src/env.d.ts
 1733390240|src/pages/about.astro
 1733413530|src/content/advertising/absolut.mdx
@@ -1639,7 +1637,6 @@
 1733590318|src/assets/karen-gillan/page-7.jpg
 1733590318|src/assets/karen-gillan/page-8.jpg
 1733590319|src/assets/karen-gillan/page-9.jpg
-1733585846|src/layouts/base.astro
 1733598088|src/components/astro/swiper.astro
 1733598370|src/content/the-amazing-fashion-magazine-issue-19/annalise-basso.mdx
 1733598380|src/content/the-amazing-fashion-magazine-issue-19/chicagos-ron-trent.mdx
@@ -1806,4 +1803,7 @@
 1733602096|src/assets/the-amazing-fashion-magazine-issue-19/page-223.jpg
 1733602098|src/assets/the-amazing-fashion-magazine-issue-19/page-224.jpg
 1733603842|src/components/astro/tafm.astro
-1733603784|src/pages/work/the-amazing-fashion-magazine-issue-19.astro
+1733605255|src/components/svelte/form.svelte
+1733605259|src/components/svelte/navigation.svelte
+1733605255|src/layouts/base.astro
+1733604640|src/pages/work/the-amazing-fashion-magazine-issue-19.astro

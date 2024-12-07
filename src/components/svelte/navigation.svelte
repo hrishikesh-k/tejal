@@ -1,6 +1,4 @@
 <script lang="ts">
-import { onMount } from 'svelte'
-import { on } from 'svelte/events'
 import Icon from '~/components/svelte/icon.svelte'
 import Tooltip from '~/components/svelte/tooltip.svelte'
 
@@ -62,56 +60,18 @@ const subAnchorClass = [
   'text-right'
 ].join(' ')
 
-let icon: 'moon' | 'sun-bright' = $state('moon')
 let open = $state(false)
-let theme: 'dark' | 'light' = $state('light')
-
-function checkTheme() {
-  const selectedTheme = localStorage.getItem('theme') as typeof theme | null
-  if (selectedTheme) {
-    theme = selectedTheme
-  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    theme = 'dark'
-  } else {
-    theme = 'light'
-  }
-  on(window.matchMedia('(prefers-color-scheme: dark)'), 'change', checkTheme)
-}
 
 function onclickNavigation() {
   open = !open
 }
-
-function onclickTheme() {
-  if (theme === 'dark') {
-    theme = 'light'
-  } else {
-    theme = 'dark'
-  }
-  localStorage.setItem('theme', theme)
-}
-
-$effect(() => {
-  const html = document.querySelector('html') as HTMLHtmlElement
-  if (theme === 'dark') {
-    html.classList.add('dark')
-    html.classList.remove('light')
-    icon = 'sun-bright'
-  } else {
-    html.classList.add('light')
-    html.classList.remove('dark')
-    icon = 'moon'
-  }
-})
-
-onMount(checkTheme)
 </script>
 
-<nav class="bg-light-500 dark:bg-dark-500 flex flex-col md:flex-row gap-x-3 items-center left-0 pos-absolute md:pos-static transition-duration-250 transition-top w-full md:w-unset" class:top-4={open} class:top--30={!open}>
+<nav class="bg-light-500 flex flex-col md:flex-row gap-x-3 items-center left-0 pos-absolute md:pos-static transition-duration-250 transition-top w-full md:w-unset" class:top-4={open} class:top--30={!open}>
   <div class="cursor-pointer flex gap-x-1 group items-center justify-center {mainAnchorBaseClass} {menu === 'work' && mainAnchorActiveClass}">
     <span>Work</span>
     <Icon name="caret-down" size={3}/>
-    <div class="bg-light-500 dark:bg-dark-500 border-0.25 border-gray-300 dark:border-gray-500 border-rounded-1.5 border-solid bottom--36 box-border hidden group-hover:block pos-absolute right-3/8 md:right-0 z-1">
+    <div class="bg-light-500 border-0.25 border-gray-300 dark:border-gray-500 border-rounded-1.5 border-solid bottom--36 box-border hidden group-hover:block pos-absolute right-3/8 md:right-0 z-1">
       {#each [{name: 'Advertising', slug: 'advertising'}, {name: 'Modelling', slug: 'modelling'}, {name: 'Presentations', slug: 'presentations'}, {name: 'TAFM  #19', slug: 'the-amazing-fashion-magazine-issue-19'}] as sec, index (sec)}
         <a class="{subAnchorClass} {index === 0 && 'border-t-rounded-1.5'} {index === 3 && 'border-b-rounded-1.5'}" href="/work/{sec.slug}/">
           {#if sec.slug === section}
@@ -125,7 +85,6 @@ onMount(checkTheme)
   <a class="{mainAnchorBaseClass} {menu === 'about' ? mainAnchorActiveClass : mainAnchorPassiveClass}" href="/about/">About</a>
   <a class="{mainAnchorBaseClass} {menu === 'contact' ? mainAnchorActiveClass : mainAnchorPassiveClass}" href="/contact/">Contact</a>
 </nav>
-<Tooltip {icon} onclick={onclickTheme} text="Toggle theme"/>
 <div class="block md:hidden z-1">
   <Tooltip onclick={onclickNavigation} icon="bars" text="Toggle navigation"/>
 </div>

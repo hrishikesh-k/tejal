@@ -4,7 +4,6 @@ import wretchFormDataAddon from 'wretch/addons/formData'
 
 const inputClass = [
   'bg-light-500',
-  'dark:bg-dark-500',
   'border-0.25',
   'border-gray-300',
   'dark:border-gray-500',
