@@ -233,6 +233,18 @@ export default defineConfig({
       ]
     },
     {
+      name: 'box-shadow',
+      rules: [
+        [
+          'shadow-bl',
+          {
+            'box-shadow':
+              '-4px 4px 6px 0px rgba(0, 0, 0, 0.5), 2px -2px 6px 0px rgba(0, 0, 0, 0.5)'
+          }
+        ]
+      ]
+    },
+    {
       name: 'box-sizing',
       rules: [
         [
