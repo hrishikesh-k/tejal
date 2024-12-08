@@ -1603,7 +1603,6 @@
 1733593624|src/assets/issue-19/page-122.jpg
 1733598760|src/pages/index.astro
 1733598856|src/pages/work.astro
-1733603842|src/components/astro/tafm.astro
 1733635940|src/components/astro/swiper.astro
 1733636093|src/components/svelte/form.svelte
 1733635993|src/components/svelte/navigation.svelte
@@ -1806,4 +1805,6 @@
 1733668334|package-lock.json
 1733683489|package.json
 1733684930|readme.md
-1733684730|src/pages/work/the-amazing-fashion-magazine-issue-19.astro
+1733687114|src/components/astro/tafm.astro
+1733686936|src/pages/work/the-amazing-fashion-magazine-issue-19.astro
+1733687159|src/pages/work/the-amazing-fashion-magazine-issue-19/[id].astro

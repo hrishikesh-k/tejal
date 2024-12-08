@@ -6,12 +6,14 @@ import Icon from '~/components/svelte/icon.svelte'
 import { issue19Posts } from '~/content/posts.ts'
 
 interface Props {
+  exclude?: string
   heading?: string
   noExplore?: boolean
   noHeadingMargin?: boolean
 }
 
 const {
+  exclude,
   heading = 'The Amazing Fashion Magazine (Issue 19)',
   noExplore,
   noHeadingMargin
@@ -21,7 +23,7 @@ const {
 <Heading3 noMarginTop={Boolean(noHeadingMargin)} text={heading}/>
 <Swiper>
   {
-    issue19Posts.map((post) => (
+    issue19Posts.filter((post) => post.id !== exclude).map((post) => (
       <div class="swiper-slide">
         <a href={`/work/the-amazing-fashion-magazine-issue-19/${post.id}/`}>
           <Picture alt={`cover art for ${post.data.title}`} height={post.data.cover.height} rounded src={post.data.cover.src} width={post.data.cover.width}/>
