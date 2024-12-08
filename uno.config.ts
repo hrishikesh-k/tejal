@@ -49,12 +49,6 @@ export default defineConfig({
           }
         ],
         [
-          'bg-dark-100',
-          {
-            'background-color': '#3c3c3c'
-          }
-        ],
-        [
           'bg-dark-500',
           {
             'background-color': '#1f1f1f'
@@ -128,12 +122,6 @@ export default defineConfig({
           'border-gray-300',
           {
             'border-color': '#d1d5db'
-          }
-        ],
-        [
-          'border-gray-500',
-          {
-            'border-color': '#6b7280'
           }
         ]
       ]
@@ -228,18 +216,6 @@ export default defineConfig({
           'bottom-0.5',
           {
             bottom: '0.125rem'
-          }
-        ]
-      ]
-    },
-    {
-      name: 'box-shadow',
-      rules: [
-        [
-          'shadow-bl',
-          {
-            'box-shadow':
-              '-4px 4px 6px 0px rgba(0, 0, 0, 0.5), 2px -2px 6px 0px rgba(0, 0, 0, 0.5)'
           }
         ]
       ]
@@ -351,24 +327,6 @@ export default defineConfig({
             cursor: 'pointer'
           }
         ]
-      ]
-    },
-    {
-      name: 'dark',
-      variants: [
-        {
-          match(matcher) {
-            if (!matcher.startsWith('dark:')) {
-              return matcher
-            }
-            return {
-              matcher: matcher.slice(5),
-              selector(s) {
-                return `.dark ${s}`
-              }
-            }
-          }
-        }
       ]
     },
     {

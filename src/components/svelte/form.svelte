@@ -6,7 +6,6 @@ const inputClass = [
   'bg-light-500',
   'border-0.25',
   'border-gray-300',
-  'dark:border-gray-500',
   'border-solid',
   'border-rounded-1',
   'box-border',
@@ -16,7 +15,6 @@ const inputClass = [
   'p-2',
   'peer',
   'text-dark-500',
-  'dark:text-light-500',
   'w-full'
 ].join(' ')
 
@@ -111,7 +109,7 @@ async function onsubmit(event: Event) {
     <span class={spanClass}>Message</span>
   </label>
   <div class="h-19.5 m-y-6 transform transform-origin-left transition-duration-250 transition-margin-transform" data-netlify-recaptcha="true"></div>
-  <button class="bg-dark-500 dark:bg-light-500 hover:bg-dark-900 hover:dark:bg-light-900 border-0 border-rounded-1 cursor-pointer font-montserrat p-2 text-4 text-light-500 dark:text-dark-500" type="submit">Submit</button>
+  <button class="bg-dark-500 hover:bg-dark-900 border-0 border-rounded-1 cursor-pointer font-montserrat p-2 text-4 text-light-500" type="submit">Submit</button>
   {#if formStatus}
     <p class="{formStatusClass} box-border m-t-6 p-2 text-center">{formStatusText}</p>
   {/if}

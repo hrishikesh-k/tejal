@@ -48,7 +48,6 @@ const mainAnchorPassiveClass = [
 
 const subAnchorClass = [
   'hover:bg-light-900',
-  'hover:dark:bg-dark-900',
   'block',
   'box-border',
   'decoration-none',
@@ -71,7 +70,7 @@ function onclickNavigation() {
   <div class="cursor-pointer flex gap-x-1 group items-center justify-center {mainAnchorBaseClass} {menu === 'work' && mainAnchorActiveClass}">
     <span>Work</span>
     <Icon name="caret-down" size={3}/>
-    <div class="bg-light-500 border-0.25 border-gray-300 dark:border-gray-500 border-rounded-1.5 border-solid bottom--36 box-border hidden group-hover:block pos-absolute right-3/8 md:right-0 z-1">
+    <div class="bg-light-500 border-0.25 border-gray-300 border-rounded-1.5 border-solid bottom--36 box-border hidden group-hover:block pos-absolute right-3/8 md:right-0 z-1">
       {#each [{name: 'Advertising', slug: 'advertising'}, {name: 'Modelling', slug: 'modelling'}, {name: 'Presentations', slug: 'presentations'}, {name: 'TAFM  #19', slug: 'the-amazing-fashion-magazine-issue-19'}] as sec, index (sec)}
         <a class="{subAnchorClass} {index === 0 && 'border-t-rounded-1.5'} {index === 3 && 'border-b-rounded-1.5'}" href="/work/{sec.slug}/">
           {#if sec.slug === section}
