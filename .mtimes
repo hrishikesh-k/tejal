@@ -6,7 +6,6 @@
 1732085931|netlify/edge-functions/password.ts
 1732085931|public/785dfe191d5146e0a0e852fa5003303e.txt
 1732085931|public/favicon.ico
-1733163043|readme.md
 1732085931|src/assets/about/about.jpg
 1732085931|src/assets/about/resume.pdf
 1732085931|src/assets/about/video-1/1080p/1080p-seg-000.m3u8seg
@@ -1568,7 +1567,6 @@
 1733413530|src/content/advertising/absolut.mdx
 1733413907|src/content/advertising/bic.mdx
 1733423260|src/content/advertising/bombae-bantai-brewery.mdx
-1733429464|netlify.toml
 1733471654|src/content/advertising/casino.mdx
 1733474554|src/content/advertising/etsy.mdx
 1733474691|src/content/advertising/food-desert.mdx
@@ -1582,9 +1580,6 @@
 1733486295|src/content/modelling/diversity.mdx
 1733486415|src/content/modelling/kindness.mdx
 1733486488|src/content/modelling/riding-bitch.mdx
-1733567720|deno.lock
-1733567686|package-lock.json
-1733567677|package.json
 1733585747|src/components/astro/video.astro
 1733568128|src/utils/functions.ts
 1733585736|src/utils/functions/video.ts
@@ -1622,7 +1617,6 @@
 1733636203|src/content/the-amazing-fashion-magazine-issue-19/eva-de-dominici.mdx
 1733636203|src/content/the-amazing-fashion-magazine-issue-19/into-the-wilderness.mdx
 1733636203|src/content/the-amazing-fashion-magazine-issue-19/karen-gillan.mdx
-1733636203|src/pages/work/the-amazing-fashion-magazine-issue-19.astro
 1733653935|src/assets/annalise-basso/page-1.jpg
 1733653516|src/assets/annalise-basso/page-10.jpg
 1733653517|src/assets/annalise-basso/page-11.jpg
@@ -1807,3 +1801,9 @@
 1733653134|src/assets/the-amazing-fashion-magazine-issue-19/page-222.jpg
 1733653135|src/assets/the-amazing-fashion-magazine-issue-19/page-223.jpg
 1733653036|src/assets/the-amazing-fashion-magazine-issue-19/page-224.jpg
+1733668383|deno.lock
+1733683496|netlify.toml
+1733668334|package-lock.json
+1733683489|package.json
+1733684930|readme.md
+1733684730|src/pages/work/the-amazing-fashion-magazine-issue-19.astro
