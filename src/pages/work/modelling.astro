@@ -1,9 +1,9 @@
 ---
-import Section from '~/components/astro/section.astro'
+import Collection from '~/components/astro/collection.astro'
 import { modellingPosts } from '~/content/posts.ts'
 import Base from '~/layouts/base.astro'
 ---
 
 <Base description="Explore my captivating portfolio of stunning modelling projects, showcasing my versatility, grace, and passion for the runway." title="Modelling">
-  <Section jumpLinks posts={modellingPosts} title="Modelling"/>
+  <Collection jumpLinks posts={modellingPosts} title="Modelling"/>
 </Base>

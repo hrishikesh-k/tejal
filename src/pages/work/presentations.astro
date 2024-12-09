@@ -1,9 +1,9 @@
 ---
-import Section from '~/components/astro/section.astro'
+import Collection from '~/components/astro/collection.astro'
 import { presentationPosts } from '~/content/posts.ts'
 import Base from '~/layouts/base.astro'
 ---
 
 <Base description="Explore a curated collection of presentations showcasing Tejal Shinde's visionary portfolio. Innovative design, creative expertise, and unique artistry await." title="Presentations">
-  <Section jumpLinks posts={presentationPosts} title="Presentations"/>
+  <Collection jumpLinks posts={presentationPosts} title="Presentations"/>
 </Base>

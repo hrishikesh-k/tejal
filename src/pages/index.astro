@@ -1,5 +1,5 @@
 ---
-import Section from '~/components/astro/section.astro'
+import Collection from '~/components/astro/collection.astro'
 import Tafm from '~/components/astro/tafm.astro'
 import {
   advertisingPosts,
@@ -11,7 +11,7 @@ import Base from '~/layouts/base.astro'
 
 <Base description="Explore the creative world of Tejal Shinde - a versatile Art Director and Fashion Model through her captivating online portfolio." title="Tejal Shinde">
   <Tafm noHeadingMargin/>
-  <Section explore posts={advertisingPosts.slice(0, 3)} showTitle title="Advertising"/>
-  <Section explore posts={modellingPosts.slice(0, 3)} showTitle title="Modelling"/>
-  <Section explore posts={presentationPosts.slice(0, 3)} showTitle title="Presentations"/>
+  <Collection explore posts={advertisingPosts.slice(0, 3)} showTitle title="Advertising"/>
+  <Collection explore posts={modellingPosts.slice(0, 3)} showTitle title="Modelling"/>
+  <Collection explore posts={presentationPosts.slice(0, 3)} showTitle title="Presentations"/>
 </Base>

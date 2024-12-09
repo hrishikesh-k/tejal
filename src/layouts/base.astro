@@ -3,6 +3,7 @@ import OgImage from '~/assets/og.jpg'
 import Icon from '~/components/svelte/icon.svelte'
 import Navigation from '~/components/svelte/navigation.svelte'
 import { url } from '~/utils/constants.ts'
+import { collectionsData } from '~/utils/constants.ts'
 import '~/assets/styles.css'
 
 interface Props {
@@ -22,15 +23,17 @@ const seoTitle = Astro.url.pathname.match(/^\/(?:index\.html)?$/)
 
 const urlRegex = Astro.url.pathname.toLowerCase().match(
   // test: https://regex101.com/r/HVqakl/1
-  /^\/(?<menu>about|contact|work)(?:\/(?<section>(?<=work\/)(advertising|modelling|presentations|the-amazing-fashion-magazine-issue-19))\/?(?<project>[a-z-]+)?)?\/?(?:index\.html)?$/
+  /^\/(?<menu>about|contact|work)(?:\/(?<collection>(?<=work\/)(advertising|modelling|presentations|the-amazing-fashion-magazine-issue-19))\/?(?<project>[a-z-]+)?)?\/?(?:index\.html)?$/
 )
 
 const isProjectPage = Boolean(urlRegex?.groups?.['project'])
 
-const isSectionPage = Boolean(urlRegex?.groups?.['section'] && !isProjectPage)
+const isCollectionPage = Boolean(
+  urlRegex?.groups?.['collection'] && !isProjectPage
+)
 
 const isMenuPage = Boolean(
-  urlRegex?.groups?.['menu'] && !isProjectPage && !isSectionPage
+  urlRegex?.groups?.['menu'] && !isProjectPage && !isCollectionPage
 )
 
 const jsonSchema: {
@@ -76,7 +79,7 @@ const jsonSchema: {
       name: 'Tejal Shinde',
       url
     },
-    isMenuPage || isProjectPage || isSectionPage
+    isMenuPage || isProjectPage || isCollectionPage
       ? {
           '@type': 'BreadcrumbList',
           itemListElement: [
@@ -95,19 +98,16 @@ const jsonSchema: {
                 position: 2
               }
             })(),
-            isProjectPage || isSectionPage
+            isProjectPage || isCollectionPage
               ? (() => {
-                  const section = urlRegex?.groups?.['section'] || ''
+                  const collection = collectionsData.find(
+                    (collectionsEntry) =>
+                      collectionsEntry.slug === urlRegex?.groups?.['collection']
+                  ) as (typeof collectionsData)[number]
                   return {
                     '@type': 'ListItem',
-                    item: new URL(`/work/${section}/`, url).href,
-                    name: `${section
-                      .split('-')
-                      .map(
-                        (subPart) =>
-                          `${subPart.slice(0, 1).toUpperCase()}${subPart.slice(1)}`
-                      )
-                      .join(' ')}${seoTitleSuffix}`,
+                    item: new URL(`/work/${collection.slug}/`, url).href,
+                    name: `${collection.title}${seoTitleSuffix}`,
                     position: 3
                   }
                 })()
@@ -185,14 +185,14 @@ const finalJsonSchema = {
           <span class="hidden md:block uppercase">Tejal Shinde</span>
         </a>
         <div class="flex gap-x-3 items-center">
-          <Navigation client:load menu={urlRegex?.groups?.['menu']} section={urlRegex?.groups?.['section']}/>
+          <Navigation client:load collection={urlRegex?.groups?.['collection']} menu={urlRegex?.groups?.['menu']}/>
         </div>
       </div>
     </header>
     <main class="box-border p-t-36 p-x-6 lg:p-x-32 md:p-x-16 w-full">
       <div class="m-x-auto max-w-300">
         {
-          (isProjectPage || isSectionPage) &&
+          (isProjectPage || isCollectionPage) &&
           <h2 class="font-400 m-0 text-9 text-center uppercase" class:list={[{'m-b-6': !subtitle}]}>{title}</h2>
         }
         {
@@ -200,7 +200,7 @@ const finalJsonSchema = {
           <p class="m-0 m-b-6 text-center">{subtitle}</p>
         }
         {
-          (isProjectPage || isSectionPage) &&
+          (isProjectPage || isCollectionPage) &&
           <p class="m-0 m-b-6 text-center">{description}</p>
         }
         <slot/>
