@@ -1,4 +1,4 @@
-export class AstroNav extends HTMLDivElement {
+export class AstroNav extends HTMLElement {
   connectedCallback() {
     this.nextElementSibling
       ?.querySelector('astro-tooltip')

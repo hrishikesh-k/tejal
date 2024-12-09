@@ -1397,6 +1397,12 @@ export default defineConfig({
           }
         ],
         [
+          'z-10',
+          {
+            'z-index': '10'
+          }
+        ],
+        [
           'z-100',
           {
             'z-index': '100'

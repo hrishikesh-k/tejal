@@ -3,23 +3,28 @@ import Icon from '~/components/icon.astro'
 import type { icons } from '~/utils/constants.ts'
 
 interface Props {
-  customBgP?: string
+  extraClass?: string[]
   icon: keyof typeof icons
-  size?: 5 | 8
+  size?: number
   text: string
+  transparent?: boolean
 }
 
-const { customBgP, icon, size, text } = Astro.props
+const { extraClass, icon, size, text, transparent } = Astro.props
 ---
 
-<button class="block border-0 border-rounded-1.5 box-border cursor-pointer outline-0 pos-relative text-current" class:list={[customBgP ?? 'bg-light-900 p-2']} is="astro-tooltip">
+<astro-tooltip class="block border-0 border-rounded-1.5 box-border cursor-pointer outline-0 text-current w-fit" class:list={
+  [
+    {
+      'pos-relative': !extraClass?.includes('pos-absolute')
+    },
+    transparent ? 'bg-transparent p-0' : 'bg-light-900 p-2'
+  ].concat(extraClass || [])}>
   <Icon name={icon} size={size}/>
-  <span class="bg-light-900 border-rounded-1 box-border hidden p-2 pointer-none pos-absolute text-3 text-center text-current">{text}</span>
-</button>
+  <span class="bg-light-900 border-rounded-1 box-border hidden p-2 pointer-none pos-absolute text-3 text-center text-current z-1">{text}</span>
+</astro-tooltip>
 
 <script>
 import { AstroTooltip } from '~/utils/components/tooltip.ts'
-customElements.define('astro-tooltip', AstroTooltip, {
-  extends: 'button'
-})
+customElements.define('astro-tooltip', AstroTooltip)
 </script>

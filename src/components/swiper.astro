@@ -1,5 +1,5 @@
 ---
-import Icon from '~/components/icon.astro'
+import Tooltip from '~/components/tooltip.astro'
 import 'swiper/css'
 import 'swiper/css/autoplay'
 import 'swiper/css/effect-cards'
@@ -15,52 +15,41 @@ interface Props {
 const { center, effect, maxWidth, noNavigation } = Astro.props
 
 const navButtonClass = [
-  'bg-transparent',
   'block',
-  'border-0',
-  'cursor-pointer',
   'disabled:opacity-50',
-  'outline-0',
-  'p-0',
   'disabled:pointer-none',
   'pos-absolute',
-  'text-current',
   'top-1/2',
   'transform',
   'transition-duration-250',
   'transition-opacity',
-  'translate-y--1/2'
+  'translate-y--1/2',
+  'z-10'
 ]
 ---
 
 <div class="pos-relative">
   {
     !noNavigation &&
-    <button aria-label="previous slide" class="left-0" class:list={navButtonClass} type="button">
-      <Icon name="circle-arrow-left"/>
-    </button>
+    <Tooltip extraClass={navButtonClass.concat(['left-0'])} icon="circle-arrow-left" text="Previous" transparent/>
   }
-  <div class="swiper" class:list={[
+  <astro-swiper class="swiper" class:list={[
     {
       'max-w-5/6 md:max-w-11/12': !maxWidth
     },
     maxWidth
-  ]} data-center={center} data-effect={effect} data-navigation={!noNavigation} is="astro-swiper">
+  ]} data-center={center} data-effect={effect} data-navigation={!noNavigation}>
     <div class="swiper-wrapper">
       <slot/>
     </div>
-  </div>
+  </astro-swiper>
   {
     !noNavigation &&
-    <button aria-label="next slide" class="right-0" class:list={navButtonClass} type="button">
-      <Icon name="circle-arrow-right"/>
-    </button>
+    <Tooltip extraClass={navButtonClass.concat(['right-0'])} icon="circle-arrow-right" text="Next" transparent/>
   }
 </div>
 
 <script>
 import { AstroSwiper } from '~/utils/components/swiper.ts'
-customElements.define('astro-swiper', AstroSwiper, {
-  extends: 'div'
-})
+customElements.define('astro-swiper', AstroSwiper)
 </script>

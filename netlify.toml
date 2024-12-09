@@ -5,9 +5,6 @@
     NODE_VERSION = "22.12.0"
     NPM_VERSION = "10.9.2"
 
-[dev]
-  framework = "astro"
-
 [functions]
   deno_import_map = "./netlify/edge-functions/import_map.json"
 
@@ -23,7 +20,7 @@
 
 [[redirects]]
   force = true
-  from = "https://tejal-v8.netlify.app/*"
+  from = "https://tejal-shinde.netlify.app/*"
   status = 301
   to = "https://www.tejalshinde.com/:splat"
 

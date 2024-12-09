@@ -1,6 +1,6 @@
 import { autoPlacement, computePosition, offset } from '@floating-ui/dom'
 
-export class AstroTooltip extends HTMLButtonElement {
+export class AstroTooltip extends HTMLElement {
   connectedCallback() {
     const tooltip = this.querySelector('span') as HTMLSpanElement
 
