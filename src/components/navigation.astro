@@ -57,7 +57,7 @@ const subAnchorClass = [
 ]
 ---
 
-<astro-nav class="bg-light-500 flex flex-col md:flex-row gap-x-3 items-center left-0 pos-absolute md:pos-static top--30 transition-duration-250 transition-top w-full md:w-unset">
+<nav class="bg-light-500 flex flex-col md:flex-row gap-x-3 items-center left-0 pos-absolute md:pos-static top--30 transition-duration-250 transition-top w-full md:w-unset" is="astro-nav">
   <div class="cursor-pointer flex gap-x-1 group items-center justify-center" class:list={mainAnchorBaseClass.concat(menu === 'work' ? mainAnchorActiveClass : [])}>
     <span>Work</span>
     <Icon name="caret-down" size={3}/>
@@ -89,7 +89,7 @@ const subAnchorClass = [
   </div>
   <a class:list={mainAnchorBaseClass.concat(menu === 'about' ? mainAnchorActiveClass : mainAnchorPassiveClass)} href="/about/">About</a>
   <a class:list={mainAnchorBaseClass.concat(menu === 'contact' ? mainAnchorActiveClass : mainAnchorPassiveClass)} href="/contact/">Contact</a>
-</astro-nav>
+</nav>
 <div class="block md:hidden z-1">
   <Tooltip icon="bars" text="Toggle navigation"/>
 </div>

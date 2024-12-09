@@ -1780,13 +1780,9 @@
 1733745972|src/components/collection.astro
 1733745986|src/components/explore.astro
 1733043953|src/components/heading3.astro
-1733746551|src/components/icon.astro
 1733746239|src/components/jump.astro
 1732085939|src/components/masonry.astro
-1733746014|src/components/navigation.astro
 1733342316|src/components/picture.astro
-1733746014|src/components/swiper.astro
-1733746473|src/components/tooltip.astro
 1733739283|src/components/video.astro
 1733746062|src/content/advertising/absolut.mdx
 1733746062|src/content/advertising/bic.mdx
@@ -1813,8 +1809,6 @@
 1733746150|src/content/the-amazing-fashion-magazine-issue-19/karen-gillan.mdx
 1733746150|src/layouts/base.astro
 1733746239|src/pages/404.astro
-1733746170|src/pages/about.astro
-1733745901|src/pages/contact.astro
 1733746239|src/pages/index.astro
 1733746239|src/pages/work.astro
 1733746203|src/pages/work/advertising.astro
@@ -1830,3 +1824,9 @@
 1733745877|src/utils/components/tooltip.ts
 1733743229|src/utils/constants.ts
 1733745985|tsconfig.json
+1733746969|src/components/icon.astro
+1733747630|src/components/navigation.astro
+1733747568|src/components/swiper.astro
+1733747726|src/components/tooltip.astro
+1733747231|src/pages/about.astro
+1733747749|src/pages/contact.astro

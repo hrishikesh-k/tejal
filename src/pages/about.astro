@@ -97,7 +97,7 @@ const vid1Segments1080p = Object.values(
             }
           ].map(link => (
             <a class="text-current" download={link.download} href={link.href} rel="nofollow noopener noreffer" target="_blank">
-              <Tooltip icon={link.icon as keyof typeof icons} size={8} text={link.text}/>
+              <Tooltip customBgP="bg-transparent p-0" icon={link.icon as keyof typeof icons} size={8} text={link.text}/>
             </a>
           ))
         }
