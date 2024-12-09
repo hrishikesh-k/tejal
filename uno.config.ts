@@ -1213,12 +1213,6 @@ export default defineConfig({
           {
             top: '0.453125rem'
           }
-        ],
-        [
-          'top-4',
-          {
-            top: '1rem'
-          }
         ]
       ]
     },

@@ -1,7 +1,7 @@
 ---
 import OgImage from '~/assets/og.jpg'
+import Navigation from '~/components/astro/navigation.astro'
 import Icon from '~/components/svelte/icon.svelte'
-import Navigation from '~/components/svelte/navigation.svelte'
 import { url } from '~/utils/constants.ts'
 import { collectionList } from '~/utils/constants.ts'
 import '~/assets/styles.css'
@@ -26,15 +26,16 @@ const urlRegex = Astro.url.pathname.toLowerCase().match(
   /^\/(?<menu>about|contact|work)(?:\/(?<collection>(?<=work\/)(advertising|modelling|presentations|the-amazing-fashion-magazine-issue-19))\/?(?<project>[a-z-]+)?)?\/?(?:index\.html)?$/
 )
 
+const collection = urlRegex?.groups?.[
+  'collection'
+] as (typeof collectionList)[number]['slug']
+const menu = urlRegex?.groups?.['menu'] as 'about' | 'contact' | 'work'
+
 const isProjectPage = Boolean(urlRegex?.groups?.['project'])
 
-const isCollectionPage = Boolean(
-  urlRegex?.groups?.['collection'] && !isProjectPage
-)
+const isCollectionPage = Boolean(collection && !isProjectPage)
 
-const isMenuPage = Boolean(
-  urlRegex?.groups?.['menu'] && !isProjectPage && !isCollectionPage
-)
+const isMenuPage = Boolean(menu && !isProjectPage && !isCollectionPage)
 
 const jsonSchema: {
   '@context': 'https://schema.org/'
@@ -90,7 +91,6 @@ const jsonSchema: {
               position: 1
             },
             (() => {
-              const menu = urlRegex?.groups?.['menu'] || ''
               return {
                 '@type': 'ListItem',
                 item: new URL(`/${menu}/`, url).href,
@@ -100,14 +100,14 @@ const jsonSchema: {
             })(),
             isProjectPage || isCollectionPage
               ? (() => {
-                  const collection = collectionList.find(
-                    (collectionsEntry) =>
-                      collectionsEntry.slug === urlRegex?.groups?.['collection']
+                  const collectionFromList = collectionList.find(
+                    (collectionsEntry) => collectionsEntry.slug === collection
                   ) as (typeof collectionList)[number]
                   return {
                     '@type': 'ListItem',
-                    item: new URL(`/work/${collection.slug}/`, url).href,
-                    name: `${collection.title}${seoTitleSuffix}`,
+                    item: new URL(`/work/${collectionFromList.slug}/`, url)
+                      .href,
+                    name: `${collectionFromList.title}${seoTitleSuffix}`,
                     position: 3
                   }
                 })()
@@ -185,7 +185,7 @@ const finalJsonSchema = {
           <span class="hidden md:block uppercase">Tejal Shinde</span>
         </a>
         <div class="flex gap-x-3 items-center">
-          <Navigation client:load collection={urlRegex?.groups?.['collection']} menu={urlRegex?.groups?.['menu']}/>
+          <Navigation collection={collection} menu={menu}/>
         </div>
       </div>
     </header>
@@ -211,7 +211,7 @@ const finalJsonSchema = {
 </html>
 
 <script>
-import { addWindowBeforeUnloadEventHandler } from '~/utils/functions/video.ts'
+import { addWindowBeforeUnloadEventHandler } from '~/utils/components/video.ts'
 import { addWindowResizeEventHandler } from '~/utils/functions.ts'
 addWindowBeforeUnloadEventHandler()
 addWindowResizeEventHandler()
