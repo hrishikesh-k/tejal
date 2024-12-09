@@ -1,35 +1,6 @@
 import type { MediaPlayerElement } from 'vidstack/elements'
-
-function resizeMasonry(masonry: HTMLDivElement, vw: number) {
-  const columns = vw < 640 ? 1 : vw < 768 ? 2 : 3
-  const gap = 24
-  const columnHeights = new Array(columns).fill(0)
-  const columnWidth = (masonry.clientWidth - (columns - 1) * gap) / columns
-
-  for (const item of masonry.querySelectorAll('picture')) {
-    const shortestColumnIndex = columnHeights.indexOf(
-      Math.min(...columnHeights)
-    )
-    item.style.height = 'auto'
-    item.style.position = 'absolute'
-    item.style.width = `${columnWidth}px`
-    item.style.top = `${columnHeights[shortestColumnIndex]}px`
-    item.style.left = `${shortestColumnIndex * (columnWidth + gap)}px`
-    columnHeights[shortestColumnIndex] += item.offsetHeight + gap
-  }
-
-  masonry.style.height = `${Math.max(...columnHeights)}px`
-}
-
-function resizePlayer(player: MediaPlayerElement) {
-  const computedStyles = getComputedStyle(player)
-  const originalHeight = Number.parseInt(computedStyles.height)
-  const originalWidth = Number.parseInt(computedStyles.width)
-
-  if (originalHeight > originalWidth) {
-    player.style.maxWidth = `${Math.round(((window.innerHeight * 0.8) / originalHeight) * originalWidth)}px`
-  }
-}
+import { resizeMasonry } from '~/utils/components/masonry.ts'
+import { resizePlayer } from '~/utils/components/video.ts'
 
 function resizeRecaptcha(recaptcha: HTMLDivElement, vw: number) {
   const parentDiv = recaptcha.parentElement as HTMLDivElement

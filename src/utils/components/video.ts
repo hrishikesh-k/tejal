@@ -164,3 +164,13 @@ export function addWindowBeforeUnloadEventHandler() {
     }
   })
 }
+
+export function resizePlayer(player: MediaPlayerElement) {
+  const computedStyles = getComputedStyle(player)
+  const originalHeight = Number.parseInt(computedStyles.height)
+  const originalWidth = Number.parseInt(computedStyles.width)
+
+  if (originalHeight > originalWidth) {
+    player.style.maxWidth = `${Math.round(((window.innerHeight * 0.8) / originalHeight) * originalWidth)}px`
+  }
+}
