@@ -1,15 +1,15 @@
 ---
 import { type getCollection, render } from 'astro:content'
 import Explore from '~/components/explore.astro'
-import { issue19Posts } from '~/content/posts.ts'
+import { theAmazingFashionMagazineIssue19Posts } from '~/content/posts.ts'
 import Base from '~/layouts/base.astro'
 
 interface Props {
-  post: Awaited<ReturnType<typeof getCollection<'issue19'>>>[number]
+  post: Awaited<ReturnType<typeof getCollection<'theAmazingFashionMagazineIssue19'>>>[number]
 }
 
 export async function getStaticPaths() {
-  return issue19Posts.map((post) => ({
+  return theAmazingFashionMagazineIssue19Posts.map((post) => ({
     params: {
       id: post.id
     },
@@ -25,5 +25,5 @@ const { Content } = await render(post)
 
 <Base cover={post.data.cover.src} description="Art & Design Director: Tejal Shinde" title={post.data.title}>
   <Content/>
-  <Explore collection="the-amazing-fashion-magazine-issue-19" exclude={post.id} heading="Explore further in TAFM #19" posts={issue19Posts}/>
+  <Explore collection="the-amazing-fashion-magazine-issue-19" exclude={post.id} heading="Explore further in TAFM #19" posts={theAmazingFashionMagazineIssue19Posts}/>
 </Base>

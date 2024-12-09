@@ -109,7 +109,7 @@ import Explore from '~/components/explore.astro'
 import Jump from '~/components/jump.astro'
 import Picture from '~/components/picture.astro'
 import Swiper from '~/components/swiper.astro'
-import { issue19Posts } from '~/content/posts.ts'
+import { theAmazingFashionMagazineIssue19Posts } from '~/content/posts.ts'
 import Base from '~/layouts/base.astro'
 import { collectionList } from '~/utils/constants.ts'
 
@@ -551,6 +551,6 @@ const pages = [
       ))
     }
   </Swiper>
-  <Explore collection="the-amazing-fashion-magazine-issue-19" heading="Explore further in TAFM #19" posts={issue19Posts}/>
+  <Explore collection="the-amazing-fashion-magazine-issue-19" heading="Explore further in TAFM #19" posts={theAmazingFashionMagazineIssue19Posts}/>
   <Jump entries={[collectionList[2], collectionList[0]]}/>
 </Base>

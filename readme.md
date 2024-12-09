@@ -16,13 +16,59 @@ The directory structure is as follows (with the explanation following the diagra
 │   └── robots.txt
 ├── src/
 │   ├── assets/
-│   |   └── [slug]
+│   │   ├── [id]/
+│   │   │   ├── [[video-#]]/
+│   │   │   │   ├── [quality]/
+│   │   │   │   │   └── [quality]-seg-[###].m3u8seg
+│   │   │   │   ├── poster.jpg
+│   │   │   │   └── thumbs.jpg
+│   │   │   └── [name].{gif,jpg,pdf,png}
+│   │   ├── fonts/
+│   │   │   ├── montserrat-italic.woff2
+│   │   │   └── montserrat-regular.woff2
+│   │   ├── og.jpg
+│   │   └── styles.css
 │   ├── components/
+│   │   ├── collection.astro
+│   │   ├── explore.astro
+│   │   ├── heading3.astro
+│   │   ├── icon.astro
+│   │   ├── jump.astro
+│   │   ├── masonry.astro
+│   │   ├── navigation.astro
+│   │   ├── picture.astro
+│   │   ├── swiper.astro
+│   │   ├── tooltip.astro
+│   │   └── video.astro
 │   ├── content/
+│   │   ├── [collection]/
+│   │   │   └── [slug].mdx
+│   │   └── posts.ts
 │   ├── layouts/
 │   |   └── base.astro
 │   ├── pages/
+│   │   ├── work/
+│   │   │   ├── [collection]/
+│   │   │   │   └── [slug].mdx
+│   │   │   ├── advertising.astro
+│   │   │   ├── modelling.astro
+│   │   │   ├── presentations.astro
+│   │   │   └── the-amazing-fashion-magazine-issue-19.astro
+│   │   ├── 404.astro
+│   │   ├── about.astro
+│   │   ├── contact.astro
+│   │   ├── index.astro
+│   │   ├── work.astro
 │   ├── utils/
+│   │   ├── components/
+│   │   |   ├── contact.ts
+│   │   |   ├── masonry.ts
+│   │   |   ├── nav.ts
+│   │   |   ├── swiper.ts
+│   │   |   ├── tooltip.ts
+│   │   |   └── video.ts
+│   │   ├── constants.ts
+│   │   └── functions.ts
 │   ├── content.config.ts
 │   └── env.d.ts
 ├── .gitattributes

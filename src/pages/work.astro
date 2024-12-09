@@ -3,15 +3,15 @@ import Collection from '~/components/collection.astro'
 import Explore from '~/components/explore.astro'
 import {
   advertisingPosts,
-  issue19Posts,
   modellingPosts,
-  presentationPosts
+  presentationPosts,
+  theAmazingFashionMagazineIssue19Posts
 } from '~/content/posts.ts'
 import Base from '~/layouts/base.astro'
 ---
 
 <Base description="Browse through Tejal Shinde's breathtaking portfolio, showcasing her diverse range of captivating projects and creative endeavours." title="Work">
-  <Explore collection="the-amazing-fashion-magazine-issue-19" heading="The Amazing Fashion Magazine (Issue 19)" noHeadingMargin posts={issue19Posts}/>
+  <Explore collection="the-amazing-fashion-magazine-issue-19" heading="The Amazing Fashion Magazine (Issue 19)" noHeadingMargin posts={theAmazingFashionMagazineIssue19Posts}/>
   <Collection noTitleMarginTop posts={advertisingPosts} showTitle title="Advertising"/>
   <Collection posts={modellingPosts} showTitle title="Modelling"/>
   <Collection posts={presentationPosts} showTitle title="Presentations"/>
