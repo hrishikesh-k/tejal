@@ -9,7 +9,6 @@ mtimestore eol=lf text
 *.m3u8 eol=lf text
 *.md eol=lf text
 *.mdx eol=lf text
-*.svelte eol=lf text
 *.toml eol=lf text
 *.ts eol=lf text
 *.txt eol=lf text

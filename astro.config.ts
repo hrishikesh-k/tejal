@@ -3,7 +3,6 @@ import { join } from 'node:path'
 import { cwd } from 'node:process'
 import { fileURLToPath } from 'node:url'
 import mdx from '@astrojs/mdx'
-import svelte from '@astrojs/svelte'
 import type { AstroConfig } from 'astro'
 import { defineConfig } from 'astro/config'
 import uno from 'unocss/astro'
@@ -14,7 +13,6 @@ export default defineConfig({
   },
   integrations: [
     mdx(),
-    svelte(),
     uno(),
     (() => {
       let config: AstroConfig

@@ -1,0 +1,17 @@
+---
+// biome-ignore lint/style/useImportType: also used as component, but Biome can't check Astro
+import { icons } from '~/utils/constants.ts'
+
+interface Props {
+  name: keyof typeof icons
+  size?: number | undefined
+}
+
+const { name, size = 1 } = Astro.props
+
+const computedSize = size * 4
+---
+
+<svg class="block fill-current" height={computedSize} viewBox="0 0 48 48" width={computedSize}>
+  <path d={icons[name]}/>
+</svg>

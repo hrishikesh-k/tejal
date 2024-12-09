@@ -1,6 +1,6 @@
 ---
-import Icon from '~/components/svelte/icon.svelte'
-import Tooltip from '~/components/svelte/tooltip.svelte'
+import Icon from '~/components/icon.astro'
+import Tooltip from '~/components/tooltip.astro'
 // biome-ignore lint/style/useImportType: also used as value, but Biome can't check Astro
 import { collectionList } from '~/utils/constants.ts'
 
@@ -96,5 +96,7 @@ const subAnchorClass = [
 
 <script>
 import { AstroNav } from '~/utils/components/nav.ts'
-customElements.define('astro-nav', AstroNav)
+customElements.define('astro-nav', AstroNav, {
+  extends: 'div'
+})
 </script>

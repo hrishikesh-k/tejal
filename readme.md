@@ -18,8 +18,6 @@ The directory structure is as follows (with the explanation following the diagra
 │   ├── assets/
 │   |   └── [slug]
 │   ├── components/
-│   |   ├── astro/
-│   |   └── svelte/
 │   ├── content/
 │   ├── layouts/
 │   |   └── base.astro

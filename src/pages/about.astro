@@ -3,10 +3,11 @@ import about from '~/assets/about/about.jpg'
 import resume from '~/assets/about/resume.pdf?url'
 import vid1Poster from '~/assets/about/video-1/poster.jpg'
 import vid1Thumbs from '~/assets/about/video-1/thumbs.jpg'
-import Picture from '~/components/astro/picture.astro'
-import Video from '~/components/astro/video.astro'
-import Tooltip from '~/components/svelte/tooltip.svelte'
+import Picture from '~/components/picture.astro'
+import Tooltip from '~/components/tooltip.astro'
+import Video from '~/components/video.astro'
 import Base from '~/layouts/base.astro'
+import { icons } from '~/utils/constants.ts'
 
 const vid1Segments144p = Object.values(
   import.meta.glob<string>('~/assets/about/video-1/144p/*.m3u8seg', {
@@ -96,7 +97,7 @@ const vid1Segments1080p = Object.values(
             }
           ].map(link => (
             <a class="text-current" download={link.download} href={link.href} rel="nofollow noopener noreffer" target="_blank">
-              <Tooltip client:load icon={link.icon} text={link.text}/>
+              <Tooltip icon={link.icon as keyof typeof icons} size={8} text={link.text}/>
             </a>
           ))
         }

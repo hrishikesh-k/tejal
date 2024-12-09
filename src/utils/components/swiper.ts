@@ -2,7 +2,7 @@ import Swiper from 'swiper'
 import { Autoplay, EffectCards, EffectFade, Navigation } from 'swiper/modules'
 import type { SwiperOptions } from 'swiper/types'
 
-export class AstroSwiper extends HTMLElement {
+export class AstroSwiper extends HTMLDivElement {
   connectedCallback() {
     const options: SwiperOptions = {
       autoplay: {

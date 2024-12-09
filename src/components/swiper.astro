@@ -1,5 +1,5 @@
 ---
-import Icon from '~/components/svelte/icon.svelte'
+import Icon from '~/components/icon.astro'
 import 'swiper/css'
 import 'swiper/css/autoplay'
 import 'swiper/css/effect-cards'
@@ -60,5 +60,7 @@ const navButtonClass = [
 
 <script>
 import { AstroSwiper } from '~/utils/components/swiper.ts'
-customElements.define('astro-swiper', AstroSwiper)
+customElements.define('astro-swiper', AstroSwiper, {
+  extends: 'div'
+})
 </script>
