@@ -1,0 +1,50 @@
+---
+import Heading3 from '~/components/astro/heading3.astro'
+import Picture from '~/components/astro/picture.astro'
+import Swiper from '~/components/astro/swiper.astro'
+import Icon from '~/components/svelte/icon.svelte'
+import type { collectionList } from '~/utils/constants.ts'
+
+interface Props {
+  collection: (typeof collectionList)[number]['slug']
+  exclude?: string
+  heading: string
+  noExplore?: boolean
+  noHeadingMargin?: boolean
+  posts: {
+    data: {
+      cover: {
+        height: number
+        src: string
+        width: number
+      }
+      title: string
+    }
+    id: string
+  }[]
+}
+
+const { collection, exclude, heading, noExplore, noHeadingMargin, posts } =
+  Astro.props
+---
+
+<Heading3 noMarginTop={Boolean(noHeadingMargin)} text={heading}/>
+<Swiper>
+  {
+    posts.filter((post) => post.id !== exclude).map((post) => (
+      <div class="swiper-slide">
+        <a href={`/work/${collection}/${post.id}/`}>
+          <Picture alt={`cover art for ${post.data.title}`} height={post.data.cover.height} rounded src={post.data.cover.src} width={post.data.cover.width}/>
+        </a>
+      </div>
+    ))
+  }
+</Swiper>
+{
+  !noExplore &&
+  <a class="after:bg-current after:border-rounded-0.25 after:bottom--2 after:content decoration-none flex gap-x-2 after:h-0.5 items-center after:left-0 m-l-auto m-t-6 pos-relative after:pos-absolute text-4 text-current md:text-6 after:transition-duration-250 after:transition-width w-fit after:w-0 after:hover:w-full" href={`/work/${collection}/`}>
+    <span>Explore all</span>
+    <Icon name="circle-arrow-right" size={6}/>
+  </a>
+}
+

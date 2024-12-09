@@ -1,9 +1,9 @@
 ---
 import Icon from '~/components/svelte/icon.svelte'
-import type { collectionsData } from '~/utils/constants.ts'
+import type { collectionList } from '~/utils/constants.ts'
 
 interface Props {
-  entries: (typeof collectionsData)[number][]
+  entries: (typeof collectionList)[number][]
 }
 
 const { entries } = Astro.props

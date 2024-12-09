@@ -105,12 +105,13 @@ import page221 from '~/assets/the-amazing-fashion-magazine-issue-19/page-221.jpg
 import page222 from '~/assets/the-amazing-fashion-magazine-issue-19/page-222.jpg'
 import page223 from '~/assets/the-amazing-fashion-magazine-issue-19/page-223.jpg'
 import page224 from '~/assets/the-amazing-fashion-magazine-issue-19/page-224.jpg'
+import Explore from '~/components/astro/explore.astro'
 import Jump from '~/components/astro/jump.astro'
 import Picture from '~/components/astro/picture.astro'
 import Swiper from '~/components/astro/swiper.astro'
-import Tafm from '~/components/astro/tafm.astro'
+import { issue19Posts } from '~/content/posts.ts'
 import Base from '~/layouts/base.astro'
-import { collectionsData } from '~/utils/constants.ts'
+import { collectionList } from '~/utils/constants.ts'
 
 const pages = [
   {
@@ -550,6 +551,6 @@ const pages = [
       ))
     }
   </Swiper>
-  <Tafm heading="Explore others" noExplore/>
-  <Jump entries={[collectionsData[2], collectionsData[0]]}/>
+  <Explore collection="the-amazing-fashion-magazine-issue-19" heading="Explore further in TAFM #19" posts={issue19Posts}/>
+  <Jump entries={[collectionList[2], collectionList[0]]}/>
 </Base>

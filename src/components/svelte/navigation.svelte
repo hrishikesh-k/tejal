@@ -1,13 +1,14 @@
 <script lang="ts">
 import Icon from '~/components/svelte/icon.svelte'
 import Tooltip from '~/components/svelte/tooltip.svelte'
-import type { collectionsData } from '~/utils/constants.ts'
+// biome-ignore lint/style/useImportType: also used as component, but Biome can't check Svelte
+import { collectionList } from '~/utils/constants.ts'
 
 let {
   collection,
   menu
 }: {
-  collection?: (typeof collectionsData)[number]['slug']
+  collection?: (typeof collectionList)[number]['slug']
   menu?: 'about' | 'contact' | 'work'
 } = $props()
 
@@ -68,12 +69,12 @@ function onclickNavigation() {
     <span>Work</span>
     <Icon name="caret-down" size={3}/>
     <div class="bg-light-500 border-0.25 border-gray-300 border-rounded-1.5 border-solid bottom--36 box-border hidden group-hover:block pos-absolute right-3/8 md:right-0 z-1">
-      {#each collectionsData as collectionsEntry, index (collectionsEntry)}
-        <a class="{subAnchorClass} {index === 0 && 'border-t-rounded-1.5'} {index === 3 && 'border-b-rounded-1.5'}" href="/work/{collectionsEntry.slug}/">
-          {#if collectionsEntry.slug === collection}
+      {#each collectionList as collectionEntry, index (collectionEntry)}
+        <a class="{subAnchorClass} {index === 0 && 'border-t-rounded-1.5'} {index === 3 && 'border-b-rounded-1.5'}" href="/work/{collectionEntry.slug}/">
+          {#if collectionEntry.slug === collection}
             <Icon name="caret-right" size={3}/>
           {/if}
-          <span class="block flex-basis-0 flex-grow-1 flex-shrink-1">{collectionsEntry.name}</span>
+          <span class="block flex-basis-0 flex-grow-1 flex-shrink-1">{collectionEntry.name}</span>
         </a>
       {/each}
     </div>

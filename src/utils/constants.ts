@@ -1,4 +1,4 @@
-export const collectionsData = [
+export const collectionList = [
   {
     name: 'Advertising',
     slug: 'advertising',

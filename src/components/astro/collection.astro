@@ -5,7 +5,7 @@ import Heading3 from '~/components/astro/heading3.astro'
 import Jump from '~/components/astro/jump.astro'
 import Picture from '~/components/astro/picture.astro'
 import Icon from '~/components/svelte/icon.svelte'
-import { collectionsData } from '~/utils/constants.ts'
+import { collectionList } from '~/utils/constants.ts'
 
 interface Props {
   explore?: boolean
@@ -23,7 +23,7 @@ interface Props {
     id: string
   }>
   showTitle?: boolean
-  title: (typeof collectionsData)[number]['name']
+  title: (typeof collectionList)[number]['name']
 }
 
 const {
@@ -35,12 +35,12 @@ const {
   title
 } = Astro.props
 
-const collectionIndex = collectionsData.findIndex(
+const collectionIndex = collectionList.findIndex(
   (collectionsEntry) => collectionsEntry.name === title
 )
-const collection = collectionsData[
+const collection = collectionList[
   collectionIndex
-] as (typeof collectionsData)[number]
+] as (typeof collectionList)[number]
 
 const presentationSlugRelations = [
   {
@@ -89,11 +89,11 @@ function findPresentation(id: string): string | undefined {
   jumpLinks &&
   (
     collectionIndex === 0 ?
-    <Jump entries={[collectionsData[3], collectionsData[1]]}/> :
+    <Jump entries={[collectionList[3], collectionList[1]]}/> :
       collectionIndex === 1 ?
-      <Jump entries={[collectionsData[0], collectionsData[2]]}/> :
+      <Jump entries={[collectionList[0], collectionList[2]]}/> :
         collectionIndex === 2 ?
-        <Jump entries={[collectionsData[1], collectionsData[3]]}/> :
-        <Jump entries={[collectionsData[2], collectionsData[0]]}/>
+        <Jump entries={[collectionList[1], collectionList[3]]}/> :
+        <Jump entries={[collectionList[2], collectionList[0]]}/>
   )
 }

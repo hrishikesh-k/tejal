@@ -3,7 +3,7 @@ import OgImage from '~/assets/og.jpg'
 import Icon from '~/components/svelte/icon.svelte'
 import Navigation from '~/components/svelte/navigation.svelte'
 import { url } from '~/utils/constants.ts'
-import { collectionsData } from '~/utils/constants.ts'
+import { collectionList } from '~/utils/constants.ts'
 import '~/assets/styles.css'
 
 interface Props {
@@ -100,10 +100,10 @@ const jsonSchema: {
             })(),
             isProjectPage || isCollectionPage
               ? (() => {
-                  const collection = collectionsData.find(
+                  const collection = collectionList.find(
                     (collectionsEntry) =>
                       collectionsEntry.slug === urlRegex?.groups?.['collection']
-                  ) as (typeof collectionsData)[number]
+                  ) as (typeof collectionList)[number]
                   return {
                     '@type': 'ListItem',
                     item: new URL(`/work/${collection.slug}/`, url).href,

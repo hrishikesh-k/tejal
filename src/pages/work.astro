@@ -1,16 +1,17 @@
 ---
 import Collection from '~/components/astro/collection.astro'
-import Tafm from '~/components/astro/tafm.astro'
 import {
   advertisingPosts,
+  issue19Posts,
   modellingPosts,
   presentationPosts
 } from '~/content/posts.ts'
 import Base from '~/layouts/base.astro'
+import Explore from '../components/astro/explore.astro'
 ---
 
 <Base description="Browse through Tejal Shinde's breathtaking portfolio, showcasing her diverse range of captivating projects and creative endeavours." title="Work">
-  <Tafm noHeadingMargin/>
+  <Explore collection="the-amazing-fashion-magazine-issue-19" heading="The Amazing Fashion Magazine (Issue 19)" noHeadingMargin posts={issue19Posts}/>
   <Collection noTitleMarginTop posts={advertisingPosts} showTitle title="Advertising"/>
   <Collection posts={modellingPosts} showTitle title="Modelling"/>
   <Collection posts={presentationPosts} showTitle title="Presentations"/>
