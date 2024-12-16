@@ -1,6 +1,3 @@
-import wretch from 'wretch'
-import wretchFormDataAddon from 'wretch/addons/formData'
-
 export class AstroContact extends HTMLFormElement {
   connectedCallback() {
     const form = this as HTMLFormElement
@@ -22,10 +19,10 @@ export class AstroContact extends HTMLFormElement {
       form.appendChild(p)
 
       try {
-        await wretch()
-          .addon(wretchFormDataAddon)
-          .post(new FormData(form), '/')
-          .res()
+        await fetch('/', {
+          body: new FormData(form),
+          method: 'POST'
+        })
         p.classList.add('bg-green-500', 'text-light-500')
         form.reset()
       } catch {

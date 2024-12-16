@@ -26,14 +26,8 @@ interface Props {
   title: (typeof collectionList)[number]['name']
 }
 
-const {
-  explore = false,
-  jumpLinks,
-  noTitleMarginTop,
-  posts = [],
-  showTitle,
-  title
-} = Astro.props
+const { explore, jumpLinks, noTitleMarginTop, posts, showTitle, title } =
+  Astro.props
 
 const collectionIndex = collectionList.findIndex(
   (collectionsEntry) => collectionsEntry.name === title
@@ -42,7 +36,7 @@ const collection = collectionList[
   collectionIndex
 ] as (typeof collectionList)[number]
 
-const presentationSlugRelations = [
+const presentationIdRelations = [
   {
     presentation: presentationSkippy,
     id: 'skippy'
@@ -54,7 +48,7 @@ const presentationSlugRelations = [
 ]
 
 function findPresentation(id: string): string | undefined {
-  const findById = presentationSlugRelations.find(
+  const findById = presentationIdRelations.find(
     (presentation) => presentation.id === id
   )
   if (findById) {

@@ -1,3 +1,17 @@
+import { getCollection } from 'astro:content'
+
+const advertisingCollection = await getCollection('advertising')
+const modellingCollection = await getCollection('modelling')
+const presentationCollection = await getCollection('presentation')
+const theAmazingFashionMagazineIssue19Collection = await getCollection(
+  'theAmazingFashionMagazineIssue19'
+)
+
+export const advertisingPosts = advertisingCollection
+  .filter((post) => !post.data.draft)
+  .sort((post1, post2) => post1.data.weight - post2.data.weight)
+  .reverse()
+
 export const collectionList = [
   {
     name: 'Advertising',
@@ -44,5 +58,20 @@ export const icons = {
   tejal:
     'M48 13.6H34.11v27.51H13.89v-6.72h13.49V6.89h20.61v6.72h0zM13.89 27.5h6.72V6.89H0v6.72H13.89V27.5h0z'
 } as const
+
+export const modellingPosts = modellingCollection
+  .filter((post) => !post.data.draft)
+  .sort((post1, post2) => post1.data.weight - post2.data.weight)
+  .reverse()
+
+export const presentationPosts = presentationCollection
+  .filter((post) => !post.data.draft)
+  .sort((post1, post2) => post1.data.weight - post2.data.weight)
+  .reverse()
+
+export const theAmazingFashionMagazineIssue19Posts =
+  theAmazingFashionMagazineIssue19Collection
+    .sort((post1, post2) => post1.data.weight - post2.data.weight)
+    .reverse()
 
 export const url = 'https://www.tejalshinde.com/'

@@ -1,11 +1,13 @@
 ---
 import { type getCollection, render } from 'astro:content'
 import Explore from '~/components/explore.astro'
-import { theAmazingFashionMagazineIssue19Posts } from '~/content/posts.ts'
 import Base from '~/layouts/base.astro'
+import { theAmazingFashionMagazineIssue19Posts } from '~/utils/constants.ts'
 
 interface Props {
-  post: Awaited<ReturnType<typeof getCollection<'theAmazingFashionMagazineIssue19'>>>[number]
+  post: Awaited<
+    ReturnType<typeof getCollection<'theAmazingFashionMagazineIssue19'>>
+  >[number]
 }
 
 export async function getStaticPaths() {
