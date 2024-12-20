@@ -39,10 +39,7 @@
   },
   "overrides": [
     {
-      "include": [
-        "**/astro.config.ts",
-        "**/uno.config.ts"
-      ],
+      "include": ["**/astro.config.ts", "**/uno.config.ts"],
       "linter": {
         "rules": {
           "correctness": {
