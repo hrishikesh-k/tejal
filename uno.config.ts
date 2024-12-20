@@ -1,4 +1,3 @@
-import transformerDirectives from '@unocss/transformer-directives'
 import { defineConfig } from 'unocss'
 
 export default defineConfig({
@@ -1411,10 +1410,5 @@ export default defineConfig({
       ]
     }
   ],
-  safelist: ['scale-75'],
-  transformers: [
-    transformerDirectives({
-      applyVariable: '--u-apply'
-    })
-  ]
+  safelist: ['scale-75']
 })

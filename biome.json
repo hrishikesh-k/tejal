@@ -39,14 +39,7 @@
   },
   "overrides": [
     {
-      "include": ["**/netlify/edge-functions/**"],
-      "javascript": {
-        "globals": ["Netlify"]
-      }
-    },
-    {
       "include": [
-        "**/netlify/edge-functions/**",
         "**/astro.config.ts",
         "**/uno.config.ts"
       ],
@@ -68,21 +61,6 @@
           "correctness": {
             "noUnusedImports": "off",
             "noUnusedVariables": "off"
-          }
-        }
-      }
-    },
-    {
-      "include": ["**/*.svelte"],
-      "linter": {
-        "rules": {
-          "correctness": {
-            "noUndeclaredVariables": "off",
-            "noUnusedImports": "off",
-            "noUnusedVariables": "off"
-          },
-          "style": {
-            "useConst": "off"
           }
         }
       }
