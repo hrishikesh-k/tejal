@@ -67,6 +67,7 @@ Additionally, until Biome is able to parse the `<script>` tags in the Astro comp
 ├── .mtimes                  # File modification time tracker
 ├── astro.config.ts          # Astro configuration
 ├── biome.json               # Biome configuration
+├── deno.lock                # Deno lockfile
 ├── license.md               # MIT License
 ├── mtimestore               # Bash script to save/restore lastmod
 ├── netlify.toml             # Netlify build configuration

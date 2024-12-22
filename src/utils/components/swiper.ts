@@ -3,6 +3,11 @@ import { Autoplay, EffectCards, EffectFade, Navigation } from 'swiper/modules'
 import type { SwiperOptions } from 'swiper/types'
 
 export class AstroSwiper extends HTMLElement {
+  override dataset: {
+    center?: 'true'
+    effect?: 'cards' | 'fade'
+    navigation?: 'true'
+  } = {}
   connectedCallback() {
     const options: SwiperOptions = {
       autoplay: {
@@ -17,11 +22,11 @@ export class AstroSwiper extends HTMLElement {
       speed: 500
     }
 
-    if (this.dataset['effect'] === 'cards') {
+    if (this.dataset.effect === 'cards') {
       options.centeredSlides = true
       options.effect = 'cards'
       options.modules?.push(EffectCards)
-    } else if (this.dataset['effect'] === 'fade') {
+    } else if (this.dataset.effect === 'fade') {
       options.centeredSlides = true
       options.effect = 'fade'
       options.modules?.push(EffectFade)
@@ -40,11 +45,11 @@ export class AstroSwiper extends HTMLElement {
       options.spaceBetween = 24
     }
 
-    if (this.dataset['center']) {
+    if (this.dataset.center) {
       options.centeredSlides = true
     }
 
-    if (this.dataset['navigation'] === 'true') {
+    if (this.dataset.navigation === 'true') {
       options.modules?.push(Navigation)
       options.navigation = {
         nextEl: this.nextElementSibling as HTMLButtonElement,

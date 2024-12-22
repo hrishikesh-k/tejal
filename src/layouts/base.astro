@@ -24,17 +24,22 @@ const seoTitle = Astro.url.pathname.match(/^\/(?:index\.html)?$/)
 const urlRegex = Astro.url.pathname.toLowerCase().match(
   // test: https://regex101.com/r/HVqakl/1
   /^\/(?<menu>about|contact|work)(?:\/(?<collection>(?<=work\/)(advertising|modelling|presentations|the-amazing-fashion-magazine-issue-19))\/?(?<project>[a-z-]+)?)?\/?(?:index\.html)?$/
-)
+) as RegExpMatchArray & {
+  groups?: {
+    collection: (typeof collectionList)[number]['slug']
+    menu: 'about' | 'contact' | 'work'
+    project: string
+  }
+}
 
-const collection = urlRegex?.groups?.[
-  'collection'
-] as (typeof collectionList)[number]['slug']
-const menu = urlRegex?.groups?.['menu'] as 'about' | 'contact' | 'work'
-
-const isProjectPage = Boolean(urlRegex?.groups?.['project'])
-
+const collection = urlRegex?.groups?.collection as NonNullable<
+  typeof urlRegex.groups
+>['collection']
+const menu = urlRegex?.groups?.menu as NonNullable<
+  typeof urlRegex.groups
+>['menu']
+const isProjectPage = Boolean(urlRegex?.groups?.project)
 const isCollectionPage = Boolean(collection && !isProjectPage)
-
 const isMenuPage = Boolean(menu && !isProjectPage && !isCollectionPage)
 
 const jsonSchema: {

@@ -5,6 +5,7 @@ mtimestore eol=lf text
 *.astro eol=lf text
 *.css eol=lf text
 *.json eol=lf text
+*.lock eol=lf text
 *.md eol=lf text
 *.mdx eol=lf text
 *.toml eol=lf text

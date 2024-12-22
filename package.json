@@ -12,12 +12,12 @@
   "devDependencies": {
     "@astrojs/check": "0.9.4",
     "@astrojs/language-server": "2.15.4",
-    "@astrojs/mdx": "4.0.2",
+    "@astrojs/mdx": "4.0.3",
     "@astrojs/ts-plugin": "1.10.4",
     "@biomejs/biome": "1.9.4",
     "@floating-ui/dom": "1.6.12",
     "@types/node": "22.10.2",
-    "astro": "5.1.0",
+    "astro": "5.1.1",
     "hls.js": "1.5.18",
     "netlify-cli": "17.38.1",
     "swiper": "11.1.15",
@@ -39,7 +39,7 @@
     "dev": "astro dev",
     "lint": "biome check"
   },
-  "packageManager": "npm@10.9.2",
+  "packageManager": "npm@11.0.0",
   "type": "module",
   "version": "9.0.0"
 }

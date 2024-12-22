@@ -1,6 +1,6 @@
-export class AstroContact extends HTMLFormElement {
+export class AstroContact extends HTMLElement {
   connectedCallback() {
-    const form = this as HTMLFormElement
+    const form = this.querySelector('form') as HTMLFormElement
     const textarea = form.querySelector('textarea') as HTMLTextAreaElement
 
     form.addEventListener('submit', async (event) => {

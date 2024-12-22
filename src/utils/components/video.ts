@@ -66,6 +66,14 @@ function generateThumbsVtt(
 }
 
 export class AstroVideo extends HTMLElement {
+  override dataset: {
+    qualities: string
+    thumbs: string
+    vertical?: 'true'
+  } = {
+    qualities: '{}',
+    thumbs: ''
+  }
   connectedCallback() {
     const horizontalDimensions = {
       '1080': '1920x1080',
@@ -77,13 +85,13 @@ export class AstroVideo extends HTMLElement {
     }
 
     const player = this.querySelector('media-player') as MediaPlayerElement
-    const qualities = JSON.parse(this.dataset['qualities'] || '{}')
+    const qualities = JSON.parse(this.dataset.qualities)
     const qualitiesKeys = Object.keys(qualities)
-    const vertical = Boolean(this.dataset['vertical'])
+    const vertical = Boolean(this.dataset.vertical)
 
     const thumbs = generateThumbsVtt(
       player.duration,
-      this.dataset['thumbs'] || '',
+      this.dataset.thumbs,
       vertical
     )
 

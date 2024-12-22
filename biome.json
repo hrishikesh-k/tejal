@@ -31,10 +31,7 @@
   },
   "linter": {
     "rules": {
-      "all": true,
-      "complexity": {
-        "useLiteralKeys": "off"
-      }
+      "all": true
     }
   },
   "overrides": [
