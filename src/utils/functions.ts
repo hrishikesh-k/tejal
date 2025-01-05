@@ -1,11 +1,21 @@
+// @unocss-include
+
 import type { MediaPlayerElement } from 'vidstack/elements'
 import { resizeMasonry } from '~/utils/components/masonry.ts'
 import { resizePlayer } from '~/utils/components/video.ts'
 
 function resizeRecaptcha(recaptcha: HTMLDivElement, vw: number) {
   const parentDiv = recaptcha.parentElement as HTMLDivElement
-  parentDiv.classList.remove(vw < 420 ? 'm-y-6' : 'scale-75')
-  parentDiv.classList.add(vw < 420 ? 'scale-75' : 'm-y-6')
+  if (vw < 348) {
+    const calc = `${(vw - 48) / 3}%`
+    parentDiv.style.setProperty('--u-scale-x', calc)
+    parentDiv.style.setProperty('--u-scale-y', calc)
+    parentDiv.style.setProperty('--u-scale-z', calc)
+  } else {
+    parentDiv.style.removeProperty('--u-scale-x')
+    parentDiv.style.removeProperty('--u-scale-y')
+    parentDiv.style.removeProperty('--u-scale-z')
+  }
 }
 
 function roundCorners(
@@ -233,7 +243,7 @@ export function addWindowResizeEventHandler() {
     const mediaPlayersToResize =
       document.querySelectorAll<MediaPlayerElement>('media-player')
     const recaptchaToResize =
-      document.querySelectorAll<HTMLDivElement>('.g-recaptcha')
+      document.querySelectorAll<HTMLDivElement>('.cf-turnstile')
     const vw = document.documentElement.clientWidth
 
     for (const container of linksToRoundContainers) {
@@ -260,4 +270,13 @@ export function addWindowResizeEventHandler() {
 
   window.rh = windowResizeHandler
   window.rh()
+}
+
+export function addTurnstileScript() {
+  const script = document.createElement('script')
+  script.setAttribute(
+    'src',
+    'https://challenges.cloudflare.com/turnstile/v0/api.js'
+  )
+  document.body.appendChild(script)
 }

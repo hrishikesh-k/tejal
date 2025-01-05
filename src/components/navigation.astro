@@ -2,7 +2,7 @@
 import Icon from '~/components/icon.astro'
 import Tooltip from '~/components/tooltip.astro'
 // biome-ignore lint/style/useImportType: also used as value, but Biome can't check Astro
-import { collectionList } from '~/utils/constants.ts'
+import { collectionList } from '~/utils/constants/server.ts'
 
 interface Props {
   collection?: (typeof collectionList)[number]['slug']

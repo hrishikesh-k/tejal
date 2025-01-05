@@ -10,9 +10,16 @@ This repository holds the source code for [Tejal Shinde's portfolio](https://www
 
 To develop locally, the following software is required:
 
+- Deno v1.46
 - ffmpeg v7 (for encoding videos)
 - Node.js v22
 - npm v10
+- .env with the following contents:
+
+```text
+JWT_SECRET=<32-character (256-bit) string>
+PASSWORD=<string password>
+```
 
 To get started, run:
 
@@ -25,6 +32,19 @@ To run a production build, run:
 
 ```shell
 npx netlify build --offline
+```
+
+The offline build might fail due to absence of Netlify Blobs data. If it's required, please run:
+
+```shell
+npx netlify link
+```
+
+to link the folder to a Netlify site before running the build and then drop the `--offline` flag from the build command. If you want to build offline, you'd need to add 2 more environment variables:
+
+```text
+NETLIFY_AUTH_TOKEN=
+NETLIFY_SITE_ID=
 ```
 
 ---
@@ -47,12 +67,16 @@ Additionally, until Biome is able to parse the `<script>` tags in the Astro comp
 ```plaintext
 .
 ├── .git/
-│   ├── hooks/               # git hooks
-│   │   ├── post-checkout    # restores file modification times
-│   │   └── pre-commit       # saves file modification times
+│   ├── hooks/               # Git hooks
+│   │   ├── post-checkout    # Restores file modification times
+│   │   └── pre-commit       # Saves file modification times
 ├── public/                  # Static files (served as-is)
 │   ├── favicon.ico
 │   └── robots.txt
+├── netlify/
+│   ├── edge-functions/
+│   │   ├── import_map.json  # Deno import map
+│   │   └── password.ts      # Site password control
 ├── src/
 │   ├── assets/              # Fonts, images, videos, and styles grouped by id
 │   ├── components/          # Reusable Astro components
@@ -134,7 +158,7 @@ Displays an SVG icon.
 
 #### Props:
 
-- `name`*: name of the icon - icon needs to be added in `src/utils/constants.ts`.
+- `name`*: name of the icon - icon needs to be added in `src/utils/server.ts`.
 - `size`: icon size (in units of `4px`)
 
 #### Things to note:
@@ -293,10 +317,6 @@ video-1/index-%v.m3u8
 ## Styling
 
 Primarily, the project is styled using [UnoCSS](https://www.unocss.dev/). To have a complete control over what utilities get generated in production, the project does not use any built-in presets. Each utility, along with its values is manually added to the config. Thus, if you remove any used styles, it should also be removed from the config to not have an unmanageable list of utilities.
-
-### Things to note:
-
-- The `scale-75` utility in `utils/functions.ts` is not detected during scanning regardless of the any configuration values.. It is manually added to the `safelist` configuration in `uno.config.ts`.
 
 ---
 

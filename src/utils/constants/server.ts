@@ -1,3 +1,5 @@
+// @unocss-include
+
 import { getCollection } from 'astro:content'
 
 const advertisingCollection = await getCollection('advertising')
@@ -34,6 +36,41 @@ export const collectionList = [
     title: 'The Amazing Fashion Magazine (Issue 19)'
   }
 ] as const
+
+export const formInputClass = [
+  'bg-light-500',
+  'border-0.25',
+  'border-gray-300',
+  'border-solid',
+  'border-rounded-1',
+  'box-border',
+  'font-montserrat',
+  'm-0',
+  'outline-0',
+  'p-2',
+  'peer',
+  'text-dark-500',
+  'w-full'
+]
+
+export const formSpanClass = [
+  'left-2',
+  'opacity-50',
+  'pointer-none',
+  'pos-absolute',
+  'peer-focus:scale-75',
+  'peer-not-placeholder-shown:scale-75',
+  'text-gray-500',
+  'top-1.8125',
+  'transform',
+  'transform-origin-left',
+  'peer-focus:translate-x--2',
+  'peer-focus:translate-y--8',
+  'peer-not-placeholder-shown:translate-x--2',
+  'peer-not-placeholder-shown:translate-y--8',
+  'transition-duration-250',
+  'transition-transform'
+]
 
 export const icons = {
   bars: 'M0,6.86c0-1.9,1.53-3.43,3.43-3.43H44.57c1.9,0,3.43,1.53,3.43,3.43s-1.53,3.43-3.43,3.43H3.43c-1.9,0-3.43-1.53-3.43-3.43ZM0,24c0-1.9,1.53-3.43,3.43-3.43H44.57c1.9,0,3.43,1.53,3.43,3.43s-1.53,3.43-3.43,3.43H3.43c-1.9,0-3.43-1.53-3.43-3.43Zm48,17.14c0,1.9-1.53,3.43-3.43,3.43H3.43c-1.9,0-3.43-1.53-3.43-3.43s1.53-3.43,3.43-3.43H44.57c1.9,0,3.43,1.53,3.43,3.43Z',

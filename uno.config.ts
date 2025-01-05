@@ -3,10 +3,11 @@ import { defineConfig } from 'unocss'
 export default defineConfig({
   layers: {
     default: 1,
-    lg: 4,
-    md: 3,
-    sm: 2,
-    xl: 5
+    lg: 5,
+    md: 4,
+    sm: 3,
+    xl: 6,
+    xs: 2
   },
   presets: [
     {
@@ -608,6 +609,12 @@ export default defineConfig({
           }
         ],
         [
+          'h-16',
+          {
+            height: '4rem'
+          }
+        ],
+        [
           'h-19.5',
           {
             height: '4.875rem'
@@ -773,6 +780,12 @@ export default defineConfig({
           'max-w-11/12',
           {
             'max-width': '91.67%'
+          }
+        ],
+        [
+          'max-w-75',
+          {
+            'max-width': '18.75rem'
           }
         ],
         [
@@ -1297,6 +1310,12 @@ export default defineConfig({
       name: 'transition-property',
       rules: [
         [
+          'transition-background-color-color',
+          {
+            'transition-property': 'background-color, color'
+          }
+        ],
+        [
           'transition-filter',
           {
             'transition-property': 'filter'
@@ -1346,6 +1365,23 @@ export default defineConfig({
               layer: 'xl',
               matcher: matcher.slice(3),
               parent: '@media (min-width: 1280px)'
+            }
+          }
+        }
+      ]
+    },
+    {
+      name: 'xs',
+      variants: [
+        {
+          match(matcher) {
+            if (!matcher.startsWith('xs:')) {
+              return matcher
+            }
+            return {
+              layer: 'xs',
+              matcher: matcher.slice(3),
+              parent: '@media (min-width: 320px)'
             }
           }
         }
@@ -1409,6 +1445,5 @@ export default defineConfig({
         ]
       ]
     }
-  ],
-  safelist: ['scale-75']
+  ]
 })

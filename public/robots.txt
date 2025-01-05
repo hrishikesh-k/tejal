@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /404/
+Disallow: /password/
 
 Sitemap: https://www.tejalshinde.com/sitemap.xml

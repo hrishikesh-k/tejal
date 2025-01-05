@@ -36,12 +36,35 @@
   },
   "overrides": [
     {
-      "include": ["**/astro.config.ts", "**/uno.config.ts"],
+      "include": ["**/netlify/edge-functions/**"],
+      "javascript": {
+        "globals": ["Netlify"]
+      },
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["**/astro.config.ts"],
       "linter": {
         "rules": {
           "correctness": {
             "noNodejsModules": "off"
           },
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["**/uno.config.ts"],
+      "linter": {
+        "rules": {
           "style": {
             "noDefaultExport": "off"
           }

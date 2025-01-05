@@ -3,6 +3,7 @@
 .idea/
 .netlify/
 .vscode/
+.env
 desktop.ini
 dist/
 node_modules/

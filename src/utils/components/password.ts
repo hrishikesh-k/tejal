@@ -7,10 +7,9 @@ import {
 } from '~/utils/constants/client.ts'
 import { addTurnstileScript } from '~/utils/functions.ts'
 
-export class AstroContact extends HTMLElement {
+export class AstroPassword extends HTMLElement {
   connectedCallback() {
     const form = this.querySelector('form') as HTMLFormElement
-    const textarea = form.querySelector('textarea') as HTMLTextAreaElement
     addTurnstileScript()
 
     form.addEventListener('submit', async (event) => {
@@ -21,12 +20,13 @@ export class AstroContact extends HTMLElement {
       form.appendChild(p)
 
       try {
-        await formWretch.post(new FormData(form), '/contact/').res()
-        p.innerText = 'Submission successful'
+        await formWretch.post(new FormData(form), location.href).res()
+        p.innerText = 'Valid password'
         formTextSuccess.map((c) => p.classList.add(c))
         form.reset()
+        location.reload()
       } catch {
-        p.innerText = 'Submission failed'
+        p.innerText = 'Invalid password'
         formTextError.map((c) => p.classList.add(c))
       } finally {
         formTextWarn.map((c) => p.classList.remove(c))
@@ -34,11 +34,6 @@ export class AstroContact extends HTMLElement {
           p.remove()
         }, 5000)
       }
-    })
-
-    textarea.addEventListener('input', () => {
-      textarea.style.height = 'auto'
-      textarea.style.height = `${textarea.scrollHeight + 2}px`
     })
   }
 }
