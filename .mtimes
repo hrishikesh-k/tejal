@@ -1778,12 +1778,12 @@
 1736065547|src/pages/work/the-amazing-fashion-magazine-issue-19/[id].astro
 1736078716|src/utils/components/contact.ts
 1736078716|src/utils/components/password.ts
-1736079543|src/utils/constants/client.ts
 1736078716|src/utils/functions.ts
 1736079653|uno.config.ts
-1736078879|netlify/edge-functions/password.ts
 1736080181|readme.md
 1734871587|src/utils/components/swiper.ts
 1734871544|src/utils/components/video.ts
 1736104825|src/pages/index.astro
 1736104860|src/utils/constants/server.ts
+1736078879|netlify/edge-functions/password.ts
+1736105839|src/utils/constants/client.ts

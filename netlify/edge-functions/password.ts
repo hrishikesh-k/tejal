@@ -9,11 +9,12 @@ type JwtPayload = {
 }
 
 export const config: Config = {
-  method: ['GET', 'POST'],
+  method: [/*'GET', */ 'POST'],
   onError: 'bypass',
   pattern: [
     //'^\\/(?:[Ii][Nn][Dd][Ee][Xx]\\.[Hh][Tt][Mm][Ll])?$',
     //'^\\/[Aa][Bb][Oo][Uu][Tt](?:\\/(?:[Ii][Nn][Dd][Ee][Xx]\\.[Hh][Tt][Mm][Ll])?|\\.[Hh][Tt][Mm][Ll])?$',
+    '^\\/[Cc][Oo][Nn][Tt][Aa][Cc][Tt](?:\\/(?:[Ii][Nn][Dd][Ee][Xx]\\.[Hh][Tt][Mm][Ll])?|\\.[Hh][Tt][Mm][Ll])?$'
     //'^\\/[Ww][Oo][Rr][Kk](?:.*)?(?:\\/(?:[Ii][Nn][Dd][Ee][Xx]\\.[Hh][Tt][Mm][Ll])?|\\.[Hh][Tt][Mm][Ll])?$'
   ]
 }
@@ -237,7 +238,7 @@ export default async function (req: Request, context: Context) {
         return http400
       }
 
-      return await blockRejectedRequests(req, context)
+      return /* await blockRejectedRequests(req, context)*/
     }
 
     return http400
