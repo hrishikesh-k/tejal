@@ -305,6 +305,10 @@ video-1/index-%v.m3u8
 
 Primarily, the project is styled using [UnoCSS](https://www.unocss.dev/). To have a complete control over what utilities get generated in production, the project does not use any built-in presets. Each utility, along with its values is manually added to the config. Thus, if you remove any used styles, it should also be removed from the config to not have an unmanageable list of utilities.
 
+### Things to note:
+
+- The utilities in `safelist` are used in `utils/constants/client.ts`. For some reason, they are not detected during scanning regardless of the any configuration values.
+
 ---
 
 ## SEO

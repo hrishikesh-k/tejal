@@ -1445,5 +1445,6 @@ export default defineConfig({
         ]
       ]
     }
-  ]
+  ],
+  safelist: ['bg-green-500', 'bg-red-500', 'bg-yellow-500']
 })

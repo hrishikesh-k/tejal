@@ -16,6 +16,7 @@ export class AstroPassword extends HTMLElement {
       event.preventDefault()
       const p = document.createElement('p')
       formTextDefault.map((c) => p.classList.add(c))
+      formTextWarn.map((c) => p.classList.add(c))
       p.innerText = 'Submitting...'
       form.appendChild(p)
 
