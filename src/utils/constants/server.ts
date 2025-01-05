@@ -16,14 +16,14 @@ export const advertisingPosts = advertisingCollection
 
 export const collectionList = [
   {
+    name: 'TAFM #19',
+    slug: 'the-amazing-fashion-magazine-issue-19',
+    title: 'The Amazing Fashion Magazine (Issue 19)'
+  },
+  {
     name: 'Advertising',
     slug: 'advertising',
     title: 'Advertising'
-  },
-  {
-    name: 'Modelling',
-    slug: 'modelling',
-    title: 'Modelling'
   },
   {
     name: 'Presentations',
@@ -31,9 +31,9 @@ export const collectionList = [
     title: 'Presentations'
   },
   {
-    name: 'TAFM #19',
-    slug: 'the-amazing-fashion-magazine-issue-19',
-    title: 'The Amazing Fashion Magazine (Issue 19)'
+    name: 'Modelling',
+    slug: 'modelling',
+    title: 'Modelling'
   }
 ] as const
 
