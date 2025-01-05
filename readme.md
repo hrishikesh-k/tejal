@@ -34,19 +34,6 @@ To run a production build, run:
 npx netlify build --offline
 ```
 
-The offline build might fail due to absence of Netlify Blobs data. If it's required, please run:
-
-```shell
-npx netlify link
-```
-
-to link the folder to a Netlify site before running the build and then drop the `--offline` flag from the build command. If you want to build offline, you'd need to add 2 more environment variables:
-
-```text
-NETLIFY_AUTH_TOKEN=
-NETLIFY_SITE_ID=
-```
-
 ---
 
 ## Code Formatting

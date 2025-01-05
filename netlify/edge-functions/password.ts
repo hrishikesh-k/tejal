@@ -24,7 +24,6 @@ const http400 = new Response(null, {
   status: 400
 })
 
-const ipStore = getStore('ip')
 const jwtSecret = new TextEncoder().encode(Netlify.env.get('JWT_SECRET'))
 
 function allowIp(ip: string, cidr: Awaited<ReturnType<typeof fetchBotIps>>) {
@@ -112,11 +111,15 @@ async function isReqAllowed(context: Context) {
   )
 }
 
+function ipStore() {
+  return getStore('ip')
+}
+
 async function fetchBotIps(
   blobKey: string,
   url: string
 ): Promise<ReturnType<typeof parseBotIps>> {
-  const blobRes = (await ipStore.getWithMetadata(blobKey)) as null | {
+  const blobRes = (await ipStore().getWithMetadata(blobKey)) as null | {
     data: string
     metadata: {
       lastmod: number
@@ -135,7 +138,7 @@ async function fetchBotIps(
 
   const ipPrefixes = parseBotIps(ipPrefixesRes)
 
-  await ipStore.setJSON(blobKey, ipPrefixes, {
+  await ipStore().setJSON(blobKey, ipPrefixes, {
     metadata: {
       lastmod: Date.now()
     }
