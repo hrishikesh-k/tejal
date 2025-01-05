@@ -324,6 +324,8 @@ SEO tags and Structured Data is added by `src/layouts/base.astro`. Thus, every p
 
 The project is deployed to [Netlify](https://www.netlify.com). Build settings are defined in `netlify.toml`.
 
+The site uses Netlify Edge Function to implement a custom password protection screen. The dependencies of the Edge Function are maintained separately in `netlify/edhe-functions/import_map.json`. Once you update the dependency versions in `package.json`, you should also update them in the import map.
+
 ---
 
 ## License

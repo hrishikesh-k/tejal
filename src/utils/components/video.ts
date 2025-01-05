@@ -69,10 +69,11 @@ export class AstroVideo extends HTMLElement {
   override dataset: {
     qualities: string
     thumbs: string
-    vertical?: 'true'
+    vertical?: 'true' | undefined
   } = {
-    qualities: '{}',
-    thumbs: ''
+    qualities: this.getAttribute('data-qualities') as string,
+    thumbs: this.getAttribute('data-thumbs') as string,
+    vertical: this.getAttribute('data-vertical') as 'true' | undefined
   }
   connectedCallback() {
     const horizontalDimensions = {

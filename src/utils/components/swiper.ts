@@ -4,10 +4,14 @@ import type { SwiperOptions } from 'swiper/types'
 
 export class AstroSwiper extends HTMLElement {
   override dataset: {
-    center?: 'true'
-    effect?: 'cards' | 'fade'
-    navigation?: 'true'
-  } = {}
+    center?: 'true' | undefined
+    effect?: 'cards' | 'fade' | undefined
+    navigation?: 'true' | undefined
+  } = {
+    center: this.getAttribute('data-center') as 'true' | undefined,
+    effect: this.getAttribute('data-effect') as 'cards' | 'fade' | undefined,
+    navigation: this.getAttribute('data-navigation') as 'true' | undefined
+  }
   connectedCallback() {
     const options: SwiperOptions = {
       autoplay: {
