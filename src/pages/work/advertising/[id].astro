@@ -2,7 +2,7 @@
 import { type getCollection, render } from 'astro:content'
 import Explore from '~/components/explore.astro'
 import Base from '~/layouts/base.astro'
-import { advertisingPosts } from '~/utils/constants/server.ts'
+import { advertisingPosts } from '~/utils/constants.ts'
 
 interface Props {
   post: Awaited<ReturnType<typeof getCollection<'advertising'>>>[number]

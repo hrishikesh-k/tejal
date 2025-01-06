@@ -2,7 +2,7 @@
 import { type getCollection, render } from 'astro:content'
 import Explore from '~/components/explore.astro'
 import Base from '~/layouts/base.astro'
-import { modellingPosts } from '~/utils/constants/server.ts'
+import { modellingPosts } from '~/utils/constants.ts'
 
 interface Props {
   post: Awaited<ReturnType<typeof getCollection<'modelling'>>>[number]

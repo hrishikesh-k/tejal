@@ -145,7 +145,7 @@ Displays an SVG icon.
 
 #### Props:
 
-- `name`*: name of the icon - icon needs to be added in `src/utils/server.ts`.
+- `name`*: name of the icon - icon needs to be added in `src/utils/constants.ts`.
 - `size`: icon size (in units of `4px`)
 
 #### Things to note:
@@ -307,7 +307,7 @@ Primarily, the project is styled using [UnoCSS](https://www.unocss.dev/). To hav
 
 ### Things to note:
 
-- The utilities in `safelist` are used in `utils/constants/client.ts`. For some reason, they are not detected during scanning regardless of the any configuration values.
+- The utilities in `safelist` are used in `utils/functions.ts`. For some reason, they are not detected during scanning regardless of the any configuration values.
 
 ---
 

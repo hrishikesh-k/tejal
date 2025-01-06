@@ -9,13 +9,13 @@ type JwtPayload = {
 }
 
 export const config: Config = {
-  method: [/*'GET', */ 'POST'],
+  method: [/*'GET', */'POST'],
   onError: 'bypass',
   pattern: [
-    //'^\\/(?:[Ii][Nn][Dd][Ee][Xx]\\.[Hh][Tt][Mm][Ll])?$',
-    //'^\\/[Aa][Bb][Oo][Uu][Tt](?:\\/(?:[Ii][Nn][Dd][Ee][Xx]\\.[Hh][Tt][Mm][Ll])?|\\.[Hh][Tt][Mm][Ll])?$',
-    '^\\/[Cc][Oo][Nn][Tt][Aa][Cc][Tt](?:\\/(?:[Ii][Nn][Dd][Ee][Xx]\\.[Hh][Tt][Mm][Ll])?|\\.[Hh][Tt][Mm][Ll])?$'
-    //'^\\/[Ww][Oo][Rr][Kk](?:.*)?(?:\\/(?:[Ii][Nn][Dd][Ee][Xx]\\.[Hh][Tt][Mm][Ll])?|\\.[Hh][Tt][Mm][Ll])?$'
+    // '^\\/(?:[Ii][Nn][Dd][Ee][Xx]\\.[Hh][Tt][Mm][Ll])?$',
+    // '^\\/[Aa][Bb][Oo][Uu][Tt](?:\\/(?:[Ii][Nn][Dd][Ee][Xx]\\.[Hh][Tt][Mm][Ll])?|\\.[Hh][Tt][Mm][Ll])?$',
+    '^\\/[Cc][Oo][Nn][Tt][Aa][Cc][Tt](?:\\/(?:[Ii][Nn][Dd][Ee][Xx]\\.[Hh][Tt][Mm][Ll])?|\\.[Hh][Tt][Mm][Ll])?$',
+    // '^\\/[Ww][Oo][Rr][Kk](?:.*)?(?:\\/(?:[Ii][Nn][Dd][Ee][Xx]\\.[Hh][Tt][Mm][Ll])?|\\.[Hh][Tt][Mm][Ll])?$'
   ]
 }
 
@@ -191,7 +191,7 @@ async function parsePasswordForm(body: FormData, context: Context) {
     .sign(jwtSecret)
 
   context.cookies.set({
-    expires: Date.now() + 60 * 60,
+    expires: Date.now() + 60 * 60 * 1000,
     httpOnly: true,
     name: cookieName,
     path: '/',
@@ -223,7 +223,9 @@ export default async function (req: Request, context: Context) {
       const verified = await parsePasswordForm(body, context)
 
       if (verified) {
-        return
+        return new Response(null, {
+          status: 204
+        })
       }
 
       return new Response(null, {

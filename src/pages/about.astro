@@ -7,7 +7,7 @@ import Picture from '~/components/picture.astro'
 import Tooltip from '~/components/tooltip.astro'
 import Video from '~/components/video.astro'
 import Base from '~/layouts/base.astro'
-import { icons } from '~/utils/constants/server.ts'
+import { icons } from '~/utils/constants.ts'
 
 const vid1Segments144p = Object.values(
   import.meta.glob<string>('~/assets/about/video-1/144p/*.m3u8seg', {

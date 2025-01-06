@@ -1,6 +1,8 @@
 // @unocss-include
 
 import type { MediaPlayerElement } from 'vidstack/elements'
+import wretch from 'wretch'
+import wretchAddonFormData from 'wretch/addons/formData'
 import { resizeMasonry } from '~/utils/components/masonry.ts'
 import { resizePlayer } from '~/utils/components/video.ts'
 
@@ -279,4 +281,50 @@ export function addTurnstileScript() {
     'https://challenges.cloudflare.com/turnstile/v0/api.js'
   )
   document.body.appendChild(script)
+}
+
+export async function submitForm(event: SubmitEvent) {
+  event.preventDefault()
+  const form = event.target as HTMLFormElement & {
+    dataset: {
+      reload?: 'true' | undefined
+    }
+  }
+  const formTextDefault = [
+    'border-rounded-1',
+    'box-border',
+    'm-t-6',
+    'p-2',
+    'text-center',
+    'transition-background-color-color'
+  ]
+  const formTextError = ['bg-red-500', 'text-light-500']
+  const formTextSuccess = ['bg-green-500', 'text-light-500']
+  const formTextWarn = ['bg-yellow-500', 'text-dark-500']
+  const p = document.createElement('p')
+  formTextDefault.map((c) => p.classList.add(c))
+  formTextWarn.map((c) => p.classList.add(c))
+  p.innerText = 'Submitting...'
+  form.appendChild(p)
+
+  try {
+    await wretch()
+      .addon(wretchAddonFormData)
+      .post(new FormData(form), form.getAttribute('action') || '/')
+      .res()
+    p.innerText = 'Submission successful'
+    formTextSuccess.map((c) => p.classList.add(c))
+
+    if (form.dataset.reload) {
+      location.reload()
+    }
+  } catch {
+    p.innerText = 'Submission failed'
+    formTextError.map((c) => p.classList.add(c))
+  } finally {
+    formTextWarn.map((c) => p.classList.remove(c))
+    setTimeout(() => {
+      p.remove()
+    }, 5000)
+  }
 }
