@@ -220,6 +220,18 @@ Renders image galleries using [Swiper](https://www.swiperjs.com/).
 
 ---
 
+### `textfield.astro`
+
+Renders HTML inputs.
+
+#### Props:
+
+- `flex`: adds flex classes
+- `label`: label for input
+- `type`: input type
+
+---
+
 ### `tooltip.astro`
 
 Displays a tooltip using [Floating UI](https://www.floating-ui.com/).
@@ -231,6 +243,12 @@ Displays a tooltip using [Floating UI](https://www.floating-ui.com/).
 - `size`: icon size
 - `text`*: tooltip content
 - `transparent`: makes the container transparent
+
+---
+
+### `turnstile.astro`
+
+Renders [Cloudflare Turnstile](https://www.cloudflare.com/application-services/products/turnstile/).
 
 ---
 

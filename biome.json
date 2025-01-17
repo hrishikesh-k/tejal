@@ -31,12 +31,15 @@
   },
   "linter": {
     "rules": {
-      "all": true
+      "all": true,
+      "style": {
+        "useNamingConvention": "off"
+      }
     }
   },
   "overrides": [
     {
-      "include": ["**/netlify/edge-functions/**"],
+      "include": ["**/netlify/edge-functions/**", "**/netlify/functions/**"],
       "javascript": {
         "globals": ["Netlify"]
       },
@@ -44,6 +47,16 @@
         "rules": {
           "style": {
             "noDefaultExport": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["**/netlify/functions/**"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noNodejsModules": "off"
           }
         }
       }

@@ -10,7 +10,7 @@ interface Props {
   transparent?: boolean
 }
 
-const { extraClass, icon, size, text, transparent } = Astro.props
+const { extraClass = [], icon, size, text, transparent } = Astro.props
 ---
 
 <astro-tooltip class="block border-0 border-rounded-1.5 box-border cursor-pointer outline-0 text-current w-fit" class:list={
@@ -19,7 +19,7 @@ const { extraClass, icon, size, text, transparent } = Astro.props
       'pos-relative': !extraClass?.includes('pos-absolute')
     },
     transparent ? 'bg-transparent p-0' : 'bg-light-900 p-2'
-  ].concat(extraClass || [])}>
+  ].concat(extraClass)}>
   <Icon name={icon} size={size}/>
   <span class="bg-light-900 border-rounded-1 box-border hidden p-2 pointer-none pos-absolute text-3 text-center text-current z-1">{text}</span>
 </astro-tooltip>

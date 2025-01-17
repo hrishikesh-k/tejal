@@ -53,7 +53,6 @@ if (width >= maxWidth) {
     window.ll.update()
   } else {
     window.ll = new LazyLoad({
-      // biome-ignore lint/style/useNamingConvention: library code
       callback_loaded(el) {
         el.classList.remove('blur-2')
         el.classList.remove('filter')

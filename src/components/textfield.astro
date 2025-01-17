@@ -1,0 +1,28 @@
+---
+import { formInputClass, formSpanClass } from '~/utils/constants.ts'
+
+interface Props {
+  flex?: boolean
+  label: string
+  type?: 'email' | 'password' | 'text'
+}
+
+const { flex, label, type = 'text' } = Astro.props
+---
+
+<label class="block pos-relative" class:list={
+  [
+    {
+      'flex-basis-0': flex
+    },
+    {
+      'flex-grow-1': flex
+    },
+    {
+      'flex-shrink-1': flex
+    }
+  ]
+}>
+  <input class:list={formInputClass} name={label.toLowerCase()} placeholder="&nbsp;" required {type}>
+  <span class:list={formSpanClass}>{label}</span>
+</label>
