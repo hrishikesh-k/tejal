@@ -2,9 +2,9 @@
   "imports": {
     "@netlify/blobs": "https://esm.sh/@netlify/blobs@8.1.0",
     "@netlify/edge-functions": "https://esm.sh/@netlify/edge-functions@2.11.1",
+    "consola": "https://esm.sh/consola@3.4.0",
     "ip-address": "https://esm.sh/ip-address@10.0.1",
     "jose": "https://esm.sh/jose@5.9.6",
-    "winston": "https://esm.sh/winston@3.17.0",
     "wretch": "https://esm.sh/wretch@2.11.0",
     "wretch/addons/formUrl": "https://esm.sh/wretch@2.11.0/addons/formUrl"
   }

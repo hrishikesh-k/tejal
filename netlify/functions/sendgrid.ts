@@ -1,6 +1,5 @@
 import { resolve4 } from 'node:dns'
-import type { IncomingHttpHeaders } from 'node:http'
-import { request } from 'node:https'
+import { type IncomingHttpHeaders, request } from 'node:http'
 import type { Config, Context } from '@netlify/functions'
 
 export default async function (_: Request, context: Context) {
@@ -22,7 +21,7 @@ export default async function (_: Request, context: Context) {
         hostname: ips[0],
         method: 'GET',
         path: `/ls/click?upn=${context.url.searchParams.get('upn')}`,
-        port: 443
+        port: 80
       },
       (res) => {
         res.on('data', () => {

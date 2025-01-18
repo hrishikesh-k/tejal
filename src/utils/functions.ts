@@ -317,6 +317,8 @@ export async function submitForm(event: SubmitEvent) {
 
     if (form.dataset.reload) {
       location.reload()
+    } else {
+      form.reset()
     }
   } catch {
     p.innerText = 'Submission failed'
