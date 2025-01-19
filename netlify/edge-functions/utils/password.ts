@@ -1,5 +1,4 @@
 import type { Context } from '@netlify/edge-functions'
-import sodium from 'libsodium-wrappers-sumo'
 import { createJwt } from './jwt.ts'
 import { http204, http400, http401 } from './responses.ts'
 import { isCaptchaValid } from './turnstile.ts'
@@ -23,11 +22,7 @@ export async function validatePassword(formData: FormData) {
   }
 
   console.info('validating password')
-  await sodium.ready
-  const verified = sodium.crypto_pwhash_str_verify(
-    Netlify.env.get('SITE_PASSWORD_HASH') as string,
-    password as string
-  )
+  const verified = Netlify.env.get('SITE_PASSWORD_HASH') === password
 
   if (!verified) {
     console.info('invalid password')
