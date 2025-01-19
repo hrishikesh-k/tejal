@@ -63,7 +63,7 @@ Additionally, until Biome is able to parse the `<script>` tags in the Astro comp
 ├── netlify/
 │   ├── edge-functions/
 │   │   ├── import_map.json  # Deno import map
-│   │   └── password.ts      # Site password control
+│   │   └── validations.ts      # Site password control
 ├── src/
 │   ├── assets/              # Fonts, images, videos, and styles grouped by id
 │   ├── components/          # Reusable Astro components
@@ -145,7 +145,7 @@ Displays an SVG icon.
 
 #### Props:
 
-- `name`*: name of the icon - icon needs to be added in `src/utils/constants.ts`.
+- `name`*: name of the icon - icon needs to be added in `src/utils/responses.ts`.
 - `size`: icon size (in units of `4px`)
 
 #### Things to note:
@@ -325,7 +325,7 @@ Primarily, the project is styled using [UnoCSS](https://www.unocss.dev/). To hav
 
 ### Things to note:
 
-- The utilities in `safelist` are used in `utils/functions.ts`. For some reason, they are not detected during scanning regardless of the any configuration values.
+- The utilities in `safelist` are used in `utils/ipv6.ts`. For some reason, they are not detected during scanning regardless of the any configuration values.
 
 ---
 

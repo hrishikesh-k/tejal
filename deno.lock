@@ -12,12 +12,13 @@
       "npm:@netlify/blobs@8.1.0": "npm:@netlify/blobs@8.1.0",
       "npm:@netlify/edge-functions@2.11.1": "npm:@netlify/edge-functions@2.11.1",
       "npm:@netlify/functions@3.0.0": "npm:@netlify/functions@3.0.0",
+      "npm:@types/libsodium-wrappers-sumo@0.7.8": "npm:@types/libsodium-wrappers-sumo@0.7.8",
       "npm:@types/node@22.10.7": "npm:@types/node@22.10.7",
       "npm:astro@5.1.7": "npm:astro@5.1.7_typescript@5.7.2_@netlify+blobs@8.1.0_@types+node@22.10.7_vite@6.0.7__@types+node@22.10.7_zod@3.24.1",
       "npm:consola@3.4.0": "npm:consola@3.4.0",
       "npm:hls.js@1.5.19": "npm:hls.js@1.5.19",
-      "npm:ip-address@10.0.1": "npm:ip-address@10.0.1",
       "npm:jose@5.9.6": "npm:jose@5.9.6",
+      "npm:libsodium-wrappers-sumo@0.7.15": "npm:libsodium-wrappers-sumo@0.7.15",
       "npm:netlify-cli@18.0.1": "npm:netlify-cli@18.0.1_@opentelemetry+api@1.8.0_inquirer@6.5.2_@netlify+blobs@8.1.0",
       "npm:swiper@11.2.1": "npm:swiper@11.2.1",
       "npm:typescript@5.7.2": "npm:typescript@5.7.2",
@@ -1902,6 +1903,16 @@
         "dependencies": {
           "@types/istanbul-lib-report": "@types/istanbul-lib-report@3.0.3"
         }
+      },
+      "@types/libsodium-wrappers-sumo@0.7.8": {
+        "integrity": "sha512-N2+df4MB/A+W0RAcTw7A5oxKgzD+Vh6Ye7lfjWIi5SdTzVLfHPzxUjhwPqHLO5Ev9fv/+VHl+sUaUuTg4fUPqw==",
+        "dependencies": {
+          "@types/libsodium-wrappers": "@types/libsodium-wrappers@0.7.14"
+        }
+      },
+      "@types/libsodium-wrappers@0.7.14": {
+        "integrity": "sha512-5Kv68fXuXK0iDuUir1WPGw2R9fOZUlYlSAa0ztMcL0s0BfIDTqg9GXz8K30VJpPP3sxWhbolnQma2x+/TfkzDQ==",
+        "dependencies": {}
       },
       "@types/mdast@4.0.4": {
         "integrity": "sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==",
@@ -5259,10 +5270,6 @@
           "kind-of": "kind-of@6.0.3"
         }
       },
-      "ip-address@10.0.1": {
-        "integrity": "sha512-NWv9YLW4PoW2B7xtzaS3NCot75m6nK7Icdv0o3lfMceJVRfSoQwqD4wEH5rLwoKJwUiZ/rfpiVBhnaF0FK4HoA==",
-        "dependencies": {}
-      },
       "ipaddr.js@1.9.1": {
         "integrity": "sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g==",
         "dependencies": {}
@@ -5666,6 +5673,16 @@
       "leven@3.1.0": {
         "integrity": "sha512-qsda+H8jTaUaN/x5vzW2rzc+8Rw4TAQ/4KjB46IwK5VH+IlVeeeje/EoZRpiXvIqjFgK84QffqPztGI3VBLG1A==",
         "dependencies": {}
+      },
+      "libsodium-sumo@0.7.15": {
+        "integrity": "sha512-5tPmqPmq8T8Nikpm1Nqj0hBHvsLFCXvdhBFV7SGOitQPZAA6jso8XoL0r4L7vmfKXr486fiQInvErHtEvizFMw==",
+        "dependencies": {}
+      },
+      "libsodium-wrappers-sumo@0.7.15": {
+        "integrity": "sha512-aSWY8wKDZh5TC7rMvEdTHoyppVq/1dTSAeAR7H6pzd6QRT3vQWcT5pGwCotLcpPEOLXX6VvqihSPkpEhYAjANA==",
+        "dependencies": {
+          "libsodium-sumo": "libsodium-sumo@0.7.15"
+        }
       },
       "light-my-request@5.14.0": {
         "integrity": "sha512-aORPWntbpH5esaYpGOOmri0OHDOe3wC5M2MQxZ9dvMLZm6DnaAn0kJlcbU9hwsQgLzmZyReKwFwwPkR+nHu5kA==",
@@ -9671,7 +9688,6 @@
     "https://v2-11-1--edge.netlify.com/bootstrap/blobs.ts": "458b9d5385d1b67aa18bf98341de09b711aa131c1e3f6246a9400dfbe2a5bb8f",
     "https://v2-11-1--edge.netlify.com/bootstrap/bypass.ts": "225c35410fbe6f445f53d30e929f39a3547e8792d1147f5c016aa0068aba0b45",
     "https://v2-11-1--edge.netlify.com/bootstrap/cache.ts": "b8cbe411e9cac6529a11bce57fa1693aea14c1c614d977e23641efba8976dc66",
-    "https://v2-11-1--edge.netlify.com/bootstrap/constants.ts": "6266587b87114e510ec9165117620b81e5a01bd24ab41753677e8c828536c5d7",
     "https://v2-11-1--edge.netlify.com/bootstrap/context.ts": "b9b4e7cbb67a9d83cb28e45145ba3dfa6f05ad965587ef7e2fb0896da62dd16e",
     "https://v2-11-1--edge.netlify.com/bootstrap/cookie.ts": "8b0baae708989ca183c6f3b4ab3d029e6abcbc2e43f93edeb0ff447b3bbc3a05",
     "https://v2-11-1--edge.netlify.com/bootstrap/cookie_store.ts": "83e87d7f704589e257effa270e1abbd9ad0e362f8eeb596be60350a528bc3c1a",
@@ -9693,6 +9709,7 @@
     "https://v2-11-1--edge.netlify.com/bootstrap/request.ts": "a847659438a3b9ccb6cc02d3d13202b7338356e93bcb8175cb0249fdd26b85dc",
     "https://v2-11-1--edge.netlify.com/bootstrap/request_store.ts": "9270fb6d8fb25fb00af79a1406a52084f09d42aa5f8957377d8fecb1bc3b2f99",
     "https://v2-11-1--edge.netlify.com/bootstrap/response.ts": "4e0d2537f810028ddbe91138b3526dae3f4c3fb30ff17673342ca971207c21b7",
+    "https://v2-11-1--edge.netlify.com/bootstrap/responses.ts": "6266587b87114e510ec9165117620b81e5a01bd24ab41753677e8c828536c5d7",
     "https://v2-11-1--edge.netlify.com/bootstrap/retry.ts": "ae14ca76dee26cc3b2ba0f1855aa264d6ec62612340d8122538f5daefb616eb8",
     "https://v2-11-1--edge.netlify.com/bootstrap/router.ts": "b787249ecbd87c01a661957302a251ecf6653f3c22d5eb3a6a167b8d07264fdc",
     "https://v2-11-1--edge.netlify.com/bootstrap/server.ts": "6266587b87114e510ec9165117620b81e5a01bd24ab41753677e8c828536c5d7",
@@ -9716,12 +9733,12 @@
         "npm:@netlify/blobs@8.1.0",
         "npm:@netlify/edge-functions@2.11.1",
         "npm:@netlify/functions@3.0.0",
+        "npm:@types/libsodium-wrappers-sumo@0.7.8",
         "npm:@types/node@22.10.7",
         "npm:astro@5.1.7",
-        "npm:consola@3.4.0",
         "npm:hls.js@1.5.19",
-        "npm:ip-address@10.0.1",
         "npm:jose@5.9.6",
+        "npm:libsodium-wrappers-sumo@0.7.15",
         "npm:netlify-cli@18.0.1",
         "npm:swiper@11.2.1",
         "npm:typescript@5.7.3",
