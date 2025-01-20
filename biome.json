@@ -45,21 +45,14 @@
       },
       "linter": {
         "rules": {
+          "correctness": {
+            "noNodejsModules": "off"
+          },
           "suspicious": {
             "noConsole": "off"
           },
           "style": {
             "noDefaultExport": "off"
-          }
-        }
-      }
-    },
-    {
-      "include": ["**/netlify/functions/**"],
-      "linter": {
-        "rules": {
-          "correctness": {
-            "noNodejsModules": "off"
           }
         }
       }

@@ -59,15 +59,22 @@ export async function parseContactForm(req: Request, formData: FormData) {
   }
 
   console.info('checking form fields')
-  const email = formData.get('e-mail') as string
-  const firstName = formData.get('first name') as string
-  const lastName = formData.get('last name') as string
-  const message = formData.get('message') as string
+  const email = formData.get('e-mail')
+  const firstName = formData.get('first name')
+  const lastName = formData.get('last name')
+  const message = formData.get('message')
   const subject = formData.get('subject')
   const turnstile = formData.get('cf-turnstile-response')
 
-  if (!(email && firstName && lastName && message && subject && turnstile)) {
-    console.info('field missing')
+  if (
+    typeof email !== 'string' ||
+    typeof firstName !== 'string' ||
+    typeof lastName !== 'string' ||
+    typeof message !== 'string' ||
+    typeof subject !== 'string' ||
+    typeof turnstile !== 'string'
+  ) {
+    console.info('field missing or invalid')
     return http400
   }
 

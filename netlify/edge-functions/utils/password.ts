@@ -1,3 +1,4 @@
+import { pbkdf2Sync } from 'node:crypto'
 import type { Context } from '@netlify/edge-functions'
 import { createJwt } from './jwt.ts'
 import { http204, http400, http401 } from './responses.ts'
@@ -9,7 +10,7 @@ export async function validatePassword(formData: FormData) {
   const password = formData.get('password')
   const turnstile = formData.get('cf-turnstile-response')
 
-  if (!(password && turnstile)) {
+  if (typeof password !== 'string' || typeof turnstile !== 'string') {
     return http400
   }
 
@@ -22,9 +23,14 @@ export async function validatePassword(formData: FormData) {
   }
 
   console.info('validating password')
-  const verified = Netlify.env.get('SITE_PASSWORD_HASH') === password
+  const [salt, hash] = (Netlify.env.get('SITE_PASSWORD_HASH') as string).split(
+    ':'
+  )
 
-  if (!verified) {
+  if (
+    hash !==
+    pbkdf2Sync(password, salt as string, 100000, 64, 'sha512').toString('hex')
+  ) {
     console.info('invalid password')
     return http401
   }
