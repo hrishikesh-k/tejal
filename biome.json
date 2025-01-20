@@ -41,7 +41,7 @@
     {
       "include": ["**/netlify/edge-functions/**", "**/netlify/functions/**"],
       "javascript": {
-        "globals": ["Netlify"]
+        "globals": ["Netlify", "RegExpStringIterator"]
       },
       "linter": {
         "rules": {

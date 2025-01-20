@@ -27,7 +27,7 @@ export function isIpv6InCidr(ip: string, cidr: string) {
   const [rangeBase, prefixLength] = cidr.split('/')
 
   if (!(rangeBase && prefixLength)) {
-    console.error('investigate why this was hit')
+    console.info('not cidr')
     return
   }
 

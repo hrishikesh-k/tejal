@@ -12,13 +12,11 @@
       "npm:@netlify/blobs@8.1.0": "npm:@netlify/blobs@8.1.0",
       "npm:@netlify/edge-functions@2.11.1": "npm:@netlify/edge-functions@2.11.1",
       "npm:@netlify/functions@3.0.0": "npm:@netlify/functions@3.0.0",
-      "npm:@types/libsodium-wrappers-sumo@0.7.8": "npm:@types/libsodium-wrappers-sumo@0.7.8",
       "npm:@types/node@22.10.7": "npm:@types/node@22.10.7",
       "npm:astro@5.1.7": "npm:astro@5.1.7_typescript@5.7.2_@netlify+blobs@8.1.0_@types+node@22.10.7_vite@6.0.7__@types+node@22.10.7_zod@3.24.1",
       "npm:consola@3.4.0": "npm:consola@3.4.0",
       "npm:hls.js@1.5.19": "npm:hls.js@1.5.19",
       "npm:jose@5.9.6": "npm:jose@5.9.6",
-      "npm:libsodium-wrappers-sumo@0.7.15": "npm:libsodium-wrappers-sumo@0.7.15",
       "npm:netlify-cli@18.0.1": "npm:netlify-cli@18.0.1_@opentelemetry+api@1.8.0_inquirer@6.5.2_@netlify+blobs@8.1.0",
       "npm:swiper@11.2.1": "npm:swiper@11.2.1",
       "npm:typescript@5.7.2": "npm:typescript@5.7.2",
@@ -1903,16 +1901,6 @@
         "dependencies": {
           "@types/istanbul-lib-report": "@types/istanbul-lib-report@3.0.3"
         }
-      },
-      "@types/libsodium-wrappers-sumo@0.7.8": {
-        "integrity": "sha512-N2+df4MB/A+W0RAcTw7A5oxKgzD+Vh6Ye7lfjWIi5SdTzVLfHPzxUjhwPqHLO5Ev9fv/+VHl+sUaUuTg4fUPqw==",
-        "dependencies": {
-          "@types/libsodium-wrappers": "@types/libsodium-wrappers@0.7.14"
-        }
-      },
-      "@types/libsodium-wrappers@0.7.14": {
-        "integrity": "sha512-5Kv68fXuXK0iDuUir1WPGw2R9fOZUlYlSAa0ztMcL0s0BfIDTqg9GXz8K30VJpPP3sxWhbolnQma2x+/TfkzDQ==",
-        "dependencies": {}
       },
       "@types/mdast@4.0.4": {
         "integrity": "sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==",
@@ -5673,16 +5661,6 @@
       "leven@3.1.0": {
         "integrity": "sha512-qsda+H8jTaUaN/x5vzW2rzc+8Rw4TAQ/4KjB46IwK5VH+IlVeeeje/EoZRpiXvIqjFgK84QffqPztGI3VBLG1A==",
         "dependencies": {}
-      },
-      "libsodium-sumo@0.7.15": {
-        "integrity": "sha512-5tPmqPmq8T8Nikpm1Nqj0hBHvsLFCXvdhBFV7SGOitQPZAA6jso8XoL0r4L7vmfKXr486fiQInvErHtEvizFMw==",
-        "dependencies": {}
-      },
-      "libsodium-wrappers-sumo@0.7.15": {
-        "integrity": "sha512-aSWY8wKDZh5TC7rMvEdTHoyppVq/1dTSAeAR7H6pzd6QRT3vQWcT5pGwCotLcpPEOLXX6VvqihSPkpEhYAjANA==",
-        "dependencies": {
-          "libsodium-sumo": "libsodium-sumo@0.7.15"
-        }
       },
       "light-my-request@5.14.0": {
         "integrity": "sha512-aORPWntbpH5esaYpGOOmri0OHDOe3wC5M2MQxZ9dvMLZm6DnaAn0kJlcbU9hwsQgLzmZyReKwFwwPkR+nHu5kA==",
@@ -9733,12 +9711,10 @@
         "npm:@netlify/blobs@8.1.0",
         "npm:@netlify/edge-functions@2.11.1",
         "npm:@netlify/functions@3.0.0",
-        "npm:@types/libsodium-wrappers-sumo@0.7.8",
         "npm:@types/node@22.10.7",
         "npm:astro@5.1.7",
         "npm:hls.js@1.5.19",
         "npm:jose@5.9.6",
-        "npm:libsodium-wrappers-sumo@0.7.15",
         "npm:netlify-cli@18.0.1",
         "npm:swiper@11.2.1",
         "npm:typescript@5.7.3",

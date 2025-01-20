@@ -10,9 +10,9 @@ export function allowIp(
 
   if (ip.includes(':')) {
     console.info('checking ipv6')
-    return cidr.v6.some((c) => ip === c || isIpv6InCidr(ip, c))
+    return cidr.v6.some((c) => ip === c || isIpv6InCidr(ip, c as string))
   }
 
   console.info('checking ipv4')
-  return cidr.v4.some((c) => ip === c || isIpv4InCidr(ip, c))
+  return cidr.v4.some((c) => ip === c || isIpv4InCidr(ip, c as string))
 }

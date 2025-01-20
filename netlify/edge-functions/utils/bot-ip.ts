@@ -5,8 +5,9 @@ const blobExpiry = Date.now() - 7 * 24 * 60 * 60 * 1000
 
 export async function fetchBotIps(
   blobKey: string,
-  url: string
-): Promise<ReturnType<typeof parseBingGoogleIps>> {
+  url: string,
+  fetcher?: (url: string) => Promise<Parameters<typeof parseBotIps>[0]>
+): Promise<ReturnType<typeof parseBotIps>> {
   console.debug('function fetchBotIps')
 
   console.info('fetching ip list from blobs')
@@ -24,19 +25,12 @@ export async function fetchBotIps(
   }
 
   console.info('fetching ip list from url')
-  const ipPrefixesRes = await wretch()
-    .get(url)
-    .json<Parameters<typeof parseBingGoogleIps>[0]>()
+  const ipPrefixesRes = fetcher
+    ? await fetcher(url)
+    : await wretch().get(url).json<Parameters<typeof parseBotIps>[0]>()
 
-  let ipPrefixes: ReturnType<typeof parseBingGoogleIps> = {
-    v4: [],
-    v6: []
-  }
-
-  if (blobKey === 'bingbot' || blobKey === 'googlebot') {
-    console.debug('calling parseBingGoogleIps')
-    ipPrefixes = parseBingGoogleIps(ipPrefixesRes)
-  }
+  console.debug('calling parseBotIps')
+  const ipPrefixes = parseBotIps(ipPrefixesRes)
 
   console.info('storing ip list in blobs')
   await store.setJSON(blobKey, ipPrefixes, {
@@ -52,13 +46,20 @@ function ipStore() {
   return getStore('ip')
 }
 
-function parseBingGoogleIps(ipPrefixesRes: {
+function parseBotIps(ipPrefixesRes: {
   creationTime: string
-  prefixes: {
-    [K in 'ipv4Prefix' | 'ipv6Prefix']: string
-  }[]
+  prefixes: (
+    | {
+        ipv4Prefix?: never
+        ipv6Prefix: string | undefined
+      }
+    | {
+        ipv4Prefix: string | undefined
+        ipv6Prefix?: never
+      }
+  )[]
 }) {
-  console.debug('function parseBingGoogleIps')
+  console.debug('function parseBotIps')
 
   console.info('parsing ipv4')
   const ip4Prefixes = ipPrefixesRes.prefixes
