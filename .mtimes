@@ -1788,9 +1788,6 @@
 1737295843|biome.json
 1737312491|deno.lock
 1737309252|netlify/edge-functions/utils/allow-ip.ts
-1737309325|netlify/edge-functions/utils/bot-ip.ts
-1737312304|netlify/edge-functions/utils/contact.ts
-1737311065|netlify/edge-functions/utils/gatekeeper.ts
 1737309499|netlify/edge-functions/utils/ipv4.ts
 1737309698|netlify/edge-functions/utils/ipv6.ts
 1737296916|netlify/edge-functions/utils/jwt.ts
@@ -1802,3 +1799,6 @@
 1737313961|netlify/edge-functions/utils/password.ts
 1737313968|package-lock.json
 1737313961|package.json
+1737354180|netlify/edge-functions/utils/bot-ip.ts
+1737353747|netlify/edge-functions/utils/contact.ts
+1737353794|netlify/edge-functions/utils/gatekeeper.ts

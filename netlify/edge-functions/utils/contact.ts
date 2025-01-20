@@ -50,7 +50,7 @@ async function isSpamAccordingToAkismet(
 export async function parseContactForm(req: Request, formData: FormData) {
   console.debug('function parseContactForm')
 
-  console.debug('calling blockRejectedRequest')
+  console.debug('calling gatekeeper')
   const allow = await gatekeeper()
 
   if (!allow) {

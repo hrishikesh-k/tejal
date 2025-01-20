@@ -24,8 +24,8 @@ export async function fetchBotIps(
   }
 
   console.info('fetching ip list from url')
-  const ipPrefixesRes = await wretch(url)
-    .get()
+  const ipPrefixesRes = await wretch()
+    .get(url)
     .json<Parameters<typeof parseBingGoogleIps>[0]>()
 
   let ipPrefixes: ReturnType<typeof parseBingGoogleIps> = {
@@ -33,7 +33,7 @@ export async function fetchBotIps(
     v6: []
   }
 
-  if (blobKey === 'bing' || blobKey === 'google') {
+  if (blobKey === 'bingbot' || blobKey === 'googlebot') {
     console.debug('calling parseBingGoogleIps')
     ipPrefixes = parseBingGoogleIps(ipPrefixesRes)
   }

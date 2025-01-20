@@ -4,23 +4,20 @@ import { fetchBotIps } from './bot-ip.ts'
 import { isJwtValid } from './jwt.ts'
 
 export async function gatekeeper() {
-  console.debug('function isReqAllowed')
+  console.debug('function gatekeeper')
 
-  console.info('fetching bingbot IPs')
-  console.debug('calling fetchBotIps')
+  console.debug('calling fetchBotIps for bingbot')
   const bingbotIps = await fetchBotIps(
     'bingbot',
     'https://www.bing.com/toolbox/bingbot.json'
   )
 
-  console.info('fetching googlebot IPs')
-  console.debug('calling fetchBotIps')
+  console.debug('calling fetchBotIps for googlebot')
   const googlebotIps = await fetchBotIps(
     'googlebot',
     'https://developers.google.com/static/search/apis/ipranges/googlebot.json'
   )
 
-  console.info('validating jwt')
   console.debug('calling isJwtValid')
   const jwtValid = await isJwtValid()
 
