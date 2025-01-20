@@ -5,7 +5,7 @@ import { validatePassword } from './utils/password.ts'
 import { http400 } from './utils/responses.ts'
 
 export const config: Config = {
-  method: ['GET', 'POST'],
+  method: [/*'GET',*/ 'POST'],
   onError: 'bypass',
   pattern: [
     '^\\/(?:[Ii][Nn][Dd][Ee][Xx]\\.[Hh][Tt][Mm][Ll])?$',
