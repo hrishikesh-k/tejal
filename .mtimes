@@ -2,7 +2,6 @@
 1732960159|mtimestore
 1732085931|public/favicon.ico
 1732085931|src/assets/about/about.jpg
-1732085931|src/assets/about/resume.pdf
 1732085931|src/assets/about/video-1/1080p/1080p-seg-000.m3u8seg
 1732085931|src/assets/about/video-1/1080p/1080p-seg-001.m3u8seg
 1732085931|src/assets/about/video-1/1080p/1080p-seg-002.m3u8seg
@@ -1790,8 +1789,6 @@
 1737297164|netlify/edge-functions/utils/turnstile.ts
 1737311289|readme.md
 1737313961|netlify/edge-functions/import_map.json
-1737313968|package-lock.json
-1737313961|package.json
 1737355932|netlify/edge-functions/utils/contact.ts
 1737355992|netlify/edge-functions/utils/password.ts
 1737361029|biome.json
@@ -1802,3 +1799,6 @@
 1737364534|netlify/edge-functions/utils/ipv4.ts
 1737364534|netlify/edge-functions/utils/ipv6.ts
 1737360994|netlify/edge-functions/validations.ts
+1738134443|package-lock.json
+1738134392|package.json
+1738136178|src/assets/about/resume.pdf
