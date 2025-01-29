@@ -47,6 +47,42 @@ async function isSpamAccordingToAkismet(
   return akismetResponse === 'true'
 }
 
+async function triggerSengdridEmail(
+  reply: {
+    email: string
+    name: string
+  },
+  templateData: Record<string, string>,
+  templateId: string,
+  to: string
+) {
+  console.debug('function triggerSengdridEmail')
+
+  await wretch()
+    .auth(`Bearer ${Netlify.env.get('SENDGRID_API_KEY')}`)
+    .post(
+      {
+        from: {
+          email: 'no-reply@tejalshinde.com'
+        },
+        personalizations: [
+          {
+            dynamic_template_data: templateData,
+            to: [
+              {
+                email: to
+              }
+            ]
+          }
+        ],
+        template_id: templateId,
+        reply_to: reply
+      },
+      'https://api.sendgrid.com/v3/mail/send'
+    )
+    .res()
+}
+
 export async function parseContactForm(req: Request, formData: FormData) {
   console.debug('function parseContactForm')
 
@@ -109,38 +145,40 @@ export async function parseContactForm(req: Request, formData: FormData) {
   }
 
   console.info('sending user email via SendGrid')
-  await wretch()
-    .auth(`Bearer ${Netlify.env.get('SENDGRID_API_KEY')}`)
-    .post(
-      {
-        from: {
-          email: 'no-reply@tejalshinde.com'
-        },
-        personalizations: [
-          {
-            dynamic_template_data: {
-              email,
-              firstName,
-              lastName,
-              message,
-              subject
-            },
-            to: [
-              {
-                email
-              }
-            ]
-          }
-        ],
-        template_id: Netlify.env.get('SENDGRID_USER_TEMPLATE_ID')
-        /*reply_to: {
-          email,
-          name: `${firstName}${lastName}`
-        }*/
-      },
-      'https://api.sendgrid.com/v3/mail/send'
-    )
-    .res()
+  console.debug('calling triggerSendgridEmail')
+  await triggerSengdridEmail(
+    {
+      email: Netlify.env.get('ADMIN_EMAIL') as string,
+      name: 'Tejal Shinde'
+    },
+    {
+      email,
+      firstName,
+      lastName,
+      message,
+      subject
+    },
+    Netlify.env.get('SENDGRID_USER_TEMPLATE_ID') as string,
+    email
+  )
+
+  console.info('sending admin email via SendGrid')
+  console.debug('calling triggerSendgridEmail')
+  await triggerSengdridEmail(
+    {
+      email,
+      name: `${firstName} ${lastName}`
+    },
+    {
+      email,
+      firstName,
+      lastName,
+      message,
+      subject
+    },
+    Netlify.env.get('SENDGRID_ADMIN_TEMPLATE_ID') as string,
+    Netlify.env.get('ADMIN_EMAIL') as string
+  )
 
   console.info('returning 204')
   return http204
