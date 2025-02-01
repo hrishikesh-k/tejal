@@ -17,8 +17,15 @@ To develop locally, the following software is required:
 - .env with the following contents:
 
 ```text
+ADMIN_EMAIL=<string>
+AKISMET_API_KEY=<string>
 JWT_SECRET=<32-character (256-bit) string>
-PASSWORD=<string password>
+PUBLIC_TURNSTILE_SITE_KEY=<string>
+SENDGRID_ADMIN_TEMPLATE_ID=<string>
+SENDGRID_API_KEY=<string>
+SENDGRID_USER_TEMPLATE_ID=<string>
+SITE_PASSWORD_HASH=<string>
+TURNSTILE_SECRET_KEY=<string>
 ```
 
 To get started, run:
@@ -35,6 +42,25 @@ npx netlify build --offline
 ```
 
 ---
+
+## Services required
+
+### Akismet
+
+- Website: https://akismet.com/
+- Usage: Reduce/Prevent spam in contact form
+
+### Sendgrid:
+
+- Website: https://sendgrid.com/
+- Usage: Send emails to user and admin on contact form submission
+
+### Turnstile:
+
+- Website: https://www.cloudflare.com/application-services/products/turnstile/
+- Usage: CAPTCHA for password and contact forms
+
+--
 
 ## Code Formatting
 
@@ -62,8 +88,11 @@ Additionally, until Biome is able to parse the `<script>` tags in the Astro comp
 │   └── robots.txt
 ├── netlify/
 │   ├── edge-functions/
+│   │   ├── utils/           # Helper functions for Edge Functions
 │   │   ├── import_map.json  # Deno import map
-│   │   └── validations.ts      # Site password control
+│   │   └── validations.ts   # Password, CAPTCHA and other validations for site access
+│   ├── functions/
+│   │   └── sendgrid.ts   # Sendgrid SSL click-tracking handler 
 ├── src/
 │   ├── assets/              # Fonts, images, videos, and styles grouped by id
 │   ├── components/          # Reusable Astro components
@@ -346,7 +375,34 @@ SEO tags and Structured Data is added by `src/layouts/base.astro`. Thus, every p
 
 The project is deployed to [Netlify](https://www.netlify.com). Build settings are defined in `netlify.toml`.
 
-The site uses Netlify Edge Function to implement a custom password protection screen. The dependencies of the Edge Function are maintained separately in `netlify/edhe-functions/import_map.json`. Once you update the dependency versions in `package.json`, you should also update them in the import map.
+The site uses Netlify Edge Functions to implement a custom password protection screen. The dependencies of the Edge Function are maintained separately in `netlify/edhe-functions/import_map.json`. Once you update the dependency versions in `package.json`, you should also update them in the import map.
+
+---
+
+## `validations`
+
+The `validations` Edge Function does the following:
+
+- for GET requests:
+  - fetch IPs of Bingbot, DuckDuckBot and Googlebot from Blobs or their official source
+  - check if the current IP should be allowed
+  - if not, check the JWT from cookies
+  - if JWT is valid, allow access, else show the password screen
+
+
+- for POST requests:
+  - if form-name is password:
+    - validate request body
+    - validate CAPTCHA
+    - validate password
+    - sign JWT with user's IP and set it as cookie
+  - if form-name is contact:
+    - check if request should be allowed same as GET request
+    - validate request body
+    - validate CAPTCHA
+    - check for spam using Akismet
+    - send submission confirmation to user
+    - send submission notification to admin
 
 ---
 

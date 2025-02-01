@@ -39,7 +39,7 @@ export default async function (_: Request, context: Context) {
     req.end()
   })
 
-  return new Response('', {
+  return new Response(null, {
     headers: {
       location: `${headers.location}?q=`,
       'x-robots-tag': 'nofollow, noindex'
