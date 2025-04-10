@@ -1,8 +1,8 @@
 import type { Context } from '@netlify/edge-functions'
 import wretch from 'wretch'
 import wretchFormUrlAddon from 'wretch/addons/formUrl'
-import { gatekeeper } from './gatekeeper.ts'
-import { http204, http400, http401 } from './responses.ts'
+// import { gatekeeper } from './gatekeeper.ts'
+import { http204, http400 /*, http401*/ } from './responses.ts'
 import { isCaptchaValid } from './turnstile.ts'
 
 async function isSpamAccordingToAkismet(
@@ -86,13 +86,13 @@ async function triggerSengdridEmail(
 export async function parseContactForm(req: Request, formData: FormData) {
   console.debug('function parseContactForm')
 
-  console.debug('calling gatekeeper')
+  /* console.debug('calling gatekeeper')
   const allow = await gatekeeper()
 
   if (!allow) {
     console.info('gatekeeper returned false')
     return http401
-  }
+  } */
 
   console.info('checking form fields')
   const email = formData.get('e-mail')
