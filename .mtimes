@@ -16,7 +16,6 @@
 1738388790|netlify/functions/sendgrid.ts
 1732085931|public/favicon.ico
 1733237533|public/robots.txt
-1738389388|readme.md
 1732085931|src/assets/about/about.jpg
 1738165432|src/assets/about/resume.pdf
 1732085931|src/assets/about/video-1/1080p/1080p-seg-000.m3u8seg
@@ -1785,7 +1784,6 @@
 1733745985|tsconfig.json
 1744286247|netlify/edge-functions/validations.ts
 1744286697|netlify/edge-functions/utils/contact.ts
-1746362461|deno.lock
 1746362581|netlify.toml
 1746362413|netlify/edge-functions/import_map.json
 1746362341|package-lock.json
@@ -1795,3 +1793,5 @@
 1746361865|src/pages/password.astro
 1746362016|src/utils/functions.ts
 1746361770|uno.config.ts
+1746362461|deno.lock
+1746362930|readme.md

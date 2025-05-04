@@ -60,7 +60,7 @@ npx netlify build --offline
 - Website: https://www.cloudflare.com/application-services/products/turnstile/
 - Usage: CAPTCHA for password and contact forms
 
---
+---
 
 ## Code Formatting
 
@@ -307,6 +307,7 @@ Renders video player using [Vidstack](https://www.vidstack.io/).
 ffmpeg -i ./video.mp4 -vf "fps=0.5,scale=192:-1,tile=10x<rows>" -frames:v 1 -q:v 1 -update 1 ./thumbs.jpg
 ```
 - continue:
+
   3. Generate video segments:
    - replace quality dimensions if needed (e.g., for portrait videos)
    - adjust the `var_stream_map` for available streams
@@ -342,7 +343,9 @@ ffmpeg \
 video-1/index-%v.m3u8
 ```
 - continue:
+
   3. continue:
+
     - delete the `.m3u8` files in `video-1/` folder
     - move the rest of the output along with `thumbs.jpg` in the `assets/<id>` folder
 
@@ -354,7 +357,7 @@ Primarily, the project is styled using [UnoCSS](https://www.unocss.dev/). To hav
 
 ### Things to note:
 
-- The utilities in `safelist` are used in `utils/ipv6.ts`. For some reason, they are not detected during scanning regardless of the any configuration values.
+- The utilities in `safelist` are used in `src/utils/`. For some reason, they are not detected during scanning regardless of the any configuration values.
 
 ---
 
@@ -375,7 +378,7 @@ SEO tags and Structured Data is added by `src/layouts/base.astro`. Thus, every p
 
 The project is deployed to [Netlify](https://www.netlify.com). Build settings are defined in `netlify.toml`.
 
-The site uses Netlify Edge Functions to implement a custom password protection screen. The dependencies of the Edge Function are maintained separately in `netlify/edhe-functions/import_map.json`. Once you update the dependency versions in `package.json`, you should also update them in the import map.
+The site uses Netlify Edge Functions to implement a custom password protection screen. The dependencies of the Edge Function are maintained separately in `netlify/edge-functions/import_map.json`. Once you update the dependency versions in `package.json`, you should also update them in the import map.
 
 ---
 
