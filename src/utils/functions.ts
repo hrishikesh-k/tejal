@@ -8,15 +8,12 @@ import { resizePlayer } from '~/utils/components/video.ts'
 
 function resizeRecaptcha(recaptcha: HTMLDivElement, vw: number) {
   const parentDiv = recaptcha.parentElement as HTMLDivElement
+  const properties = ['x', 'y', 'z'].map((d) => `--u-scale-${d}`)
   if (vw < 348) {
     const calc = `${(vw - 48) / 3}%`
-    parentDiv.style.setProperty('--u-scale-x', calc)
-    parentDiv.style.setProperty('--u-scale-y', calc)
-    parentDiv.style.setProperty('--u-scale-z', calc)
+    properties.map((p) => parentDiv.style.setProperty(p, calc))
   } else {
-    parentDiv.style.removeProperty('--u-scale-x')
-    parentDiv.style.removeProperty('--u-scale-y')
-    parentDiv.style.removeProperty('--u-scale-z')
+    properties.map((p) => parentDiv.style.removeProperty(p))
   }
 }
 
@@ -290,6 +287,11 @@ export async function submitForm(event: SubmitEvent) {
       reload?: 'true' | undefined
     }
   }
+  const formProgress = [
+    'cursor-not-allowed',
+    'children:opacity-50',
+    'children:pointer-none'
+  ]
   const formTextDefault = [
     'border-rounded-1',
     'box-border',
@@ -301,13 +303,20 @@ export async function submitForm(event: SubmitEvent) {
   const formTextError = ['bg-red-500', 'text-light-500']
   const formTextSuccess = ['bg-green-500', 'text-light-500']
   const formTextWarn = ['bg-yellow-500', 'text-dark-500']
+  const inputs = form.querySelectorAll('button, input, textarea')
   const p = document.createElement('p')
   formTextDefault.map((c) => p.classList.add(c))
   formTextWarn.map((c) => p.classList.add(c))
   p.innerText = 'Submitting...'
-  form.appendChild(p)
+  ;(form.parentElement as HTMLDivElement).appendChild(p)
 
   try {
+    formProgress.map((c) => form.classList.add(c))
+
+    for (const i of inputs) {
+      i.setAttribute('disabled', 'true')
+    }
+
     await wretch()
       .addon(wretchAddonFormData)
       .post(new FormData(form), form.getAttribute('action') || '/')
@@ -324,6 +333,12 @@ export async function submitForm(event: SubmitEvent) {
     p.innerText = 'Submission failed'
     formTextError.map((c) => p.classList.add(c))
   } finally {
+    formProgress.map((c) => form.classList.remove(c))
+
+    for (const i of inputs) {
+      i.removeAttribute('disabled')
+    }
+
     formTextWarn.map((c) => p.classList.remove(c))
     setTimeout(() => {
       p.remove()

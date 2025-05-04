@@ -232,6 +232,24 @@ export default defineConfig({
       ]
     },
     {
+      name: 'children',
+      variants: [
+        {
+          match(matcher) {
+            if (!matcher.startsWith('children:')) {
+              return matcher
+            }
+            return {
+              matcher: matcher.slice(9),
+              selector(s) {
+                return `${s} > *`
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
       name: 'color',
       rules: [
         [
@@ -321,6 +339,12 @@ export default defineConfig({
     {
       name: 'cursor',
       rules: [
+        [
+          'cursor-not-allowed',
+          {
+            cursor: 'not-allowed'
+          }
+        ],
         [
           'cursor-pointer',
           {
@@ -1136,6 +1160,12 @@ export default defineConfig({
           }
         ],
         [
+          'gap-y-4',
+          {
+            'row-gap': '1rem'
+          }
+        ],
+        [
           'gap-y-6',
           {
             'row-gap': '1.5rem'
@@ -1334,6 +1364,12 @@ export default defineConfig({
           }
         ],
         [
+          'transition-opacity-transform',
+          {
+            'transition-property': 'opacity, transform'
+          }
+        ],
+        [
           'transition-top',
           {
             'transition-property': 'top'
@@ -1446,5 +1482,12 @@ export default defineConfig({
       ]
     }
   ],
-  safelist: ['bg-green-500', 'bg-red-500', 'bg-yellow-500']
+  safelist: [
+    'bg-green-500',
+    'bg-red-500',
+    'bg-yellow-500',
+    'cursor-not-allowed',
+    'children:opacity-50',
+    'children:pointer-none'
+  ]
 })
