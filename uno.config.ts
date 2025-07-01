@@ -85,6 +85,12 @@ export default defineConfig({
           }
         ],
         [
+          'bg-rajasab',
+          {
+            'background-color': '#001429'
+          }
+        ],
+        [
           'bg-red-500',
           {
             'background-color': '#ef4444'
@@ -408,7 +414,13 @@ export default defineConfig({
           {
             fill: 'currentColor'
           }
-        ]
+        ],
+        [
+          'fill-white',
+          {
+            fill: '#ffffff'
+          }
+        ],
       ]
     },
     {
@@ -1012,6 +1024,24 @@ export default defineConfig({
           }
         ],
         [
+          'p-6',
+          {
+            padding: '1.5rem'
+          }
+        ],
+        [
+          'p-9',
+          {
+            padding: '2.25rem'
+          }
+        ],
+        [
+          'p-12',
+          {
+            padding: '3rem'
+          }
+        ],
+        [
           'p-l-6',
           {
             'padding-left': '1.5rem'
@@ -1430,6 +1460,24 @@ export default defineConfig({
           'w-0',
           {
             width: '0'
+          }
+        ],
+        [
+          'w-1/4',
+          {
+            width: '25%'
+          }
+        ],
+        [
+          'w-1/2',
+          {
+            width: '50%'
+          }
+        ],
+        [
+          'w-3/4',
+          {
+            width: '75%'
           }
         ],
         [

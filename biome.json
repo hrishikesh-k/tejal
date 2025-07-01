@@ -1,16 +1,16 @@
 {
-  "$schema": "https://www.biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "https://www.biomejs.dev/schemas/2.0.6/schema.json",
   "css": {
     "formatter": {
       "quoteStyle": "single"
     }
   },
   "files": {
-    "ignore": [
-      "**/.astro/**",
-      "**/.netlify/**",
-      "**/dist/**",
-      "**/node_modules/**"
+    "includes": [
+      "!./.astro/**/*",
+      "!./.netlify/**/*",
+      "!./dist/**/*",
+      "!./node_modules/**/*"
     ]
   },
   "formatter": {
@@ -31,15 +31,24 @@
   },
   "linter": {
     "rules": {
-      "all": true,
       "style": {
-        "useNamingConvention": "off"
+        "useNamingConvention": "off",
+        "noParameterAssign": "error",
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error",
+        "noUnusedTemplateLiteral": "error",
+        "useNumberNamespace": "error",
+        "noInferrableTypes": "error",
+        "noUselessElse": "error"
       }
     }
   },
   "overrides": [
     {
-      "include": ["**/netlify/edge-functions/**", "**/netlify/functions/**"],
+      "includes": ["./netlify/edge-functions/**/*", "./netlify/functions/**/*"],
       "javascript": {
         "globals": ["Netlify", "RegExpStringIterator"]
       },
@@ -58,7 +67,7 @@
       }
     },
     {
-      "include": ["**/astro.config.ts"],
+      "includes": ["./astro.config.ts"],
       "linter": {
         "rules": {
           "correctness": {
@@ -71,7 +80,7 @@
       }
     },
     {
-      "include": ["**/uno.config.ts"],
+      "includes": ["./uno.config.ts"],
       "linter": {
         "rules": {
           "style": {
@@ -81,7 +90,7 @@
       }
     },
     {
-      "include": ["**/*.astro"],
+      "includes": ["./**/*.astro"],
       "linter": {
         "rules": {
           "correctness": {

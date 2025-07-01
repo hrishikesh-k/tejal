@@ -1,5 +1,6 @@
 ---
 import Collection from '~/components/collection.astro'
+import Rajasab from '~/components/rajsab.astro'
 import Explore from '~/components/explore.astro'
 import Base from '~/layouts/base.astro'
 import {
@@ -12,7 +13,8 @@ import {
 
 <Base description="Explore the creative world of Tejal Shinde - a versatile Art Director and Fashion Model through her captivating online portfolio." title="Tejal Shinde">
   <Explore collection="the-amazing-fashion-magazine-issue-19" heading="The Amazing Fashion Magazine (Issue 19)" noHeadingMargin posts={theAmazingFashionMagazineIssue19Posts}/>
-  <Collection explore posts={advertisingPosts.slice(0, 3)} showTitle title="Advertising"/>
-  <Collection explore posts={presentationPosts.slice(0, 3)} showTitle title="Presentations"/>
-  <Collection explore posts={modellingPosts.slice(0, 3)} showTitle title="Modelling"/>
+  <Rajasab/>
+  <Collection explore posts={advertisingPosts.slice(0, 4)} showTitle title="Advertising"/>
+  <Collection explore posts={presentationPosts.slice(0, 4)} showTitle title="Presentations"/>
+  <Collection explore posts={modellingPosts.slice(0, 4)} showTitle title="Modelling"/>
 </Base>
