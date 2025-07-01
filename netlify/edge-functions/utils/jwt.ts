@@ -1,5 +1,5 @@
 import type { Context } from '@netlify/edge-functions'
-import { SignJWT, jwtVerify } from 'jose'
+import { jwtVerify, SignJWT } from 'jose'
 
 const jwtSecret = new TextEncoder().encode(Netlify.env.get('JWT_SECRET'))
 

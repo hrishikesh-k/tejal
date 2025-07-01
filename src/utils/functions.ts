@@ -52,9 +52,11 @@ function roundCorners(
 }
 
 function roundCornersInit(container: HTMLDivElement, vw: number) {
-  Array.from(container.querySelectorAll('a')).filter(l => getComputedStyle(l).display === 'block').forEach((l, i, a) => {
-    roundCorners(i, a.length, l, vw)
-  })
+  Array.from(container.querySelectorAll('a'))
+    .filter((l) => getComputedStyle(l).display === 'block')
+    .forEach((l, i, a) => {
+      roundCorners(i, a.length, l, vw)
+    })
 }
 
 function roundCornersLength2(

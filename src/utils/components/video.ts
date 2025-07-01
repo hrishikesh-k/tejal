@@ -1,5 +1,5 @@
 import hls from 'hls.js'
-import { type MediaProviderChangeEvent, isHLSProvider } from 'vidstack'
+import { isHLSProvider, type MediaProviderChangeEvent } from 'vidstack'
 import type {
   MediaPlayerElement,
   MediaVideoLayoutElement

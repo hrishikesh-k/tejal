@@ -6,11 +6,14 @@
     }
   },
   "files": {
+    "ignoreUnknown": true,
     "includes": [
-      "!./.astro/**/*",
-      "!./.netlify/**/*",
-      "!./dist/**/*",
-      "!./node_modules/**/*"
+      "./netlify/**/*",
+      "./src/**/*",
+      "./astro.config.ts",
+      "./package.json",
+      "./tsconfig.json",
+      "./uno.config.ts"
     ]
   },
   "formatter": {
@@ -48,9 +51,9 @@
   },
   "overrides": [
     {
-      "includes": ["./netlify/edge-functions/**/*", "./netlify/functions/**/*"],
+      "includes": ["./netlify/**/*"],
       "javascript": {
-        "globals": ["Netlify", "RegExpStringIterator"]
+        "globals": ["Netlify"]
       },
       "linter": {
         "rules": {

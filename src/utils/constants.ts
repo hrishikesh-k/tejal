@@ -21,6 +21,11 @@ export const collectionList = [
     title: 'The Amazing Fashion Magazine (Issue 19)'
   },
   {
+    name: 'Rajasab',
+    slug: 'rajasab',
+    title: 'Rajasab'
+  },
+  {
     name: 'Advertising',
     slug: 'advertising',
     title: 'Advertising'

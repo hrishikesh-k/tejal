@@ -207,12 +207,6 @@ export default defineConfig({
       name: 'bottom',
       rules: [
         [
-          'bottom--36',
-          {
-            bottom: '-9rem'
-          }
-        ],
-        [
           'bottom--2',
           {
             bottom: '-0.25rem'
@@ -420,7 +414,7 @@ export default defineConfig({
           {
             fill: '#ffffff'
           }
-        ],
+        ]
       ]
     },
     {
@@ -672,6 +666,12 @@ export default defineConfig({
           'h-30',
           {
             height: '7.5rem'
+          }
+        ],
+        [
+          'h-fit',
+          {
+            height: 'fit-content'
           }
         ],
         [
@@ -1284,6 +1284,12 @@ export default defineConfig({
           'top-1.8125',
           {
             top: '0.453125rem'
+          }
+        ],
+        [
+          'top-8',
+          {
+            top: '2rem'
           }
         ]
       ]

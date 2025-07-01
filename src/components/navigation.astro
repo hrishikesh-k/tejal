@@ -61,7 +61,7 @@ const subAnchorClass = [
   <div class="cursor-pointer flex gap-x-1 group items-center justify-center" class:list={mainAnchorBaseClass.concat(menu === 'work' ? mainAnchorActiveClass : [])}>
     <span>Work</span>
     <Icon name="caret-down" size={3}/>
-    <div class="bg-light-500 border-0.25 border-gray-300 border-rounded-1.5 border-solid bottom--36 box-border hidden group-hover:block pos-absolute right-3/8 md:right-0 z-1">
+    <div class="bg-light-500 border-0.25 border-gray-300 border-rounded-1.5 border-solid box-border h-fit hidden group-hover:block pos-absolute right-3/8 md:right-0 top-8 z-1">
       {
         collectionList.map((collectionEntry, index) => (
           <a class:list={
