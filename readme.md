@@ -13,7 +13,7 @@ To develop locally, the following software is required:
 - Deno v1.46
 - ffmpeg v7 (for encoding videos)
 - Node.js v22
-- npm v10
+- npm v11
 - .env with the following contents:
 
 ```text
@@ -126,6 +126,17 @@ For additional details on the Astro directory structure, refer to the [Astro doc
 
 All components are located in `src/components`. Below is a detailed description of each component and its props. `*` next to the prop's/slot's name denotes that it's required.
 
+### `arrow.astro`
+
+Renders the explore arrow icon with link.
+
+#### Props:
+
+- `href`:* link to navigate to
+- `text`*: text to display in the link instead of "Explore all"
+
+---
+
 ### `collection.astro`
 
 Renders a grid layout of post links.
@@ -229,6 +240,12 @@ Renders responsive images using Netlify Image CDN.
 - `rounded`: adds rounded corners
 - `src`*: image source URL
 - `width`*: original image width
+
+---
+
+### `rajasab.astro`
+
+Renders the Rajasab logo.
 
 ---
 

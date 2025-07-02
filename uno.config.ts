@@ -1469,9 +1469,9 @@ export default defineConfig({
           }
         ],
         [
-          'w-1/4',
+          'w-1/5',
           {
-            width: '25%'
+            width: '20%'
           }
         ],
         [
