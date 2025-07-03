@@ -3,7 +3,7 @@ interface Props {
   duration: number
   poster: string
   qualities: {
-    [Key in '1080' | '720' | '480' | '360' | '240' | '144']: string[]
+    [Key in '1440' | '1080' | '720' | '480' | '360' | '240' | '144']?: string[]
   }
   thumbs: string
   vertical?: boolean

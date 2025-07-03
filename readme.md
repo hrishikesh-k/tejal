@@ -211,6 +211,10 @@ Creates links to other sections.
 
 Renders a responsive masonry grid layout.
 
+#### Props:
+
+- `max`: maximum number of columns instead of the default 3
+
 #### Slots:
 
 - `default`*: items to arrange in the grid

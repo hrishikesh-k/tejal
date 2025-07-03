@@ -22,7 +22,7 @@ const seoTitle = Astro.url.pathname.match(/^\/(?:index\.html)?$/)
 
 const urlRegex = Astro.url.pathname.toLowerCase().match(
   // test: https://regex101.com/r/HVqakl/1
-  /^\/(?<menu>about|contact|work)(?:\/(?<collection>(?<=work\/)(advertising|modelling|presentations|the-amazing-fashion-magazine-issue-19))\/?(?<project>[a-z-]+)?)?\/?(?:index\.html)?$/
+  /^\/(?<menu>about|contact|work)(?:\/(?<collection>(?<=work\/)(advertising|modelling|presentations|rajasab|the-amazing-fashion-magazine-issue-19))\/?(?<project>[a-z-]+)?)?\/?(?:index\.html)?$/
 ) as RegExpMatchArray & {
   groups?: {
     collection: (typeof collectionList)[number]['slug']
@@ -128,7 +128,7 @@ const jsonSchema: {
           name: 'Breadcrumbs'
         }
       : null,
-    isProjectPage
+    isProjectPage || collection === 'rajasab'
       ? {
           '@type': 'BlogPosting',
           author: {

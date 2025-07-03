@@ -1,5 +1,8 @@
 export function resizeMasonry(masonry: HTMLDivElement, vw: number) {
-  const columns = vw < 640 ? 1 : vw < 768 ? 2 : 3
+  const columns = Math.min(
+    vw < 640 ? 1 : vw < 768 ? 2 : 3,
+    Number.parseInt(masonry.getAttribute('data-max-col') || '3')
+  )
   const gap = 24
   const columnHeights = new Array(columns).fill(0)
   const columnWidth = (masonry.clientWidth - (columns - 1) * gap) / columns

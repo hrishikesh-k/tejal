@@ -4,7 +4,7 @@
     "specifiers": {
       "npm:@astrojs/check@0.9.4": "npm:@astrojs/check@0.9.4_typescript@5.8.3",
       "npm:@astrojs/language-server@2.15.4": "npm:@astrojs/language-server@2.15.4_typescript@5.8.3_@volar+language-service@2.4.13",
-      "npm:@astrojs/mdx@4.3.0": "npm:@astrojs/mdx@4.3.0_astro@5.10.2__typescript@5.8.3__@types+node@24.0.7__vite@6.3.5___@types+node@24.0.7___picomatch@4.0.2__zod@3.25.67_typescript@5.8.3_@types+node@24.0.7_acorn@8.14.1",
+      "npm:@astrojs/mdx@4.3.0": "npm:@astrojs/mdx@4.3.0_astro@5.11.0__typescript@5.8.3__@types+node@24.0.7__vite@6.3.5___@types+node@24.0.7___picomatch@4.0.2__zod@3.25.67_typescript@5.8.3_@types+node@24.0.7_acorn@8.14.1",
       "npm:@astrojs/ts-plugin@1.10.4": "npm:@astrojs/ts-plugin@1.10.4",
       "npm:@biomejs/biome@2.0.6": "npm:@biomejs/biome@2.0.6",
       "npm:@floating-ui/dom@1.7.0": "npm:@floating-ui/dom@1.7.0",
@@ -14,8 +14,8 @@
       "npm:@netlify/functions@4.1.8": "npm:@netlify/functions@4.1.8",
       "npm:@types/node@24.0.10": "npm:@types/node@24.0.10",
       "npm:@types/node@24.0.7": "npm:@types/node@24.0.7",
-      "npm:astro@5.10.2": "npm:astro@5.10.2_typescript@5.8.3_@types+node@24.0.7_vite@6.3.5__@types+node@24.0.7__picomatch@4.0.2_zod@3.25.67",
-      "npm:hls.js@1.6.5": "npm:hls.js@1.6.5",
+      "npm:astro@5.11.0": "npm:astro@5.11.0_typescript@5.8.3_@types+node@24.0.7_vite@6.3.5__@types+node@24.0.7__picomatch@4.0.2_zod@3.25.67",
+      "npm:hls.js@1.6.6": "npm:hls.js@1.6.6",
       "npm:jose@6.0.11": "npm:jose@6.0.11",
       "npm:netlify-cli@22.2.1": "npm:netlify-cli@22.2.1_@opentelemetry+api@1.8.0_inquirer@8.2.6",
       "npm:swiper@11.2.10": "npm:swiper@11.2.10",
@@ -115,13 +115,13 @@
           "vfile": "vfile@6.0.3"
         }
       },
-      "@astrojs/mdx@4.3.0_astro@5.10.2__typescript@5.8.3__@types+node@24.0.7__vite@6.3.5___@types+node@24.0.7___picomatch@4.0.2__zod@3.25.67_typescript@5.8.3_@types+node@24.0.7_acorn@8.14.1": {
+      "@astrojs/mdx@4.3.0_astro@5.11.0__typescript@5.8.3__@types+node@24.0.7__vite@6.3.5___@types+node@24.0.7___picomatch@4.0.2__zod@3.25.67_typescript@5.8.3_@types+node@24.0.7_acorn@8.14.1": {
         "integrity": "sha512-OGX2KvPeBzjSSKhkCqrUoDMyzFcjKt5nTE5SFw3RdoLf0nrhyCXBQcCyclzWy1+P+XpOamn+p+hm1EhpCRyPxw==",
         "dependencies": {
           "@astrojs/markdown-remark": "@astrojs/markdown-remark@6.3.2",
           "@mdx-js/mdx": "@mdx-js/mdx@3.1.0_acorn@8.14.1",
           "acorn": "acorn@8.14.1",
-          "astro": "astro@5.10.2_typescript@5.8.3_@types+node@24.0.7_vite@6.3.5__@types+node@24.0.7__picomatch@4.0.2_zod@3.25.67",
+          "astro": "astro@5.11.0_typescript@5.8.3_@types+node@24.0.7_vite@6.3.5__@types+node@24.0.7__picomatch@4.0.2_zod@3.25.67",
           "es-module-lexer": "es-module-lexer@1.7.0",
           "estree-util-visit": "estree-util-visit@2.0.0",
           "hast-util-to-html": "hast-util-to-html@9.0.5",
@@ -2424,8 +2424,8 @@
         "integrity": "sha512-LElXdjswlqjWrPpJFg1Fx4wpkOCxj1TDHlSV4PlaRxHGWko024xICaa97ZkMfs6DRKlCguiAI+rbXv5GWwXIkg==",
         "dependencies": {}
       },
-      "astro@5.10.2_typescript@5.8.3_@types+node@24.0.7_vite@6.3.5__@types+node@24.0.7__picomatch@4.0.2_zod@3.25.67": {
-        "integrity": "sha512-CCBU+e/Apk6NWEMnc/R9dVZD/+FaCnNqWJicX1Oe6T18vLKop+LPs/m/88ekJk4zxP1g1N/GfUq4wEedUSk1Wg==",
+      "astro@5.11.0_typescript@5.8.3_@types+node@24.0.7_vite@6.3.5__@types+node@24.0.7__picomatch@4.0.2_zod@3.25.67": {
+        "integrity": "sha512-MEICntERthUxJPSSDsDiZuwiCMrsaYy3fnDhp4c6ScUfldCB8RBnB/myYdpTFXpwYBy6SgVsHQ1H4MuuA7ro/Q==",
         "dependencies": {
           "@astrojs/compiler": "@astrojs/compiler@2.12.2",
           "@astrojs/internal-helpers": "@astrojs/internal-helpers@0.6.1",
@@ -2482,7 +2482,7 @@
           "unstorage": "unstorage@1.16.0",
           "vfile": "vfile@6.0.3",
           "vite": "vite@6.3.5_@types+node@24.0.7_picomatch@4.0.2",
-          "vitefu": "vitefu@1.0.7_vite@6.3.5__@types+node@24.0.7__picomatch@4.0.2_@types+node@24.0.7",
+          "vitefu": "vitefu@1.1.0_vite@6.3.5__@types+node@24.0.7__picomatch@4.0.2_@types+node@24.0.7",
           "xxhash-wasm": "xxhash-wasm@1.1.0",
           "yargs-parser": "yargs-parser@21.1.1",
           "yocto-spinner": "yocto-spinner@0.2.3",
@@ -4469,8 +4469,8 @@
           "space-separated-tokens": "space-separated-tokens@2.0.2"
         }
       },
-      "hls.js@1.6.5": {
-        "integrity": "sha512-KMn5n7JBK+olC342740hDPHnGWfE8FiHtGMOdJPfUjRdARTWj9OB+8c13fnsf9sk1VtpuU2fKSgUjHvg4rNbzQ==",
+      "hls.js@1.6.6": {
+        "integrity": "sha512-S4uTCwTHOtImW+/jxMjzG7udbHy5z682YQRbm/4f7VXuVNEoGBRjPJnD3Fxrufomdhzdtv24KnxRhPMXSvL6Fw==",
         "dependencies": {}
       },
       "hosted-git-info@7.0.2": {
@@ -8287,8 +8287,8 @@
           "tinyglobby": "tinyglobby@0.2.14_picomatch@4.0.2"
         }
       },
-      "vitefu@1.0.7_vite@6.3.5__@types+node@24.0.7__picomatch@4.0.2_@types+node@24.0.7": {
-        "integrity": "sha512-eRWXLBbJjW3X5z5P5IHcSm2yYbYRPb2kQuc+oqsbAl99WB5kVsPbiiox+cymo8twTzifA6itvhr2CmjnaZZp0Q==",
+      "vitefu@1.1.0_vite@6.3.5__@types+node@24.0.7__picomatch@4.0.2_@types+node@24.0.7": {
+        "integrity": "sha512-AiG/L9DVsEYHWQ9jAEnke0nKiASlPw+JYwDl6Z4l6a6/IqT1tKseEl6R5+rVnKJt/K3jCTWiQvgoIh5MuqBJJQ==",
         "dependencies": {
           "vite": "vite@6.3.5_@types+node@24.0.7_picomatch@4.0.2"
         }
@@ -8860,8 +8860,8 @@
         "npm:@netlify/edge-functions@2.15.4",
         "npm:@netlify/functions@4.1.8",
         "npm:@types/node@24.0.10",
-        "npm:astro@5.10.2",
-        "npm:hls.js@1.6.5",
+        "npm:astro@5.11.0",
+        "npm:hls.js@1.6.6",
         "npm:jose@6.0.11",
         "npm:netlify-cli@22.2.1",
         "npm:swiper@11.2.10",

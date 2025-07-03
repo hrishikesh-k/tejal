@@ -1,4 +1,5 @@
 ---
+import cover from '~/assets/rajasab/cover.jpg'
 import screenshot1 from '~/assets/rajasab/screenshot-1.jpg'
 import screenshot2 from '~/assets/rajasab/screenshot-2.jpg'
 import screenshot3 from '~/assets/rajasab/screenshot-3.jpg'
@@ -7,52 +8,121 @@ import screenshot5 from '~/assets/rajasab/screenshot-5.jpg'
 import screenshot6 from '~/assets/rajasab/screenshot-6.jpg'
 import screenshot7 from '~/assets/rajasab/screenshot-7.jpg'
 import screenshot8 from '~/assets/rajasab/screenshot-8.jpg'
+import vid1Poster from '~/assets/rajasab/video-1/poster.jpg'
+import vid1Thumbs from '~/assets/rajasab/video-1/thumbs.jpg'
 import Heading3 from '~/components/heading3.astro'
 import Masonry from '~/components/masonry.astro'
 import Picture from '~/components/picture.astro'
+import Video from '~/components/video.astro'
 import Base from '~/layouts/base.astro'
 
 const oldWebsite = [
   {
-    alt: '',
+    alt: 'screenshot of client connections on the old website',
     img: screenshot1
   },
   {
-    alt: '',
+    alt: 'screenshot of brand partners on the old website',
     img: screenshot2
   },
   {
-    alt: '',
+    alt: 'screenshot of client reviews on the old website',
     img: screenshot3
   },
   {
-    alt: '',
+    alt: 'screenshot of brand story on the old website',
     img: screenshot4
   },
   {
-    alt: '',
+    alt: 'screenshot of brand recognition on the old website',
     img: screenshot5
   },
   {
-    alt: '',
+    alt: 'screenshot of birth of the brand on the old website',
     img: screenshot6
   },
   {
-    alt: '',
+    alt: 'screenshot of the brand homepage on the old website',
     img: screenshot7
   },
   {
-    alt: '',
+    alt: 'screenshot of brand mission on the old website',
     img: screenshot8
   }
 ]
+
+const vid1Segments144p = Object.values<string>(
+  import.meta.glob('~/assets/rajasab/video-1/144p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments240p = Object.values<string>(
+  import.meta.glob('~/assets/rajasab/video-1/240p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments360p = Object.values<string>(
+  import.meta.glob('~/assets/rajasab/video-1/360p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments480p = Object.values<string>(
+  import.meta.glob('~/assets/rajasab/video-1/480p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments720p = Object.values<string>(
+  import.meta.glob('~/assets/rajasab/video-1/720p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments1080p = Object.values<string>(
+  import.meta.glob('~/assets/rajasab/video-1/1080p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
+
+const vid1Segments1440p = Object.values<string>(
+  import.meta.glob('~/assets/rajasab/video-1/1440p/*.m3u8seg', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+)
 ---
 
-<Base description="" title="Rajasab">
+<Base cover={cover.src} description="Revitalized RAJASAB brand with striking identity, cohesive design, strategic content, and campaigns that drove national awareness and growth." title="Rajasab">
   <Heading3 text="Old website"/>
-  <Masonry>
+  <Masonry max={2}>
     {
       oldWebsite.map((screenshot) => <Picture alt={screenshot.alt} height={screenshot.img.height} rounded src={screenshot.img.src} width={screenshot.img.width}/>)
     }
   </Masonry>
+  <Heading3 text="New website"/>
+  <Video duration={41} qualities={{
+    '144': vid1Segments144p,
+    '240': vid1Segments240p,
+    '360': vid1Segments360p,
+    '480': vid1Segments480p,
+    '720': vid1Segments720p,
+    '1080': vid1Segments1080p,
+    '1440': vid1Segments1440p
+  }} poster={vid1Poster.src} thumbs={vid1Thumbs.src}/>
 </Base>

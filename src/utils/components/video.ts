@@ -77,6 +77,7 @@ export class AstroVideo extends HTMLElement {
   }
   connectedCallback() {
     const horizontalDimensions = {
+      '1440': '2560x1440',
       '1080': '1920x1080',
       '720': '1280x720',
       '480': '854x480',
@@ -97,6 +98,7 @@ export class AstroVideo extends HTMLElement {
     )
 
     const verticalDimensions = {
+      '1440': '1440x2560',
       '1080': '1080x1920',
       '720': '720x1280',
       '480': '480x854',
