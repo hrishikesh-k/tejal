@@ -1,4 +1,7 @@
 ---
+import brand1 from '~/assets/rajasab/brand-1.jpg'
+import brand2 from '~/assets/rajasab/brand-2.jpg'
+import brand3 from '~/assets/rajasab/brand-3.jpg'
 import cover from '~/assets/rajasab/cover.jpg'
 import lookbook1 from '~/assets/rajasab/lookbook-1.jpg'
 import lookbook2 from '~/assets/rajasab/lookbook-2.jpg'
@@ -48,6 +51,21 @@ import Picture from '~/components/picture.astro'
 import Swiper from '~/components/swiper.astro'
 import Video from '~/components/video.astro'
 import Base from '~/layouts/base.astro'
+
+const brandPages = [
+  {
+    alt: 'RAJASAB Brand Guidelines page 1',
+    img: brand1
+  },
+  {
+    alt: 'RAJASAB Brand Guidelines page 2',
+    img: brand2
+  },
+  {
+    alt: 'RAJASAB Brand Guidelines page 3',
+    img: brand3
+  }
+]
 
 const lookbookPages = [
   {
@@ -273,6 +291,26 @@ const vid1Segments1440p = Object.values<string>(
 ---
 
 <Base cover={cover.src} description="Revitalized RAJASAB brand with striking identity, cohesive design, strategic content, and campaigns that drove national awareness and growth." title="Rajasab">
+  <Heading3 text="Brand Guidelines"/>
+  <Swiper effect="fade">
+    {
+      brandPages.map((page) => (
+        <div class="swiper-slide">
+          <Picture alt={page.alt} height={page.img.height} src={page.img.src} width={page.img.width}/>
+        </div>
+      ))
+    }
+  </Swiper>
+  <Heading3 text="Lookbook"/>
+  <Swiper effect="fade">
+    {
+      lookbookPages.map((page) => (
+        <div class="swiper-slide">
+          <Picture alt={page.alt} height={page.img.height} src={page.img.src} width={page.img.width}/>
+        </div>
+      ))
+    }
+  </Swiper>
   <Heading3 text="Old website"/>
   <Masonry max={2}>
     {
@@ -289,14 +327,4 @@ const vid1Segments1440p = Object.values<string>(
     '1080': vid1Segments1080p,
     '1440': vid1Segments1440p
   }} poster={vid1Poster.src} thumbs={vid1Thumbs.src}/>
-  <Heading3 text="Lookbook"/>
-  <Swiper effect="fade">
-    {
-      lookbookPages.map((page) => (
-        <div class="swiper-slide">
-          <Picture alt={page.alt} height={page.img.height} src={page.img.src} width={page.img.width}/>
-        </div>
-      ))
-    }
-  </Swiper>
 </Base>
