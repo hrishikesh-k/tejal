@@ -10,8 +10,10 @@
       "npm:@floating-ui/dom@1.7.0": "npm:@floating-ui/dom@1.7.0",
       "npm:@floating-ui/dom@1.7.2": "npm:@floating-ui/dom@1.7.2",
       "npm:@netlify/blobs@10.0.2": "npm:@netlify/blobs@10.0.2",
+      "npm:@netlify/blobs@10.0.3": "npm:@netlify/blobs@10.0.3",
       "npm:@netlify/edge-functions@2.15.4": "npm:@netlify/edge-functions@2.15.4",
-      "npm:@netlify/functions@4.1.8": "npm:@netlify/functions@4.1.8",
+      "npm:@netlify/edge-functions@2.15.5": "npm:@netlify/edge-functions@2.15.5",
+      "npm:@netlify/functions@4.1.9": "npm:@netlify/functions@4.1.9",
       "npm:@types/node@24.0.10": "npm:@types/node@24.0.10",
       "npm:@types/node@24.0.7": "npm:@types/node@24.0.7",
       "npm:astro@5.11.0": "npm:astro@5.11.0_typescript@5.8.3_@types+node@24.0.7_vite@6.3.5__@types+node@24.0.7__picomatch@4.0.2_zod@3.25.67",
@@ -804,6 +806,13 @@
           "@netlify/runtime-utils": "@netlify/runtime-utils@2.1.0"
         }
       },
+      "@netlify/blobs@10.0.3": {
+        "integrity": "sha512-edfIKZTkKMKU00/L7u86jR14RrV7NyJBtxSEWLdtY1t2sxFprJgVJNIqPWXPF/LRvTCfNqmvyxkLvB2mbPA0aQ==",
+        "dependencies": {
+          "@netlify/dev-utils": "@netlify/dev-utils@3.2.2",
+          "@netlify/runtime-utils": "@netlify/runtime-utils@2.1.0"
+        }
+      },
       "@netlify/blobs@9.1.6": {
         "integrity": "sha512-RR3t5fv7CkGVJiylOTLf/YaHPyrcWmhHW3zX3EK/9UQsnTi8jPxP7B2nyjgRjAx5S4YTzJQP+FmbQlGKdogALQ==",
         "dependencies": {
@@ -964,6 +973,26 @@
           "write-file-atomic": "write-file-atomic@5.0.1"
         }
       },
+      "@netlify/dev-utils@3.2.2": {
+        "integrity": "sha512-ECz/xEaqhAPUoFkeC2Ofpky1HBEKwPCsAL66iK/dLFHUFs39SC3y6Bn5QY76DzONmt+RjWmoYkSIEhJ1xAWHfA==",
+        "dependencies": {
+          "@whatwg-node/server": "@whatwg-node/server@0.10.10",
+          "ansis": "ansis@4.1.0",
+          "chokidar": "chokidar@4.0.3",
+          "decache": "decache@4.6.2",
+          "dot-prop": "dot-prop@9.0.0",
+          "env-paths": "env-paths@3.0.0",
+          "find-up": "find-up@7.0.0",
+          "image-size": "image-size@2.0.2",
+          "js-image-generator": "js-image-generator@1.0.4",
+          "lodash.debounce": "lodash.debounce@4.0.8",
+          "parse-gitignore": "parse-gitignore@2.0.0",
+          "semver": "semver@7.7.2",
+          "tmp-promise": "tmp-promise@3.0.3",
+          "uuid": "uuid@11.1.0",
+          "write-file-atomic": "write-file-atomic@5.0.1"
+        }
+      },
       "@netlify/edge-bundler@14.0.6_ajv@8.17.1": {
         "integrity": "sha512-wfIS26778TG34C3Ma4vhYVTviUuZMD1cWVW/G3m9qZ4MPqC3xII66mmJOdHSfBhwXNeu8tt/b3YoFO0b/nJO0Q==",
         "dependencies": {
@@ -1004,6 +1033,16 @@
           "get-port": "get-port@7.1.0"
         }
       },
+      "@netlify/edge-functions@2.15.5": {
+        "integrity": "sha512-hm4NnhmDxwICuuaO2mw9HS1T3Pd2TEFU+xIItG09534vYddvCQ/6fAjT3LQQoyCWreEBUYvYn7Ml7kV4mMFb0w==",
+        "dependencies": {
+          "@netlify/dev-utils": "@netlify/dev-utils@3.2.2",
+          "@netlify/edge-bundler": "@netlify/edge-bundler@14.0.6_ajv@8.17.1",
+          "@netlify/edge-functions-bootstrap": "@netlify/edge-functions-bootstrap@2.14.0",
+          "@netlify/runtime-utils": "@netlify/runtime-utils@2.1.0",
+          "get-port": "get-port@7.1.0"
+        }
+      },
       "@netlify/functions-utils@6.0.12": {
         "integrity": "sha512-wo3IdsyQBz9t3BsUo2c8Sa3tS7pZvZeyt/krDRB/Iipcq3pheUA5jwwelkh0aoKD3rkBhY5Y/jnhMyqmilpGig==",
         "dependencies": {
@@ -1012,12 +1051,12 @@
           "path-exists": "path-exists@5.0.0"
         }
       },
-      "@netlify/functions@4.1.8": {
-        "integrity": "sha512-ep96+sNLuwNt5SnnusOX8Nx3BwYs02OQfNP9QIxvpt36GXPjK25XOFAQux89fzsLWTie2plxcof61cNGYmb8dw==",
+      "@netlify/functions@4.1.9": {
+        "integrity": "sha512-9E2tsmtt5VsmTeJT4xJGq5fSY1P2R5QMy/asUkVyQskc78VKLW/D94V/NNpHgWVbRJ8YqIJ6SAHCLUrzDlgH9A==",
         "dependencies": {
-          "@netlify/blobs": "@netlify/blobs@10.0.2",
-          "@netlify/dev-utils": "@netlify/dev-utils@3.2.1",
-          "@netlify/serverless-functions-api": "@netlify/serverless-functions-api@2.1.2",
+          "@netlify/blobs": "@netlify/blobs@10.0.3",
+          "@netlify/dev-utils": "@netlify/dev-utils@3.2.2",
+          "@netlify/serverless-functions-api": "@netlify/serverless-functions-api@2.1.3",
           "@netlify/zip-it-and-ship-it": "@netlify/zip-it-and-ship-it@12.2.0",
           "cron-parser": "cron-parser@4.9.0",
           "decache": "decache@4.6.2",
@@ -1151,6 +1190,10 @@
       },
       "@netlify/serverless-functions-api@2.1.2": {
         "integrity": "sha512-uEFA0LAcBGd3+fgDSLkTTsrgyooKqu8mN/qA+F/COS2A7NFWRcLFnjVKH/xZhxq+oQkrSa+XPS9qj2wgQosiQw==",
+        "dependencies": {}
+      },
+      "@netlify/serverless-functions-api@2.1.3": {
+        "integrity": "sha512-bNlN/hpND8xFQzpjyKxm6vJayD+bPBlOvs4lWihE7WULrphuH1UuFsoVE5386bNNGH8Rs1IH01AFsl7ALQgOlQ==",
         "dependencies": {}
       },
       "@netlify/zip-it-and-ship-it@12.2.0": {
@@ -8856,9 +8899,9 @@
         "npm:@astrojs/ts-plugin@1.10.4",
         "npm:@biomejs/biome@2.0.6",
         "npm:@floating-ui/dom@1.7.2",
-        "npm:@netlify/blobs@10.0.2",
-        "npm:@netlify/edge-functions@2.15.4",
-        "npm:@netlify/functions@4.1.8",
+        "npm:@netlify/blobs@10.0.3",
+        "npm:@netlify/edge-functions@2.15.5",
+        "npm:@netlify/functions@4.1.9",
         "npm:@types/node@24.0.10",
         "npm:astro@5.11.0",
         "npm:hls.js@1.6.6",

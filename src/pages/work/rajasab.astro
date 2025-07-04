@@ -1,5 +1,37 @@
 ---
 import cover from '~/assets/rajasab/cover.jpg'
+import lookbook1 from '~/assets/rajasab/lookbook-1.jpg'
+import lookbook2 from '~/assets/rajasab/lookbook-2.jpg'
+import lookbook3 from '~/assets/rajasab/lookbook-3.jpg'
+import lookbook4 from '~/assets/rajasab/lookbook-4.jpg'
+import lookbook5 from '~/assets/rajasab/lookbook-5.jpg'
+import lookbook6 from '~/assets/rajasab/lookbook-6.jpg'
+import lookbook7 from '~/assets/rajasab/lookbook-7.jpg'
+import lookbook8 from '~/assets/rajasab/lookbook-8.jpg'
+import lookbook9 from '~/assets/rajasab/lookbook-9.jpg'
+import lookbook10 from '~/assets/rajasab/lookbook-10.jpg'
+import lookbook11 from '~/assets/rajasab/lookbook-11.jpg'
+import lookbook12 from '~/assets/rajasab/lookbook-12.jpg'
+import lookbook13 from '~/assets/rajasab/lookbook-13.jpg'
+import lookbook14 from '~/assets/rajasab/lookbook-14.jpg'
+import lookbook15 from '~/assets/rajasab/lookbook-15.jpg'
+import lookbook16 from '~/assets/rajasab/lookbook-16.jpg'
+import lookbook17 from '~/assets/rajasab/lookbook-17.jpg'
+import lookbook18 from '~/assets/rajasab/lookbook-18.jpg'
+import lookbook19 from '~/assets/rajasab/lookbook-19.jpg'
+import lookbook20 from '~/assets/rajasab/lookbook-20.jpg'
+import lookbook21 from '~/assets/rajasab/lookbook-21.jpg'
+import lookbook22 from '~/assets/rajasab/lookbook-22.jpg'
+import lookbook23 from '~/assets/rajasab/lookbook-23.jpg'
+import lookbook24 from '~/assets/rajasab/lookbook-24.jpg'
+import lookbook25 from '~/assets/rajasab/lookbook-25.jpg'
+import lookbook26 from '~/assets/rajasab/lookbook-26.jpg'
+import lookbook27 from '~/assets/rajasab/lookbook-27.jpg'
+import lookbook28 from '~/assets/rajasab/lookbook-28.jpg'
+import lookbook29 from '~/assets/rajasab/lookbook-29.jpg'
+import lookbook30 from '~/assets/rajasab/lookbook-30.jpg'
+import lookbook31 from '~/assets/rajasab/lookbook-31.jpg'
+import lookbook32 from '~/assets/rajasab/lookbook-32.jpg'
 import screenshot1 from '~/assets/rajasab/screenshot-1.jpg'
 import screenshot2 from '~/assets/rajasab/screenshot-2.jpg'
 import screenshot3 from '~/assets/rajasab/screenshot-3.jpg'
@@ -13,8 +45,140 @@ import vid1Thumbs from '~/assets/rajasab/video-1/thumbs.jpg'
 import Heading3 from '~/components/heading3.astro'
 import Masonry from '~/components/masonry.astro'
 import Picture from '~/components/picture.astro'
+import Swiper from '~/components/swiper.astro'
 import Video from '~/components/video.astro'
 import Base from '~/layouts/base.astro'
+
+const lookbookPages = [
+  {
+    alt: 'RAJASAB Lookbook page 1',
+    img: lookbook1
+  },
+  {
+    alt: 'RAJASAB Lookbook page 2',
+    img: lookbook2
+  },
+  {
+    alt: 'RAJASAB Lookbook page 3',
+    img: lookbook3
+  },
+  {
+    alt: 'RAJASAB Lookbook page 4',
+    img: lookbook4
+  },
+  {
+    alt: 'RAJASAB Lookbook page 5',
+    img: lookbook5
+  },
+  {
+    alt: 'RAJASAB Lookbook page 6',
+    img: lookbook6
+  },
+  {
+    alt: 'RAJASAB Lookbook page 7',
+    img: lookbook7
+  },
+  {
+    alt: 'RAJASAB Lookbook page 8',
+    img: lookbook8
+  },
+  {
+    alt: 'RAJASAB Lookbook page 9',
+    img: lookbook9
+  },
+  {
+    alt: 'RAJASAB Lookbook page 10',
+    img: lookbook10
+  },
+  {
+    alt: 'RAJASAB Lookbook page 11',
+    img: lookbook11
+  },
+  {
+    alt: 'RAJASAB Lookbook page 12',
+    img: lookbook12
+  },
+  {
+    alt: 'RAJASAB Lookbook page 13',
+    img: lookbook13
+  },
+  {
+    alt: 'RAJASAB Lookbook page 14',
+    img: lookbook14
+  },
+  {
+    alt: 'RAJASAB Lookbook page 15',
+    img: lookbook15
+  },
+  {
+    alt: 'RAJASAB Lookbook page 16',
+    img: lookbook16
+  },
+  {
+    alt: 'RAJASAB Lookbook page 17',
+    img: lookbook17
+  },
+  {
+    alt: 'RAJASAB Lookbook page 18',
+    img: lookbook18
+  },
+  {
+    alt: 'RAJASAB Lookbook page 19',
+    img: lookbook19
+  },
+  {
+    alt: 'RAJASAB Lookbook page 20',
+    img: lookbook20
+  },
+  {
+    alt: 'RAJASAB Lookbook page 21',
+    img: lookbook21
+  },
+  {
+    alt: 'RAJASAB Lookbook page 22',
+    img: lookbook22
+  },
+  {
+    alt: 'RAJASAB Lookbook page 23',
+    img: lookbook23
+  },
+  {
+    alt: 'RAJASAB Lookbook page 24',
+    img: lookbook24
+  },
+  {
+    alt: 'RAJASAB Lookbook page 25',
+    img: lookbook25
+  },
+  {
+    alt: 'RAJASAB Lookbook page 26',
+    img: lookbook26
+  },
+  {
+    alt: 'RAJASAB Lookbook page 27',
+    img: lookbook27
+  },
+  {
+    alt: 'RAJASAB Lookbook page 28',
+    img: lookbook28
+  },
+  {
+    alt: 'RAJASAB Lookbook page 29',
+    img: lookbook29
+  },
+  {
+    alt: 'RAJASAB Lookbook page 30',
+    img: lookbook30
+  },
+  {
+    alt: 'RAJASAB Lookbook page 31',
+    img: lookbook31
+  },
+  {
+    alt: 'RAJASAB Lookbook page 32',
+    img: lookbook32
+  }
+]
 
 const oldWebsite = [
   {
@@ -125,4 +289,14 @@ const vid1Segments1440p = Object.values<string>(
     '1080': vid1Segments1080p,
     '1440': vid1Segments1440p
   }} poster={vid1Poster.src} thumbs={vid1Thumbs.src}/>
+  <Heading3 text="Lookbook"/>
+  <Swiper effect="fade">
+    {
+      lookbookPages.map((page) => (
+        <div class="swiper-slide">
+          <Picture alt={page.alt} height={page.img.height} src={page.img.src} width={page.img.width}/>
+        </div>
+      ))
+    }
+  </Swiper>
 </Base>
