@@ -2006,7 +2006,6 @@
 1751698968|src/assets/rajasab/brand-8.jpg
 1751698968|src/assets/rajasab/brand-9.jpg
 1751699148|src/components/arrow.astro
-1751698500|src/pages/contact.astro
 1751706552|readme.md
 1751702353|src/assets/rajasab/instagram-1.jpg
 1751706287|src/components/picture.astro
@@ -2015,3 +2014,4 @@
 1751706141|src/utils/functions.ts
 1751706482|uno.config.ts
 1751711917|src/assets/about/resume.pdf
+1751739113|src/pages/contact.astro
