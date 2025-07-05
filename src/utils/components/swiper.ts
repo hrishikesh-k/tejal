@@ -22,6 +22,7 @@ export class AstroSwiper extends HTMLElement {
       cardsEffect: {
         slideShadows: false
       },
+      loop: true,
       modules: [Autoplay],
       speed: 500
     }

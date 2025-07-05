@@ -12,7 +12,7 @@ interface Props {
 const { duration, poster, qualities, thumbs, vertical } = Astro.props
 ---
 
-<astro-video class="w-full" data-qualities={JSON.stringify(qualities)} data-thumbs={thumbs} data-vertical={vertical} style={{'aspect-ratio': vertical ? '9/16' : '16/9'}}>
+<astro-video class:list={{'w-full': !vertical}} data-qualities={JSON.stringify(qualities)} data-thumbs={thumbs} data-vertical={vertical} style={{'aspect-ratio': vertical ? '9/16' : '16/9'}}>
   <media-player duration={duration} style={{'aspect-ratio': vertical ? '9/16' : '16/9'}}>
     <media-provider>
       <media-poster class="vds-poster" src={`/images/1920${poster}`}></media-poster>
