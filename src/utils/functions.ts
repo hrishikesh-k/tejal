@@ -2,7 +2,6 @@
 
 import type { MediaPlayerElement } from 'vidstack/elements'
 import wretch from 'wretch'
-import wretchAddonFormData from 'wretch/addons/formData'
 import { resizeMasonry } from '~/utils/components/masonry.ts'
 import { resizePlayer } from '~/utils/components/video.ts'
 
@@ -312,14 +311,14 @@ export async function submitForm(event: SubmitEvent) {
 
   try {
     formProgress.map((c) => form.classList.add(c))
+    const formData = new FormData(form)
 
     for (const i of inputs) {
       i.setAttribute('disabled', 'true')
     }
 
     await wretch()
-      .addon(wretchAddonFormData)
-      .post(new FormData(form), form.getAttribute('action') || '/')
+      .post(formData, form.getAttribute('action') || '/')
       .res()
     p.innerText = 'Submission successful'
     formTextSuccess.map((c) => p.classList.add(c))

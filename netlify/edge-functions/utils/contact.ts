@@ -1,5 +1,6 @@
 import type { Context } from '@netlify/edge-functions'
 import wretch from 'wretch'
+import wretchBasicAuthAddon from 'wretch/addons/basicAuth'
 import wretchFormUrlAddon from 'wretch/addons/formUrl'
 // import { gatekeeper } from './gatekeeper.ts'
 import { http204, http400 /*, http401*/ } from './responses.ts'
@@ -45,42 +46,6 @@ async function isSpamAccordingToAkismet(
 
   console.info(`Akismet responded ${akismetResponse}`)
   return akismetResponse === 'true'
-}
-
-async function triggerSengdridEmail(
-  reply: {
-    email: string
-    name: string
-  },
-  templateData: Record<string, string>,
-  templateId: string,
-  to: string
-) {
-  console.debug('function triggerSengdridEmail')
-
-  await wretch()
-    .auth(`Bearer ${Netlify.env.get('SENDGRID_API_KEY')}`)
-    .post(
-      {
-        from: {
-          email: 'no-reply@tejalshinde.com'
-        },
-        personalizations: [
-          {
-            dynamic_template_data: templateData,
-            to: [
-              {
-                email: to
-              }
-            ]
-          }
-        ],
-        template_id: templateId,
-        reply_to: reply
-      },
-      'https://api.sendgrid.com/v3/mail/send'
-    )
-    .res()
 }
 
 export async function parseContactForm(req: Request, formData: FormData) {
@@ -144,41 +109,63 @@ export async function parseContactForm(req: Request, formData: FormData) {
     return http400
   }
 
-  console.info('sending user email via SendGrid')
-  console.debug('calling triggerSendgridEmail')
-  await triggerSengdridEmail(
-    {
-      email: Netlify.env.get('ADMIN_EMAIL') as string,
-      name: 'Tejal Shinde'
-    },
-    {
-      email,
-      firstName,
-      lastName,
-      message,
-      subject
-    },
-    Netlify.env.get('SENDGRID_USER_TEMPLATE_ID') as string,
-    email
-  )
-
-  console.info('sending admin email via SendGrid')
-  console.debug('calling triggerSendgridEmail')
-  await triggerSengdridEmail(
-    {
-      email,
-      name: `${firstName} ${lastName}`
-    },
-    {
-      email,
-      firstName,
-      lastName,
-      message,
-      subject
-    },
-    Netlify.env.get('SENDGRID_ADMIN_TEMPLATE_ID') as string,
-    Netlify.env.get('ADMIN_EMAIL') as string
-  )
+  console.info('sending emails via Mailjet')
+  await wretch()
+    .addon(wretchBasicAuthAddon)
+    .basicAuth(
+      Netlify.env.get('MAILJET_USERNAME') as string,
+      Netlify.env.get('MAILJET_PASSWORD') as string
+    )
+    .post(
+      {
+        globals: {
+          from: {
+            email: 'no-reply@tejalshinde.com',
+            name: 'Tejal Shinde'
+          },
+          templateLanguage: true,
+          variables: {
+            email,
+            firstName,
+            lastName,
+            message,
+            subject
+          }
+        },
+        messages: [
+          {
+            replyTo: {
+              email: Netlify.env.get('MAILJET_REPLY_EMAIL'),
+              name: 'Tejal Shinde'
+            },
+            to: [
+              {
+                email: email,
+                name: `${firstName} ${lastName}`
+              }
+            ],
+            subject: 'Thank you for reaching out, {{var:firstName:""}}!',
+            templateID: 7132141
+          },
+          {
+            replyTo: {
+              email,
+              name: `${firstName} ${lastName}`
+            },
+            to: [
+              {
+                email: Netlify.env.get('MAILJET_NOTIFICATION_EMAIL'),
+                name: 'Tejal Shinde'
+              }
+            ],
+            subject: '{{var:firstName:""}} is trying to reach out!',
+            templateID: 7132552
+          }
+        ]
+      },
+      'https://api.mailjet.com/v3.1/send'
+    )
+    .json()
 
   console.info('returning 204')
   return http204
