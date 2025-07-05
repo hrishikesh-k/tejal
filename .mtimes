@@ -14,7 +14,6 @@
 1732085931|public/favicon.ico
 1733237533|public/robots.txt
 1732085931|src/assets/about/about.jpg
-1738165432|src/assets/about/resume.pdf
 1732085931|src/assets/about/video-1/1080p/1080p-seg-000.m3u8seg
 1732085931|src/assets/about/video-1/1080p/1080p-seg-001.m3u8seg
 1732085931|src/assets/about/video-1/1080p/1080p-seg-002.m3u8seg
@@ -2015,3 +2014,4 @@
 1751706482|src/pages/work/rajasab.astro
 1751706141|src/utils/functions.ts
 1751706482|uno.config.ts
+1751711917|src/assets/about/resume.pdf
