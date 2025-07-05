@@ -669,6 +669,12 @@ export default defineConfig({
           }
         ],
         [
+          'h-128',
+          {
+            height: '32rem'
+          }
+        ],
+        [
           'h-fit',
           {
             height: 'fit-content'
@@ -998,6 +1004,12 @@ export default defineConfig({
           'overflow-hidden',
           {
             overflow: 'hidden'
+          }
+        ],
+        [
+          'overflow-y-auto',
+          {
+            'overflow-y': 'auto'
           }
         ]
       ]

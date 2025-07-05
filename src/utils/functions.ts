@@ -244,6 +244,21 @@ export function addWindowResizeEventHandler() {
       document.querySelectorAll<HTMLDivElement>('.cf-turnstile')
     const vw = document.documentElement.clientWidth
 
+    const wecoBagStuffer =
+      document.querySelector<HTMLHeadingElement>('h3#bag-stuffer')
+
+    if (wecoBagStuffer) {
+      const wecoEmailImage = (
+        (wecoBagStuffer.parentElement as HTMLDivElement)
+          .previousElementSibling as HTMLDivElement
+      ).querySelector('div') as HTMLDivElement
+      if (vw >= 768) {
+        wecoEmailImage.style.height = `${(wecoBagStuffer.nextElementSibling as HTMLDivElement).clientHeight}px`
+      } else {
+        wecoEmailImage.style.height = ''
+      }
+    }
+
     for (const container of linksToRoundContainers) {
       roundCornersInit(container, vw)
     }

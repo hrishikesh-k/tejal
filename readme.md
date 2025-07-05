@@ -242,6 +242,7 @@ Renders responsive images using Netlify Image CDN.
 - `height`*: original image height
 - `maxWidth`: limits responsive widths
 - `rounded`: adds rounded corners
+- `overflow`: allows image to scroll in parent
 - `src`*: image source URL
 - `width`*: original image width
 

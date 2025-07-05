@@ -138,20 +138,20 @@ export const vid1Segments1080p = Object.values(
   }
 </Swiper>
 <div class="flex flex-wrap gap-6">
-<div class="md:flex-basis-0 md:flex-grow-1 md:flex-shrink-1">
-  <Heading3 text="E-mail"/>
-  <div class="flex flex-col items-center">
-    <Picture alt="festive flyer promoting a Thanksgiving feast organized by Weco" height={email.height} rounded src={email.src} width={email.width}/>
+  <div class="md:flex-basis-0 md:flex-grow-1 md:flex-shrink-1">
+    <Heading3 text="E-mail"/>
+    <div class="border-rounded-1.5 flex flex-col items-center overflow-y-auto">
+      <Picture alt="festive flyer promoting a Thanksgiving feast organized by Weco" height={email.height} overflow rounded src={email.src} width={email.width}/>
+    </div>
   </div>
-</div>
-<div class="md:flex-basis-0 md:flex-grow-1 md:flex-shrink-1">
-  <Heading3 text="Bag Stuffer"/>
-  <div class="flex flex-col gap-y-6 items-center">
-    {
-      bags.map((bag) => <Picture alt={bag.alt} height={bag.img.height} rounded src={bag.img.src} width={bag.img.width}/>)
-    }
+  <div class="md:flex-basis-0 md:flex-grow-1 md:flex-shrink-1">
+    <Heading3 text="Bag Stuffer"/>
+    <div class="flex flex-col gap-y-6 items-center">
+      {
+        bags.map((bag) => <Picture alt={bag.alt} height={bag.img.height} rounded src={bag.img.src} width={bag.img.width}/>)
+      }
   </div>
-</div>
+  </div>
 </div>
 <Heading3 text="Instagram"/>
 <div class="flex flex-col items-center">

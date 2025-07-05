@@ -1723,7 +1723,6 @@
 1733043953|src/components/heading3.astro
 1736065627|src/components/icon.astro
 1736068332|src/components/jump.astro
-1734368493|src/components/picture.astro
 1736257434|src/components/textfield.astro
 1736065586|src/components/tooltip.astro
 1733766075|src/content.config.ts
@@ -1738,7 +1737,6 @@
 1733746062|src/content/advertising/global-wellness.mdx
 1733746107|src/content/advertising/pirelli.mdx
 1733746107|src/content/advertising/skippy.mdx
-1733746107|src/content/advertising/weco.mdx
 1733746107|src/content/advertising/zoddlini.mdx
 1733746107|src/content/modelling/diversity.mdx
 1733746107|src/content/modelling/kindness.mdx
@@ -1787,8 +1785,6 @@
 1751473745|src/assets/rajasab/screenshot-7.jpg
 1751473745|src/assets/rajasab/screenshot-8.jpg
 1751471537|src/components/collection.astro
-1751473015|uno.config.ts
-1751546511|readme.md
 1751547344|src/assets/rajasab/cover.jpg
 1751544744|src/assets/rajasab/video-1/1080p/1080p-seg-000.m3u8seg
 1751544746|src/assets/rajasab/video-1/1080p/1080p-seg-001.m3u8seg
@@ -1982,7 +1978,6 @@
 1751692970|netlify/edge-functions/utils/contact.ts
 1751692937|package-lock.json
 1751692928|package.json
-1751689559|src/utils/functions.ts
 1751697439|deno.lock
 1751697382|src/components/swiper.astro
 1751697761|src/components/video.astro
@@ -2013,4 +2008,10 @@
 1751698968|src/assets/rajasab/brand-9.jpg
 1751699148|src/components/arrow.astro
 1751698500|src/pages/contact.astro
-1751699785|src/pages/work/rajasab.astro
+1751706552|readme.md
+1751702353|src/assets/rajasab/instagram-1.jpg
+1751706287|src/components/picture.astro
+1751706170|src/content/advertising/weco.mdx
+1751706482|src/pages/work/rajasab.astro
+1751706141|src/utils/functions.ts
+1751706482|uno.config.ts

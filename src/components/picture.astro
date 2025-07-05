@@ -5,6 +5,7 @@ interface Props {
   alt: string
   height: number
   maxWidth?: number
+  overflow?: boolean
   rounded?: boolean
   src: string
   width: number
@@ -14,6 +15,7 @@ const {
   alt,
   height,
   maxWidth = 1920,
+  overflow = false,
   rounded = false,
   src,
   width
@@ -32,7 +34,7 @@ if (width >= maxWidth) {
 }
 ---
 
-<picture class="block h-full overflow-hidden w-full" class:list={[{'border-rounded-1.5': rounded}]}>
+<picture class="block w-full" class:list={[{'border-rounded-1.5': rounded}, {'h-full overflow-hidden': !overflow}]}>
   {
     widths.map((w, i) => {
       if (i === widths.length - 1) {
