@@ -1975,9 +1975,6 @@
 1751644772|src/assets/rajasab/brand-2.jpg
 1751644772|src/assets/rajasab/brand-3.jpg
 1751692970|netlify/edge-functions/utils/contact.ts
-1751692937|package-lock.json
-1751692928|package.json
-1751697439|deno.lock
 1751697382|src/components/swiper.astro
 1751697761|src/components/video.astro
 1751697421|src/utils/components/swiper.ts
@@ -2015,3 +2012,6 @@
 1751706482|uno.config.ts
 1751711917|src/assets/about/resume.pdf
 1751739113|src/pages/contact.astro
+1751820014|deno.lock
+1751886113|package-lock.json
+1751886088|package.json
