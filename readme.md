@@ -50,9 +50,9 @@ npx netlify build --offline
 - Website: https://akismet.com/
 - Usage: Reduce/Prevent spam in contact form
 
-### Sendgrid:
+### Mailjet:
 
-- Website: https://sendgrid.com/
+- Website: https://www.mailjet.com/
 - Usage: Send emails to user and admin on contact form submission
 
 ### Turnstile:

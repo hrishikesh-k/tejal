@@ -1,107 +1,175 @@
 {
-  "$schema": "https://www.biomejs.dev/schemas/2.0.6/schema.json",
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "css": {
+    "assist": {
+      "enabled": true
+    },
+    "globals": [],
+    "parser": {
+      "allowWrongLineComments": false,
+      "cssModules": true
+    },
     "formatter": {
-      "quoteStyle": "single"
+      "enabled": true,
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineEnding": "lf",
+      "lineWidth": 80,
+      "quoteStyle": "double"
     }
   },
+  "extends": [],
+  "formatter": {
+    "attributePosition": "auto",
+    "bracketSameLine": true,
+    "bracketSpacing": true,
+    "enabled": true,
+    "expand": "always",
+    "formatWithErrors": false,
+    "includes": [],
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80,
+    "useEditorconfig": false
+  },
   "files": {
+    "experimentalScannerIgnores": [],
     "ignoreUnknown": true,
     "includes": [
       "./netlify/**/*",
       "./src/**/*",
       "./astro.config.ts",
+      "./biome.json",
       "./package.json",
       "./tsconfig.json",
       "./uno.config.ts"
-    ]
+    ],
+    "maxSize": 1048576
   },
-  "formatter": {
-    "indentStyle": "space"
+  "graphql": {
+    "assist": {
+      "enabled": true
+    },
+    "formatter": {
+      "bracketSpacing": null,
+      "enabled": true,
+      "indentStyle": null,
+      "indentWidth": null,
+      "lineEnding": null,
+      "lineWidth": null,
+      "quoteStyle": "double"
+    },
+    "linter": {
+      "enabled": true
+    }
+  },
+  "grit": {
+    "assist": {
+      "enabled": true
+    },
+    "formatter": {
+      "enabled": true,
+      "indentStyle": null,
+      "indentWidth": null,
+      "lineEnding": null,
+      "lineWidth": null
+    },
+    "linter": {
+      "enabled": true
+    }
+  },
+  "html": {
+    "formatter": {
+      "attributePosition": null,
+      "bracketSameLine": null,
+      "enabled": true,
+      "indentScriptAndStyle": true,
+      "indentStyle": null,
+      "indentWidth": null,
+      "lineEnding": null,
+      "lineWidth": null,
+      "selfCloseVoidElements": "always"
+    },
+    "parser": null
   },
   "javascript": {
+    "assist": {
+      "enabled": true
+    },
     "formatter": {
+      "arrowParentheses": "always",
+      "attributePosition": null,
       "bracketSameLine": true,
+      "bracketSpacing": true,
+      "enabled": true,
+      "expand": null,
+      "indentStyle": null,
+      "indentWidth": null,
+      "lineEnding": null,
+      "lineWidth": null,
+      "jsxQuoteStyle": "single",
+      "quoteProperties": "asNeeded",
       "quoteStyle": "single",
       "semicolons": "asNeeded",
       "trailingCommas": "none"
+    },
+    "globals": [],
+    "jsxRuntime": "transparent",
+    "linter": {
+      "enabled": true
+    },
+    "parser": {
+      "gritMetavariables": false,
+      "jsxEverywhere": false,
+      "unsafeParameterDecoratorsEnabled": false
     }
   },
   "json": {
+    "assist": {
+      "enabled": true
+    },
+    "formatter": {
+      "bracketSpacing": null,
+      "enabled": true,
+      "expand": null,
+      "indentStyle": null,
+      "indentWidth": null,
+      "lineEnding": null,
+      "lineWidth": null,
+      "trailingCommas": "none"
+    },
+    "linter": {
+      "enabled": true
+    },
     "parser": {
+      "allowComments": false,
       "allowTrailingCommas": false
     }
   },
   "linter": {
+    "enabled": true,
+    "includes": [],
     "rules": {
-      "style": {
-        "useNamingConvention": "off",
-        "noParameterAssign": "error",
-        "useAsConstAssertion": "error",
-        "useDefaultParameterLast": "error",
-        "useEnumInitializers": "error",
-        "useSelfClosingElements": "error",
-        "useSingleVarDeclarator": "error",
-        "noUnusedTemplateLiteral": "error",
-        "useNumberNamespace": "error",
-        "noInferrableTypes": "error",
-        "noUselessElse": "error"
-      }
+      "a11y": "error",
+      "complexity": "error",
+      "correctness": "error",
+      "nursery": "off",
+      "performance": "error",
+      "recommended": true,
+      "security": "error",
+      "style": "error",
+      "suspicious": "error"
     }
   },
-  "overrides": [
-    {
-      "includes": ["./netlify/**/*"],
-      "javascript": {
-        "globals": ["Netlify"]
-      },
-      "linter": {
-        "rules": {
-          "correctness": {
-            "noNodejsModules": "off"
-          },
-          "suspicious": {
-            "noConsole": "off"
-          },
-          "style": {
-            "noDefaultExport": "off"
-          }
-        }
-      }
-    },
-    {
-      "includes": ["./astro.config.ts"],
-      "linter": {
-        "rules": {
-          "correctness": {
-            "noNodejsModules": "off"
-          },
-          "style": {
-            "noDefaultExport": "off"
-          }
-        }
-      }
-    },
-    {
-      "includes": ["./uno.config.ts"],
-      "linter": {
-        "rules": {
-          "style": {
-            "noDefaultExport": "off"
-          }
-        }
-      }
-    },
-    {
-      "includes": ["./**/*.astro"],
-      "linter": {
-        "rules": {
-          "correctness": {
-            "noUnusedImports": "off",
-            "noUnusedVariables": "off"
-          }
-        }
-      }
-    }
-  ]
+  "overrides": [],
+  "plugins": [],
+  "root": true,
+  "vcs": {
+    "clientKind": "git",
+    "defaultBranch": "main",
+    "enabled": true,
+    "root": "./",
+    "useIgnoreFile": false
+  }
 }
