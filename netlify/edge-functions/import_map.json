@@ -1,8 +1,8 @@
 {
   "imports": {
-    "@netlify/blobs": "https://esm.sh/@netlify/blobs@9.0.0",
-    "@netlify/edge-functions": "https://esm.sh/@netlify/edge-functions@2.10.0",
-    "jose": "https://esm.sh/jose@6.0.10",
+    "@netlify/blobs": "https://esm.sh/@netlify/blobs@10.0.6",
+    "@netlify/edge-functions": "https://esm.sh/@netlify/edge-functions@2.16.1",
+    "jose": "https://esm.sh/jose@6.0.12",
     "wretch": "https://esm.sh/wretch@2.11.0",
     "wretch/addons/formUrl": "https://esm.sh/wretch@2.11.0/addons/formUrl"
   }
