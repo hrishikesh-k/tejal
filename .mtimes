@@ -2012,8 +2012,8 @@
 1752061029|src/pages/work/rajasab.astro
 1752061376|src/pages/work/the-amazing-fashion-magazine-issue-19.astro
 1752061880|src/pages/work/the-amazing-fashion-magazine-issue-19/[id].astro
-1753262209|deno.lock
-1753279844|netlify.toml
-1753261785|netlify/edge-functions/import_map.json
-1753261888|package-lock.json
-1753261750|package.json
+1755541945|deno.lock
+1755541822|netlify.toml
+1755541758|netlify/edge-functions/import_map.json
+1755541796|package-lock.json
+1755541819|package.json
