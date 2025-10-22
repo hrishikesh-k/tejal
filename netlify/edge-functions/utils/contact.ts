@@ -35,7 +35,7 @@ async function isSpamAccordingToAkismet(
       comment_author: `${formData.firstName}${formData.lastName}`,
       comment_author_email: formData.email,
       comment_content: formData.message,
-      comment_type: 'contact‑form',
+      comment_type: 'contact-form',
       permalink: req.url,
       referrer: req.referrer,
       user_agent: req.userAgent,

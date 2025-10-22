@@ -1969,7 +1969,6 @@
 1751644771|src/assets/rajasab/brand-1.jpg
 1751644772|src/assets/rajasab/brand-2.jpg
 1751644772|src/assets/rajasab/brand-3.jpg
-1751692970|netlify/edge-functions/utils/contact.ts
 1751697382|src/components/swiper.astro
 1751697761|src/components/video.astro
 1751697421|src/utils/components/swiper.ts
@@ -2012,8 +2011,9 @@
 1752061029|src/pages/work/rajasab.astro
 1752061376|src/pages/work/the-amazing-fashion-magazine-issue-19.astro
 1752061880|src/pages/work/the-amazing-fashion-magazine-issue-19/[id].astro
-1756837802|netlify/edge-functions/import_map.json
-1758010497|deno.lock
-1758010162|netlify.toml
-1758010179|package-lock.json
-1758010170|package.json
+1761116828|deno.lock
+1761116879|netlify.toml
+1761116792|netlify/edge-functions/import_map.json
+1761116746|netlify/edge-functions/utils/contact.ts
+1761116737|package-lock.json
+1761116843|package.json
