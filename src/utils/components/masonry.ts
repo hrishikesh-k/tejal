@@ -1,7 +1,7 @@
 export function resizeMasonry(masonry: HTMLDivElement, vw: number) {
   const columns = Math.min(
     vw < 640 ? 1 : vw < 768 ? 2 : 3,
-    Number.parseInt(masonry.getAttribute('data-max-col') || '3')
+    parseInt(masonry.getAttribute('data-max-col') || '3', 10)
   )
   const gap = 24
   const columnHeights = new Array(columns).fill(0)
