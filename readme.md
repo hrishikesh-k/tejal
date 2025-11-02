@@ -10,9 +10,9 @@ This repository holds the source code for [Tejal Shinde's portfolio](https://www
 
 To develop locally, the following software is required:
 
-- Deno v1.46
+- Deno v2.2.4
 - ffmpeg v7 (for encoding videos)
-- Node.js v22
+- Node.js v24
 - npm v11
 - .env with the following contents:
 
