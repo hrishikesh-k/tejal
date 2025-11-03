@@ -32,7 +32,7 @@ To get started, run:
 
 ```shell
 npm i
-npx netlify dev
+npx netlify dev --offline
 ```
 
 To run a production build, run:
@@ -67,6 +67,7 @@ npx netlify build --offline
 The project uses [Biome](https://www.biomejs.dev/) as its linter. It mainly works for CSS, JS, JSON and TS. However, HTML-like languages including Astro are [not fully supported](https://www.biomejs.dev/internals/language-support/#html-super-languages-support). Thus, the HTML code follows the following principles:
 
 - attributes are sorted alphabetically
+- attributes without a value are arranged before others, but also alphabetically amongst themselves
 - attributes are arranged in a single line
 - CSS classes are arranged alphabetically
 - in case of variants, the actual underlying utility name is considered for arranging alphabetically
@@ -190,8 +191,8 @@ Displays an SVG icon.
 
 #### Things to note:
 
-- Icons are taken from FontAwesome [classic + rounded + solid variant](https://fontawesome.com/search?q=${search}&o=r&s=solid&it=round&ip=classic)
-- SVG to be resized it in a viewbox of 48px × 48px with the longest side of the icon being exactly 48px.
+- Icons are taken from FontAwesome [v7 + classic + rounded + solid variant](https://fontawesome.com/search?q=${search}&o=r&s=solid&it=round&ip=classic)
+- SVG to be resized it in a viewbox of 48px × 48px with the longest side of the icon being exactly 48px. The `picture-in-picture`, `volume`, `volume-high`, `volume-low` and the `volume-xmark` icons are an exception to this. It's because, their height had to be `48px` to align them with the other icons in the video player, so the width is more than 48px. To allow this, the component also has `overflow-visible` as its class.
 - All paths should be merged into a single path and the `d` attribute of the path should be saved in the constant.
 - Unused icons should be removed from the constant to reduce bundle size.
 
@@ -305,7 +306,7 @@ Renders [Cloudflare Turnstile](https://www.cloudflare.com/application-services/p
 
 ### `video.astro`:
 
-Renders video player using [Vidstack](https://www.vidstack.io/).
+Renders video player using [Media Chrome](https://www.media-chrome.org/).
 
 #### Props:
 
@@ -317,7 +318,6 @@ Renders video player using [Vidstack](https://www.vidstack.io/).
 
 #### Things to note:
 
-- The project uses v1 of Vidstack even though the latest on NPM is v0. For some reason, this library has been stuck in RC for quite some time.
 - To generate the necessary video files for the component, follow these steps:
   1. Place the source video as `video.mp4` in the current directory
   2. Generate thumbnails:

@@ -1,14 +1,5 @@
-import hls from 'hls.js'
-import { isHLSProvider, type MediaProviderChangeEvent } from 'vidstack'
-import type {
-  MediaPlayerElement,
-  MediaVideoLayoutElement
-} from 'vidstack/elements'
-import 'vidstack/player'
-import 'vidstack/player/layouts/default'
-import 'vidstack/player/ui'
-import 'vidstack/player/styles/default/theme.css'
-import 'vidstack/player/styles/default/layouts/video.css'
+import type { HlsVideoElement } from 'hls-video-element'
+import type { MediaController } from 'media-chrome/media-controller'
 
 function generateM3u8ForQuality(
   duration: number,
@@ -66,15 +57,6 @@ function generateThumbsVtt(
 }
 
 export class AstroVideo extends HTMLElement {
-  override dataset: {
-    qualities: string
-    thumbs: string
-    vertical?: 'true' | undefined
-  } = {
-    qualities: this.getAttribute('data-qualities') as string,
-    thumbs: this.getAttribute('data-thumbs') as string,
-    vertical: this.getAttribute('data-vertical') as 'true' | undefined
-  }
   connectedCallback() {
     const horizontalDimensions = {
       '1440': '2560x1440',
@@ -86,16 +68,29 @@ export class AstroVideo extends HTMLElement {
       '144': '256x144'
     }
 
-    const player = this.querySelector('media-player') as MediaPlayerElement
-    const qualities = JSON.parse(this.dataset.qualities)
+    const controller = this.querySelector('media-controller') as MediaController
+
+    const data = JSON.parse(
+      (this.querySelector('script') as HTMLScriptElement).textContent
+    ) as {
+      qualities: Record<string, string[]>
+      thumbs: string
+      vertical: boolean
+    }
+
+    const hlsVideo = this.querySelector('hls-video') as HlsVideoElement
+    const qualities = data.qualities
     const qualitiesKeys = Object.keys(qualities)
-    const vertical = Boolean(this.dataset.vertical)
 
     const thumbs = generateThumbsVtt(
-      player.duration,
-      this.dataset.thumbs,
-      vertical
+      controller.defaultDuration as number,
+      data.thumbs,
+      data.vertical
     )
+
+    const thumbsTrack = hlsVideo.querySelector(
+      'track[label="thumbnails"]'
+    ) as HTMLTrackElement
 
     const verticalDimensions = {
       '1440': '1440x2560',
@@ -107,10 +102,6 @@ export class AstroVideo extends HTMLElement {
       '144': '144x256'
     }
 
-    const videoLayout = this.querySelector(
-      'media-video-layout'
-    ) as MediaVideoLayoutElement
-
     let m3u8 = '#EXTM3U\n#EXT-X-VERSION:3\n'
 
     if (!window.blobs) {
@@ -118,9 +109,10 @@ export class AstroVideo extends HTMLElement {
     }
 
     for (const quality in qualities) {
-      if (qualities[quality].length > 0) {
+      if ((qualities[quality] as string[]).length > 0) {
+        // TODO: check bandwidth value
         m3u8 += '#EXT-X-STREAM-INF:BANDWIDTH=2780800,RESOLUTION='
-        if (vertical) {
+        if (data.vertical) {
           m3u8 += verticalDimensions[quality as keyof typeof verticalDimensions]
         } else {
           m3u8 +=
@@ -132,37 +124,18 @@ export class AstroVideo extends HTMLElement {
 
     for (const [index, quality] of qualitiesKeys.entries()) {
       m3u8 = generateM3u8ForQuality(
-        player.duration,
+        controller.defaultDuration as number,
         index === qualitiesKeys.length - 1,
         m3u8,
         quality,
-        qualities[quality]
+        qualities[quality] as string[]
       )
     }
 
     window.blobs.push(m3u8)
     window.blobs.push(thumbs)
-
-    player.addEventListener(
-      'provider-change',
-      (event: MediaProviderChangeEvent) => {
-        const provider = event.detail
-        if (isHLSProvider(provider)) {
-          provider.library = hls
-        }
-      }
-    )
-
-    player.src = {
-      src: m3u8,
-      type: 'application/x-mpegurl'
-    }
-
-    videoLayout.thumbnails = thumbs
-
-    if (window.rh) {
-      window.rh()
-    }
+    hlsVideo.src = m3u8
+    thumbsTrack.src = thumbs
   }
 }
 
@@ -174,14 +147,4 @@ export function addWindowBeforeUnloadEventHandler() {
       }
     }
   })
-}
-
-export function resizePlayer(player: MediaPlayerElement) {
-  const computedStyles = getComputedStyle(player)
-  const originalHeight = parseInt(computedStyles.height, 10)
-  const originalWidth = parseInt(computedStyles.width, 10)
-
-  if (originalHeight > originalWidth) {
-    player.style.maxWidth = `${Math.round(((window.innerHeight * 0.8) / originalHeight) * originalWidth)}px`
-  }
 }
