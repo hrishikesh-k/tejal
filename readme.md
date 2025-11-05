@@ -10,7 +10,7 @@ This repository holds the source code for [Tejal Shinde's portfolio](https://www
 
 To develop locally, the following software is required:
 
-- Deno v2.2.4
+- Deno v2
 - ffmpeg v7 (for encoding videos)
 - Node.js v24
 - npm v11
@@ -400,7 +400,7 @@ SEO tags and Structured Data is added by `src/layouts/base.astro`. Thus, every p
 
 The project is deployed to [Netlify](https://www.netlify.com). Build settings are defined in `netlify.toml`.
 
-The site uses Netlify Edge Functions to implement a custom password protection screen. The dependencies of the Edge Function are maintained separately in `netlify/edge-functions/import_map.json`. Once you update the dependency versions in `package.json`, you should also update them in the import map.
+The site uses Netlify Edge Functions to implement a custom password protection screen (currently disabled). The dependencies of the Edge Function are maintained separately in `netlify/edge-functions/import_map.json`. Once you update the dependency versions in `package.json`, you should also update that in the import map.
 
 ---
 

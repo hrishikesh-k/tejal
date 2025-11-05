@@ -1,5 +1,7 @@
 import type { HlsVideoElement } from 'hls-video-element'
+import type { MediaPosterImage } from 'media-chrome'
 import type { MediaController } from 'media-chrome/media-controller'
+import type { MediaTheme } from 'media-chrome/media-theme'
 
 function generateM3u8ForQuality(
   duration: number,
@@ -58,6 +60,28 @@ function generateThumbsVtt(
 
 export class AstroVideo extends HTMLElement {
   connectedCallback() {
+    const theme = this.querySelector('media-theme') as MediaTheme
+
+    if (!theme.shadowRoot) {
+      return
+    }
+
+    const controller = theme.shadowRoot.querySelector(
+      'media-controller'
+    ) as MediaController
+
+    const data = JSON.parse(
+      (this.querySelector('script') as HTMLScriptElement).textContent
+    ) as {
+      duration: number
+      poster: string
+      qualities: Record<string, string[]>
+      thumbs: string
+      vertical: boolean
+    }
+
+    const hlsVideo = controller.querySelector('hls-video') as HlsVideoElement
+
     const horizontalDimensions = {
       '1440': '2560x1440',
       '1080': '1920x1080',
@@ -68,29 +92,8 @@ export class AstroVideo extends HTMLElement {
       '144': '256x144'
     }
 
-    const controller = this.querySelector('media-controller') as MediaController
-
-    const data = JSON.parse(
-      (this.querySelector('script') as HTMLScriptElement).textContent
-    ) as {
-      qualities: Record<string, string[]>
-      thumbs: string
-      vertical: boolean
-    }
-
-    const hlsVideo = this.querySelector('hls-video') as HlsVideoElement
-    const qualities = data.qualities
-    const qualitiesKeys = Object.keys(qualities)
-
-    const thumbs = generateThumbsVtt(
-      controller.defaultDuration as number,
-      data.thumbs,
-      data.vertical
-    )
-
-    const thumbsTrack = hlsVideo.querySelector(
-      'track[label="thumbnails"]'
-    ) as HTMLTrackElement
+    const qualitiesKeys = Object.keys(data.qualities)
+    const thumbs = generateThumbsVtt(data.duration, data.thumbs, data.vertical)
 
     const verticalDimensions = {
       '1440': '1440x2560',
@@ -104,12 +107,18 @@ export class AstroVideo extends HTMLElement {
 
     let m3u8 = '#EXTM3U\n#EXT-X-VERSION:3\n'
 
+    if (data.vertical) {
+      controller.style.aspectRatio = '9/16'
+    } else {
+      controller.style.aspectRatio = '16/9'
+    }
+
     if (!window.blobs) {
       window.blobs = []
     }
 
-    for (const quality in qualities) {
-      if ((qualities[quality] as string[]).length > 0) {
+    for (const quality in data.qualities) {
+      if ((data.qualities[quality] as string[]).length > 0) {
         // TODO: check bandwidth value
         m3u8 += '#EXT-X-STREAM-INF:BANDWIDTH=2780800,RESOLUTION='
         if (data.vertical) {
@@ -124,18 +133,27 @@ export class AstroVideo extends HTMLElement {
 
     for (const [index, quality] of qualitiesKeys.entries()) {
       m3u8 = generateM3u8ForQuality(
-        controller.defaultDuration as number,
+        data.duration,
         index === qualitiesKeys.length - 1,
         m3u8,
         quality,
-        qualities[quality] as string[]
+        data.qualities[quality] as string[]
       )
     }
 
+    controller.defaultDuration = data.duration
+
+    ;(controller.querySelector('media-poster-image') as MediaPosterImage).src =
+      data.poster
+
+    hlsVideo.src = m3u8
+
+    ;(
+      hlsVideo.querySelector('track[label="thumbnails"]') as HTMLTrackElement
+    ).src = thumbs
+
     window.blobs.push(m3u8)
     window.blobs.push(thumbs)
-    hlsVideo.src = m3u8
-    thumbsTrack.src = thumbs
   }
 }
 

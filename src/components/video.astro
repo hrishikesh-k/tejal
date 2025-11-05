@@ -1,6 +1,4 @@
 ---
-import Icon from '~/components/icon.astro'
-
 interface Props {
   duration: number
   poster: string
@@ -15,74 +13,8 @@ const { duration, poster, qualities, thumbs, vertical = false } = Astro.props
 ---
 
 <astro-video class="block" class:list={{'w-full': !vertical}}>
-  <script is:inline set:html={JSON.stringify({qualities, thumbs, vertical})} type="application/json"></script>
-  <media-controller autohideovercontrols class="border-rounded-1.5 w-full" defaultduration={duration} defaultstreamtype="on-demand" style={{'aspect-ratio': vertical ? '9/16' : '16/9'}}>
-    <hls-video slot="media">
-      <track default kind="metadata" label="thumbnails">
-    </hls-video>
-    <media-loading-indicator slot="centered-chrome"></media-loading-indicator>
-    <media-poster-image slot="poster" src={`/images/1920${poster}`}></media-poster-image>
-    <media-settings-menu hidden anchor="auto" class="border-tl-rounded-1.5">
-      <media-settings-menu-item>
-        <span>Speed</span>
-        <media-playback-rate-menu hidden slot="submenu">
-          <span slot="title">Speed</span>
-        </media-playback-rate-menu>
-      </media-settings-menu-item>
-      <media-settings-menu-item>
-        <span>Quality</span>
-        <media-rendition-menu hidden slot="submenu">
-          <span slot="title">Quality</span>
-        </media-rendition-menu>
-      </media-settings-menu-item>
-    </media-settings-menu>
-    <media-control-bar>
-      <media-play-button>
-        <span slot="play">
-          <Icon name="play"/>
-        </span>
-        <span slot="pause">
-          <Icon name="pause"/>
-        </span>
-      </media-play-button>
-      <media-mute-button>
-        <span slot="high">
-          <Icon name="volume-high"/>
-        </span>
-        <span slot="medium">
-          <Icon name="volume"/>
-        </span>
-        <span slot="low">
-          <Icon name="volume-low"/>
-        </span>
-        <span slot="off">
-          <Icon name="volume-xmark"/>
-        </span>
-      </media-mute-button>
-      <media-volume-range></media-volume-range>
-      <media-time-display showduration></media-time-display>
-      <media-time-range></media-time-range>
-      <media-fullscreen-button>
-        <span slot="enter">
-          <Icon name="expand"/>
-        </span>
-        <span slot="exit">
-          <Icon name="compress"/>
-        </span>
-      </media-fullscreen-button>
-      <media-pip-button>
-        <span slot="enter">
-          <Icon name="picture-in-picture"/>
-        </span>
-        <span slot="exit">Exit</span>
-      </media-pip-button>
-      <media-settings-menu-button>
-        <span slot="icon">
-          <Icon name="gear"/>
-        </span>
-      </media-settings-menu-button>
-    </media-control-bar>
-  </media-controller>
+  <script is:inline set:html={JSON.stringify({duration, poster, qualities, thumbs, vertical})} type="application/json"></script>
+  <media-theme class="w-full" template="media-chrome"></media-theme>
 </astro-video>
 <script>
 import { AstroVideo } from '~/utils/components/video.ts'
@@ -95,6 +27,7 @@ import 'media-chrome/media-mute-button'
 import 'media-chrome/media-pip-button'
 import 'media-chrome/media-play-button'
 import 'media-chrome/media-poster-image'
+import 'media-chrome/media-theme-element'
 import 'media-chrome/media-time-display'
 import 'media-chrome/media-time-range'
 import 'media-chrome/media-volume-range'

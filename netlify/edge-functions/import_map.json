@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@netlify/blobs": "https://esm.sh/@netlify/blobs@10.3.1",
+    "@netlify/blobs": "https://esm.sh/@netlify/blobs@10.3.2",
     "@netlify/edge-functions": "https://esm.sh/@netlify/edge-functions@3.0.1",
     "jose": "https://esm.sh/jose@6.1.0",
     "wretch": "https://esm.sh/wretch@3.0.2",
