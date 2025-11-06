@@ -1,7 +1,7 @@
 {
   "imports": {
-    "@netlify/blobs": "https://esm.sh/@netlify/blobs@10.3.2",
-    "@netlify/edge-functions": "https://esm.sh/@netlify/edge-functions@3.0.1",
+    "@netlify/blobs": "https://esm.sh/@netlify/blobs@10.3.3",
+    "@netlify/edge-functions": "https://esm.sh/@netlify/edge-functions@3.0.2",
     "jose": "https://esm.sh/jose@6.1.0",
     "wretch": "https://esm.sh/wretch@3.0.2",
     "wretch/addons/basicAuth": "https://esm.sh/wretch@3.0.1/addons/basicAuth",

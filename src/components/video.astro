@@ -12,7 +12,7 @@ interface Props {
 const { duration, poster, qualities, thumbs, vertical = false } = Astro.props
 ---
 
-<astro-video class="block" class:list={{'w-full': !vertical}}>
+<astro-video class="block w-full">
   <script is:inline set:html={JSON.stringify({duration, poster, qualities, thumbs, vertical})} type="application/json"></script>
   <media-theme class="w-full" template="media-chrome"></media-theme>
 </astro-video>

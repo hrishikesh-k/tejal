@@ -3,6 +3,7 @@ import about from '~/assets/about/about.jpg'
 import resume from '~/assets/about/resume.pdf?url'
 import vid1Poster from '~/assets/about/video-1/poster.jpg'
 import vid1Thumbs from '~/assets/about/video-1/thumbs.jpg'
+import Controller from '~/components/controller.astro'
 import Picture from '~/components/picture.astro'
 import Tooltip from '~/components/tooltip.astro'
 import Video from '~/components/video.astro'
@@ -59,6 +60,7 @@ const vid1Segments1080p = Object.values(
 ---
 
 <Base description="Learn about Tejal Shinde - the Art Director and Fashion Model behind the lens. Discover her unique style, experience, and passion for creative expression." title="About">
+  <Controller/>
   <div class="flex flex-wrap sm:flex-nowrap gap-9 lg:gap-12 xl:gap-18 items-center justify-center m-b-12 pos-relative">
     <div class="flex-basis-0 flex-grow-1 flex-shrink-1">
       <Picture alt="Tejal Shinde" height={about.height} rounded src={about.src} width={about.width}/>

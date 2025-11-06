@@ -2,6 +2,7 @@
 
 import wretch from 'wretch'
 import { resizeMasonry } from '~/utils/components/masonry.ts'
+import { type AstroVideo, resizeVideo } from '~/utils/components/video.ts'
 
 function resizeRecaptcha(recaptcha: HTMLDivElement, vw: number) {
   const parentDiv = recaptcha.parentElement as HTMLDivElement
@@ -240,6 +241,8 @@ export function addWindowResizeEventHandler() {
     const recaptchaToResize =
       document.querySelectorAll<HTMLDivElement>('.cf-turnstile')
 
+    const videosToResize = document.querySelectorAll<AstroVideo>('astro-video')
+
     const vw = document.documentElement.clientWidth
 
     const wecoBagStuffer =
@@ -267,6 +270,10 @@ export function addWindowResizeEventHandler() {
 
     for (const recaptcha of recaptchaToResize) {
       resizeRecaptcha(recaptcha, vw)
+    }
+
+    for (const video of videosToResize) {
+      resizeVideo(video)
     }
   }
 

@@ -88,12 +88,10 @@ Additionally, until Biome is able to parse the `<script>` tags in the Astro comp
 │   ├── favicon.ico
 │   └── robots.txt
 ├── netlify/
-│   ├── edge-functions/
-│   │   ├── utils/           # Helper functions for Edge Functions
-│   │   ├── import_map.json  # Deno import map
-│   │   └── validations.ts   # Password, CAPTCHA and other validations for site access
-│   ├── functions/
-│   │   └── sendgrid.ts   # Sendgrid SSL click-tracking handler 
+│   └── edge-functions/
+│       ├── utils/           # Helper functions for Edge Functions
+│       ├── import_map.json  # Deno import map
+│       └── validations.ts   # Password, CAPTCHA and other validations for site access
 ├── src/
 │   ├── assets/              # Fonts, images, videos, and styles grouped by id
 │   ├── components/          # Reusable Astro components
@@ -150,6 +148,12 @@ Renders a grid layout of post links.
 - `posts`*: array of posts to display
 - `showTitle`: renders the component title.
 - `title`*: title of the component
+
+---
+
+### `controller.astro`
+
+Renders the template for video. Read more in [`video` component's documentation](#videoastro).
 
 ---
 
@@ -318,6 +322,7 @@ Renders video player using [Media Chrome](https://www.media-chrome.org/).
 
 #### Things to note:
 
+- To generate a response video theme, [Media Chrome's documentation recommends using a separate template](https://www.media-chrome.org/docs/en/themes/responsive-themes). The [`controller`](#controllerastro) component includes this template, so it is mandatory to include the `controller` component exactly once on each page that needs the template. It was possible to include it on the base layout, but that would have added the bloat on every page of the website. It was also possible to include it in the `video` component itself, but that would have duplicated it for pages with multiple videos.
 - To generate the necessary video files for the component, follow these steps:
   1. Place the source video as `video.mp4` in the current directory
   2. Generate thumbnails:

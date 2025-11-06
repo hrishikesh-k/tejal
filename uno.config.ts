@@ -166,12 +166,6 @@ export default defineConfig({
             'border-top-left-radius': '0.375rem',
             'border-top-right-radius': '0.375rem'
           }
-        ],
-        [
-          'border-tl-rounded-1.5',
-          {
-            'border-top-left-radius': '0.375rem'
-          }
         ]
       ]
     },

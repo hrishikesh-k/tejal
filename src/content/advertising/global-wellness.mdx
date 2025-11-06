@@ -16,6 +16,7 @@ import vid1Poster from '~/assets/global-wellness/video-1/poster.jpg'
 import vid1Thumbs from '~/assets/global-wellness/video-1/thumbs.jpg'
 import vid2Poster from '~/assets/global-wellness/video-2/poster.jpg'
 import vid2Thumbs from '~/assets/global-wellness/video-2/thumbs.jpg'
+import Controller from '~/components/controller.astro'
 import Picture from '~/components/picture.astro'
 import Video from '~/components/video.astro'
 
@@ -142,6 +143,7 @@ export const vid2Segments1080p = Object.values(
   })
 )
 
+<Controller/>
 <Video duration={107} qualities={{
   '144': vid2Segments144p,
   '240': vid2Segments240p,

@@ -166,3 +166,13 @@ export function addWindowBeforeUnloadEventHandler() {
     }
   })
 }
+
+export function resizeVideo(video: AstroVideo) {
+  const computedStyles = getComputedStyle(video)
+  const originalHeight = parseInt(computedStyles.height, 10)
+  const originalWidth = parseInt(computedStyles.width, 10)
+
+  if (originalHeight > originalWidth) {
+    video.style.maxWidth = `${Math.round(((window.innerHeight * 0.8) / originalHeight) * originalWidth)}px`
+  }
+}
