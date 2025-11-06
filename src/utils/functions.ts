@@ -1,9 +1,8 @@
 // @unocss-include
 
-import type { MediaPlayerElement } from 'vidstack/elements'
 import wretch from 'wretch'
 import { resizeMasonry } from '~/utils/components/masonry.ts'
-import { resizePlayer } from '~/utils/components/video.ts'
+import { type AstroVideo, resizeVideo } from '~/utils/components/video.ts'
 
 function resizeRecaptcha(recaptcha: HTMLDivElement, vw: number) {
   const parentDiv = recaptcha.parentElement as HTMLDivElement
@@ -238,10 +237,12 @@ export function addWindowResizeEventHandler() {
     )
     const masonryToResize =
       document.querySelectorAll<HTMLDivElement>('[data-masonry]')
-    const mediaPlayersToResize =
-      document.querySelectorAll<MediaPlayerElement>('media-player')
+
     const recaptchaToResize =
       document.querySelectorAll<HTMLDivElement>('.cf-turnstile')
+
+    const videosToResize = document.querySelectorAll<AstroVideo>('astro-video')
+
     const vw = document.documentElement.clientWidth
 
     const wecoBagStuffer =
@@ -267,12 +268,12 @@ export function addWindowResizeEventHandler() {
       resizeMasonry(masonry, vw)
     }
 
-    for (const player of mediaPlayersToResize) {
-      resizePlayer(player)
-    }
-
     for (const recaptcha of recaptchaToResize) {
       resizeRecaptcha(recaptcha, vw)
+    }
+
+    for (const video of videosToResize) {
+      resizeVideo(video)
     }
   }
 

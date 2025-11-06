@@ -10,7 +10,7 @@ This repository holds the source code for [Tejal Shinde's portfolio](https://www
 
 To develop locally, the following software is required:
 
-- Deno v2.2.4
+- Deno v2
 - ffmpeg v7 (for encoding videos)
 - Node.js v24
 - npm v11
@@ -32,7 +32,7 @@ To get started, run:
 
 ```shell
 npm i
-npx netlify dev
+npx netlify dev --offline
 ```
 
 To run a production build, run:
@@ -67,6 +67,7 @@ npx netlify build --offline
 The project uses [Biome](https://www.biomejs.dev/) as its linter. It mainly works for CSS, JS, JSON and TS. However, HTML-like languages including Astro are [not fully supported](https://www.biomejs.dev/internals/language-support/#html-super-languages-support). Thus, the HTML code follows the following principles:
 
 - attributes are sorted alphabetically
+- attributes without a value are arranged before others, but also alphabetically amongst themselves
 - attributes are arranged in a single line
 - CSS classes are arranged alphabetically
 - in case of variants, the actual underlying utility name is considered for arranging alphabetically
@@ -87,12 +88,10 @@ Additionally, until Biome is able to parse the `<script>` tags in the Astro comp
 │   ├── favicon.ico
 │   └── robots.txt
 ├── netlify/
-│   ├── edge-functions/
-│   │   ├── utils/           # Helper functions for Edge Functions
-│   │   ├── import_map.json  # Deno import map
-│   │   └── validations.ts   # Password, CAPTCHA and other validations for site access
-│   ├── functions/
-│   │   └── sendgrid.ts   # Sendgrid SSL click-tracking handler 
+│   └── edge-functions/
+│       ├── utils/           # Helper functions for Edge Functions
+│       ├── import_map.json  # Deno import map
+│       └── validations.ts   # Password, CAPTCHA and other validations for site access
 ├── src/
 │   ├── assets/              # Fonts, images, videos, and styles grouped by id
 │   ├── components/          # Reusable Astro components
@@ -152,6 +151,12 @@ Renders a grid layout of post links.
 
 ---
 
+### `controller.astro`
+
+Renders the template for video. Read more in [`video` component's documentation](#videoastro).
+
+---
+
 ### `explore.astro`
 
 Lists other posts from the same collection.
@@ -190,8 +195,8 @@ Displays an SVG icon.
 
 #### Things to note:
 
-- Icons are taken from FontAwesome [classic + rounded + solid variant](https://fontawesome.com/search?q=${search}&o=r&s=solid&it=round&ip=classic)
-- SVG to be resized it in a viewbox of 48px × 48px with the longest side of the icon being exactly 48px.
+- Icons are taken from FontAwesome [v7 + classic + rounded + solid variant](https://fontawesome.com/search?q=${search}&o=r&s=solid&it=round&ip=classic)
+- SVG to be resized it in a viewbox of 48px × 48px with the longest side of the icon being exactly 48px. The `picture-in-picture`, `volume`, `volume-high`, `volume-low` and the `volume-xmark` icons are an exception to this. It's because, their height had to be `48px` to align them with the other icons in the video player, so the width is more than 48px. To allow this, the component also has `overflow-visible` as its class.
 - All paths should be merged into a single path and the `d` attribute of the path should be saved in the constant.
 - Unused icons should be removed from the constant to reduce bundle size.
 
@@ -305,7 +310,7 @@ Renders [Cloudflare Turnstile](https://www.cloudflare.com/application-services/p
 
 ### `video.astro`:
 
-Renders video player using [Vidstack](https://www.vidstack.io/).
+Renders video player using [Media Chrome](https://www.media-chrome.org/).
 
 #### Props:
 
@@ -317,7 +322,7 @@ Renders video player using [Vidstack](https://www.vidstack.io/).
 
 #### Things to note:
 
-- The project uses v1 of Vidstack even though the latest on NPM is v0. For some reason, this library has been stuck in RC for quite some time.
+- To generate a response video theme, [Media Chrome's documentation recommends using a separate template](https://www.media-chrome.org/docs/en/themes/responsive-themes). The [`controller`](#controllerastro) component includes this template, so it is mandatory to include the `controller` component exactly once on each page that needs the template. It was possible to include it on the base layout, but that would have added the bloat on every page of the website. It was also possible to include it in the `video` component itself, but that would have duplicated it for pages with multiple videos.
 - To generate the necessary video files for the component, follow these steps:
   1. Place the source video as `video.mp4` in the current directory
   2. Generate thumbnails:
@@ -400,7 +405,7 @@ SEO tags and Structured Data is added by `src/layouts/base.astro`. Thus, every p
 
 The project is deployed to [Netlify](https://www.netlify.com). Build settings are defined in `netlify.toml`.
 
-The site uses Netlify Edge Functions to implement a custom password protection screen. The dependencies of the Edge Function are maintained separately in `netlify/edge-functions/import_map.json`. Once you update the dependency versions in `package.json`, you should also update them in the import map.
+The site uses Netlify Edge Functions to implement a custom password protection screen (currently disabled). The dependencies of the Edge Function are maintained separately in `netlify/edge-functions/import_map.json`. Once you update the dependency versions in `package.json`, you should also update that in the import map.
 
 ---
 

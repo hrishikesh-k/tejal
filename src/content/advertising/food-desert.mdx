@@ -12,6 +12,7 @@ import poster2 from '~/assets/food-desert/poster-2.jpg'
 import poster3 from '~/assets/food-desert/poster-3.jpg'
 import vid1Poster from '~/assets/food-desert/video-1/poster.jpg'
 import vid1Thumbs from '~/assets/food-desert/video-1/thumbs.jpg'
+import Controller from '~/components/controller.astro'
 import Heading3 from '~/components/heading3.astro'
 import Picture from '~/components/picture.astro'
 import Video from '~/components/video.astro'
@@ -79,6 +80,7 @@ export const vid1Segments1080p = Object.values(
   })
 )
 
+<Controller/>
 <Heading3 text="Posters"/>
 <div class="flex flex-col gap-y-6 items-center">
   {

@@ -1007,6 +1007,12 @@ export default defineConfig({
           }
         ],
         [
+          'overflow-visible',
+          {
+            overflow: 'visible'
+          }
+        ],
+        [
           'overflow-y-auto',
           {
             'overflow-y': 'auto'

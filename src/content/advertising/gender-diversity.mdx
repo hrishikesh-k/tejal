@@ -20,6 +20,7 @@ import vid1Poster from '~/assets/gender-diversity/video-1/poster.jpg'
 import vid1Thumbs from '~/assets/gender-diversity/video-1/thumbs.jpg'
 import vid2Poster from '~/assets/gender-diversity/video-2/poster.jpg'
 import vid2Thumbs from '~/assets/gender-diversity/video-2/thumbs.jpg'
+import Controller from '~/components/controller.astro'
 import Heading3 from '~/components/heading3.astro'
 import Picture from '~/components/picture.astro'
 import Video from '~/components/video.astro'
@@ -152,6 +153,7 @@ export const vid2Segments480p = Object.values(
   })
 )
 
+<Controller/>
 <Video duration={36} qualities={{
   '144': vid1Segments144p,
   '240': vid1Segments240p,

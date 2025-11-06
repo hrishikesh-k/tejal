@@ -12,6 +12,6 @@ const { name, size = 4 } = Astro.props
 const computedSize = size * 4
 ---
 
-<svg class="block fill-current" height={computedSize} viewBox="0 0 48 48" width={computedSize}>
+<svg class="block fill-current overflow-visible" height={computedSize} viewBox="0 0 48 48" width={computedSize}>
   <path d={icons[name]}/>
 </svg>

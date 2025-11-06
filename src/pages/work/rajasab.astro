@@ -71,6 +71,7 @@ import screenshot8 from '~/assets/rajasab/screenshot-8.jpg'
 import vid1Poster from '~/assets/rajasab/video-1/poster.jpg'
 import vid1Thumbs from '~/assets/rajasab/video-1/thumbs.jpg'
 import Arrow from '~/components/arrow.astro'
+import Controller from '~/components/controller.astro'
 import Heading3 from '~/components/heading3.astro'
 import Masonry from '~/components/masonry.astro'
 import Picture from '~/components/picture.astro'
@@ -413,6 +414,7 @@ const vid1Segments1440p = Object.values<string>(
 ---
 
 <Base cover={cover.src} description="Revitalized RAJASAB brand with striking identity, cohesive design, strategic content, and campaigns that drove national awareness and growth." subtitle="Creative Director: Tejal Shinde" title="Rajasab">
+  <Controller/>
   <Heading3 text="Brand Guidelines"/>
   <Swiper effect="fade">
     {

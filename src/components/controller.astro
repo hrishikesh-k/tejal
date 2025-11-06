@@ -1,0 +1,191 @@
+---
+import Icon from '~/components/icon.astro'
+---
+
+<template id="media-chrome">
+  <style>
+    :host {
+      --media-font-family: "Montserrat", sans-serif;
+      --media-font-size: 0.75rem;
+      --media-text-color: #1f1f1f;
+      --media-time-range-hover-bottom: 0;
+      --media-time-range-hover-height: 44px;
+      --media-tooltip-arrow-display: none;
+      --media-tooltip-background-color: #dde1e3;
+      --media-tooltip-border-radius: 0.25rem;
+      --media-tooltip-distance: 0.5rem;
+      --media-tooltip-padding: 0.5rem;
+    }
+    media-controller {
+      container-name: media-chrome;
+      container-type: inline-size;
+    }
+    media-settings-menu,
+    media-time-range {
+      --media-text-color: #f2f2f2;
+    }
+    .border-bl-rounded-1\.5 {
+      border-bottom-left-radius: 0.375rem;
+    }
+    .border-br-rounded-1\.5 {
+      border-bottom-right-radius: 0.375rem;
+    }
+    .border-rounded-1\.5 {
+      border-radius: 0.375rem;
+    }
+    .border-tl-rounded-1\.5 {
+      border-top-left-radius: 0.375rem;
+    }
+    .display-contents {
+      display: contents;
+    }
+    .fill-current {
+      fill: currentColor;
+    }
+    .flex-grow-1 {
+      flex-grow: 1;
+    }
+    .h-4 {
+      height: 1rem;
+    }
+    .m-l-1 {
+      margin-left: 0.25rem;
+    }
+    .overflow-visible {
+      overflow: visible;
+    }
+    .text-light-500 {
+      color: #f2f2f2;
+    }
+    @container (min-width: 640px) {
+      .sm\:border-rounded-0 {
+        border-radius: 0;
+      }
+    }
+  </style>
+  <template partial="fullscreen">
+    <media-fullscreen-button class="border-bl-rounded-1.5 sm:border-rounded-0 text-light-500">
+      <span class="h-4" slot="enter">
+        <Icon name="expand"/>
+      </span>
+      <span class="h-4" slot="exit">
+        <Icon name="compress"/>
+      </span>
+    </media-fullscreen-button>
+  </template>
+  <template partial="mute">
+    <media-mute-button class="text-light-500">
+      <span class="h-4" slot="high">
+        <Icon name="volume-high"/>
+      </span>
+      <span class="h-4" slot="medium">
+        <Icon name="volume"/>
+      </span>
+      <span class="h-4" slot="low">
+        <Icon name="volume-low"/>
+      </span>
+      <span class="h-4" slot="off">
+        <Icon name="volume-xmark"/>
+      </span>
+    </media-mute-button>
+  </template>
+  <template partial="pip">
+    <media-pip-button class="text-light-500">
+      <span class="h-4" slot="enter">
+        <Icon name="picture-in-picture"/>
+      </span>
+      <span class="h-4" slot="exit">
+        <Icon name="picture-in-picture"/>
+      </span>
+    </media-pip-button>
+  </template>
+  <template partial="play">
+    <media-play-button class="text-light-500">
+      <span class="h-4" slot="play">
+        <Icon name="play"/>
+      </span>
+      <span class="h-4" slot="pause">
+        <Icon name="pause"/>
+      </span>
+    </media-play-button>
+  </template>
+  <template partial="settings">
+    <media-settings-menu-button class="text-light-500">
+      <span class="h-4" slot="icon">
+        <Icon name="gear"/>
+      </span>
+    </media-settings-menu-button>
+  </template>
+  <media-controller autohideovercontrols breakpoints="md:768 lg:1024 sm:640 xl:1280 xs:320" class="border-rounded-1.5" defaultstreamtype="on-demand">
+    <hls-video slot="media">
+      <track default kind="metadata" label="thumbnails">
+    </hls-video>
+    <media-poster-image slot="poster"></media-poster-image>
+    <media-settings-menu hidden anchor="auto" class="border-tl-rounded-1.5">
+      <media-settings-menu-item>
+        <span>Speed</span>
+        <media-playback-rate-menu hidden slot="submenu">
+          <span class="display-contents" slot="back-icon">
+            <Icon name="chevron-left" size={2}/>
+          </span>
+          <span class="m-l-1" slot="title">Speed</span>
+        </media-playback-rate-menu>
+        <span slot="suffix">
+          <Icon name="chevron-right" size={2}/>
+        </span>
+      </media-settings-menu-item>
+      <media-settings-menu-item>
+        <span>Quality</span>
+        <media-rendition-menu hidden slot="submenu">
+          <span class="display-contents" slot="back-icon">
+            <Icon name="chevron-left" size={2}/>
+          </span>
+          <span class="text-light-500" slot="checked-indicator">
+            <style>
+              [aria-checked="false"] svg {
+                opacity: 0;
+              }
+              .fill-current {
+                fill: currentColor;
+              }
+              .text-light-500 {
+                color: #f2f2f2;
+              }
+            </style>
+            <Icon name="circle-dot" size={2}/>
+          </span>
+          <span class="m-l-1" slot="title">Quality</span>
+        </media-rendition-menu>
+        <span slot="suffix">
+          <Icon name="chevron-right" size={2}/>
+        </span>
+      </media-settings-menu-item>
+    </media-settings-menu>
+    <template if="!breakpointsm">
+      <media-control-bar slot="top-chrome">
+        <Fragment set:text={'{{>mute}}'}/>
+        <media-volume-range class="border-br-rounded-1.5"></media-volume-range>
+        <span class="flex-grow-1"></span>
+        <Fragment set:text={'{{>fullscreen}}'}/>
+        <Fragment set:text={'{{>pip}}'}/>
+      </media-control-bar>
+      <media-control-bar>
+        <Fragment set:text={'{{>play}}'}/>
+        <media-time-range class="text-light-500"></media-time-range>
+        <Fragment set:text={'{{>settings}}'}/>
+      </media-control-bar>
+    </template>
+    <template if="breakpointsm">
+      <media-control-bar>
+        <Fragment set:text={'{{>play}}'}/>
+        <Fragment set:text={'{{>mute}}'}/>
+        <media-volume-range></media-volume-range>
+        <media-time-display showduration class="text-light-500"></media-time-display>
+        <media-time-range class="text-light-500"></media-time-range>
+        <Fragment set:text={'{{>fullscreen}}'}/>
+        <Fragment set:text={'{{>pip}}'}/>
+        <Fragment set:text={'{{>settings}}'}/>
+      </media-control-bar>
+    </template>
+  </media-controller>
+</template>
