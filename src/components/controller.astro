@@ -123,35 +123,12 @@ import Icon from '~/components/icon.astro'
     <media-poster-image slot="poster"></media-poster-image>
     <media-settings-menu hidden anchor="auto" class="border-tl-rounded-1.5">
       <media-settings-menu-item>
-        <span>Speed</span>
-        <media-playback-rate-menu hidden slot="submenu">
-          <span class="display-contents" slot="back-icon">
-            <Icon name="chevron-left" size={2}/>
-          </span>
-          <span class="m-l-1" slot="title">Speed</span>
-        </media-playback-rate-menu>
-        <span slot="suffix">
-          <Icon name="chevron-right" size={2}/>
-        </span>
-      </media-settings-menu-item>
-      <media-settings-menu-item>
         <span>Quality</span>
         <media-rendition-menu hidden slot="submenu">
           <span class="display-contents" slot="back-icon">
             <Icon name="chevron-left" size={2}/>
           </span>
-          <span class="text-light-500" slot="checked-indicator">
-            <style>
-              [aria-checked="false"] svg {
-                opacity: 0;
-              }
-              .fill-current {
-                fill: currentColor;
-              }
-              .text-light-500 {
-                color: #f2f2f2;
-              }
-            </style>
+          <span slot="checked-indicator">
             <Icon name="circle-dot" size={2}/>
           </span>
           <span class="m-l-1" slot="title">Quality</span>
