@@ -1770,7 +1770,6 @@
 1751473745|src/assets/rajasab/screenshot-6.jpg
 1751473745|src/assets/rajasab/screenshot-7.jpg
 1751473745|src/assets/rajasab/screenshot-8.jpg
-1751471537|src/components/collection.astro
 1751547344|src/assets/rajasab/cover.jpg
 1751544744|src/assets/rajasab/video-1/1080p/1080p-seg-000.m3u8seg
 1751544746|src/assets/rajasab/video-1/1080p/1080p-seg-001.m3u8seg
@@ -1989,7 +1988,6 @@
 1751706287|src/components/picture.astro
 1751739113|src/pages/contact.astro
 1752061445|src/pages/work/advertising/[id].astro
-1752061376|src/pages/work/the-amazing-fashion-magazine-issue-19.astro
 1752061880|src/pages/work/the-amazing-fashion-magazine-issue-19/[id].astro
 1761116746|netlify/edge-functions/utils/contact.ts
 1762058504|src/assets/about/resume.pdf
@@ -2012,9 +2010,12 @@
 1751706170|src/content/advertising/weco.mdx
 1752061485|src/layouts/base.astro
 1736065485|src/pages/about.astro
-1752061029|src/pages/work/rajasab.astro
 1751394997|src/utils/constants.ts
 1751706141|src/utils/functions.ts
 1751706482|uno.config.ts
 1762443303|src/components/controller.astro
 1762443332|src/utils/components/video.ts
+1762447109|src/components/collection.astro
+1762445662|src/pages/work/advertising/[id].astro
+1762447226|src/pages/work/rajasab.astro
+1762446914|src/pages/work/the-amazing-fashion-magazine-issue-19.astro

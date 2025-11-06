@@ -32,6 +32,7 @@ const { explore, jumpLinks, noTitleMarginTop, posts, showTitle, title } =
 const collectionIndex = collectionList.findIndex(
   (collectionsEntry) => collectionsEntry.name === title
 )
+
 const collection = collectionList[
   collectionIndex
 ] as (typeof collectionList)[number]
@@ -80,11 +81,13 @@ function findPresentation(id: string): string | undefined {
   jumpLinks &&
   (
     collectionIndex === 0 ?
-    <Jump entries={[collectionList[3], collectionList[1]]}/> :
+    <Jump entries={[collectionList[4], collectionList[1]]}/> :
       collectionIndex === 1 ?
       <Jump entries={[collectionList[0], collectionList[2]]}/> :
         collectionIndex === 2 ?
         <Jump entries={[collectionList[1], collectionList[3]]}/> :
-        <Jump entries={[collectionList[2], collectionList[0]]}/>
+          collectionIndex === 3 ?
+          <Jump entries={[collectionList[2], collectionList[4]]}/> :
+          <Jump entries={[collectionList[3], collectionList[0]]}/>
   )
 }

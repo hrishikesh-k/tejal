@@ -25,5 +25,5 @@ const { Content } = await render(post)
 
 <Base cover={post.data.cover.src} description={post.data.description} subtitle={post.data.subtitle} title={post.data.title}>
   <Content/>
-  <Explore collection="modelling" heading="Explore further in Advertising" exclude={Astro.params.id} posts={advertisingPosts}/>
+  <Explore collection="advertising" heading="Explore further in Advertising" exclude={Astro.params.id} posts={advertisingPosts}/>
 </Base>

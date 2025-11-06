@@ -73,11 +73,13 @@ import vid1Thumbs from '~/assets/rajasab/video-1/thumbs.jpg'
 import Arrow from '~/components/arrow.astro'
 import Controller from '~/components/controller.astro'
 import Heading3 from '~/components/heading3.astro'
+import Jump from '~/components/jump.astro'
 import Masonry from '~/components/masonry.astro'
 import Picture from '~/components/picture.astro'
 import Swiper from '~/components/swiper.astro'
 import Video from '~/components/video.astro'
 import Base from '~/layouts/base.astro'
+import { collectionList } from '~/utils/constants.ts'
 
 const brandPages = [
   {
@@ -456,4 +458,5 @@ const vid1Segments1440p = Object.values<string>(
   <div class="border-rounded-1.5 h-128 m-x-auto overflow-y-auto w-1/2">
     <Picture alt="RAJASAB Instagram profile layout" height={instagram1.height} overflow rounded src={instagram1.src} width={instagram1.width}/>
   </div>
+  <Jump entries={[collectionList[0], collectionList[2]]}/>
 </Base>
