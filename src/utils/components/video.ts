@@ -2,6 +2,7 @@ import type { HlsVideoElement } from 'hls-video-element'
 import type { MediaPosterImage } from 'media-chrome'
 import type { MediaController } from 'media-chrome/media-controller'
 import type { MediaTheme } from 'media-chrome/media-theme'
+import type { MediaChromeMenuItem, MediaRenditionMenu } from 'media-chrome/menu'
 
 function generateM3u8ForQuality(
   duration: number,
@@ -93,6 +94,11 @@ export class AstroVideo extends HTMLElement {
     }
 
     const qualitiesKeys = Object.keys(data.qualities)
+
+    const renditionMenu = controller.querySelector(
+      'media-rendition-menu'
+    ) as MediaRenditionMenu
+
     const thumbs = generateThumbsVtt(data.duration, data.thumbs, data.vertical)
 
     const verticalDimensions = {
@@ -113,8 +119,37 @@ export class AstroVideo extends HTMLElement {
       controller.style.aspectRatio = '16/9'
     }
 
-    if (!window.blobs) {
-      window.blobs = []
+    if (renditionMenu.shadowRoot) {
+      new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+          console.log(mutation)
+          const target = mutation.target as MediaChromeMenuItem
+          if (
+            mutation.type !== 'attributes' ||
+            mutation.target.nodeName.toLowerCase() !== 'media-chrome-menu-item'
+          ) {
+            continue
+          }
+
+          const span = target.querySelector(
+            '[slot="checked-indicator"]'
+          ) as HTMLSpanElement
+
+          if (target.getAttribute('aria-checked') === 'true') {
+            span.style.fill = 'currentColor'
+            span.style.opacity = '1'
+          } else {
+            span.style.opacity = '0'
+          }
+        }
+      }).observe(
+        renditionMenu.shadowRoot.querySelector('#container') as HTMLDivElement,
+        {
+          attributes: true,
+          attributeFilter: ['aria-checked'],
+          subtree: true
+        }
+      )
     }
 
     for (const quality in data.qualities) {
@@ -151,6 +186,10 @@ export class AstroVideo extends HTMLElement {
     ;(
       hlsVideo.querySelector('track[label="thumbnails"]') as HTMLTrackElement
     ).src = thumbs
+
+    if (!window.blobs) {
+      window.blobs = []
+    }
 
     window.blobs.push(m3u8)
     window.blobs.push(thumbs)
