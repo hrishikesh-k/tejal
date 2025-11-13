@@ -14,7 +14,7 @@
     "@netlify/blobs": "10.3.3",
     "@netlify/edge-functions": "3.0.2",
     "@types/node": "24.10.0",
-    "astro": "5.15.3",
+    "astro": "5.15.6",
     "hls-video-element": "1.5.8",
     "jose": "6.1.0",
     "media-chrome": "4.15.1",
