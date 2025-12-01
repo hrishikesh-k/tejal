@@ -146,6 +146,8 @@ function roundCornersLengthGt3Lg(
       [length - 3]: ['borderBottomLeftRadius'],
       [length - 1]: ['borderBottomRightRadius']
     }
+    
+    console.log(radiusMapping)
 
     setBorderRadius(
       link,
