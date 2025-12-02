@@ -143,6 +143,7 @@ Renders a grid layout of post links.
 ####  Props:
 
 - `explore`: shows an "Explore All" link
+- `hideFourth`: hides the fourth item in the grid, mostly used on the home page. We slice the posts into groups of 4 so that in the breakpoint of 2 posts per row, the grid still looks full, but this leads to the grid breaking on the breakpoint of 3 posts per row. We hide the fourth post in this grid when required.
 - `jumpLinks`: displays next/previous collection links
 - `noTitleMarginTop`: don't add the top margin to the title
 - `posts`*: array of posts to display
