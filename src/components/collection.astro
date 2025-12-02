@@ -27,8 +27,15 @@ interface Props {
   title: (typeof collectionList)[number]['name']
 }
 
-const { explore, hideFourth, jumpLinks, noTitleMarginTop, posts, showTitle, title } =
-  Astro.props
+const {
+  explore,
+  hideFourth,
+  jumpLinks,
+  noTitleMarginTop,
+  posts,
+  showTitle,
+  title
+} = Astro.props
 
 const collectionIndex = collectionList.findIndex(
   (collectionsEntry) => collectionsEntry.name === title

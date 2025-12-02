@@ -2016,7 +2016,7 @@
 1764684349|netlify/edge-functions/import_map.json
 1764684357|package-lock.json
 1764684342|package.json
-1764685380|.mtimes
 1764685366|readme.md
-1764685219|src/components/collection.astro
 1764685242|src/pages/index.astro
+1764686382|.mtimes
+1764686374|src/components/collection.astro
