@@ -1,7 +1,6 @@
 1734872796|.gitattributes
 1736056661|.gitignore
 1733744538|astro.config.ts
-1732085931|license.md
 1732960159|mtimestore
 1737361230|netlify/edge-functions/utils/allow-ip.ts
 1737360961|netlify/edge-functions/utils/bot-ip.ts
@@ -1998,7 +1997,6 @@
 1762445662|src/pages/work/advertising/[id].astro
 1762447226|src/pages/work/rajasab.astro
 1762446914|src/pages/work/the-amazing-fashion-magazine-issue-19.astro
-1764586158|netlify.toml
 1764587407|src/content/advertising/absolut.mdx
 1764587311|src/content/advertising/bic.mdx
 1764587451|src/content/advertising/bombae-bantai-brewery.mdx
@@ -2012,11 +2010,12 @@
 1764587415|src/content/advertising/zoddlini.mdx
 1764587708|src/utils/functions.ts
 1764594916|src/assets/about/resume.pdf
-1764684377|deno.lock
-1764684349|netlify/edge-functions/import_map.json
-1764684357|package-lock.json
-1764684342|package.json
 1764685366|readme.md
 1764685242|src/pages/index.astro
-1764686382|.mtimes
 1764686374|src/components/collection.astro
+1767292389|deno.lock
+1767292215|license.md
+1767292318|netlify.toml
+1767292376|netlify/edge-functions/import_map.json
+1767292342|package-lock.json
+1767292284|package.json
