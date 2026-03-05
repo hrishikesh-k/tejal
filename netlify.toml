@@ -3,7 +3,7 @@
   publish = "./dist/"
   [build.environment]
     NODE_VERSION = "24"
-    NPM_VERSION = "11.10.1"
+    NPM_VERSION = "11.11.0"
 
 [[headers]]
   for = "/_astro/*"

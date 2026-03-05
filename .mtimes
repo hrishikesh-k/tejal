@@ -2013,10 +2013,10 @@
 1764685242|src/pages/index.astro
 1764686374|src/components/collection.astro
 1767292215|license.md
-1771871636|.mtimes
-1771871485|deno.lock
-1771871465|netlify.toml
-1771871401|netlify/edge-functions/import_map.json
-1771871431|package-lock.json
-1771871469|package.json
 1771871525|src/assets/about/resume.pdf
+1772733896|.mtimes
+1772733724|deno.lock
+1772733567|netlify.toml
+1772733533|netlify/edge-functions/import_map.json
+1772733710|package-lock.json
+1772733709|package.json
