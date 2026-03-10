@@ -1721,7 +1721,6 @@
 1736068332|src/components/jump.astro
 1736257434|src/components/textfield.astro
 1736065586|src/components/tooltip.astro
-1733766075|src/content.config.ts
 1733746062|src/content/advertising/etsy.mdx
 1733746107|src/content/modelling/diversity.mdx
 1733746107|src/content/modelling/kindness.mdx
@@ -2014,9 +2013,10 @@
 1764686374|src/components/collection.astro
 1767292215|license.md
 1771871525|src/assets/about/resume.pdf
-1772733896|.mtimes
-1772733724|deno.lock
 1772733567|netlify.toml
+1773149243|.mtimes
+1772733724|deno.lock
 1772733533|netlify/edge-functions/import_map.json
 1772733710|package-lock.json
 1772733709|package.json
+1733766075|src/content.config.ts
