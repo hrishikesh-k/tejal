@@ -1,10 +1,10 @@
 {
   "imports": {
-    "@netlify/blobs": "https://esm.sh/@netlify/blobs@10.7.4",
-    "@netlify/edge-functions": "https://esm.sh/@netlify/edge-functions@3.0.6",
-    "jose": "https://esm.sh/jose@6.2.2",
-    "wretch": "https://esm.sh/wretch@3.0.7",
-    "wretch/addons/basicAuth": "https://esm.sh/wretch@3.0.7/addons/basicAuth",
-    "wretch/addons/formUrl": "https://esm.sh/wretch@3.0.7/addons/formUrl"
+    "@netlify/blobs": "https://esm.sh/@netlify/blobs@10.7.11",
+    "@netlify/edge-functions": "https://esm.sh/@netlify/edge-functions@3.0.8",
+    "jose": "https://esm.sh/jose@6.2.8",
+    "wretch": "https://esm.sh/wretch@3.0.9",
+    "wretch/addons/basicAuth": "https://esm.sh/wretch@3.0.9/addons/basicAuth",
+    "wretch/addons/formUrl": "https://esm.sh/wretch@3.0.9/addons/formUrl"
   }
 }
